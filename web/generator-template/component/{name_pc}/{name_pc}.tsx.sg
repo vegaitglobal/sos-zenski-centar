@@ -1,0 +1,7 @@
+import { ReactElement } from 'react';
+import { {{name_pc}}Props } from './{{name_pc}}.data';
+import { Styled{{name_pc}} } from './{{name_pc}}.styles';
+
+export const {{name_pc}} = (props: {{name_pc}}Props): ReactElement => {
+  return <Styled{{name_pc}} data-testid="{{name_pc}}" {...props}>{{name_pc}}</Styled{{name_pc}}>;
+}

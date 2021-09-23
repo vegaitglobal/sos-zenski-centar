@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AbstractButton Renders correctly 1`] = `
+<button
+  data-testid="AbstractButton"
+  type="button"
+/>
+`;

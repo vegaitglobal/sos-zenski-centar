@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex Render Renders correctly 1`] = `
+<div
+  className="sc-bdnxRM dtpsiN"
+  data-testid="Flex"
+/>
+`;

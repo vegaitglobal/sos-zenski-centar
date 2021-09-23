@@ -1,0 +1,1 @@
+export { {{name_pc}} as default } from './{{name_pc}}';

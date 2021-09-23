@@ -1,0 +1,12 @@
+import { renderWithTheme } from '../../../../utils/renderWithTheme';
+import {{name_pc}} from '../index';
+
+describe('{{name_pc}}', () => {
+	it('Renders {{name_pc}}', () => {
+		const { getByTestId } = renderWithTheme(<{{name_pc}} />);
+
+		const element = getByTestId('{{name_pc}}');
+
+		expect(element).toBeTruthy();
+	});
+});
