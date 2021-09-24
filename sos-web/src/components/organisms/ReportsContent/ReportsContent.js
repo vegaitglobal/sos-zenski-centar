@@ -1,14 +1,14 @@
-import { Container } from '../../layout/Container';
-import { StyledReportsContent, StyledHeading } from './ReportsContent.styles';
+import { rgba } from 'polished';
+import { theme } from '../../../styles/config/theme';
+import { Shell } from '../Shell/Shell';
 
-export const ReportsContent = (props) => {
+export const ReportsContent = () => {
   return (
-    <StyledReportsContent {...props}>
-      <Container>
-        <StyledHeading type="h2">
-          Evidencija usluga 2021/ <span>Izveštaj</span>
-        </StyledHeading>
-      </Container>
-    </StyledReportsContent>
+    <Shell
+      backgroundColor={rgba(theme.color.greyLighter, 0.3)}
+      title="Izveštaj"
+    >
+      Test
+    </Shell>
   );
 };
