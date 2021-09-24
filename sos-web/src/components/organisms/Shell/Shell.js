@@ -1,5 +1,6 @@
+import { Icon } from '../../atoms/Icon/Icon';
 import { Container } from '../../layout/Container';
-import { StyledHeading, StyledShell } from './Shell.styles';
+import { StyledClose, StyledHeading, StyledShell } from './Shell.styles';
 
 export const Shell = ({ title, backgroundColor, children, ...props }) => {
   return (
@@ -8,6 +9,9 @@ export const Shell = ({ title, backgroundColor, children, ...props }) => {
         <StyledHeading type="h2">
           Evidencija usluga 2021/ <span>{title}</span>
         </StyledHeading>
+        <StyledClose href="/">
+          <Icon.Close />
+        </StyledClose>
         {children}
       </Container>
     </StyledShell>

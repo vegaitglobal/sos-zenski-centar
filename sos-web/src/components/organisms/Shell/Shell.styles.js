@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { AbstractButton } from '../../atoms/AbstractButton/AbstractButton';
 import { Heading } from '../../atoms/Heading/Heading';
 
 export const StyledShell = styled.div`
@@ -25,5 +26,17 @@ export const StyledHeading = styled(Heading)`
 
   span {
     color: ${({ theme }) => theme.color.purpleLight};
+  }
+`;
+
+export const StyledClose = styled(AbstractButton)`
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.5;
   }
 `;
