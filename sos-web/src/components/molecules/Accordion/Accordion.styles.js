@@ -6,6 +6,7 @@ import { Icon } from '../../atoms/Icon/Icon';
 export const StyledAccordion = styled.div`
   border-radius: 12px;
   overflow: hidden;
+  margin-bottom: 16px;
 `;
 
 export const StyledTop = styled(AbstractButton)`
@@ -13,9 +14,11 @@ export const StyledTop = styled(AbstractButton)`
   justify-content: space-between;
   align-items: center;
   padding: 14px;
-  color: ${({ theme }) => theme.color.purple};
+  color: ${({ theme, $isOpened }) =>
+    $isOpened ? theme.color.purple : theme.color.white};
   background-color: ${({ theme }) => theme.color.pink};
   width: 100%;
+  transition: color 0.2s ease-in-out;
 `;
 
 export const StyledIcon = styled(Icon.ArrowDown)`

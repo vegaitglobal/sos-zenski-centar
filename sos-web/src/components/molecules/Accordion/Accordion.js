@@ -26,7 +26,7 @@ export const Accordion = ({ title, children, ...props }) => {
 
   return (
     <StyledAccordion>
-      <StyledTop onClick={handleOnClick}>
+      <StyledTop $isOpened={expanded} onClick={handleOnClick}>
         <Heading>{title}</Heading>
         <StyledIcon $isOpened={expanded} />
       </StyledTop>
