@@ -33,4 +33,5 @@ export const StyledContent = styled(motion.div)`
   overflow: hidden;
   padding-left: 30px;
   padding-right: 30px;
+  background-color: ${({ theme }) => theme.color.white};
 `;
