@@ -1,0 +1,5 @@
+import { Styled{{name_pc}} } from './{{name_pc}}.styles';
+
+export const {{name_pc}} = (props) => {
+  return <Styled{{name_pc}} {...props}>{{name_pc}}</Styled{{name_pc}}>;
+}
