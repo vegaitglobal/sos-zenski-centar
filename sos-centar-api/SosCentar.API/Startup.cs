@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SosCentar.DataAccess;
+using System;
 
 namespace SosCentar.Api
 {
@@ -24,6 +27,12 @@ namespace SosCentar.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SosCentarAPI", Version = "v1" });
+            });
+            services.AddDbContext<ReportContext>(options =>
+            {
+                var connectionString = Configuration.GetConnectionString("ConnectionStrings");
+                string formattedConnectionString = string.Format(connectionString, Environment.GetEnvironmentVariable("POSTGRES_DB"), Environment.GetEnvironmentVariable("POSTGRES_USER"), Environment.GetEnvironmentVariable("POSTGRES_PASSWORD"));
+                options.UseNpgsql(formattedConnectionString);
             });
         }
 
