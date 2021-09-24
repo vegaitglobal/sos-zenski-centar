@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SosCentar.Domain\SosCentar.Domain\SosCentar.Domain.csproj" />
+    <ProjectReference Include="..\SosCentar.Domain\SosCentar.Domain.csproj" />
   </ItemGroup>
 
 </Project>
