@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:12264",
-      "sslPort": 44317
+      "applicationUrl": "http://localhost:11870",
+      "sslPort": 44316
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SOSCentarAPI": {
+    "SosCentarAPI": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

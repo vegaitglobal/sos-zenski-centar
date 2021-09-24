@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SOSCentarAPI
+namespace SosCentarAPI
 {
     public class Program
     {

@@ -14,16 +14,16 @@ services:
   api:
     image: ${DOCKER_REGISTRY-}api
     build:
-      context: ./SOSCentarAPI
+      context: ./sos-centar-api
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
     depends_on:
       - database
   web:
-    image: ${DOCKER_REGISTRY-}web
+    image: ${DOCKER_REGISTRY-}sos-web
     build:
-      context: ./web
+      context: ./sos-web
       dockerfile: Dockerfile
     ports:
       - "3000:3000"

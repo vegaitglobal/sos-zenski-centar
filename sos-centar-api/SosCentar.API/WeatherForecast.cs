@@ -1,6 +1,6 @@
 using System;
 
-namespace SOSCentarAPI
+namespace SosCentarAPI
 {
     public class WeatherForecast
     {
