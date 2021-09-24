@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSCentarAPI", "SOSCentarAPI.csproj", "{1B30AE2E-58D9-4004-A3D0-F29E2AD0C5A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SosCentarAPI", "SosCentarAPI\SosCentarAPI.csproj", "{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1B30AE2E-58D9-4004-A3D0-F29E2AD0C5A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B30AE2E-58D9-4004-A3D0-F29E2AD0C5A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B30AE2E-58D9-4004-A3D0-F29E2AD0C5A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B30AE2E-58D9-4004-A3D0-F29E2AD0C5A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {862EA15F-ED88-4A9E-858E-E8FBAE17795F}
+		SolutionGuid = {6C7F7E58-685C-4ECD-A185-6095FD2C4731}
 	EndGlobalSection
 EndGlobal
