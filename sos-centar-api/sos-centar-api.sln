@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SosCentar.API", "SosCentar.API\SosCentar.API.csproj", "{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SosCentar.Api", "SosCentar.Api\SosCentar.Api.csproj", "{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SosCentar.Domain", "SosCentar.Domain\SosCentar.Domain.csproj", "{DAE84A4D-5950-4642-BB94-25712B053DA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SosCentar.BusinessLogic", "SosCentar.BusinessLogic\SosCentar.BusinessLogic.csproj", "{89E79F0D-B4DF-4E8B-883D-13A53EC363DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SosCentar.DataAccess", "SosCentar.DataAccess\SosCentar.DataAccess.csproj", "{AF0B9FB6-DB4C-4842-94F4-1953F8B15C6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SosCentar.Contracts", "SosCentar.Contracts\SosCentar.Contracts.csproj", "{CB8CFC25-D346-4F3C-BDD0-1E7D41E24BE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0A7EC00-BE23-419B-A6F2-520B3159CEE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE84A4D-5950-4642-BB94-25712B053DA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE84A4D-5950-4642-BB94-25712B053DA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE84A4D-5950-4642-BB94-25712B053DA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE84A4D-5950-4642-BB94-25712B053DA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E79F0D-B4DF-4E8B-883D-13A53EC363DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E79F0D-B4DF-4E8B-883D-13A53EC363DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E79F0D-B4DF-4E8B-883D-13A53EC363DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E79F0D-B4DF-4E8B-883D-13A53EC363DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF0B9FB6-DB4C-4842-94F4-1953F8B15C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF0B9FB6-DB4C-4842-94F4-1953F8B15C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF0B9FB6-DB4C-4842-94F4-1953F8B15C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF0B9FB6-DB4C-4842-94F4-1953F8B15C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB8CFC25-D346-4F3C-BDD0-1E7D41E24BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB8CFC25-D346-4F3C-BDD0-1E7D41E24BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB8CFC25-D346-4F3C-BDD0-1E7D41E24BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB8CFC25-D346-4F3C-BDD0-1E7D41E24BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

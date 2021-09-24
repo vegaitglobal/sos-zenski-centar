@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SosCentar.Domain\SosCentar.Domain\SosCentar.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
