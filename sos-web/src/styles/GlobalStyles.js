@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     ${size('100vh', '100%')};
     text-rendering: optimizeSpeed;
-		/* TODO Font Family */
     font-family: 'Roboto';
     background: ${({ theme }) => theme.color.white};
     color: ${({ theme }) => theme.color.black};
