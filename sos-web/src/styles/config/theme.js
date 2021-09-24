@@ -7,10 +7,12 @@ export const color = {
   blackFaded: rgba('#000', 0.5),
   grey: '#676767',
   greyLight: '#ebebeb',
+  greyLighter: '#eae7eb',
   pink: '#d8a4d9',
   pinkLight: '#faf0fc',
   pinkLighter: '#faf0fc',
   purple: '#57415f',
+  purpleLight: '#8c4893',
   orange: '#ffa480',
   orangeLight: '#ffe0d0',
 };
