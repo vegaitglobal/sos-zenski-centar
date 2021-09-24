@@ -87,13 +87,23 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "D:\\hakaton\\sos-zenski-centar2\\sos-zenski-centar\\sos-centar-api\\SosCentar.Domain\\SosCentar.Domain\\SosCentar.Domain.csproj": "1.0.0"
+          "SosCentar.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SosCentar.Contracts.dll": {}
         },
         "runtime": {
           "bin/placeholder/SosCentar.Contracts.dll": {}
+        }
+      },
+      "SosCentar.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/SosCentar.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SosCentar.Domain.dll": {}
         }
       }
     }
@@ -289,6 +299,11 @@
       "type": "project",
       "path": "../SosCentar.Contracts/SosCentar.Contracts.csproj",
       "msbuildProject": "../SosCentar.Contracts/SosCentar.Contracts.csproj"
+    },
+    "SosCentar.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SosCentar.Domain/SosCentar.Domain.csproj",
+      "msbuildProject": "../SosCentar.Domain/SosCentar.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -299,23 +314,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m.bunjevcev\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\u.vukovic\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\hakaton\\sos-zenski-centar2\\sos-zenski-centar\\sos-centar-api\\SosCentar.Api\\SosCentar.Api.csproj",
-      "projectName": "SosCentar.Api",
-      "projectPath": "D:\\hakaton\\sos-zenski-centar2\\sos-zenski-centar\\sos-centar-api\\SosCentar.Api\\SosCentar.Api.csproj",
-      "packagesPath": "C:\\Users\\m.bunjevcev\\.nuget\\packages\\",
-      "outputPath": "D:\\hakaton\\sos-zenski-centar2\\sos-zenski-centar\\sos-centar-api\\SosCentar.Api\\obj\\",
+      "projectUniqueName": "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.API\\SosCentar.API.csproj",
+      "projectName": "SosCentar.API",
+      "projectPath": "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.API\\SosCentar.API.csproj",
+      "packagesPath": "C:\\Users\\u.vukovic\\.nuget\\packages\\",
+      "outputPath": "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\m.bunjevcev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\u.vukovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -323,15 +339,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://mapiq.pkgs.visualstudio.com/_packaging/Mapiq-NuGet/nuget/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\hakaton\\sos-zenski-centar2\\sos-zenski-centar\\sos-centar-api\\SosCentar.Contracts\\SosCentar.Contracts.csproj": {
-              "projectPath": "D:\\hakaton\\sos-zenski-centar2\\sos-zenski-centar\\sos-centar-api\\SosCentar.Contracts\\SosCentar.Contracts.csproj"
+            "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.Contracts\\SosCentar.Contracts.csproj": {
+              "projectPath": "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.Contracts\\SosCentar.Contracts.csproj"
             }
           }
         }
@@ -373,19 +388,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'D:\\hakaton\\sos-zenski-centar2\\sos-zenski-centar\\sos-centar-api\\SosCentar.Domain\\SosCentar.Domain\\SosCentar.Domain.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "D:\\hakaton\\sos-zenski-centar2\\sos-zenski-centar\\sos-centar-api\\SosCentar.Domain\\SosCentar.Domain\\SosCentar.Domain.csproj",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }
