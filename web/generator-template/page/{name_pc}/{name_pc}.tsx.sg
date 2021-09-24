@@ -1,6 +1,0 @@
-import { ReactElement } from 'react';
-import Page from '../../layout/Page';
-
-export const {{name_pc}} = (): ReactElement => {
-	return <Page>{{name_pc}}</Page>;
-};
