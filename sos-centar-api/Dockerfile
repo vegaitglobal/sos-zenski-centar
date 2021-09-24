@@ -10,7 +10,7 @@ ENV ASPNETCORE_URLS=http://*:5000
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY *.sln ./
-COPY ["SosCentar.API/SosCentarAPI.csproj", "SosCentar.API/"]
+COPY ["SosCentar.API/SosCentar.API.csproj", "SosCentar.API/"]
 RUN dotnet restore SosCentar.API/
 COPY . .
 WORKDIR "/src/SosCentar.API"
@@ -22,4 +22,4 @@ RUN dotnet publish -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "SosCentarAPI.dll"]
+ENTRYPOINT ["dotnet", "SosCentar.API.dll"]

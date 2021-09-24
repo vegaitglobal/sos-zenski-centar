@@ -286,11 +286,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\u.vukovic\\source\\repos\\sos-centar-api\\SosCentarAPI\\SosCentarAPI.csproj",
-      "projectName": "SosCentarAPI",
-      "projectPath": "C:\\Users\\u.vukovic\\source\\repos\\sos-centar-api\\SosCentarAPI\\SosCentarAPI.csproj",
+      "projectUniqueName": "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.API\\SosCentar.API.csproj",
+      "projectName": "SosCentar.API",
+      "projectPath": "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.API\\SosCentar.API.csproj",
       "packagesPath": "C:\\Users\\u.vukovic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\u.vukovic\\source\\repos\\sos-centar-api\\SosCentarAPI\\obj\\",
+      "outputPath": "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

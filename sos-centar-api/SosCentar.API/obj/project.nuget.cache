@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GwUZXE0Xm5jjmopp8cNjoyck0HPHIS/LLfQeLkure7RnMXlrB+OBFjFeqf5mPAx2CHX7WiT4oMOXLJyoSLkoew==",
+  "dgSpecHash": "JhmZA1VmcejrxMpyjAPnPt/6To3meM1ZYX3RVL9/3F8PRIstusQwdV3lKvDSACLHEETUPztPnpELYI0TJQHfjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\u.vukovic\\source\\repos\\sos-centar-api\\SosCentarAPI\\SosCentarAPI.csproj",
+  "projectFilePath": "D:\\Git\\sos-zenski-centar\\sos-centar-api\\SosCentar.API\\SosCentar.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\u.vukovic\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\u.vukovic\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
