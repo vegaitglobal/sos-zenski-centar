@@ -6,7 +6,6 @@ export const StyledShell = styled.div`
   flex-grow: 1;
   padding: 40px 0;
   background-color: ${({ $backgroundColor }) => $backgroundColor};
-  border-radius: 20px 0 0 20px;
 `;
 
 export const StyledHeading = styled(Heading)`

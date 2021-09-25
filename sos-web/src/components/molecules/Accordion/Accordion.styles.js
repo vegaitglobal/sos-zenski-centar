@@ -4,9 +4,14 @@ import { AbstractButton } from '../../atoms/AbstractButton/AbstractButton';
 import { Icon } from '../../atoms/Icon/Icon';
 
 export const StyledAccordion = styled.div`
+  display: flex;
+  flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 16px;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
 `;
 
 export const StyledTop = styled(AbstractButton)`
@@ -24,8 +29,16 @@ export const StyledTop = styled(AbstractButton)`
 export const StyledIcon = styled(Icon.ArrowDown)`
   transition: transform 0.2s ease-in-out;
 
-  ${({ $isOpened }) =>
+  ${({ $isOpened, $isReverse }) =>
     $isOpened &&
+    !$isReverse &&
+    css`
+      transform: rotate(180deg);
+    `};
+
+  ${({ $isOpened, $isReverse }) =>
+    $isReverse &&
+    !$isOpened &&
     css`
       transform: rotate(180deg);
     `};
