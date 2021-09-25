@@ -2,7 +2,7 @@
 
 namespace SosCentar.BusinessLogic.Services
 {
-    public class ReportsService : IReporsService
+    public class ReportsService : IReportService
     {
     }
 }
