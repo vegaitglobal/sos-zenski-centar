@@ -74,7 +74,7 @@ export const StyledGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  max-height: 30vh;
+  max-height: 50vh;
   overflow-y: auto;
   ${customScrollBar()};
 `;
