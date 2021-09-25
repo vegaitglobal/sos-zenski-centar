@@ -17,12 +17,6 @@ namespace SosCentar.API.Controllers
             _jwtGeneratorService = jwtGeneratorService;
         }
 
-        [HttpGet]
-        public string TestIt()
-        {
-            return "this is secured";
-        }
-
         [HttpPost("login")]
         [AllowAnonymous]
         public IActionResult Login([FromBody] UserLoginDto loginModel)

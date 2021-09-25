@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SosCentar.Contracts\SosCentar.Contracts.csproj" />
+    <ProjectReference Include="..\SosCentar.DataAccess\SosCentar.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
