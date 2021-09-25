@@ -13,9 +13,11 @@ import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import { LogoutHeader } from '../../molecules/LogoutHeader/LogoutHeader';
 
 export const HomeContent = () => {
+  let email = localStorage.getItem('email');
+
   return (
     <StyledHomeContent $backgroundColor={rgba(theme.color.pink, 0.3)}>
-      <LogoutHeader username={'mock@email.com'}></LogoutHeader>
+      <LogoutHeader username={email}></LogoutHeader>
       <StyledTitle>
         <StyledSeparator />
         <Paragraph type="large" color="grey" fontWeight="">
