@@ -12,6 +12,7 @@ namespace SosCentar.BusinessLogic.Extensions
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ISecurityService, SecurityService>();
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }

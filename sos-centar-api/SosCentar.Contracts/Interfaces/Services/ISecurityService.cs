@@ -4,6 +4,5 @@
     {
         string CreateToken(string userEmail);
         string HashPassword(string password);
-        bool ValidateUserCredentials(string email, string password);
     }
 }

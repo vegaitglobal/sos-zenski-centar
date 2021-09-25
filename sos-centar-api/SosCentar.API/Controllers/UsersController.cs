@@ -11,17 +11,19 @@ namespace SosCentar.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly ISecurityService _jwtGeneratorService;
+        private readonly IUserService _userService;
 
-        public UsersController(ISecurityService jwtGeneratorService)
-        {
-            _jwtGeneratorService = jwtGeneratorService;
-        }
+		public UsersController(ISecurityService jwtGeneratorService, IUserService userService)
+		{
+			_jwtGeneratorService = jwtGeneratorService;
+			_userService = userService;
+		}
 
-        [HttpPost("login")]
+		[HttpPost("login")]
         [AllowAnonymous]
         public IActionResult Login([FromBody] UserLoginDto loginModel)
         {
-            var isValidUser = _jwtGeneratorService.ValidateUserCredentials(loginModel.Email, loginModel.Password);
+            var isValidUser = _userService.ValidateUserCredentials(loginModel.Email, loginModel.Password);
 
             if (!isValidUser)
             {
