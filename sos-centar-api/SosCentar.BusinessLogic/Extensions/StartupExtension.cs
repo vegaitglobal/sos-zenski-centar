@@ -21,6 +21,7 @@ namespace SosCentar.BusinessLogic.Extensions
             services.AddScoped<IAnswerService, AnswerService>();
             services.AddScoped<IEntryService, EntryService>();
             services.AddScoped<IQuestionService, QuestionService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             return services;
         }
