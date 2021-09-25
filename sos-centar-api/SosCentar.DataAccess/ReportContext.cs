@@ -16,5 +16,7 @@ namespace SosCentar.DataAccess
 		public DbSet<SubmitedAnswer> SubmitedAnswers { get; set; }
 		public DbSet<User> Users { get; set; }
 		public DbSet<Section> Sections { get; set; }
+		public DbSet<QuestionCondition> QuestionConditions { get; set; }
+
 	}
 }

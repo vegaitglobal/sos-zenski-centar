@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using SosCentar.Contracts.Dtos.Users;
 using SosCentar.Contracts.Interfaces.Services;
@@ -19,9 +20,9 @@ namespace SosCentar.API.Controllers
 			_userService = userService;
 		}
 
-		[HttpPost("login")]
+        [HttpPost("login")]
         [AllowAnonymous]
-        public IActionResult Login([FromBody] UserLoginDto loginModel)
+        public ActionResult<LoggedInUserDto> Login([FromBody] UserLoginDto loginModel)
         {
             var isValidUser = _userService.ValidateUserCredentials(loginModel.Email, loginModel.Password);
 
