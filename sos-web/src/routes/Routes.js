@@ -1,4 +1,5 @@
 import { Switch } from 'react-router-dom';
+import { Forms } from '../components/pages/Forms';
 import { Home } from '../components/pages/Home';
 import { Login } from '../components/pages/Login';
 import { Reports } from '../components/pages/Reports';
@@ -10,5 +11,6 @@ export const Routes = () => (
     <PublicRoute path="/login" component={Login} exact />
     <PrivateRoute path="/" component={Home} exact />
     <PrivateRoute path="/reports" component={Reports} exact />
+    <PrivateRoute path="/forms" component={Forms} exact />
   </Switch>
 );
