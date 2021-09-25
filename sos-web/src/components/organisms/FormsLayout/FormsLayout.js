@@ -8,6 +8,7 @@ import {
   StyledColumn,
   StyledAccordion,
   StyledQuestion,
+  StyledGrid,
   // StyledNoResults,
   // StyledHeading,
 } from './FormsLayout.styles';
@@ -171,7 +172,19 @@ export const FormsLayout = () => {
             <ClientInfo />
           </StyledAccordion>
           <Accordion isReverse title="Intervencije SOS Ženskog Centra">
-            <div style={{ height: '50px' }}></div>
+            <StyledGrid>
+              {categoryData.questions.map(
+                ({ label, id, options, condition }) => (
+                  <StyledQuestion
+                    key={id}
+                    label={label}
+                    id={id}
+                    options={options}
+                    condition={condition}
+                  />
+                ),
+              )}
+            </StyledGrid>
           </Accordion>
         </StyledColumn>
         <StyledColumn>

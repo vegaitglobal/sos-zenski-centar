@@ -68,3 +68,13 @@ export const StyledNoResults = styled.div`
 export const StyledHeading = styled(Heading)`
   color: ${({ theme }) => theme.color.purple};
 `;
+
+export const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  max-height: 30vh;
+  overflow-y: auto;
+  ${customScrollBar()};
+`;
