@@ -21,7 +21,12 @@ export const color = {
   orangeLight: '#ffe0d0',
 };
 
+export const boxShadow = {
+  default: `0 1px 10px ${rgba(color.black, 0.3)}`,
+};
+
 /* styled-components theme */
 export const theme = {
   color,
+  boxShadow,
 };

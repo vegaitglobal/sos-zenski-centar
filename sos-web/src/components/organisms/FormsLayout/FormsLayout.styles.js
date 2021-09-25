@@ -33,6 +33,8 @@ export const StyledAccordion = styled(Accordion)`
   flex-grow: 1;
 
   ${StyledContent} {
+    display: flex;
+    padding: 0 !important;
     flex-grow: 1;
     overflow-y: auto;
     height: 0 !important;

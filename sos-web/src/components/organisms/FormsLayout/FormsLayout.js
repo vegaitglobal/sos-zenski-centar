@@ -1,6 +1,7 @@
 import { color } from '../../../styles/config/theme';
 import { Accordion } from '../../molecules/Accordion/Accordion';
 import { Categories } from '../Categories/Categories';
+import { ClientInfo } from '../ClientInfo/ClientInfo';
 import {
   StyledShell,
   StyledContainer,
@@ -18,8 +19,7 @@ export const FormsLayout = () => {
       <StyledContainer>
         <StyledColumn>
           <StyledAccordion title="Informacije o klijentu" isClickable={false}>
-            <div style={{ height: '350px' }}></div>1
-            <div style={{ height: '150px', background: 'red' }}></div>
+            <ClientInfo />
           </StyledAccordion>
           <Accordion isReverse title="Intervencije SOS Ženskog Centra">
             <div style={{ height: '50px' }}></div>

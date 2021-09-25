@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
+import { theme } from '../../../styles/config/theme';
 import { AbstractButton } from '../../atoms/AbstractButton/AbstractButton';
 import { Icon } from '../../atoms/Icon/Icon';
 
@@ -8,6 +9,7 @@ export const StyledAccordion = styled.div`
   flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: ${theme.boxShadow.default};
 
   &:not(:last-child) {
     margin-bottom: 16px;

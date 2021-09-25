@@ -1,8 +1,9 @@
 import { rgba } from 'polished';
 import styled from 'styled-components';
+import { theme } from '../../../styles/config/theme';
 
 export const StyledTextArea = styled.textarea`
-  box-shadow: 0px 1px 10px ${({ theme }) => rgba(theme.color.black, 0.3)};
+  box-shadow: ${theme.boxShadow.default};
   background-color: ${({ theme }) => theme.color.pinkLight};
   color: ${({ theme }) => theme.color.purple};
   padding: 20px 30px;
