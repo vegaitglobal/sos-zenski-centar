@@ -1,4 +1,6 @@
-﻿namespace SosCentar.Domain.Models
+﻿using System;
+
+namespace SosCentar.Domain.Models
 {
     public class QuestionCondition
     {
