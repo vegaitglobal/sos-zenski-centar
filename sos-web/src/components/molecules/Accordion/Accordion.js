@@ -17,15 +17,20 @@ const animation = {
   exit: 'collapsed',
 };
 
-export const Accordion = ({ title, children, ...props }) => {
-  const [expanded, setExpanded] = useState(false);
+export const Accordion = ({
+  title,
+  children,
+  defaultOpened = false,
+  ...props
+}) => {
+  const [expanded, setExpanded] = useState(defaultOpened);
 
   const handleOnClick = useCallback(() => {
     setExpanded(!expanded);
   }, [expanded]);
 
   return (
-    <StyledAccordion>
+    <StyledAccordion {...props}>
       <StyledTop $isOpened={expanded} onClick={handleOnClick}>
         <Heading>{title}</Heading>
         <StyledIcon $isOpened={expanded} />

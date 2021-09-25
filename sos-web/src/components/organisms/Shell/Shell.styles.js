@@ -12,6 +12,7 @@ export const StyledShell = styled.div`
 export const StyledHeading = styled(Heading)`
   position: relative;
   padding-bottom: 20px;
+  margin-bottom: 30px;
   color: ${({ theme }) => theme.color.purple};
 
   &::after {

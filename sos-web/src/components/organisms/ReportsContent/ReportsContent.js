@@ -130,7 +130,7 @@ export const ReportsContent = () => {
       backgroundColor={rgba(theme.color.greyLighter, 0.3)}
       title="Izveštaj"
     >
-      <Accordion title="1. Opšti podaci">
+      <Accordion title="1. Opšti podaci" defaultOpened>
         <StyledGrid>
           <Panel title="1. 1. Broj korisnika/ca po uslugama">
             <BarChart />
