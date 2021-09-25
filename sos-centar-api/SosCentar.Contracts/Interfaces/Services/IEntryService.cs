@@ -4,6 +4,6 @@ namespace SosCentar.Contracts.Interfaces.Services
 {
 	public interface IEntryService
 	{
-		public void Create(SubmittedEntryDto submittedEntryDto, string userEmail);
+		public void Create(EntryDto submittedEntryDto, string userEmail);
 	}
 }

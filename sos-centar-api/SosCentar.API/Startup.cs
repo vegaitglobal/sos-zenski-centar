@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,8 @@ namespace SosCentar.Api
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,6 +28,16 @@ namespace SosCentar.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                });
+            });
             services.AddControllers();
 
             services.AddAuthorization();
@@ -57,8 +70,11 @@ namespace SosCentar.Api
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SosCentarAPI v1"));
 
             app.UseHttpsRedirection();
+            app.UseCors("AllowAll");
 
             app.UseRouting();
+
+
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -67,6 +83,8 @@ namespace SosCentar.Api
             {
                 endpoints.MapControllers();
             });
+
+
         }
     }
 }
