@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { customScrollBar } from '../../../styles/helpers/customScrollbar';
 import { Accordion } from '../../molecules/Accordion/Accordion';
 import { StyledContent } from '../../molecules/Accordion/Accordion.styles';
 import { Shell } from '../Shell/Shell';
@@ -18,18 +19,14 @@ export const StyledShell = styled(Shell)`
 export const StyledContainer = styled.div`
   display: grid;
   grid-template-columns: 8fr 4fr;
-  grid-column-gap: 30px;
+  grid-column-gap: 16px;
   height: 100%;
 `;
 
-export const StyledLeft = styled.div`
+export const StyledColumn = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-`;
-
-export const StyledRight = styled.div`
-  height: 100%;
 `;
 
 export const StyledCategory = styled.div`
@@ -41,9 +38,12 @@ export const StyledCategory = styled.div`
 `;
 
 export const StyledAccordion = styled(Accordion)`
-  height: 100%;
+  flex-grow: 1;
 
   ${StyledContent} {
     flex-grow: 1;
+    overflow-y: auto;
+    height: 0 !important;
+    ${customScrollBar()};
   }
 `;

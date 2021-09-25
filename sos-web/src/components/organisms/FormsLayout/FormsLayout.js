@@ -4,8 +4,7 @@ import {
   StyledShell,
   StyledCategory,
   StyledContainer,
-  StyledLeft,
-  StyledRight,
+  StyledColumn,
   StyledAccordion,
 } from './FormsLayout.styles';
 
@@ -17,19 +16,20 @@ export const FormsLayout = () => {
     >
       <StyledCategory />
       <StyledContainer>
-        <StyledLeft>
+        <StyledColumn>
           <StyledAccordion title="Informacije o klijentu" isClickable={false}>
-            1
+            <div style={{ height: '350px' }}></div>1
+            <div style={{ height: '150px', background: 'red' }}></div>
           </StyledAccordion>
           <Accordion isReverse title="Intervencije SOS Ženskog Centra">
-            3
+            <div style={{ height: '50px' }}></div>
           </Accordion>
-        </StyledLeft>
-        <StyledRight>
+        </StyledColumn>
+        <StyledColumn>
           <StyledAccordion title="Opis usluga" isClickable={false}>
             2
           </StyledAccordion>
-        </StyledRight>
+        </StyledColumn>
       </StyledContainer>
     </StyledShell>
   );
