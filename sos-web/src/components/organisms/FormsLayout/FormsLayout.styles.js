@@ -29,14 +29,6 @@ export const StyledColumn = styled.div`
   flex-direction: column;
 `;
 
-export const StyledCategory = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 50px 100px 50px 0;
-  background-color: ${({ theme }) => theme.color.purple};
-`;
-
 export const StyledAccordion = styled(Accordion)`
   flex-grow: 1;
 

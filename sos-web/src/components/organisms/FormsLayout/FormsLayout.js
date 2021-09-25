@@ -1,8 +1,8 @@
 import { color } from '../../../styles/config/theme';
 import { Accordion } from '../../molecules/Accordion/Accordion';
+import { Categories } from '../Categories/Categories';
 import {
   StyledShell,
-  StyledCategory,
   StyledContainer,
   StyledColumn,
   StyledAccordion,
@@ -14,7 +14,7 @@ export const FormsLayout = () => {
       backgroundColor={color.pinkLight}
       title="Evidentiraj novi poziv"
     >
-      <StyledCategory />
+      <Categories />
       <StyledContainer>
         <StyledColumn>
           <StyledAccordion title="Informacije o klijentu" isClickable={false}>
