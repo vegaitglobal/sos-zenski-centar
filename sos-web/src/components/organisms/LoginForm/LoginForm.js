@@ -3,12 +3,7 @@ import { Input } from '../../molecules/Input/Input';
 import { Heading } from '../../atoms/Heading/Heading';
 import { Icon } from '../../atoms/Icon/Icon';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
-import {
-  StyledContainer,
-  StyledForm,
-  StyledLink,
-  StyledButton,
-} from './LoginForm.styles';
+import { StyledContainer, StyledForm, StyledButton } from './LoginForm.styles';
 
 const LoginForm = () => {
   const [form, setForm] = useState({
@@ -57,7 +52,6 @@ const LoginForm = () => {
             value={form.password}
             required
           />
-          <StyledLink href="www.google.com">Zaboravili ste lozinku?</StyledLink>
           <StyledButton type="submit" onClick={handleSubmit}>
             Prijavi se!
           </StyledButton>

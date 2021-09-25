@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { typeStyle } from '../../../styles/config/typeStyles';
 import { Container } from '../../layout/Container';
 import { Button } from '../../molecules/Button/Button';
 
@@ -42,19 +41,6 @@ export const StyledForm = styled.form`
   width: 100%;
 `;
 
-export const StyledLink = styled.a`
-  ${typeStyle.small};
-  color: ${({ theme }) => theme.color.pinkLink};
-  align-self: center;
-  margin-bottom: 20px;
-
-  &:hover,
-  &:focus {
-    color: ${({ theme }) => theme.color.purple};
-    text-decoration: underline;
-  }
-`;
-
 export const StyledButton = styled(Button)`
-  margin: 0 auto;
+  margin: 20px auto 0;
 `;
