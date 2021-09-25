@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SosCentar.API.Extensions;
+using SosCentar.BusinessLogic.Extensions;
 using SosCentar.DataAccess;
 using System;
 
@@ -24,6 +26,11 @@ namespace SosCentar.Api
         {
 
             services.AddControllers();
+
+            services.AddAuthorization();
+            services.AddJwtAuthentication(Configuration);
+            services.RegisterServices();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SosCentarAPI", Version = "v1" });
@@ -53,6 +60,7 @@ namespace SosCentar.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
