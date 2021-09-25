@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { customScrollBar } from '../../../styles/helpers/customScrollbar';
 import { Accordion } from '../../molecules/Accordion/Accordion';
 import { StyledContent } from '../../molecules/Accordion/Accordion.styles';
+import { Question } from '../../molecules/Question/Question';
 import { Shell } from '../Shell/Shell';
 
 export const StyledFormsLayout = styled.div``;
@@ -34,10 +35,24 @@ export const StyledAccordion = styled(Accordion)`
 
   ${StyledContent} {
     display: flex;
-    padding: 0 !important;
+    flex-direction: column;
     flex-grow: 1;
     overflow-y: auto;
     height: 0 !important;
     ${customScrollBar()};
+
+    ${({ $noPadding }) =>
+      $noPadding &&
+      css`
+        padding: 0 !important;
+      `}
+  }
+`;
+
+export const StyledQuestion = styled(Question)`
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: 30px;
   }
 `;
