@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { typeStyle } from '../../../styles/config/typeStyles';
 
 export const StyledInput = styled.input`
-  width: 100%;
   ${typeStyle.large};
+  width: 100%;
   padding: 11px;
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.color.greyLight};
@@ -17,7 +17,11 @@ export const StyledFormRow = styled.div`
 
 export const StyledLabel = styled.label`
   display: inline-block;
-  margin-bottom: 6px;
-  ${typeStyle.medium};
   color: ${({ theme }) => theme.color.grey};
+  margin-bottom: 6px;
+`;
+
+export const StyledText = styled.span`
+  ${typeStyle.medium};
+  display: block;
 `;

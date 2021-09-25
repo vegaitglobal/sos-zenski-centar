@@ -11,12 +11,21 @@ import {
 } from './LoginForm.styles';
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+  });
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    console.log(email, password);
+    e.preventDefault();
+    console.log(form);
+  };
+
+  const handleChange = ({ target }) => {
+    setForm((prevState) => ({
+      ...prevState,
+      [target.name]: target.value,
+    }));
   };
 
   return (
@@ -33,15 +42,19 @@ const LoginForm = () => {
           <Input
             label="Email*"
             type="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
+            name="email"
+            id="email"
+            onChange={handleChange}
+            value={form.email}
             required
           />
           <Input
             label="Password*"
             type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            name="password"
+            id="password"
+            onChange={handleChange}
+            value={form.password}
             required
           />
           <StyledLink href="www.google.com">Zaboravili ste lozinku?</StyledLink>
