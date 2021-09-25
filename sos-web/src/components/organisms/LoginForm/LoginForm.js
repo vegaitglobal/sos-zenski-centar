@@ -23,9 +23,12 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    sendRequest('http://localhost:5000/api/Users/login', 'POST', {}, form)
-      .then((response) => {
+    var headers= {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    }
+    sendRequest('http://localhost:5000/api/Users/login', 'POST', headers, JSON.stringify(form))
+        .then((response) => {
         localStorage.setItem('token', response.accessToken);
         localStorage.setItem('email', response.email);
         history.push('/');
