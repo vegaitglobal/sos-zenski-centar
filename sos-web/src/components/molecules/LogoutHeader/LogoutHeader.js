@@ -1,18 +1,18 @@
-import { Paragraph } from '../atoms/Paragraph/Paragraph';
+import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import {
   StyledLogoutButton,
   StyledLogoutHeader,
   StyledSeparator,
 } from './LogoutHeader.styles';
 
-export const LogoutHeader = ({ username = 'masapoznanovic@gmail.com' }) => {
+export const LogoutHeader = ({ username }) => {
   return (
     <StyledLogoutHeader>
       <Paragraph type="small" color="grey">
         {username}
       </Paragraph>
       <StyledSeparator />
-      <StyledLogoutButton>
+      <StyledLogoutButton href="/login">
         <Paragraph type="medium" color="pink">
           Logout
         </Paragraph>
