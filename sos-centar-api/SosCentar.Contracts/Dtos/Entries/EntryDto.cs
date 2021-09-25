@@ -2,7 +2,7 @@
 
 namespace SosCentar.Contracts.Dtos.Entries
 {
-	public class SubmittedEntryDto
+	public class EntryDto
 	{
 		public string Description { get; set; }
 		public IEnumerable<SubmittedAnswerDto> SubmittedAnswers { get; set; }
