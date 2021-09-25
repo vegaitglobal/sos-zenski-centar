@@ -11,5 +11,7 @@ namespace SosCentar.Domain.Models
         public IEnumerable<Answer> Answers { get; set; }
         public QuestionCondition QuestionCondition { get; set; }
         public int Order { get; set; }
+        public bool IsRequired { get; set; }
+        public string Icon { get; set; }
     }
 }

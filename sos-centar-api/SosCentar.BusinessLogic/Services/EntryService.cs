@@ -4,6 +4,7 @@ using SosCentar.Contracts.Interfaces.Services;
 using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
@@ -33,6 +34,11 @@ namespace SosCentar.BusinessLogic.Services
 			{
 				var answer = _answerService.GetById(item.AnswerId);
 				var question = _questionService.GetById(item.QuestionId);
+				if (question.IsRequired && answer is not null)
+                {
+					throw new ValidationException($"{question.Text} is not answered");
+
+				}
 				submitedAnswers.Add(new SubmitedAnswer() { Answer = answer, Question = question });
 			}
 
