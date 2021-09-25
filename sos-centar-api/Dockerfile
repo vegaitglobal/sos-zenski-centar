@@ -26,6 +26,6 @@ RUN dotnet publish -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
-COPY ["seed-data.sql", "seed-data.sql"]
+COPY ["data/", "data/"]
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "SosCentar.API.dll"]
