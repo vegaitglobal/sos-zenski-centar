@@ -19,7 +19,7 @@ export const Radio = ({
         <StyledRadio
           type="radio"
           name={name}
-          onClick={onChange}
+          onChange={onChange}
           value={value}
           checked={isChecked}
         />
