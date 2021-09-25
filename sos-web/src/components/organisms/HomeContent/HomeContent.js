@@ -10,12 +10,14 @@ import { Icon } from '../../atoms/Icon/Icon';
 import { rgba } from 'polished';
 import { theme } from '../../../styles/config/theme';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
-import { LogoutHeader } from '../../LogoutHeader/LogoutHeader';
+import { LogoutHeader } from '../../molecules/LogoutHeader/LogoutHeader';
 
 export const HomeContent = () => {
+  let email = localStorage.getItem('email');
+
   return (
     <StyledHomeContent $backgroundColor={rgba(theme.color.pink, 0.3)}>
-      <LogoutHeader></LogoutHeader>
+      <LogoutHeader username={email}></LogoutHeader>
       <StyledTitle>
         <StyledSeparator />
         <Paragraph type="large" color="grey" fontWeight="">
@@ -23,7 +25,7 @@ export const HomeContent = () => {
         </Paragraph>
       </StyledTitle>
       <StyledHomeButtonsContainer>
-        <StyledHomeButton href="/">
+        <StyledHomeButton href="/forms">
           <Icon.Plus />
           <StyledHeading type="h2">Evidentiraj novi poziv</StyledHeading>
         </StyledHomeButton>

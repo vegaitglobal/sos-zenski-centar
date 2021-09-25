@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SosCentar.Domain.Models
 {
@@ -6,6 +7,7 @@ namespace SosCentar.Domain.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public int OrderBy { get; set; }
+        public IEnumerable<Section> Sections { get; set; }
+        public int Order { get; set; }
     }
 }

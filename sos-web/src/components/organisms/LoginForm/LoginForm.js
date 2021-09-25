@@ -11,6 +11,7 @@ import {
 import { useFetch } from '../../../hooks/useFetch';
 import { Loader } from '../../atoms/Loader/Loader';
 import { Button } from '../../molecules/Button/Button';
+import { useHistory } from 'react-router';
 
 const LoginForm = () => {
   const [form, setForm] = useState({
@@ -18,11 +19,23 @@ const LoginForm = () => {
     password: '',
   });
   const { sendRequest, isLoading } = useFetch();
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    sendRequest('https://jsonplaceholder.typicode.com/posts', 'POST', {}, form);
+    sendRequest('https://jsonplaceholder.typicode.com/posts', 'POST', {}, form)
+      .then((response) => {
+        //TODO: postaviti token i email u local storage kada bude pravog response-a
+        // localStorage.setItem('token', response.token);
+        // localStorage.setItem('email', response.email);
+        localStorage.setItem('token', '123456');
+        localStorage.setItem('email', 'mock@gmail.com');
+        history.push('/');
+      })
+      .catch((e) => {
+        alert(e);
+      });
   };
 
   const handleChange = ({ target }) => {

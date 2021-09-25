@@ -21,7 +21,7 @@ namespace SosCentar.API.Controllers
 
 		[HttpPost("login")]
         [AllowAnonymous]
-        public IActionResult Login([FromBody] UserLoginDto loginModel)
+        public ActionResult<LoggedInUserDto> Login([FromBody] UserLoginDto loginModel)
         {
             var isValidUser = _userService.ValidateUserCredentials(loginModel.Email, loginModel.Password);
 

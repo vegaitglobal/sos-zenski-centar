@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AbstractButton } from '../atoms/AbstractButton/AbstractButton';
+import { AbstractButton } from '../../atoms/AbstractButton/AbstractButton';
 
 export const StyledLogoutHeader = styled.div`
   position: absolute;
