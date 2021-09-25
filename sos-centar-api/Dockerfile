@@ -18,6 +18,10 @@ COPY ["SosCentar.Domain/SosCentar.Domain.csproj", "SosCentar.Domain/"]
 RUN dotnet restore
 COPY . .
 WORKDIR "/src/SosCentar.API"
+
+RUN dotnet tool install -g dotnet-ef
+
+
 RUN dotnet build -c Release -o /app
 
 FROM build AS publish
@@ -26,4 +30,6 @@ RUN dotnet publish -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
+COPY --from=publish /root/.dotnet/tools/ /opt/bin
+ENV PATH="/opt/bin:${PATH}"
 ENTRYPOINT ["dotnet", "SosCentar.API.dll"]
