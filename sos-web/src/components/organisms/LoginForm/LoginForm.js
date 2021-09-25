@@ -16,8 +16,8 @@ const LoginForm = () => {
     password: '',
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     console.log(form);
   };
 
@@ -58,7 +58,7 @@ const LoginForm = () => {
             required
           />
           <StyledLink href="www.google.com">Zaboravili ste lozinku?</StyledLink>
-          <StyledButton type="submit" onClick={(e) => handleSubmit(e)}>
+          <StyledButton type="submit" onClick={handleSubmit}>
             Prijavi se!
           </StyledButton>
         </StyledForm>
