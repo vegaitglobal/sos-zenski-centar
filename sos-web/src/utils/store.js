@@ -1,10 +1,6 @@
 import { createContext, useCallback, useContext, useState } from 'react';
 
-const FORM_DEFAULTS = {
-  test: 'Test',
-  test2: 'Test2',
-  test3: 'Test3',
-};
+const FORM_DEFAULTS = {};
 
 const Context = createContext({
   data: FORM_DEFAULTS,
