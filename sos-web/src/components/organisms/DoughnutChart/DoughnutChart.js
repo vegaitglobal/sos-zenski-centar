@@ -29,6 +29,9 @@ const chartOptions = {
   data: data,
   maintainAspectRatio: false,
   plugins: {
+    legend: {
+      position: 'right',
+    },
     tooltip: {
       callbacks: {
         label: ({ label, raw }) => `${label}: ${raw}%`,

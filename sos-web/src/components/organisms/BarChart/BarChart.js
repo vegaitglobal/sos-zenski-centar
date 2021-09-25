@@ -1,6 +1,13 @@
 import { StyledBarChart } from './BarChart.styles';
-import { Bar, defaults } from 'react-chartjs-2';
-import { useEffect } from 'react';
+import { Bar } from 'react-chartjs-2';
+
+const colors = {
+  'SOS telefon': '#57415F',
+  'Konsultacije preko poruka': '#FAF0FC',
+  'Psihološko savetovalište': '#FFA480',
+  'Omladinsko savetovalište': '#8C4893',
+  'Pravna pomoć': '#FFE0D0',
+};
 
 const data = {
   labels: [
@@ -12,8 +19,7 @@ const data = {
   ],
   datasets: [
     {
-      label: 'test',
-      backgroundColor: '#57415F',
+      backgroundColor: Object.values(colors),
       borderWidth: 2,
       borderRadius: 20,
       data: [90, 40, 48, 78, 55],
@@ -24,14 +30,14 @@ const data = {
 const chartOptions = {
   type: 'bar',
   data: data,
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
 };
 
 export const BarChart = (props) => {
-  useEffect(() => {
-    console.log(defaults);
-    defaults.plugins.legend.display = false;
-  }, []);
-
   return (
     <StyledBarChart {...props}>
       <Bar data={data} options={chartOptions} />
