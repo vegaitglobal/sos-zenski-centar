@@ -27,16 +27,16 @@ namespace SosCentar.BusinessLogic.Services
 		public void Create(EntryDto entryDto, string userEmail)
 		{
 			var user = _userService.GetByEmail(userEmail);
-			var entry = new Entry() { Date = DateTime.Now, Description = entryDto.Description, User = user };
 
 			var submitedAnswers = new List<SubmitedAnswer>();
-			foreach (var item in entryDto.SubmittedAnswers.ToList())
+			foreach (var item in entryDto.SubmittedAnswers)
 			{
 				var answer = _answerService.GetById(item.AnswerId);
 				var question = _questionService.GetById(item.QuestionId);
 				submitedAnswers.Add(new SubmitedAnswer() { Answer = answer, Question = question });
 			}
-			entry.SubmitedAnswers = submitedAnswers;
+
+			var entry = new Entry() { Date = DateTime.Now, Description = entryDto.Description, User = user, SubmitedAnswers = submitedAnswers };
 
 			_entryRepository.Create(entry);
 		}

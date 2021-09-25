@@ -11,8 +11,16 @@ namespace SosCentar.BusinessLogic.Extensions
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAnswerRepository, AnswerRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IEntryRepository, EntryRepository>();
+
             services.AddScoped<ISecurityService, SecurityService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAnswerService, AnswerService>();
+            services.AddScoped<IEntryService, EntryService>();
+            services.AddScoped<IQuestionService, QuestionService>();
 
             return services;
         }

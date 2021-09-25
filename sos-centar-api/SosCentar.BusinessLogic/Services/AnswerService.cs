@@ -1,23 +1,22 @@
-﻿using SosCentar.Contracts.Interfaces.Services;
-using SosCentar.DataAccess;
+﻿using SosCentar.Contracts.Interfaces.Repositories;
+using SosCentar.Contracts.Interfaces.Services;
 using SosCentar.Domain.Models;
 using System;
-using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
 {
 	public class AnswerService : IAnswerService
 	{
-		private readonly ReportContext _reportContext;
+		private readonly IAnswerRepository _answerRepository;
 
-		public AnswerService(ReportContext reportContext)
+		public AnswerService(IAnswerRepository answerRepository)
 		{
-			_reportContext = reportContext;
+			_answerRepository = answerRepository;
 		}
 
 		public Answer GetById(Guid id)
 		{
-			return _reportContext.Answers.FirstOrDefault(answer => answer.Id == id);
+			return _answerRepository.GetById(id);
 		}
 	}
 }

@@ -11,11 +11,11 @@ namespace SosCentar.API.Controllers
 	[Route("api/[controller]")]
 	[ApiController]
 	[Authorize]
-	public class SubmissionsController : ControllerBase
+	public class EntriesController : ControllerBase
 	{
 		private readonly IEntryService _entryService;
 
-		public SubmissionsController(IEntryService entryService)
+		public EntriesController(IEntryService entryService)
 		{
 			_entryService = entryService;
 		}

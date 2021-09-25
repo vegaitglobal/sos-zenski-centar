@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace SosCentar.DataAccess.Repositories
 {
-	public class QuestioRepository : IQuestionRepository
+	public class QuestionRepository : IQuestionRepository
 	{
         private readonly ReportContext _reportContext;
 
-		public QuestioRepository(ReportContext reportContext)
+		public QuestionRepository(ReportContext reportContext)
 		{
 			_reportContext = reportContext;
 		}
