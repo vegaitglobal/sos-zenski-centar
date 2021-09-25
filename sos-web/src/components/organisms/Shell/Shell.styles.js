@@ -9,6 +9,11 @@ export const StyledShell = styled.div`
   border-radius: 20px 0 0 20px;
 `;
 
+export const StyledTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const StyledHeading = styled(Heading)`
   position: relative;
   padding-bottom: 20px;
@@ -31,9 +36,6 @@ export const StyledHeading = styled(Heading)`
 `;
 
 export const StyledClose = styled(AbstractButton)`
-  position: absolute;
-  right: 0;
-  top: 0;
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
 

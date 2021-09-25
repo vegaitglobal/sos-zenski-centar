@@ -2,10 +2,9 @@
 
 namespace SosCentar.Domain.Models
 {
-    public class SubmitedAnswer
+    public class QuestionCondition
     {
-        public Guid Id { get; set; }
-        public Answer Answer { get; set; }
         public Question Question { get; set; }
+        public Answer Answer { get; set; }
     }
 }
