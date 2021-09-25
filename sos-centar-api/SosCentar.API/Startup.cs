@@ -1,9 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SosCentar.API.Extensions;
+using SosCentar.BusinessLogic.Extensions;
+using SosCentar.DataAccess;
+using System;
 
 namespace SosCentar.Api
 {
@@ -21,9 +26,23 @@ namespace SosCentar.Api
         {
 
             services.AddControllers();
+
+            services.AddAuthorization();
+            services.AddJwtAuthentication(Configuration);
+            services.RegisterServices();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SosCentarAPI", Version = "v1" });
+            });
+            services.AddDbContext<ReportContext>(options =>
+            {
+                string connectionString = Configuration.GetConnectionString("MyWebApiConection");
+                string postgresDb = Environment.GetEnvironmentVariable("POSTGRES_DB");
+                string postgresUser = Environment.GetEnvironmentVariable("POSTGRES_USER");
+                string postgresPassword = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD");
+                string formattedConnectionString = string.Format(connectionString, postgresDb, postgresUser, postgresPassword);
+                options.UseNpgsql(formattedConnectionString);
             });
         }
 
@@ -41,6 +60,7 @@ namespace SosCentar.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
