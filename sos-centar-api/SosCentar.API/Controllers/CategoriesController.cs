@@ -28,7 +28,7 @@ namespace SosCentar.API.Controllers
 		[HttpGet("{id}")]
 		public ActionResult<CategoryDto> GetCategory(Guid id)
 		{
-			throw new NotImplementedException();
+			return Ok(_categoryService.GetById(id));
 		}
 	}
 }
