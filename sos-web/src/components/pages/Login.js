@@ -1,14 +1,14 @@
-import	{ StyledLogin, StyledContainer } from "./Login.styles";
-import LoginForm from "../LoginForm/LoginForm";
-import image from '../../assets/home-background.svg'
+import { StyledLogin, StyledContainer } from './Login.styles';
+import image from '../../assets/home-background.svg';
+import LoginForm from '../organisms/LoginForm/LoginForm';
 
 export const Login = () => {
-	return (
-		<StyledLogin>
-			<StyledContainer>
-				<img src={image} alt="img"/>
-				<LoginForm/>
-			</StyledContainer>
-		</StyledLogin>
-	);
+  return (
+    <StyledLogin>
+      <StyledContainer>
+        <img src={image} alt="img" />
+        <LoginForm />
+      </StyledContainer>
+    </StyledLogin>
+  );
 };
