@@ -9,14 +9,14 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PGDATA=/tmp
     ports:
-      - 5432:5432
+      - "48200:5432"
   api:
     image: ${DOCKER_REGISTRY-}api
     build:
       context: ./sos-centar-api
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "48201:5000"
     depends_on:
       - database
     env_file:
@@ -27,6 +27,6 @@ services:
       context: ./sos-web
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "48202:3000"
   
 
