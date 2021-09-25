@@ -4,7 +4,6 @@ import { Accordion } from '../../molecules/Accordion/Accordion';
 import { Panel } from '../../molecules/Panel/Panel';
 import { BarChart } from '../BarChart/BarChart';
 import { DoughnutChart } from '../DoughnutChart/DoughnutChart';
-import { LineChart } from '../LineChart/LineChart';
 import { Shell } from '../Shell/Shell';
 import { StyledGrid } from './ReportsContent.styles';
 
@@ -18,9 +17,6 @@ export const ReportsContent = () => {
         <StyledGrid>
           <Panel title="1. 1. Broj korisnika/ca po uslugama">
             <BarChart />
-          </Panel>
-          <Panel title="1. 1. Broj korisnika/ca po uslugama">
-            <LineChart />
           </Panel>
           <Panel title="1.4. Broj klijenata i klijentkinja iz marginalizovanih grupa">
             <DoughnutChart />
