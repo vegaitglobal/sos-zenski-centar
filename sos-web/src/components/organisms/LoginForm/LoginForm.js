@@ -9,7 +9,7 @@ import {
   StyledButtonHolder,
 } from './LoginForm.styles';
 import { useFetch } from '../../../hooks/useFetch';
-import { Loader } from '../../Loader/Loader';
+import { Loader } from '../../atoms/Loader/Loader';
 import { Button } from '../../molecules/Button/Button';
 
 const LoginForm = () => {
