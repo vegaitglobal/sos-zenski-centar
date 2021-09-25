@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Input } from '../../molecules/Input/Input';
 import { Heading } from '../../atoms/Heading/Heading';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
@@ -7,6 +7,7 @@ import {
   StyledLogo,
   StyledForm,
   StyledButtonHolder,
+  LoginFail,
 } from './LoginForm.styles';
 import { useFetch } from '../../../hooks/useFetch';
 import { Loader } from '../../atoms/Loader/Loader';
@@ -18,24 +19,27 @@ const LoginForm = () => {
     email: '',
     password: '',
   });
-  const { sendRequest, isLoading } = useFetch();
+  const { sendRequest, isLoading, error } = useFetch();
   const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    var headers= {
-      'Accept': 'application/json',
+    var headers = {
+      Accept: 'application/json',
       'Content-Type': 'application/json',
-    }
-    sendRequest('http://localhost:5000/api/Users/login', 'POST', headers, JSON.stringify(form))
-        .then((response) => {
+    };
+    sendRequest(
+      'http://localhost:5000/api/Users/login',
+      'POST',
+      headers,
+      JSON.stringify(form),
+    )
+      .then((response) => {
         localStorage.setItem('token', response.accessToken);
         localStorage.setItem('email', response.email);
         history.push('/');
       })
-      .catch((e) => {
-        alert(e);
-      });
+      .catch(() => {});
   };
 
   const handleChange = ({ target }) => {
@@ -76,6 +80,11 @@ const LoginForm = () => {
             disabled={isLoading}
             required
           />
+          {error && (
+            <LoginFail>
+              Prijavljivanje neuspešno. Molimo pokušajte ponovo.
+            </LoginFail>
+          )}
           <StyledButtonHolder>
             {isLoading ? (
               <Loader />
