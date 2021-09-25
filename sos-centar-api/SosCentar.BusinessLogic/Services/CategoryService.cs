@@ -34,9 +34,17 @@ namespace SosCentar.BusinessLogic.Services
 
             var sortedSectionDtos = category.Sections
                 .OrderBy(section => section.Order)
-                .Select(GetSectionDto);
+                .Select(GetSectionDto)
+                .ToArray();
 
-            return null;
+            var numberOfSections = sortedSectionDtos.Count();
+
+            return new CategoryDto()
+            {
+                CallerInfo = numberOfSections > 0 ? sortedSectionDtos[0] : null,
+                ServiceInfo = numberOfSections > 1 ? sortedSectionDtos[1] : null,
+                ActionInfoInfo = numberOfSections > 2 ? sortedSectionDtos[2] : null
+            };
         }
 
         private SectionDto GetSectionDto(Section section)
