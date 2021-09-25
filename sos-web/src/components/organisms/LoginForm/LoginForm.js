@@ -29,7 +29,7 @@ const LoginForm = () => {
       'Content-Type': 'application/json',
     };
     sendRequest(
-      'http://localhost:5000/api/Users/login',
+      'https://api.sos.sitesstage.com/api/Users/login',
       'POST',
       headers,
       JSON.stringify(form),
