@@ -28,6 +28,7 @@ export const useFetch = () => {
         if (!response.ok) {
           throw new Error(responseData.message);
         }
+
         setIsLoading(false);
         return responseData;
       } catch (err) {

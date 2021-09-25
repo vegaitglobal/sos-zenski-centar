@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import { Input } from '../../molecules/Input/Input';
 import { Heading } from '../../atoms/Heading/Heading';
-import { Icon } from '../../atoms/Icon/Icon';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
-import { StyledContainer, StyledForm, StyledButton } from './LoginForm.styles';
+import {
+  StyledContainer,
+  StyledLogo,
+  StyledForm,
+  StyledButtonHolder,
+} from './LoginForm.styles';
 import { useFetch } from '../../../hooks/useFetch';
+import { Loader } from '../../Loader/Loader';
+import { Button } from '../../molecules/Button/Button';
 
 const LoginForm = () => {
   const [form, setForm] = useState({
@@ -29,7 +35,7 @@ const LoginForm = () => {
   return (
     <>
       <StyledContainer>
-        <Icon.Logo />
+        <StyledLogo />
         <Heading type="h1" color="purple" textAlign="center">
           Dobrodošli!
         </Heading>
@@ -57,13 +63,15 @@ const LoginForm = () => {
             disabled={isLoading}
             required
           />
-          {isLoading ? (
-            <span>Loading</span>
-          ) : (
-            <StyledButton type="submit" onClick={handleSubmit}>
-              Prijavi se!
-            </StyledButton>
-          )}
+          <StyledButtonHolder>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              <Button type="submit" onClick={handleSubmit}>
+                Prijavi se!
+              </Button>
+            )}
+          </StyledButtonHolder>
         </StyledForm>
       </StyledContainer>
     </>

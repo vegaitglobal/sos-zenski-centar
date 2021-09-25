@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import { Icon } from '../../atoms/Icon/Icon';
 import { Container } from '../../layout/Container';
-import { Button } from '../../molecules/Button/Button';
 
 export const StyledContainer = styled(Container)`
   display: flex;
@@ -9,10 +9,6 @@ export const StyledContainer = styled(Container)`
   justify-content: center;
   flex: 0 0 50%;
   padding: 50px;
-
-  svg {
-    margin-bottom: 20px;
-  }
 
   h1 {
     position: relative;
@@ -35,12 +31,20 @@ export const StyledContainer = styled(Container)`
   }
 `;
 
+export const StyledLogo = styled(Icon.Logo)`
+  margin-bottom: 20px;
+`;
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
 
-export const StyledButton = styled(Button)`
-  margin: 20px auto 0;
+export const StyledButtonHolder = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 70px;
 `;
