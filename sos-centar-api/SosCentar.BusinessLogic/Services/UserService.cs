@@ -1,5 +1,6 @@
 ﻿using SosCentar.Contracts.Interfaces.Repositories;
 using SosCentar.Contracts.Interfaces.Services;
+using SosCentar.Domain.Models;
 
 namespace SosCentar.BusinessLogic.Services
 {
@@ -12,6 +13,11 @@ namespace SosCentar.BusinessLogic.Services
 		{
 			_userRepository = userRepository;
 			_securityService = securityService;
+		}
+
+		public User GetByEmail(string email)
+		{
+			return _userRepository.GetByEmail(email);
 		}
 
 		public bool ValidateUserCredentials(string email, string password)

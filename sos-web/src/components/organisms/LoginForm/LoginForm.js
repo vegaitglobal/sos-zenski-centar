@@ -23,14 +23,14 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    sendRequest('https://jsonplaceholder.typicode.com/posts', 'POST', {}, form)
-      .then((response) => {
-        //TODO: postaviti token i email u local storage kada bude pravog response-a
-        // localStorage.setItem('token', response.token);
-        // localStorage.setItem('email', response.email);
-        localStorage.setItem('token', '123456');
-        localStorage.setItem('email', 'mock@gmail.com');
+    var headers= {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    }
+    sendRequest('http://localhost:5000/api/Users/login', 'POST', headers, JSON.stringify(form))
+        .then((response) => {
+        localStorage.setItem('token', response.accessToken);
+        localStorage.setItem('email', response.email);
         history.push('/');
       })
       .catch((e) => {

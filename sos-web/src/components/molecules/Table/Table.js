@@ -19,12 +19,13 @@ export const Table = ({ title, rows, array, children, ...props }) => {
         </TableRow>
       </TableHeading>
       <TableContent>
-        {rows.map(({ text, value }) => (
-          <TableRow>
+        {rows.map(({ text, value }, index) => (
+          <TableRow key={index}>
             <TableCell>{text}</TableCell>
-            {array.map((item) => {
-              return <TableCell>{item[value]}</TableCell>;
-            })}
+            {array.map((item, index) => (
+              // TODO key
+              <TableCell key={index}>{item[value]}</TableCell>
+            ))}
           </TableRow>
         ))}
       </TableContent>
