@@ -28,15 +28,13 @@ namespace SosCentar.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SosCentarAPI", Version = "v1" });
             });
-            string connectionString = Configuration.GetConnectionString("MyWebApiConection");
-            string formattedConnectionString = string.Format(connectionString, Environment.GetEnvironmentVariable("POSTGRES_DB"), Environment.GetEnvironmentVariable("POSTGRES_USER"), Environment.GetEnvironmentVariable("POSTGRES_PASSWORD"));
-            Console.WriteLine(formattedConnectionString);
             services.AddDbContext<ReportContext>(options =>
             {
                 string connectionString = Configuration.GetConnectionString("MyWebApiConection");
-                Console.WriteLine(connectionString);
-                string formattedConnectionString = string.Format(connectionString, Environment.GetEnvironmentVariable("POSTGRES_DB"), Environment.GetEnvironmentVariable("POSTGRES_USER"), Environment.GetEnvironmentVariable("POSTGRES_PASSWORD"));
-                Console.WriteLine(formattedConnectionString);
+                string postgresDb = Environment.GetEnvironmentVariable("POSTGRES_DB");
+                string postgresUser = Environment.GetEnvironmentVariable("POSTGRES_USER");
+                string postgresPassword = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD");
+                string formattedConnectionString = string.Format(connectionString, postgresDb, postgresUser, postgresPassword);
                 options.UseNpgsql(formattedConnectionString);
             });
         }

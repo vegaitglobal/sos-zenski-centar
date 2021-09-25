@@ -22,10 +22,6 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "Key": "Value",
-        "POSTGRES_DB": "soscenatar",
-        "POSTGRES_PASSWORD": "soscenatar2021",
-        "POSTGRES_USER": "postgres",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": "true",
