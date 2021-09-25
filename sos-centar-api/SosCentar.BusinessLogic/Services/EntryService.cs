@@ -4,6 +4,7 @@ using SosCentar.Contracts.Interfaces.Services;
 using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
@@ -27,16 +28,21 @@ namespace SosCentar.BusinessLogic.Services
 		public void Create(EntryDto entryDto, string userEmail)
 		{
 			var user = _userService.GetByEmail(userEmail);
-			var entry = new Entry() { Date = DateTime.Now, Description = entryDto.Description, User = user };
 
 			var submitedAnswers = new List<SubmitedAnswer>();
-			foreach (var item in entryDto.SubmittedAnswers.ToList())
+			foreach (var item in entryDto.SubmittedAnswers)
 			{
 				var answer = _answerService.GetById(item.AnswerId);
 				var question = _questionService.GetById(item.QuestionId);
+				if (question.IsRequired && answer is not null)
+                {
+					throw new ValidationException($"{question.Text} is not answered");
+
+				}
 				submitedAnswers.Add(new SubmitedAnswer() { Answer = answer, Question = question });
 			}
-			entry.SubmitedAnswers = submitedAnswers;
+
+			var entry = new Entry() { Date = DateTime.Now, Description = entryDto.Description, User = user, SubmitedAnswers = submitedAnswers };
 
 			_entryRepository.Create(entry);
 		}

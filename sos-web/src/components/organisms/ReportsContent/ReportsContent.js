@@ -7,12 +7,13 @@ import { BarChart } from '../BarChart/BarChart';
 import { DoughnutChart } from '../DoughnutChart/DoughnutChart';
 import { Shell } from '../Shell/Shell';
 import { StyledGrid } from './ReportsContent.styles';
+import { DownloadReport } from './DownloadReportContent';
 
 export const ReportsContent = () => {
   const table1Title =
-    '2.1. Broj klijentkinja i klijenata sa iskustvom nasilja po uslugama';
+    '3.1. Broj klijentkinja i klijenata sa iskustvom nasilja po uslugama';
 
-  const table2Title = '2.2. Odnos žrtve sa nasilnikom';
+  const table2Title = '3.2. Odnos žrtve sa nasilnikom';
 
   const array1 = [
     {
@@ -130,17 +131,20 @@ export const ReportsContent = () => {
       backgroundColor={rgba(theme.color.greyLighter, 0.3)}
       title="Izveštaj"
     >
-      <Accordion title="1. Opšti podaci" defaultOpened>
+      <Accordion title="1. Vremenski period">
+        <DownloadReport></DownloadReport>
+      </Accordion>
+      <Accordion title="2. Opšti podaci" defaultOpened>
         <StyledGrid>
-          <Panel title="1. 1. Broj korisnika/ca po uslugama">
+          <Panel title="2. 1. Broj korisnika/ca po uslugama">
             <BarChart />
           </Panel>
-          <Panel title="1.4. Broj klijenata i klijentkinja iz marginalizovanih grupa">
+          <Panel title="2.4. Broj klijenata i klijentkinja iz marginalizovanih grupa">
             <DoughnutChart />
           </Panel>
         </StyledGrid>
       </Accordion>
-      <Accordion title="2. Obraćanje zbog nasilja - broj klijenata i klijentkinja">
+      <Accordion title="3. Obraćanje zbog nasilja - broj klijenata i klijentkinja">
         <Table title={table1Title} rows={table1} array={array1}></Table>
         <Table title={table2Title} rows={table2} array={array2}></Table>
       </Accordion>
