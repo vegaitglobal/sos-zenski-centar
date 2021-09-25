@@ -9,12 +9,7 @@ export const StyledTextArea = styled.textarea`
   border-radius: 12px;
   border: none;
   outline: none;
-  width: 30%;
+  width: 100%;
   min-height: 50px;
   resize: vertical;
 `;
-
-// export const StyledContent = styled.textarea`
-//   padding: 30px;
-//   background-color: ${({ theme }) => theme.color.pinkLight};
-// `;
