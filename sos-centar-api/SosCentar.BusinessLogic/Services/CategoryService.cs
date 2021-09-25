@@ -66,13 +66,17 @@ namespace SosCentar.BusinessLogic.Services
 
         private QuestionDto GetQuestionDto(Question question)
         {
+            var questionCondition = question.QuestionCondition == null
+                ? null
+                : new QuestionConditionDto() { AnswerId = question.QuestionCondition?.AnswerId, QuestionId = question.QuestionCondition?.QuestionIdMaster };
+
             return new QuestionDto()
             {
                 Id = question.Id,
                 Icon = question.Icon,
                 Label = question.Text,
                 IsRequired = question.IsRequired,
-                Condition = new QuestionConditionDto() { AnswerId = question.QuestionCondition.AnswerId, QuestionId = question.QuestionCondition.QuestionIdMaster },
+                Condition = questionCondition,
                 Options = question.Answers.OrderBy(answer => answer.Order).Select(GetAnswerDto)
             };
         }

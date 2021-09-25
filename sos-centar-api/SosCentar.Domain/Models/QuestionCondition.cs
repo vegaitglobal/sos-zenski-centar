@@ -9,6 +9,6 @@ namespace SosCentar.Domain.Models
 		public Guid QuestionIdMaster { get; set; }
 		[ForeignKey(nameof(Question.QuestionCondition))]
 		public Guid QuestionId { get; set; }
-		public Guid AnswerId { get; set; }
+		public Guid? AnswerId { get; set; }
 	}
 }
