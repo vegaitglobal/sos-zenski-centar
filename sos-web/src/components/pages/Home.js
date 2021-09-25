@@ -1,12 +1,12 @@
-import { Heading } from '../atoms/Heading/Heading';
-import { Icon } from '../atoms/Icon/Icon';
-import { Container } from '../layout/Container';
+import { StyledContainer, StyledHome } from '../pages/Home.styles';
+import { HomeContent } from '../organisms/HomeContent/HomeContent';
 
 export const Home = () => {
   return (
-    <Container>
-      <Heading>Home</Heading>
-      <Icon.Report />
-    </Container>
+    <StyledHome>
+      <StyledContainer>
+        <HomeContent></HomeContent>
+      </StyledContainer>
+    </StyledHome>
   );
 };
