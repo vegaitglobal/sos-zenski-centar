@@ -4,16 +4,19 @@ import { Heading } from '../../atoms/Heading/Heading';
 import { Icon } from '../../atoms/Icon/Icon';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import { StyledContainer, StyledForm, StyledButton } from './LoginForm.styles';
+import { useFetch } from '../../../hooks/useFetch';
 
 const LoginForm = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
+  const { sendRequest, isLoading } = useFetch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(form);
+
+    sendRequest('https://jsonplaceholder.typicode.com/posts', 'POST', {}, form);
   };
 
   const handleChange = ({ target }) => {
@@ -41,6 +44,7 @@ const LoginForm = () => {
             id="email"
             onChange={handleChange}
             value={form.email}
+            disabled={isLoading}
             required
           />
           <Input
@@ -50,11 +54,16 @@ const LoginForm = () => {
             id="password"
             onChange={handleChange}
             value={form.password}
+            disabled={isLoading}
             required
           />
-          <StyledButton type="submit" onClick={handleSubmit}>
-            Prijavi se!
-          </StyledButton>
+          {isLoading ? (
+            <span>Loading</span>
+          ) : (
+            <StyledButton type="submit" onClick={handleSubmit}>
+              Prijavi se!
+            </StyledButton>
+          )}
         </StyledForm>
       </StyledContainer>
     </>

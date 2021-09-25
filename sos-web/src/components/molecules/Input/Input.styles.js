@@ -8,6 +8,10 @@ export const StyledInput = styled.input`
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.color.greyLight};
   background-color: ${({ theme }) => theme.color.greyLightest};
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `;
 
 export const StyledFormRow = styled.div`
