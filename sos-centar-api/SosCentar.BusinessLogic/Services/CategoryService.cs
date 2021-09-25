@@ -50,7 +50,7 @@ namespace SosCentar.BusinessLogic.Services
                 Id = category.Id,
                 CallerInfo = numberOfSections > 0 ? sortedSectionDtos[0] : null,
                 ServiceInfo = numberOfSections > 1 ? sortedSectionDtos[1] : null,
-                ActionInfoInfo = numberOfSections > 2 ? sortedSectionDtos[2] : null
+                ActionInfo = numberOfSections > 2 ? sortedSectionDtos[2] : null
             };
         }
 

@@ -8,6 +8,6 @@ namespace SosCentar.Contracts.Dtos.Categories
         public Guid Id { get; set; }
         public SectionDto CallerInfo { get; set; }
         public SectionDto ServiceInfo { get; set; }
-        public SectionDto ActionInfoInfo { get; set; }
+        public SectionDto ActionInfo { get; set; }
     }
 }
