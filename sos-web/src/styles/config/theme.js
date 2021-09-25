@@ -8,6 +8,7 @@ export const color = {
   grey: '#676767',
   greyLight: '#ebebeb',
   greyLighter: '#eae7eb',
+  greyLighter1: '#cccccc',
   greyLightest: '#fafafa',
   pink: '#d8a4d9',
   pinkLight: '#faf0fc',
@@ -15,6 +16,7 @@ export const color = {
   pinkLink: '#cf96d8',
   purple: '#57415f',
   purpleLight: '#8c4893',
+  purpleLight1: '#E4DAE5',
   orange: '#ffa480',
   orangeLight: '#ffe0d0',
 };
