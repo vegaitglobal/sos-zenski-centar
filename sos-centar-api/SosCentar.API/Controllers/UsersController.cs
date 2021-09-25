@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SosCentar.Contracts.Dtos.Users;
+using SosCentar.Contracts.Interfaces.Services;
 
 namespace SosCentar.API.Controllers
 {
@@ -8,17 +10,37 @@ namespace SosCentar.API.Controllers
     [Authorize]
     public class UsersController : ControllerBase
     {
+        private readonly ISecurityService _jwtGeneratorService;
+
+        public UsersController(ISecurityService jwtGeneratorService)
+        {
+            _jwtGeneratorService = jwtGeneratorService;
+        }
+
         [HttpGet]
         public string TestIt()
         {
-            return "test";
+            return "this is secured";
         }
 
-        [HttpGet("login")]
+        [HttpPost("login")]
         [AllowAnonymous]
-        public string Login()
+        public IActionResult Login([FromBody] UserLoginDto loginModel)
         {
-            return "AllowAnonymous";
+            var isValidUser = _jwtGeneratorService.ValidateUserCredentials(loginModel.Email, loginModel.Password);
+
+            if (!isValidUser)
+            {
+                return Unauthorized();
+            }
+
+            var dto = new LoggedInUserDto
+            {
+                Email = loginModel.Email,
+                AccessToken = _jwtGeneratorService.CreateToken(loginModel.Email),
+            };
+
+            return Ok(dto);
         }
     }
 }

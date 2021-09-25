@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SosCentar.BusinessLogic\SosCentar.BusinessLogic.csproj" />
     <ProjectReference Include="..\SosCentar.Contracts\SosCentar.Contracts.csproj" />
   </ItemGroup>
 

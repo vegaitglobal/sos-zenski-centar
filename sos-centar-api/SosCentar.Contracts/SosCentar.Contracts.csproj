@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SosCentar.Domain\SosCentar.Domain.csproj" />
+    <Compile Remove="DataAccess\**" />
+    <EmbeddedResource Remove="DataAccess\**" />
+    <None Remove="DataAccess\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccess\" />
+    <ProjectReference Include="..\SosCentar.Domain\SosCentar.Domain.csproj" />
   </ItemGroup>
 
 </Project>
