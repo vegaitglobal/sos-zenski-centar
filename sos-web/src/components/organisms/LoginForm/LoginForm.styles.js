@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../../styles/config/theme';
 import { Icon } from '../../atoms/Icon/Icon';
 import { Container } from '../../layout/Container';
 
@@ -47,4 +48,13 @@ export const StyledButtonHolder = styled.div`
   align-items: center;
   position: relative;
   min-height: 70px;
+`;
+
+export const LoginFail = styled.span`
+  color: red;
+  background-color: ${({ theme }) => theme.color.pinkLight};
+  border-radius: 3px;
+  padding: 3px;
+  font-size: 12px;
+  text-align: center;
 `;
