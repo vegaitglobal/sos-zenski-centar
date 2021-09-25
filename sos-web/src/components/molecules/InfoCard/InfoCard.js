@@ -16,15 +16,6 @@ export const InfoCard = ({
   const [showDropdown, setShowDropdown] = useState(false);
   const [value, setValue] = useState('');
 
-  useEffect(() => {
-    if (showDropdown) {
-      document.addEventListener('mousedown', (e) => handleClickOutside(e));
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [showDropdown]);
-
   const handleClickOutside = (e) => {
     if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
       setShowDropdown(false);
@@ -32,15 +23,22 @@ export const InfoCard = ({
   };
 
   const toggleDropdown = () => {
-    setShowDropdown((previousState) => {
-      return !previousState;
-    });
+    setShowDropdown(!showDropdown);
   };
 
   const handleRadioChange = ({ target }) => {
     setValue(target.value);
     setShowDropdown(false);
   };
+
+  useEffect(() => {
+    if (showDropdown) {
+      document.addEventListener('click', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [showDropdown]);
 
   return (
     <StyledCardContainer>

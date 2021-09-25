@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { customScrollBar } from '../../../styles/helpers/customScrollbar';
+import { Heading } from '../../atoms/Heading/Heading';
 import { Accordion } from '../../molecules/Accordion/Accordion';
 import { StyledContent } from '../../molecules/Accordion/Accordion.styles';
 import { Question } from '../../molecules/Question/Question';
@@ -55,4 +56,15 @@ export const StyledQuestion = styled(Question)`
   &:not(:last-child) {
     margin-bottom: 30px;
   }
+`;
+
+export const StyledNoResults = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const StyledHeading = styled(Heading)`
+  color: ${({ theme }) => theme.color.purple};
 `;

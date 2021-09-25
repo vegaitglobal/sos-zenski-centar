@@ -8,6 +8,8 @@ import {
   StyledColumn,
   StyledAccordion,
   StyledQuestion,
+  // StyledNoResults,
+  // StyledHeading,
 } from './FormsLayout.styles';
 
 const categoryData = {
@@ -81,40 +83,40 @@ const categoryData = {
       },
     },
     {
-      id: 'opis-problema',
+      id: 'opis-problema3',
       icon: 'any',
-      label: 'Kratak Opis Problema',
+      label: 'Kratak Opis Problema2',
       options: [
         {
-          id: 'id',
+          id: 'id5',
           label: 'opis 1',
         },
         {
-          id: 'id2',
+          id: 'id62',
           label: 'opis 2',
         },
         {
-          id: 'id3',
+          id: 'id73',
           label: 'opis 3',
         },
       ],
       condition: null,
     },
     {
-      id: 'neki-treci',
+      id: 'neki-treci8',
       icon: 'any',
-      label: 'Treci Opis Problema',
+      label: 'Treci Opis Problema2',
       options: [
         {
-          id: 'treciId',
+          id: 'treciId5',
           label: 'Treci opis 1',
         },
         {
-          id: 'treciId2',
+          id: 'treciId72',
           label: 'Treci opis 2',
         },
         {
-          id: 'itrecid3',
+          id: 'itrecid38',
           label: 'Treci opis 3',
         },
       ],
@@ -124,20 +126,20 @@ const categoryData = {
       },
     },
     {
-      id: 'tip-poziva',
+      id: 'tip-poziva4',
       icon: 'any',
-      label: 'Tip poziva',
+      label: 'Tip poziva2',
       options: [
         {
-          id: 'idTipid',
+          id: 'idTipid9',
           label: 'tip 1',
         },
         {
-          id: 'idTip2',
+          id: 'idTip266',
           label: 'tip 2',
         },
         {
-          id: 'idTip3',
+          id: 'idTip376',
           label: 'tip 3',
         },
       ],
@@ -157,6 +159,9 @@ export const FormsLayout = () => {
     >
       <Categories />
       <StyledContainer>
+        {/* <StyledNoResults>
+          <StyledHeading type="h1">Izaberi kategoriju</StyledHeading>
+        </StyledNoResults> */}
         <StyledColumn>
           <StyledAccordion
             $noPadding
