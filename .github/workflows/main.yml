@@ -26,12 +26,20 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Build docker
-        id: docker_build
+      - name: Build docker API
+        id: docker_build_api
         uses: docker/build-push-action@v2
         with:
-          context: $DOCKER_LOCATION
-          file: $DOCKER_LOCATION/$DOCKERFILE_NAME
+          context: ./sos-centar-api
+          file: ./sos-centar-api/Dockerfile
+          push: false
+      
+      - name: Build docker frontend 
+        id: docker_build_frontend
+        uses: docker/build-push-action@v2
+        with:
+          context: ./sos-web
+          file: ./sos-web/Dockerfile
           push: false
           
       - name: Deploy docker
@@ -41,4 +49,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd $PROJECT_LOCATION && git pull origin main && docker-compose up --build -d
+          script: cd ~/hakaton/sos-zenski-centar/  && git pull origin main && docker-compose up --build -d
