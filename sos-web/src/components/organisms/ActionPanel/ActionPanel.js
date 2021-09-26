@@ -9,7 +9,7 @@ import {
   StyledButtonHolder,
 } from './ActionPanel.styles';
 
-export const ActionPanel = (props) => {
+export const ActionPanel = () => {
   const { actionInfo, submit } = useNewEntryContext();
   return (
     <Accordion isReverse title={actionInfo.sectionName}>

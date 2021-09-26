@@ -9,14 +9,13 @@ import {
   StyledShell,
   StyledContainer,
   StyledColumn,
-  StyledAccordion,
-  StyledQuestion,
 } from './FormsLayout.styles';
 import { useNewEntryContext } from '../../../hooks/useNewEntryContext';
+import { ServicePanel } from '../ServicePanel/ServicePanel';
 
 export const FormsLayout = () => {
   const { selectedCategory } = useCategoryContext();
-  const { initialize, actionInfo } = useNewEntryContext();
+  const { initialize } = useNewEntryContext();
 
   useEffect(() => {
     initialize(selectedCategory);
@@ -34,19 +33,7 @@ export const FormsLayout = () => {
           <ActionPanel />
         </StyledColumn>
         <StyledColumn>
-          <StyledAccordion title={actionInfo.sectionName} isClickable={false}>
-            {(actionInfo.questions || []).map(
-              ({ label, id, options, condition }) => (
-                <StyledQuestion
-                  key={id}
-                  label={label}
-                  id={id}
-                  options={options}
-                  condition={condition}
-                />
-              ),
-            )}
-          </StyledAccordion>
+          <ServicePanel />
         </StyledColumn>
       </StyledContainer>
     </StyledShell>
