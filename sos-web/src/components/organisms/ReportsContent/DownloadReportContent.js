@@ -15,7 +15,7 @@ const headers = {
 
 export const DownloadReport = () => {
   const { setData } = useDataContext();
-  const { sendRequest } = useFetch();
+  const { sendRequest, isLoading } = useFetch();
   const [date, setDate] = useState({
     start: '',
     end: '',
@@ -66,7 +66,9 @@ export const DownloadReport = () => {
   return (
     <StyledGrid>
       <div>
-        <Button onClick={handleLastMonth}>Prošli mesec</Button>
+        <Button disabled={isLoading} onClick={handleLastMonth}>
+          Prošli mesec
+        </Button>
       </div>
       <div>
         <DatePicker
@@ -81,7 +83,9 @@ export const DownloadReport = () => {
           value={date.end}
           onChange={handleOnChange}
         />
-        <Button onClick={handleCustomDate}>Izaberi</Button>
+        <Button disabled={isLoading} onClick={handleCustomDate}>
+          Izaberi
+        </Button>
       </div>
       <div>
         <Button>Download</Button>
