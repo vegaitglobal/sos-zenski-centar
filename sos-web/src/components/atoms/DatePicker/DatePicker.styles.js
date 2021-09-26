@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { typeStyle } from '../../../styles/config/typeStyles';
 
 export const StyledDatePicker = styled.div`
   position: relative;
@@ -15,6 +16,7 @@ export const StyledDatePicker = styled.div`
   }
 
   input {
+    ${typeStyle.medium};
     padding: 1.1rem;
     border-radius: 10px;
     border: 1px solid ${({ theme }) => theme.color.purple};
