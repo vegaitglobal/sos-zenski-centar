@@ -2,6 +2,7 @@
 using SosCentar.Contracts.Interfaces.Services;
 using SosCentar.Domain.Models;
 using System;
+using System.Collections.Generic;
 
 namespace SosCentar.BusinessLogic.Services
 {
@@ -19,7 +20,7 @@ namespace SosCentar.BusinessLogic.Services
 			return _questionRepository.GetById(id);
 		}
 
-		public Question GetByName(string name)
+		public IEnumerable<Question> GetByName(string name)
 		{
 			return _questionRepository.GetByName(name);
 		}
