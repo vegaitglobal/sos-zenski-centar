@@ -18,5 +18,10 @@ namespace SosCentar.BusinessLogic.Services
 		{
 			return _questionRepository.GetById(id);
 		}
+
+		public Question GetByName(string name)
+		{
+			return _questionRepository.GetByName(name);
+		}
 	}
 }

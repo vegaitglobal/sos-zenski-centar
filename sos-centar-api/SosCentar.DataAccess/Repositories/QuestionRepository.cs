@@ -18,5 +18,10 @@ namespace SosCentar.DataAccess.Repositories
 		{
 			return _reportContext.Questions.FirstOrDefault(question => question.Id == id);
 		}
+
+		public Question GetByName(string name)
+		{
+			return _reportContext.Questions.FirstOrDefault(question => question.Text == name);
+		}
 	}
 }
