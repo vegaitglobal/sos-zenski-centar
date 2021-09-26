@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion';
 import styled, { css } from 'styled-components';
+import { theme } from '../../../styles/config/theme';
 import { AbstractButton } from '../../atoms/AbstractButton/AbstractButton';
 import { Icon } from '../../atoms/Icon/Icon';
 
 export const StyledAccordion = styled.div`
+  display: flex;
+  flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 16px;
+  box-shadow: ${theme.boxShadow.default};
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
 `;
 
 export const StyledTop = styled(AbstractButton)`
@@ -24,14 +31,23 @@ export const StyledTop = styled(AbstractButton)`
 export const StyledIcon = styled(Icon.ArrowDown)`
   transition: transform 0.2s ease-in-out;
 
-  ${({ $isOpened }) =>
+  ${({ $isOpened, $isReverse }) =>
     $isOpened &&
+    !$isReverse &&
+    css`
+      transform: rotate(180deg);
+    `};
+
+  ${({ $isOpened, $isReverse }) =>
+    $isReverse &&
+    !$isOpened &&
     css`
       transform: rotate(180deg);
     `};
 `;
 
 export const StyledContent = styled(motion.div)`
+  position: relative;
   height: 0;
   overflow: hidden;
   padding-left: 30px;

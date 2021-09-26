@@ -5,10 +5,11 @@ using System.Collections.Generic;
 
 namespace SosCentar.Contracts.Interfaces.Services
 {
-	public interface IEntryService
-	{
-		public void Create(EntryDto submittedEntryDto, string userEmail);
+    public interface IEntryService
+    {
+        public void Create(EntryDto submittedEntryDto, string userEmail);
+        public IEnumerable<Entry> GetInRange(DateTime From, DateTime To);
 		public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId);
 		public IEnumerable<Entry> GetAllForQuestionName(string questionName);
-	}
+    }
 }

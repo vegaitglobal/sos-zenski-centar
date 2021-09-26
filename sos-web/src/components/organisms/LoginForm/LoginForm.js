@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Input } from '../../molecules/Input/Input';
 import { Heading } from '../../atoms/Heading/Heading';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
@@ -35,7 +35,7 @@ const LoginForm = () => {
       JSON.stringify(form),
     )
       .then((response) => {
-        localStorage.setItem('token', response.accessToken);
+        localStorage.setItem('token', `Bearer ${response.accessToken}`);
         localStorage.setItem('email', response.email);
         history.push('/');
       })

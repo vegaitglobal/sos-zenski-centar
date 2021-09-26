@@ -1,4 +1,5 @@
 ﻿using SosCentar.Domain.Models;
+using System;
 using System.Collections.Generic;
 
 namespace SosCentar.Contracts.Interfaces.Repositories
@@ -7,5 +8,6 @@ namespace SosCentar.Contracts.Interfaces.Repositories
 	{
 		public void Create(Entry entry);
 		public IEnumerable<Entry> GetAll();
+		public IEnumerable<Entry> GetInRange(DateTime From, DateTime To);
 	}
 }

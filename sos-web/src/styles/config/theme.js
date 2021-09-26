@@ -19,9 +19,15 @@ export const color = {
   purpleLight1: '#E4DAE5',
   orange: '#ffa480',
   orangeLight: '#ffe0d0',
+  red: '#f44336',
+};
+
+export const boxShadow = {
+  default: `0 1px 10px ${rgba(color.black, 0.3)}`,
 };
 
 /* styled-components theme */
 export const theme = {
   color,
+  boxShadow,
 };
