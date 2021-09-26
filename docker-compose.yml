@@ -25,7 +25,7 @@ services:
     ports:
       - "48201:5000"
     depends_on:
-      - database
+      database
         condition: service_healthy
     env_file:
       - .env
@@ -45,7 +45,7 @@ services:
     ports:
       - "48203:80"
     depends_on:
-      - database
+      database
         condition: service_healthy
     volumes:
       - pgadmin-data:/var/lib/pgadmin
