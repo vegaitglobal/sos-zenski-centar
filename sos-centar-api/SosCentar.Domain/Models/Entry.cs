@@ -11,6 +11,6 @@ namespace SosCentar.Domain.Models
         public Category Category { get; set; }
         public User User { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<SubmitedAnswer> SubmitedAnswers { get; set; } = Enumerable.Empty<SubmitedAnswer>();
+        public IEnumerable<SubmitedAnswer> SubmitedAnswers { get; set; } 
     }
 }

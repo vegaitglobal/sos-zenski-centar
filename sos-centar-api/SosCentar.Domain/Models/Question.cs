@@ -8,7 +8,7 @@ namespace SosCentar.Domain.Models
     {
         public Guid Id { get; set; }
         public string Text { get; set; }
-        public IEnumerable<Answer> Answers { get; set; } = Enumerable.Empty<Answer>();
+        public IEnumerable<Answer> Answers { get; set; } 
         public QuestionCondition QuestionCondition { get; set; }
         public int Order { get; set; }
         public bool IsRequired { get; set; }
