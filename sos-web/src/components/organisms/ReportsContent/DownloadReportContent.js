@@ -1,27 +1,25 @@
-import { useCallback, useEffect, useState } from 'react';
-import { BASE_URL, useFetch } from '../../../hooks/useFetch';
+import { useCallback, useEffect } from 'react';
+import { useFetch } from '../../../hooks/useFetch';
 import { getLastMonth } from '../../../utils/date';
 import { useDataContext } from '../../../utils/store';
 import { DatePicker } from '../../atoms/DatePicker/DatePicker';
 import { Button } from '../../molecules/Button/Button';
 import { StyledGrid } from './DownloadReportContent.styles';
+import { useReportContext } from '../../../hooks/useReportContext';
 
 export const DownloadReport = () => {
   const { setData } = useDataContext();
   const { sendRequest, isLoading } = useFetch();
-  const [date, setDate] = useState({
-    start: '',
-    end: '',
-  });
+  const { date, setDate } = useReportContext();
 
   const fetchGraphs = useCallback(
     async (start = date.start, end = date.end) => {
       const { firstDay, lastDay } = getLastMonth();
 
       const response = await sendRequest(
-        `${BASE_URL}/ReportGraphs?from=${start || firstDay}&to=${
-          end || lastDay
-        }`,
+        `https://api.sos.sitesstage.com/api/ReportGraphs?from=${
+          start || firstDay
+        }&to=${end || lastDay}`,
       );
 
       setData({
@@ -32,12 +30,15 @@ export const DownloadReport = () => {
     [sendRequest, date.start, date.end],
   );
 
-  const handleOnChange = useCallback(({ target }) => {
-    setDate((previousState) => ({
-      ...previousState,
-      [target.name]: target.value,
-    }));
-  }, []);
+  const handleOnChange = useCallback(
+    ({ target }) => {
+      setDate((previousState) => ({
+        ...previousState,
+        [target.name]: target.value,
+      }));
+    },
+    [setDate],
+  );
 
   const handleCustomDate = useCallback(() => {
     fetchGraphs();
