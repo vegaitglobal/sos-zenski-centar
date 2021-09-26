@@ -46,7 +46,7 @@ export const useFetch = () => {
         throw err;
       }
     },
-    [],
+    [history],
   );
 
   const clearError = () => {
