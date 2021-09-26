@@ -28,13 +28,11 @@ namespace SosCentar.BusinessLogic.Services
                 data[0, index + 1] = category.Label;
             }
 
-
-
             data[1, 0] = "Broj korisnika/ca";
             for (var index = 0; index < allCategories.Count(); index++)
             {
-                var category = allCategories[index];
-                data[0, index + 1] = category.Label;
+                var count = _entryService.GetAllForCategoryId(allCategories[index].Id, from, to).Count();
+                data[0, index + 1] = count.ToString();
             }
 
             return data;
@@ -42,6 +40,9 @@ namespace SosCentar.BusinessLogic.Services
 
         public string[,] GetUsersCountPerAgePerCategory(DateTime from, DateTime to)
         {
+            //var entries = _entryService.GetAllForQuestionName("", from, to);
+
+
             throw new NotImplementedException();
         }
 
