@@ -5,20 +5,28 @@ export const BASE_URL = 'https://api.sos.sitesstage.com/api';
 
 export const useFetch = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [isError, setIsError] = useState(false);
   const history = useHistory();
 
   const activeHttpRequests = useRef([]);
 
   const sendRequest = useCallback(
-    async (url, method = 'GET', headers = {}, body = null) => {
+    async (url, options = { method: 'GET', headers: {}, body: null }) => {
+      const { method, headers, body } = options;
       setIsLoading(true);
       const abortController = new AbortController();
       activeHttpRequests.current.push(abortController);
       try {
+        const reqHeaders = new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: localStorage.getItem('token'),
+          ...headers,
+        });
+
         const response = await fetch(url, {
           method,
-          headers,
+          headers: reqHeaders,
           body,
           signal: abortController.signal,
         });
@@ -41,7 +49,7 @@ export const useFetch = () => {
         setIsLoading(false);
         return responseData;
       } catch (err) {
-        setError(true);
+        setIsError(true);
         setIsLoading(false);
         throw err;
       }
@@ -50,7 +58,7 @@ export const useFetch = () => {
   );
 
   const clearError = () => {
-    setError(false);
+    setIsError(false);
   };
 
   useEffect(() => {
@@ -60,5 +68,5 @@ export const useFetch = () => {
     };
   }, []);
 
-  return { sendRequest, isLoading, error, clearError };
+  return { sendRequest, isLoading, isError, clearError };
 };

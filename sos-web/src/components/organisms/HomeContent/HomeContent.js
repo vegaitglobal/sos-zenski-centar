@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import {
   StyledHomeButton,
   StyledHomeButtonsContainer,
@@ -12,8 +13,22 @@ import { theme } from '../../../styles/config/theme';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import { LogoutHeader } from '../../molecules/LogoutHeader/LogoutHeader';
 
+import { useCategoryContext } from '../../../hooks/useCategoryContext';
+
 export const HomeContent = () => {
   let email = localStorage.getItem('email');
+  const { categories, selectCategory } = useCategoryContext();
+
+  const Services = useCallback(() => {
+    return categories.map((service) => {
+      return (
+        <StyledHomeButton href="/forms" onClick={() => selectCategory(service)}>
+          <Icon.Plus />
+          <StyledHeading type="h2">{service.label}</StyledHeading>
+        </StyledHomeButton>
+      );
+    });
+  }, [categories, selectCategory]);
 
   return (
     <StyledHomeContent $backgroundColor={rgba(theme.color.pink, 0.3)}>
@@ -25,10 +40,9 @@ export const HomeContent = () => {
         </Paragraph>
       </StyledTitle>
       <StyledHomeButtonsContainer>
-        <StyledHomeButton href="/forms">
-          <Icon.Plus />
-          <StyledHeading type="h2">Evidentiraj novi poziv</StyledHeading>
-        </StyledHomeButton>
+        <Services />
+      </StyledHomeButtonsContainer>
+      <StyledHomeButtonsContainer>
         <StyledHomeButton href="/reports">
           <Icon.Report />
           <StyledHeading type="h2">Pogledaj izveštaje</StyledHeading>
