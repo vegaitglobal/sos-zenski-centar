@@ -6,5 +6,6 @@ namespace SosCentar.Contracts.Interfaces.Repositories
 	public interface IQuestionRepository
 	{
 		public Question GetById(Guid id);
+		public Question GetByName(string name);
 	}
 }

@@ -7,18 +7,20 @@ using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
 {
-    public class ReportsService : IReportService
-    {
-        private readonly ICategoryService _categoryService;
-        private readonly IEntryService _entryService;
-        private readonly IAnswerService _answerService;
+	public class ReportsService : IReportService
+	{
+		private readonly ICategoryService _categoryService;
+		private readonly IEntryService _entryService;
+		private readonly IAnswerService _answerService;
+		private readonly IQuestionService _questionService;
 
-        public ReportsService(ICategoryService categoryService, IEntryService entryService, IAnswerService answerService)
-        {
-            _categoryService = categoryService;
-            _entryService = entryService;
-            _answerService = answerService;
-        }
+		public ReportsService(ICategoryService categoryService, IEntryService entryService, IAnswerService answerService, IQuestionService questionService)
+		{
+			_categoryService = categoryService;
+			_entryService = entryService;
+			_answerService = answerService;
+			_questionService = questionService;
+		}
 
         public IEnumerable<GraphDto> GetGraphs(DateTime From, DateTime To)
         {
@@ -65,68 +67,98 @@ namespace SosCentar.BusinessLogic.Services
             return Graph;
         }
 
-        public IEnumerable<Table> GetTableReport()
-        {
-            IEnumerable<Contracts.Dtos.Categories.CategoryInfoDto> categoryInfoDtos = _categoryService.GetAll();
+        public IEnumerable<Table> GetTableReport(DateTime From, DateTime To)
+		{
+			var categoryInfoDtos = _categoryService.GetAll();
+			var dataHeading = new List<string>(categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Label));
+			dataHeading.Insert(0, "Kategorija");
 
-            List<string> headings = new List<string>(categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Label));
-            headings.Insert(0, "Kategorija");
+			var dataRows = new List<List<string>>
+			{
+				new List<string>
+				{
+					"Broj klijenata/kinja",
+				}
+			};
+			foreach (var item in categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Id))
+			{
+				var entriesCount = _entryService.GetAllForCategoryId(item, From, To).Count();
+				dataRows[0].Append(entriesCount.ToString());
+			}
 
-            TableRow firstTableRow = new TableRow
-            {
-                Headings = headings
-            };
+			var tableRow = CreateTableRow(dataHeading, dataRows);
+			var table = CreateTable("3.1. Broj klijentkinja i klijenata sa iskustvom nasilja po uslugama", new List<TableRow>
+			{
+				tableRow
+			});
+			// -----------------------------
 
-            List<string> row = new List<string>
-            {
-                "Broj klijenata/kinja",
-            };
-            foreach (Guid item in categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Id))
-            {
-                int entriesCount = _entryService.GetAllForCategoryId(item).Count();
-                row.Append(entriesCount.ToString());
-            }
+			var dataHeading2 = new List<string>();
+			var question = _questionService.GetByName("Odnos sa nasilnikom");
+			var answers = question.Answers;
 
-            firstTableRow.Data = new List<List<string>>
-            {
-                row
-            };
+			var firstDataHeading = new List<string>(answers.Select(answer => answer.Text));
+			firstDataHeading.Insert(0, "Kategorija");
 
-            Table firstTable = new Table
-            {
-                Title = "3.1. Broj klijentkinja i klijenata sa iskustvom nasilja po uslugama"
-            };
-            firstTable.Data = new List<TableRow>
-            {
-                firstTableRow
-            };
+			var firstDataRow = new List<string>
+			{
+				"Frekvencija"
+			};
 
-            headings = new List<string>
-            {
-                "Frekvencija"
-            };
+			var allEntries = _entryService.GetAllForQuestionName("Odnos sa nasilnikom", From, To);
+			var totalAnswerCount = 0;
+			foreach (var id in _answerService.GetAllIdsForQuestion(allEntries.FirstOrDefault()?.SubmitedAnswers.FirstOrDefault()?.Question))
+			{
+				var answerCount = allEntries.Where(entry => entry.SubmitedAnswers.Where(submitedAnswer => submitedAnswer.Answer.Id == id).Any()).Count();
+				firstDataRow.Add(answerCount.ToString());
+				totalAnswerCount += answerCount;
+			}
 
-            IEnumerable<Domain.Models.Entry> allEntries = _entryService.GetAllForQuestionName("Odnos sa nasilnikom");
-            int totalAnswerCount = 0;
-            foreach (Guid id in _answerService.GetAllIdsForQuestion(allEntries.FirstOrDefault()?.SubmitedAnswers.FirstOrDefault()?.Question))
-            {
-                int answerCount = allEntries.Where(entry => entry.SubmitedAnswers.Where(submitedAnswer => submitedAnswer.Answer.Id == id).Any()).Count();
-                headings.Add(answerCount.ToString());
-                totalAnswerCount += answerCount;
-            }
-            Table secondTable = new Table
-            {
-                Title = "3.2. Odnos žrtve sa nasilnikom"
-            };
-            secondTable.Data = new List<TableRow>
-            {
+			var secondDataRow = new List<string>
+			{
+				"Procenti"
+			};
 
-            };
+			for (int i = 1; i < firstDataRow.Count; i++)
+			{
+				secondDataRow.Add($"{(int.Parse(firstDataRow[i]) / (float)totalAnswerCount) * 100}%");
+			}
 
-            List<Table> tables = new List<Table>{
-                firstTable
-            };
-            return tables;
-        }
-    }
+			var allDataRows = new List<List<string>>
+			{
+				firstDataRow,
+				secondDataRow
+			};
+
+			var tableRow2 = CreateTableRow(firstDataHeading, allDataRows);
+			var table2 = CreateTable("3.2. Odnos žrtve sa nasilnikom", new List<TableRow>
+			{
+				tableRow2
+			});
+
+			return new List<Table>
+			{
+				table,
+				table2
+			};
+		}
+
+		private TableRow CreateTableRow(IEnumerable<string> dataHeading, IEnumerable<IEnumerable<string>> dataRows)
+		{
+			return new TableRow
+			{
+				Headings = dataHeading,
+				Data = dataRows
+			};
+		}
+
+		private Table CreateTable(string title, IEnumerable<TableRow> tableRows)
+		{
+			return new Table
+			{
+				Title = title,
+				Data = tableRows
+			};
+		}
+	}
 }
