@@ -1,4 +1,4 @@
-import React, { useContext, useCallback, useState } from 'react';
+import React, { useContext, useCallback, useState, useMemo } from 'react';
 import { useFetch } from './useFetch';
 import { useHistory } from 'react-router';
 
@@ -12,7 +12,7 @@ export function NewEntryContextProvider({ children }) {
   const history = useHistory();
   const [categoryData, setCategoryData] = useState();
 
-  const { sendRequest } = useFetch();
+  const { sendRequest, isLoading, isError, clearError } = useFetch();
 
   const initialize = useCallback(
     (selectedCategory) => {
@@ -25,13 +25,18 @@ export function NewEntryContextProvider({ children }) {
     [history, sendRequest],
   );
 
-  const submit = useCallback(() => {
+  const submit = useMemo(() => {
     const data = {};
-    sendRequest(`https://api.sos.sitesstage.com/api//entries`, {
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
-  }, [sendRequest]);
+    const send = () => {
+      clearError();
+      sendRequest(`https://api.sos.sitesstage.com/api//entries`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
+    };
+
+    return { send, isError, isLoading };
+  }, [sendRequest, isLoading, isError, clearError]);
 
   const questions = categoryData?.actionInfo || { questions: [] };
 

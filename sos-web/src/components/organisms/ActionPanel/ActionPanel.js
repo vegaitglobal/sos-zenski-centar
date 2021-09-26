@@ -25,20 +25,16 @@ export const ActionPanel = () => {
         ))}
       </StyledGrid>
       <StyledButtonHolder>
-        {
-          /*error*/ false && (
-            <Paragraph type="small">
-              Čuvanje nije uspelo. Pokušajte ponovo
-            </Paragraph>
-          )
-        }
-        {
-          /*isLoading*/ false ? (
-            <Loader />
-          ) : (
-            <Button onClick={submit}>Sačuvaj</Button>
-          )
-        }
+        {submit.isError && (
+          <Paragraph type="small">
+            Čuvanje nije uspelo. Pokušajte ponovo
+          </Paragraph>
+        )}
+        {submit.isLoading ? (
+          <Loader />
+        ) : (
+          <Button onClick={submit.send}>Sačuvaj</Button>
+        )}
       </StyledButtonHolder>
     </Accordion>
   );

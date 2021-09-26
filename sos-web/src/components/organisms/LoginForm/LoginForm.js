@@ -19,7 +19,7 @@ const LoginForm = () => {
     email: '',
     password: '',
   });
-  const { sendRequest, isLoading, error } = useFetch();
+  const { sendRequest, isLoading, isError } = useFetch();
   const history = useHistory();
 
   const handleSubmit = (event) => {
@@ -75,7 +75,7 @@ const LoginForm = () => {
             disabled={isLoading}
             required
           />
-          {error && (
+          {isError && (
             <LoginFail>
               Prijavljivanje neuspešno. Molimo pokušajte ponovo.
             </LoginFail>
