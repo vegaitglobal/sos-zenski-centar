@@ -1,5 +1,8 @@
 ﻿using SosCentar.Contracts.Interfaces.Repositories;
 using SosCentar.Domain.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SosCentar.DataAccess.Repositories
 {
@@ -17,5 +20,16 @@ namespace SosCentar.DataAccess.Repositories
 			_reportContext.Entries.Add(entry);
 			_reportContext.SaveChanges();
 		}
+
+		public IEnumerable<Entry> GetAll()
+		{
+			return _reportContext.Entries.AsEnumerable();
+		}
+		public IEnumerable<Entry> GetInRange(DateTime From, DateTime To)
+        {
+			return _reportContext.Entries.Where(Enntry => (From <= Enntry.Date && Enntry.Date <= To));
+
+		}
+
 	}
 }

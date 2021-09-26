@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeSpeed;
     font-family: 'Roboto';
     background: ${({ theme }) => theme.color.white};
-    color: ${({ theme }) => theme.color.black};
+    color: ${({ theme }) => theme.color.grey};
     margin: 0;
     padding: 0;
   }

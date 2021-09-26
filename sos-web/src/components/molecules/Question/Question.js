@@ -1,23 +1,30 @@
+import { useCallback } from 'react';
 import { useDataContext } from '../../../utils/store';
 import { Noop } from '../../atoms/Noop/Noop';
 import { Radio } from '../Radio/Radio';
+import { TextArea } from '../TextArea/TextArea';
 import { StyledQuestion, QuestionTitle } from './Question.styles';
 
-export const Question = ({
-  label,
-  id,
-  options,
-  condition,
-  children,
-  ...props
-}) => {
+export const Question = ({ label, id, options, condition, ...props }) => {
   const { data, setData } = useDataContext();
 
-  const handleOnChange = ({ target }) => {
-    setData({
-      [id]: target.value,
-    });
-  };
+  const handleOnChange = useCallback(
+    ({ target }) => {
+      setData({
+        [id]: target.value,
+      });
+    },
+    [id, setData],
+  );
+
+  const handleTextareChange = useCallback(
+    ({ target }) => {
+      setData({
+        description: target.value,
+      });
+    },
+    [setData],
+  );
 
   if (
     data?.[condition?.questionId] !== condition?.anaswerId &&
@@ -29,6 +36,9 @@ export const Question = ({
   return (
     <StyledQuestion {...props}>
       <QuestionTitle>{label}</QuestionTitle>
+      {options.length === 0 && (
+        <TextArea value={data?.description} onChange={handleTextareChange} />
+      )}
       {options.map(({ id: optionId, label: optionLabel }) => (
         <Radio
           key={optionId}

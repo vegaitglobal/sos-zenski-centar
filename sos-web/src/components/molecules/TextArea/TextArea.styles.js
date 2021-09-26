@@ -1,8 +1,10 @@
-import { rgba } from 'polished';
 import styled from 'styled-components';
+import { theme } from '../../../styles/config/theme';
+import { typeStyle } from '../../../styles/config/typeStyles';
 
 export const StyledTextArea = styled.textarea`
-  box-shadow: 0px 1px 10px ${({ theme }) => rgba(theme.color.black, 0.3)};
+  ${typeStyle.medium};
+  box-shadow: ${theme.boxShadow.default};
   background-color: ${({ theme }) => theme.color.pinkLight};
   color: ${({ theme }) => theme.color.purple};
   padding: 20px 30px;
@@ -10,6 +12,5 @@ export const StyledTextArea = styled.textarea`
   border: none;
   outline: none;
   width: 100%;
-  min-height: 50px;
   resize: vertical;
 `;

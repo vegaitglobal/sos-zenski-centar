@@ -20,10 +20,12 @@ const animation = {
 export const Accordion = ({
   title,
   children,
+  isReverse,
+  isClickable = true,
   defaultOpened = false,
   ...props
 }) => {
-  const [expanded, setExpanded] = useState(defaultOpened);
+  const [expanded, setExpanded] = useState(!isClickable ? true : defaultOpened);
 
   const handleOnClick = useCallback(() => {
     setExpanded(!expanded);
@@ -31,9 +33,15 @@ export const Accordion = ({
 
   return (
     <StyledAccordion {...props}>
-      <StyledTop $isOpened={expanded} onClick={handleOnClick}>
+      <StyledTop
+        $isOpened={expanded}
+        onClick={isClickable ? handleOnClick : () => null}
+        as={isClickable ? 'button' : 'div'}
+      >
         <Heading>{title}</Heading>
-        <StyledIcon $isOpened={expanded} />
+        {isClickable && (
+          <StyledIcon $isOpened={expanded} $isReverse={isReverse} />
+        )}
       </StyledTop>
       <StyledContent {...animation} animate={expanded ? 'open' : 'collapsed'}>
         {children}
