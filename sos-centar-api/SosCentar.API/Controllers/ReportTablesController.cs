@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SosCentar.Contracts.Dtos.ReportTables;
 using SosCentar.Contracts.Interfaces.Services;
+using System;
 using System.Collections.Generic;
 
 namespace SosCentar.API.Controllers
@@ -17,9 +18,9 @@ namespace SosCentar.API.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult<IEnumerable<Table>> Get()
+		public ActionResult<IEnumerable<Table>> Get([FromQuery(Name = "from")] DateTime From, [FromQuery(Name = "to")] DateTime To)
 		{
-			return Ok(_reportService.GetTableReport());
+			return Ok(_reportService.GetTableReport(From, To));
 		}
 	}
 }
