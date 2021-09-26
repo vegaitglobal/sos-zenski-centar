@@ -51,18 +51,23 @@ namespace SosCentar.BusinessLogic.Services
             _entryRepository.Create(entry);
         }
 
-		public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId)
-		{
+        public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId)
+        {
             return _entryRepository.GetAll().Where(entry => entry.Category.Id == categoryId);
-		}
+        }
 
-		public IEnumerable<Entry> GetAllForQuestionName(string questionName)
-		{
+        public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId, DateTime from, DateTime to)
+        {
+            return _entryRepository.GetAll().Where(entry => entry.Category.Id == categoryId && entry.Date >= from && entry.Date <= to);
+        }
+
+        public IEnumerable<Entry> GetAllForQuestionName(string questionName)
+        {
             return _entryRepository
                 .GetAll()
                 .Where(entry => entry.SubmitedAnswers
                     .Where(submittedAnswer => submittedAnswer.Question.Text == questionName)
                         .Any());
-		}
-	}
+        }
+    }
 }

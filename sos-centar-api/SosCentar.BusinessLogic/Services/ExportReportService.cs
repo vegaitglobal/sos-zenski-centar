@@ -22,47 +22,51 @@ namespace SosCentar.BusinessLogic.Services
             XWPFRun r0 = para0.CreateRun();
             r0.SetText("1. Opšti podaci");
 
-            XWPFParagraph para1 = doc.CreateParagraph();
-            XWPFRun r1 = para1.CreateRun();
-            r1.SetText("1.1. Broj korisnika/ca po uslugama");
-            XWPFTable table1 = doc.CreateTable(2, 2);
-            table1.GetRow(0).GetCell(0).SetText("0 0");
-            table1.GetRow(0).GetCell(1).SetText("0 1");
-            table1.GetRow(1).GetCell(0).SetText("1 0");
-            table1.GetRow(1).GetCell(1).SetText("1 1");
+            var usersCountCategory = _exportPreparationService.GetUsersCountCategory(from, to);
+            InsertOneBullet(doc, usersCountCategory, "1.1. Broj korisnika/ca po uslugama");
 
-            XWPFParagraph para2 = doc.CreateParagraph();
-            XWPFRun r2 = para2.CreateRun();
-            r2.SetText("1.2. Broj korisnika/ca po polu");
-            XWPFTable table2 = doc.CreateTable(2, 2);
-            table2.GetRow(0).GetCell(0).SetText("0 0");
-            table2.GetRow(0).GetCell(1).SetText("0 1");
-            table2.GetRow(1).GetCell(0).SetText("1 0");
-            table2.GetRow(1).GetCell(1).SetText("1 1");
+            var usersCountPerSexPerCategory = _exportPreparationService.GetUsersCountPerSexPerCategory(from, to);
+            InsertOneBullet(doc, usersCountPerSexPerCategory, "1.2. Broj korisnika/ca po polu");
 
-            XWPFParagraph para3 = doc.CreateParagraph();
-            XWPFRun r3 = para3.CreateRun();
-            r3.SetText("1.3. Broj korisnika/ca po uzrastu");
-            XWPFTable table3 = doc.CreateTable(2, 2);
-            table3.GetRow(0).GetCell(0).SetText("0 0");
-            table3.GetRow(0).GetCell(1).SetText("0 1");
-            table3.GetRow(1).GetCell(0).SetText("1 0");
-            table3.GetRow(1).GetCell(1).SetText("1 1");
+            var usersCountPerAgePerCategory = _exportPreparationService.GetUsersCountPerAgePerCategory(from, to);
+            InsertOneBullet(doc, usersCountPerAgePerCategory, "1.3. Broj korisnika/ca po uzrastu");
 
-            XWPFParagraph para4 = doc.CreateParagraph();
-            XWPFRun r4 = para4.CreateRun();
-            r4.SetText("1.4. Broj klijenata i klijentkinja  iz marginalizovanih grupa");
-            XWPFTable table4 = doc.CreateTable(2, 2);
-            table4.GetRow(0).GetCell(0).SetText("0 0");
-            table4.GetRow(0).GetCell(1).SetText("0 1");
-            table4.GetRow(1).GetCell(0).SetText("1 0");
-            table4.GetRow(1).GetCell(1).SetText("1 1");
-
+            var usersCountPerMarginalizedGroup = _exportPreparationService.GetUsersCountPerMarginalizedGroup(from, to);
+            InsertOneBullet(doc, usersCountPerMarginalizedGroup, "1.4. Broj klijenata i klijentkinja  iz marginalizovanih grupa");
 
             MemoryStream outStream = new MemoryStream();
             doc.Write(outStream);
 
             return outStream.ToArray();
+        }
+
+        private static void InsertOneBullet(XWPFDocument doc, string[,] usersCountCategory, string usersCountCategoryBullet)
+        {
+            XWPFParagraph para1 = doc.CreateParagraph();
+            XWPFRun r1 = para1.CreateRun();
+            r1.SetText(usersCountCategoryBullet);
+            InsertTable(doc, usersCountCategory);
+        }
+
+        private static void InsertTable(XWPFDocument doc, string[,] data)
+        {
+            var rowCount = data.GetLength(0);
+            var colCount = data.GetLength(1);
+
+            if (rowCount == 0 || colCount == 0)
+            {
+                return;
+            }
+
+            XWPFTable table = doc.CreateTable(rowCount, colCount);
+
+            for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
+            {
+                for (var colIndex = 0; colIndex < colCount; colIndex++)
+                {
+                    table.GetRow(rowIndex).GetCell(colIndex).SetText(data[rowIndex, colIndex]);
+                }
+            }
         }
     }
 }
