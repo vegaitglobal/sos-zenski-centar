@@ -47,6 +47,7 @@ export const StyledIcon = styled(Icon.ArrowDown)`
 `;
 
 export const StyledContent = styled(motion.div)`
+  position: relative;
   height: 0;
   overflow: hidden;
   padding-left: 30px;
