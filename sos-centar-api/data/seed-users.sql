@@ -1,12 +1,4 @@
-﻿CREATE TABLE IF NOT EXISTS "Users"
-(
-	"Id" uuid NOT NULL,
-	"Email" text,
-	"FirstName" text,
-	"LastName" text,
-	"Password" text
-);
-INSERT INTO "Users" (
+﻿INSERT INTO "Users" (
 	"Id",
 	"Email",
     "FirstName",
@@ -285,4 +277,7 @@ VALUES
 		'Zorica',
 		'Pajantić',
 		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
-	)
+	);
+
+
+

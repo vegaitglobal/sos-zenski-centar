@@ -208,8 +208,10 @@ namespace SosCentar.DataAccess.Migrations
                 column: "QuestionId");
 
 
-            var sqlFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"seed-data.sql");
-            migrationBuilder.Sql(File.ReadAllText(sqlFile));
+            var sqlUser = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-users.sql");
+            migrationBuilder.Sql(File.ReadAllText(sqlUser));
+            var sqlCategory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-categories.sql");
+            migrationBuilder.Sql(File.ReadAllText(sqlCategory));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
