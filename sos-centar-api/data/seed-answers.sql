@@ -48,7 +48,6 @@ VALUES
         "2",
         "b188cc90-2ee8-4762-a7c8-7da452ecf1cb"
     ),
-<<<<<<< HEAD
     (
         "2d8ec695-22f8-4459-a3fa-8799e74d2db8",
         "Drugi put",
@@ -1522,5 +1521,3 @@ VALUES
         "50",
         "57029a5a-a9e3-421b-a805-d44907f26ce8"
     ),
-=======
->>>>>>> c57f65a11b6dccc0f7c46c6927a918bbcef19f54
