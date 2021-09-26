@@ -235,11 +235,10 @@ export const FormsLayout = () => {
   const handleSubmit = () => {
     clearError();
 
-    const headers = {
-      Authorization: `Bearer ${getToken()}`,
-    };
-
-    sendRequest(`${BASE_URL}/entries`, 'POST', headers, JSON.stringify(data));
+    sendRequest(`${BASE_URL}/entries`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
   };
 
   console.log(error);

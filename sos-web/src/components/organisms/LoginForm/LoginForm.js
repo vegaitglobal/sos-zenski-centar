@@ -24,16 +24,11 @@ const LoginForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    var headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    };
-    sendRequest(
-      'https://api.sos.sitesstage.com/api/Users/login',
-      'POST',
-      headers,
-      JSON.stringify(form),
-    )
+
+    sendRequest('https://api.sos.sitesstage.com/api/Users/login', {
+      method: 'POST',
+      body: JSON.stringify(form),
+    })
       .then((response) => {
         localStorage.setItem('token', `Bearer ${response.accessToken}`);
         localStorage.setItem('email', response.email);

@@ -11,12 +11,15 @@ export const useFetch = () => {
   const activeHttpRequests = useRef([]);
 
   const sendRequest = useCallback(
-    async (url, method = 'GET', headers = {}, body = null) => {
+    async (url, options = { method: 'GET', headers: {}, body: null }) => {
+      const { method, headers, body } = options;
       setIsLoading(true);
       const abortController = new AbortController();
       activeHttpRequests.current.push(abortController);
       try {
         const reqHeaders = new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
           Authorization: localStorage.getItem('token'),
           ...headers,
         });
