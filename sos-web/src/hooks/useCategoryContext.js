@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useFetch } from './useFetch';
 
 const CategoryContext = React.createContext();
 
@@ -10,20 +11,19 @@ export function CategoryContextProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState();
 
-  const initialize = async () => defaultValues;
+  const { sendRequest } = useFetch();
 
   useEffect(() => {
-    initialize().then((data) => setCategories(data));
-  }, []);
+    sendRequest('https://api.sos.sitesstage.com/api/Categories').then((data) =>
+      setCategories(data),
+    );
+  }, [sendRequest]);
 
   return (
     <CategoryContext.Provider
       value={{
         categories,
-        selectCategory: (c) => {
-          setSelectedCategory(c);
-          console.log(c);
-        },
+        selectCategory: setSelectedCategory,
         selectedCategory,
       }}
     >
@@ -31,26 +31,3 @@ export function CategoryContextProvider({ children }) {
     </CategoryContext.Provider>
   );
 }
-
-const defaultValues = [
-  {
-    label: 'Konsultacije SOS telefonom',
-    value: 'sos-telefon',
-  },
-  {
-    label: 'Individualno-psihološko savetovanje',
-    value: '-ndividualno-psihološko-savetovanje',
-  },
-  {
-    label: 'Omladinsko savetovanje',
-    value: 'omladinsko-savetovanje',
-  },
-  {
-    label: 'Konsultacije preko poruka',
-    value: 'konsultacije-preko-poruka',
-  },
-  {
-    label: 'Pravna pomoć',
-    value: 'pravna-pomoc',
-  },
-];
