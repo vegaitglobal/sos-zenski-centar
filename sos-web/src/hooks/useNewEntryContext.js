@@ -37,7 +37,7 @@ export function NewEntryContextProvider({ children }) {
         if (obj !== 'description') {
           mapAnswers.push({
             questionId: obj,
-            answerId: test[obj],
+            answerId: data[obj],
           });
         }
       }
@@ -56,7 +56,7 @@ export function NewEntryContextProvider({ children }) {
     };
 
     return { send, isError, isLoading };
-  }, [sendRequest, isLoading, isError, clearError]);
+  }, [sendRequest, isLoading, isError, clearError, data, selectedCategory.id]);
 
   const questions = categoryData?.actionInfo || { questions: [] };
 
