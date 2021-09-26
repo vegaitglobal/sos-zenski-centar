@@ -527,6 +527,46 @@ VALUES
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
 		'media/icons/no-icon.svg'
 	),
+	(
+		'57b60f4f-cfce-4a22-bc1b-7425de245101',
+		'Broj ročišta',
+		'1',
+		'1',
+		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'535f5f65-9804-40f1-a024-f8bfba86c90d',
+		'Broj ročišta',
+		'2',
+		'1',
+		'cb428035-1089-4026-a39b-925560ab6615',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'cf30c909-e9c2-43a8-9f14-5f2b6559faaa',
+		'Broj ročišta',
+		'3',
+		'1',
+		'0da678bd-9110-4dad-97cf-a531ceef1622',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'67112a8a-2427-4d5e-8bd3-0eb712b9fedf',
+		'Broj ročišta',
+		'4',
+		'1',
+		'7875c455-6ac9-4daa-a75b-761b0845449c',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'c03c7e16-7b53-4ed0-9f6e-a544c43f47a6',
+		'Broj ročišta',
+		'5',
+		'1',
+		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
+		'media/icons/no-icon.svg'
+	),
 	-----------------------------------------------CONDITIONAL DA LI JE BILO SUDJENJA
 	(
 		'56017f27-5b1c-403c-9d56-81d4a46d991f',
