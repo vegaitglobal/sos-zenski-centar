@@ -4,10 +4,16 @@ import { Button } from '../../molecules/Button/Button';
 import { StyledGrid } from './DownloadReportContent.styles';
 
 export const DownloadReport = () => {
-  const [date, setDate] = useState(new Date().toISOString());
+  const [date, setDate] = useState({
+    start: '',
+    end: '',
+  });
 
-  const handleOnChange = (event) => {
-    setDate(event.target.value);
+  const handleOnChange = ({ target }) => {
+    setDate((previousState) => ({
+      ...previousState,
+      [target.name]: target.value,
+    }));
   };
 
   return (
@@ -16,8 +22,18 @@ export const DownloadReport = () => {
         <Button>Prošli mesec</Button>
       </div>
       <div>
-        <DatePicker label="Od:" value={date} onChange={handleOnChange} />
-        <DatePicker label="Do:" value={date} onChange={handleOnChange} />
+        <DatePicker
+          label="Od:"
+          name="start"
+          value={date.start}
+          onChange={handleOnChange}
+        />
+        <DatePicker
+          label="Do:"
+          name="end"
+          value={date.end}
+          onChange={handleOnChange}
+        />
         <Button>Izaberi</Button>
       </div>
       <div>
