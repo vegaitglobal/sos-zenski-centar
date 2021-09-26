@@ -78,35 +78,35 @@ VALUES
 	),
 	(
 		'1989aa54-17bb-4361-8d0d-e954078ed2e0',
-		'Na koji SOS broj zove',
+		'Na koji SOS broj zove?',
 		'1',
 		'1',
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2'
 	),
 	(
 		'936e807a-dccd-44e7-860b-e990f40fc0c9',
-		'Na koji SOS broj zove',
+		'Na koji SOS broj zove?',
 		'2',
 		'1',
 		'cb428035-1089-4026-a39b-925560ab6615'
 	),
 	(
 		'aa048704-c348-4240-8388-3e683afb02b8',
-		'Na koji SOS broj zove',
+		'Na koji SOS broj zove?',
 		'3',
 		'1',
 		'0da678bd-9110-4dad-97cf-a531ceef1622'
 	),
 	(
 		'6226427d-f7ad-4099-9346-8625758e403b',
-		'Na koji SOS broj zove',
+		'Na koji SOS broj zove?',
 		'4',
 		'1',
 		'7875c455-6ac9-4daa-a75b-761b0845449c'
 	),
 	(
 		'1153aa22-60ae-4719-8051-4f9ef3dd454d',
-		'Na koji SOS broj zove',
+		'Na koji SOS broj zove?',
 		'5',
 		'1',
 		'64f02514-cac6-4563-b1b7-954743c7c05f'
@@ -745,35 +745,35 @@ VALUES
 	),
 	(
 		'1d1a4ab5-79a9-44b7-a9a6-00d4da667d58',
-		'Pripadnost marginalitovanim grupama',
+		'Pripadnost marginalizovanim grupama',
 		'1',
 		'1',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f'
 	),
 	(
 		'b8ee36c3-bcad-4b5a-b387-236d2dc40e2b',
-		'Pripadnost marginalitovanim grupama',
+		'Pripadnost marginalizovanim grupama',
 		'2',
 		'1',
 		'393de121-fcff-4932-bb46-606e4509a302'
 	),
 	(
 		'406c8020-6f73-4836-b261-e6a10e1f2144',
-		'Pripadnost marginalitovanim grupama',
+		'Pripadnost marginalizovanim grupama',
 		'3',
 		'1',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc'
 	),
 	(
 		'81fabbd7-1381-4c08-946a-bc4ba22d391b',
-		'Pripadnost marginalitovanim grupama',
+		'Pripadnost marginalizovanim grupama',
 		'4',
 		'1',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4'
 	),
 	(
 		'52a7bf4b-277e-4f42-aa71-e0d7e7fee47c',
-		'Pripadnost marginalitovanim grupama',
+		'Pripadnost marginalizovanim grupama',
 		'5',
 		'1',
 		'a8e718f6-6832-4e57-b387-3349a99cce32'
