@@ -35,8 +35,7 @@ namespace SosCentar.Api
                 {
                     builder.AllowAnyOrigin()
                         .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
+                        .AllowAnyMethod();
                 });
             });
             services.AddControllers();
