@@ -1,6 +1,7 @@
 ﻿using SosCentar.Contracts.Interfaces.Repositories;
 using SosCentar.Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SosCentar.DataAccess.Repositories
@@ -19,9 +20,9 @@ namespace SosCentar.DataAccess.Repositories
 			return _reportContext.Questions.FirstOrDefault(question => question.Id == id);
 		}
 
-		public Question GetByName(string name)
+		public IEnumerable<Question> GetByName(string name)
 		{
-			return _reportContext.Questions.FirstOrDefault(question => question.Text == name);
+			return _reportContext.Questions.Where(question => question.Text == name);
 		}
 	}
 }
