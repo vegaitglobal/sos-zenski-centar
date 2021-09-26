@@ -35,10 +35,13 @@ namespace SosCentar.BusinessLogic.Services
             {
                 var answer = _answerService.GetById(item.AnswerId);
                 var question = _questionService.GetById(item.QuestionId);
+                if (question is null)
+                {
+                    throw new ValidationException($"Question {item.QuestionId} does not exists");
+                }
                 if (question.IsRequired && answer is not null)
                 {
                     throw new ValidationException($"{question.Text} is not answered");
-
                 }
                 submitedAnswers.Add(new SubmitedAnswer() { Answer = answer, Question = question });
             }
@@ -49,5 +52,11 @@ namespace SosCentar.BusinessLogic.Services
 
             _entryRepository.Create(entry);
         }
+
+        public IEnumerable<Entry> GetInRange(DateTime From, DateTime To)
+        {
+            return _entryRepository.GetInRange(From, To);
+        }
+
     }
 }
