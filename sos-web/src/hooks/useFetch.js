@@ -16,9 +16,14 @@ export const useFetch = () => {
       const abortController = new AbortController();
       activeHttpRequests.current.push(abortController);
       try {
+        const reqHeaders = new Headers({
+          Authorization: localStorage.getItem('token'),
+          ...headers,
+        });
+
         const response = await fetch(url, {
           method,
-          headers,
+          headers: reqHeaders,
           body,
           signal: abortController.signal,
         });
