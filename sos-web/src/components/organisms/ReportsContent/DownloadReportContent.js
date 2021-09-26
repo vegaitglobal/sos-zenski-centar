@@ -1,25 +1,65 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { BASE_URL, useFetch } from '../../../hooks/useFetch';
+import { getLastMonth } from '../../../utils/date';
+import { useDataContext } from '../../../utils/store';
 import { DatePicker } from '../../atoms/DatePicker/DatePicker';
 import { Button } from '../../molecules/Button/Button';
 import { StyledGrid } from './DownloadReportContent.styles';
 
 export const DownloadReport = () => {
+  const { setData } = useDataContext();
+  const { sendRequest, isLoading } = useFetch();
   const [date, setDate] = useState({
     start: '',
     end: '',
   });
 
-  const handleOnChange = ({ target }) => {
+  const fetchGraphs = useCallback(
+    async (start = date.start, end = date.end) => {
+      const { firstDay, lastDay } = getLastMonth();
+
+      const response = await sendRequest(
+        `${BASE_URL}/ReportGraphs?from=${start || firstDay}&to=${
+          end || lastDay
+        }`,
+      );
+
+      setData({
+        charts: response,
+      });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [sendRequest, date.start, date.end],
+  );
+
+  const handleOnChange = useCallback(({ target }) => {
     setDate((previousState) => ({
       ...previousState,
       [target.name]: target.value,
     }));
-  };
+  }, []);
+
+  const handleCustomDate = useCallback(() => {
+    fetchGraphs();
+  }, [fetchGraphs]);
+
+  const handleLastMonth = useCallback(() => {
+    const { firstDay, lastDay } = getLastMonth();
+
+    fetchGraphs(firstDay, lastDay);
+  }, [fetchGraphs]);
+
+  useEffect(() => {
+    fetchGraphs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <StyledGrid>
       <div>
-        <Button>Prošli mesec</Button>
+        <Button disabled={isLoading} onClick={handleLastMonth}>
+          Prošli mesec
+        </Button>
       </div>
       <div>
         <DatePicker
@@ -34,7 +74,9 @@ export const DownloadReport = () => {
           value={date.end}
           onChange={handleOnChange}
         />
-        <Button>Izaberi</Button>
+        <Button disabled={isLoading} onClick={handleCustomDate}>
+          Izaberi
+        </Button>
       </div>
       <div>
         <Button>Download</Button>
