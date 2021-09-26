@@ -1,6 +1,7 @@
 ﻿using SosCentar.Contracts.Dtos.ReportGraph;
 using SosCentar.Contracts.Dtos.ReportTables;
 using SosCentar.Contracts.Interfaces.Services;
+using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,9 +73,10 @@ namespace SosCentar.BusinessLogic.Services
         {
 			Dictionary<string, int> cache = new Dictionary<string, int>();
 			var dto = new GraphDto();
-			var questionText = "Pripadnost marginalitovanim grupama";
-			var questions = _questionService.GetByName(questionText);
-			foreach (var answer in questions.First().Answers)
+			var questionText = "Pripadnost marginalizovanim grupama";
+			dto.Label = questionText;
+			var questions = _questionService.GetByName(questionText).ToList();
+			foreach (var answer in questions?.First()?.Answers ?? new List<Answer>())
             {
 				cache[answer.Text] = 0;
             }
