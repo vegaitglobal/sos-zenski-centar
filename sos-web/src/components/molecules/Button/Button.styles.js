@@ -13,4 +13,10 @@ export const StyledButton = styled.button`
   color: ${color.greyLightest};
   background-color: ${color.purple};
   border-radius: 8px;
+  transition: opacity 0.2ms ease-in-out;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;

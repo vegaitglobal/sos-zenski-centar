@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SosCentar.DataAccess.Migrations
@@ -14,6 +15,9 @@ namespace SosCentar.DataAccess.Migrations
                 nullable: true,
                 oldClrType: typeof(Guid),
                 oldType: "uuid");
+            
+            var answersNasilje = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-answers.sql");
+            migrationBuilder.Sql(File.ReadAllText(answersNasilje));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

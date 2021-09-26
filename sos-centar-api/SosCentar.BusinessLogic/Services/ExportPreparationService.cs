@@ -61,7 +61,7 @@ namespace SosCentar.BusinessLogic.Services
             var entries = _entryService.GetAllForQuestionName(questionText, from, to);
             var categoryNames = entries.Select(entry => entry.Category.Name).Distinct().ToArray();
 
-            var question = _questionService.GetByName(questionText);
+            var question = _questionService.GetByName(questionText).FirstOrDefault();
             Console.WriteLine(question?.Id);
             Console.WriteLine(question?.Answers);
             var answers = question.Answers.ToArray();

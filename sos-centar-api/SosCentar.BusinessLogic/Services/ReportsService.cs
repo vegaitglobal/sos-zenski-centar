@@ -1,6 +1,7 @@
 ﻿using SosCentar.Contracts.Dtos.ReportGraph;
 using SosCentar.Contracts.Dtos.ReportTables;
 using SosCentar.Contracts.Interfaces.Services;
+using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,50 +25,96 @@ namespace SosCentar.BusinessLogic.Services
 
         public IEnumerable<GraphDto> GetGraphs(DateTime From, DateTime To)
         {
-            GraphDto FirstGraph = _getFirstGraph(From, To);
+            GraphDto firstGraph = _getFirstGraph(From, To);
+			GraphDto secondGraph = _getSecondGraph(From, To);
             List<GraphDto> RetList = new List<GraphDto>
             {
-                FirstGraph
-            };
+				firstGraph, secondGraph
+			};
             return RetList;
         }
 
         private GraphDto _getFirstGraph(DateTime From, DateTime To)
         {
-            Dictionary<string, int> Cache = new Dictionary<string, int>();
-            GraphDto Graph;
-            IEnumerable<Contracts.Dtos.Categories.CategoryInfoDto> Categories = _categoryService.GetAll();
-            Graph = new GraphDto
+            Dictionary<string, int> cache = new Dictionary<string, int>();
+            GraphDto graph;
+            IEnumerable<Contracts.Dtos.Categories.CategoryInfoDto>categories = _categoryService.GetAll();
+            graph = new GraphDto
             {
                 Label = "Broj korisnika/ca po uslugama"
             };
-            foreach (Contracts.Dtos.Categories.CategoryInfoDto Category in Categories)
+            foreach (Contracts.Dtos.Categories.CategoryInfoDto category in categories)
             {
-                Cache.Add(Category.Label, 0);
+                cache.Add(category.Label, 0);
             }
 
-            IEnumerable<Domain.Models.Entry> Entries = _entryService.GetInRange(From, To);
-            foreach (Domain.Models.Entry Entry in Entries)
+            IEnumerable<Domain.Models.Entry> entries = _entryService.GetInRange(From, To);
+            foreach (Domain.Models.Entry entry in entries)
             {
-                int OldCount = Cache[Entry.Category.Name];
+                int OldCount = cache[entry.Category.Name];
                 int NewCount = OldCount + 1;
-                Cache[Entry.Category.Name] = NewCount;
+                cache[entry.Category.Name] = NewCount;
             }
-            List<GraphSliceDto> Data = new List<GraphSliceDto>();
-            foreach (KeyValuePair<string, int> Item in Cache)
+            List<GraphSliceDto> data = new List<GraphSliceDto>();
+            foreach (KeyValuePair<string, int> Item in cache)
             {
                 GraphSliceDto Dto = new GraphSliceDto
                 {
                     Label = Item.Key,
                     Level = Item.Value.ToString()
                 };
-                Data.Add(Dto);
+                data.Add(Dto);
             }
-            Graph.Data = Data;
-            return Graph;
+            graph.Data = data;
+            return graph;
         }
 
-        public IEnumerable<Table> GetTableReport(DateTime From, DateTime To)
+		private GraphDto _getSecondGraph(DateTime From, DateTime To)
+        {
+			Dictionary<string, int> cache = new Dictionary<string, int>();
+			var dto = new GraphDto();
+			var questionText = "Pripadnost marginalizovanim grupama";
+			dto.Label = questionText;
+			var questions = _questionService.GetByName(questionText).ToList();
+			foreach (var answer in questions?.First()?.Answers ?? new List<Answer>())
+            {
+				cache[answer.Text] = 0;
+            }
+
+			var allEntries = _entryService.GetAllForQuestionName(questionText, From, To);
+			foreach (var entry in allEntries)
+            {
+				foreach (var submitedAnswer in entry.SubmitedAnswers)
+                {
+					if (submitedAnswer.Question.Text == questionText)
+					{
+						var text = submitedAnswer.Answer.Text;
+						int OldCount = cache[text];
+						int NewCount = OldCount + 1;
+						cache[text] = NewCount;
+					}
+
+				}
+            }
+
+			List<GraphSliceDto> data = new List<GraphSliceDto>();
+			foreach (KeyValuePair<string, int> item in cache)
+			{
+				GraphSliceDto Dto = new GraphSliceDto
+				{
+					Label = item.Key,
+					Level = item.Value.ToString()
+				};
+				data.Add(Dto);
+			}
+			dto.Data = data;
+			return dto;
+
+		}
+
+
+
+		public IEnumerable<Table> GetTableReport(DateTime From, DateTime To)
 		{
 			var categoryInfoDtos = _categoryService.GetAll();
 			var dataHeading = new List<string>(categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Label));
@@ -94,7 +141,8 @@ namespace SosCentar.BusinessLogic.Services
 			// -----------------------------
 
 			var dataHeading2 = new List<string>();
-			var question = _questionService.GetByName("Odnos sa nasilnikom");
+			var questions = _questionService.GetByName("Odnos sa nasilnikom");
+			var question = questions.First();
 			var answers = question.Answers;
 
 			var firstDataHeading = new List<string>(answers.Select(answer => answer.Text));

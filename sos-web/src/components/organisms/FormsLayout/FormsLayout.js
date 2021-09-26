@@ -52,7 +52,7 @@ export const categoryData = {
       condition: null,
     },
     {
-      id: 'neki-treci',
+      id: 'neki-treci1',
       icon: 'any',
       label: 'Treci Opis Problema',
       options: [
@@ -75,7 +75,7 @@ export const categoryData = {
       },
     },
     {
-      id: 'neki-treci',
+      id: 'neki-treci2',
       icon: 'any',
       label: 'Treci Opis Problema',
       options: [
@@ -98,7 +98,7 @@ export const categoryData = {
       },
     },
     {
-      id: 'neki-treci',
+      id: 'neki-treci3',
       icon: 'any',
       label: 'Treci Opis Problema',
       options: [

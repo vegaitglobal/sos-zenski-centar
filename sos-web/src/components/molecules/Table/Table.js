@@ -8,23 +8,28 @@ import {
   TableCell,
 } from './Table.styles';
 
-export const Table = ({ title, rows, array, children, ...props }) => {
+export const Table = ({ title, tableData, children }) => {
+  const { headings, data } = tableData[0] ?? [];
+
   return (
     <StyledTable>
       <TableHeading>
         <TableRow>
-          <TableHead colSpan={array.length + 1}>
+          <TableHead colSpan={headings.length + 1}>
             <TableTitle>{title}</TableTitle>
           </TableHead>
         </TableRow>
       </TableHeading>
       <TableContent>
-        {rows.map(({ text, value }, index) => (
-          <TableRow key={index}>
-            <TableCell>{text}</TableCell>
-            {array.map((item, index) => (
-              // TODO key
-              <TableCell key={index}>{item[value]}</TableCell>
+        <TableRow>
+          {headings?.map((heading) => (
+            <TableCell key={heading}>{heading}</TableCell>
+          ))}
+        </TableRow>
+        {data.map((row) => (
+          <TableRow key={row}>
+            {row.map((tableData) => (
+              <TableCell key={tableData}>{tableData}</TableCell>
             ))}
           </TableRow>
         ))}
