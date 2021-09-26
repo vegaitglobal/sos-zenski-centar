@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useCallback, useState } from 'react';
+import React, { useContext, useCallback, useState } from 'react';
 import { useFetch } from './useFetch';
 import { useHistory } from 'react-router';
 
@@ -10,7 +10,7 @@ export function useNewEntryContext() {
 
 export function NewEntryContextProvider({ children }) {
   const history = useHistory();
-  const [categoryData, setCategoryData] = useState({});
+  const [categoryData, setCategoryData] = useState();
 
   const { sendRequest } = useFetch();
 
@@ -20,13 +20,31 @@ export function NewEntryContextProvider({ children }) {
 
       sendRequest(
         `https://api.sos.sitesstage.com/api/Categories/${selectedCategory.id}`,
-      ).then((data) => setCategoryData({ ...data, selectedCategory }));
+      ).then(setCategoryData);
     },
     [history, sendRequest],
   );
 
+  const submit = useCallback(() => {
+    const data = {};
+    sendRequest(`https://api.sos.sitesstage.com/api//entries`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  }, [sendRequest]);
+
+  const questions = categoryData?.actionInfo || { questions: [] };
+
   return (
-    <NewEntryContext.Provider value={{ initialize, categoryData }}>
+    <NewEntryContext.Provider
+      value={{
+        submit,
+        initialize,
+        actionInfo: questions,
+        callerInfo: questions,
+        serviceInfo: questions,
+      }}
+    >
       {children}
     </NewEntryContext.Provider>
   );
