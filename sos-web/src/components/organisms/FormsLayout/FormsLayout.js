@@ -1,4 +1,9 @@
+import { BASE_URL, useFetch } from '../../../hooks/useFetch';
 import { color } from '../../../styles/config/theme';
+import { getToken } from '../../../utils/isAuthenticated';
+import { useDataContext } from '../../../utils/store';
+import { Loader } from '../../atoms/Loader/Loader';
+import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import { Accordion } from '../../molecules/Accordion/Accordion';
 import { Categories } from '../Categories/Categories';
 import { ClientInfo } from '../ClientInfo/ClientInfo';
@@ -9,6 +14,8 @@ import {
   StyledAccordion,
   StyledQuestion,
   StyledGrid,
+  StyledButton,
+  StyledButtonHolder,
   // StyledNoResults,
   // StyledHeading,
 } from './FormsLayout.styles';
@@ -215,6 +222,21 @@ export const categoryData = {
 };
 
 export const FormsLayout = () => {
+  const { data } = useDataContext();
+  const { sendRequest, isLoading, error, clearError } = useFetch();
+
+  const handleSubmit = () => {
+    clearError();
+
+    const headers = {
+      Authorization: `Bearer ${getToken()}`,
+    };
+
+    sendRequest(`${BASE_URL}/entries`, 'POST', headers, JSON.stringify(data));
+  };
+
+  console.log(error);
+
   return (
     <StyledShell
       backgroundColor={color.pinkLight}
@@ -247,6 +269,18 @@ export const FormsLayout = () => {
                 ),
               )}
             </StyledGrid>
+            <StyledButtonHolder>
+              {error && (
+                <Paragraph type="small">
+                  Čuvanje nije uspelo. Pokušajte ponovo
+                </Paragraph>
+              )}
+              {isLoading ? (
+                <Loader />
+              ) : (
+                <StyledButton onClick={handleSubmit}>Sačuvaj</StyledButton>
+              )}
+            </StyledButtonHolder>
           </Accordion>
         </StyledColumn>
         <StyledColumn>

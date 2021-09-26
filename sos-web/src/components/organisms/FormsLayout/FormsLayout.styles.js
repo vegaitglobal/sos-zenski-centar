@@ -3,6 +3,7 @@ import { customScrollBar } from '../../../styles/helpers/customScrollbar';
 import { Heading } from '../../atoms/Heading/Heading';
 import { Accordion } from '../../molecules/Accordion/Accordion';
 import { StyledContent } from '../../molecules/Accordion/Accordion.styles';
+import { Button } from '../../molecules/Button/Button';
 import { Question } from '../../molecules/Question/Question';
 import { Shell } from '../Shell/Shell';
 
@@ -75,7 +76,7 @@ export const StyledGrid = styled.div`
   grid-column-gap: 30px;
   grid-row-gap: 30px;
   max-height: 33vh;
-  padding: 30px;
+  padding: 30px 180px 30px 30px;
   margin: -30px;
   width: calc(100% + 60px);
   height: calc(100% + 60px);
@@ -83,3 +84,23 @@ export const StyledGrid = styled.div`
   overflow-y: auto;
   ${customScrollBar()};
 `;
+
+export const StyledButtonHolder = styled.div`
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  width: 150px;
+  height: 45px;
+
+  p {
+    text-align: center;
+    color: ${({ theme }) => theme.color.red};
+    margin-top: -30px;
+  }
+
+  svg {
+    margin-top: -10px;
+  }
+`;
+
+export const StyledButton = styled(Button)``;

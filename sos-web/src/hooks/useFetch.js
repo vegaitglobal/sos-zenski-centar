@@ -4,7 +4,7 @@ export const BASE_URL = 'https://api.sos.sitesstage.com/api';
 
 export const useFetch = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState(false);
 
   const activeHttpRequests = useRef([]);
 
@@ -34,7 +34,7 @@ export const useFetch = () => {
         setIsLoading(false);
         return responseData;
       } catch (err) {
-        setError(err.message);
+        setError(true);
         setIsLoading(false);
         throw err;
       }
@@ -43,7 +43,7 @@ export const useFetch = () => {
   );
 
   const clearError = () => {
-    setError(null);
+    setError(false);
   };
 
   useEffect(() => {

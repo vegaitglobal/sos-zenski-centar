@@ -19,6 +19,7 @@ export const color = {
   purpleLight1: '#E4DAE5',
   orange: '#ffa480',
   orangeLight: '#ffe0d0',
+  red: '#f44336',
 };
 
 export const boxShadow = {
