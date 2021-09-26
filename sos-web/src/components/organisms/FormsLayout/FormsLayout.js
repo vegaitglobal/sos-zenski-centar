@@ -1,11 +1,12 @@
+import { useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { BASE_URL, useFetch } from '../../../hooks/useFetch';
 import { color } from '../../../styles/config/theme';
-import { getToken } from '../../../utils/isAuthenticated';
+import { useCategoryContext } from '../../../hooks/useCategoryContext';
 import { useDataContext } from '../../../utils/store';
 import { Loader } from '../../atoms/Loader/Loader';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import { Accordion } from '../../molecules/Accordion/Accordion';
-import { Categories } from '../Categories/Categories';
 import { ClientInfo } from '../ClientInfo/ClientInfo';
 import {
   StyledShell,
@@ -229,8 +230,14 @@ export const categoryData = {
 };
 
 export const FormsLayout = () => {
+  const history = useHistory();
   const { data } = useDataContext();
   const { sendRequest, isLoading, error, clearError } = useFetch();
+  const { selectedCategory } = useCategoryContext();
+
+  useEffect(() => {
+    if (!selectedCategory) history.push('/');
+  }, [history, selectedCategory]);
 
   const handleSubmit = () => {
     clearError();
@@ -246,13 +253,9 @@ export const FormsLayout = () => {
   return (
     <StyledShell
       backgroundColor={color.pinkLight}
-      title="Evidentiraj novi poziv"
+      title={selectedCategory?.label}
     >
-      <Categories />
       <StyledContainer>
-        {/* <StyledNoResults>
-          <StyledHeading type="h1">Izaberi kategoriju</StyledHeading>
-        </StyledNoResults> */}
         <StyledColumn>
           <StyledAccordion
             $noPadding
