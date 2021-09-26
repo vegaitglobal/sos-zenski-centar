@@ -20,11 +20,11 @@ namespace SosCentar.API.Controllers
             _exportReportService = exportReportService;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<Table>> Get()
-        {
-            return Ok(_reportService.GetTableReport());
-        }
+		[HttpGet]
+		public ActionResult<IEnumerable<Table>> Get([FromQuery(Name = "from")] DateTime From, [FromQuery(Name = "to")] DateTime To)
+		{
+			return Ok(_reportService.GetTableReport(From, To));
+		}
 
         [HttpGet("export")]
         [AllowAnonymous]
