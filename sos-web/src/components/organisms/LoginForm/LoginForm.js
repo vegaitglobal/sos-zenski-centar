@@ -19,21 +19,16 @@ const LoginForm = () => {
     email: '',
     password: '',
   });
-  const { sendRequest, isLoading, error } = useFetch();
+  const { sendRequest, isLoading, isError } = useFetch();
   const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    var headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    };
-    sendRequest(
-      'https://api.sos.sitesstage.com/api/Users/login',
-      'POST',
-      headers,
-      JSON.stringify(form),
-    )
+
+    sendRequest('https://api.sos.sitesstage.com/api/Users/login', {
+      method: 'POST',
+      body: JSON.stringify(form),
+    })
       .then((response) => {
         localStorage.setItem('token', `Bearer ${response.accessToken}`);
         localStorage.setItem('email', response.email);
@@ -80,7 +75,7 @@ const LoginForm = () => {
             disabled={isLoading}
             required
           />
-          {error && (
+          {isError && (
             <LoginFail>
               Prijavljivanje neuspešno. Molimo pokušajte ponovo.
             </LoginFail>

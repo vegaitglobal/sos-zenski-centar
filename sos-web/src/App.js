@@ -1,7 +1,13 @@
 import { Routes } from './routes/Routes';
 
+import { CategoryContextProvider } from './hooks/useCategoryContext';
+
 function App() {
-  return <Routes />;
+  return (
+    <CategoryContextProvider>
+      <Routes />
+    </CategoryContextProvider>
+  );
 }
 
 export default App;

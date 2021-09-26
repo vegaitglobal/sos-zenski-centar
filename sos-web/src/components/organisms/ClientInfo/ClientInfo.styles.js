@@ -1,7 +1,9 @@
+import styled, { css } from 'styled-components';
 import { hideVisually } from 'polished';
-import styled from 'styled-components';
 import { color, theme } from '../../../styles/config/theme';
 import { customScrollBar } from '../../../styles/helpers/customScrollbar';
+import { Accordion } from '../../molecules/Accordion/Accordion';
+import { StyledContent } from '../../molecules/Accordion/Accordion.styles';
 
 export const StyledClientInfo = styled.div`
   position: relative;
@@ -43,6 +45,25 @@ export const StyledCardContainer = styled.div`
 
   @media screen and (min-width: 1640px) {
     grid-template-columns: repeat(5, 1fr);
+  }
+`;
+
+export const StyledAccordion = styled(Accordion)`
+  flex-grow: 1;
+
+  ${StyledContent} {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    height: 0 !important;
+    ${customScrollBar()};
+
+    ${({ $noPadding }) =>
+      $noPadding &&
+      css`
+        padding: 0 !important;
+      `}
   }
 `;
 

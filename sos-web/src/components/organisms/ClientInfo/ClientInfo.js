@@ -1,23 +1,26 @@
+import { useNewEntryContext } from '../../../hooks/useNewEntryContext';
 import { useMemo } from 'react';
 import { useDataContext } from '../../../utils/store';
 import { InfoCard } from '../../molecules/InfoCard/InfoCard';
-import { categoryData } from '../FormsLayout/FormsLayout';
 import {
   StyledClientInfo,
   StyledSidebar,
   StyledSidebarButton,
   StyledCardContainer,
+  StyledAccordion,
 } from './ClientInfo.styles';
 
 export const ClientInfo = (props) => {
+  const { callerInfo } = useNewEntryContext();
   const { data, setData } = useDataContext();
+
   const selected = useMemo(
-    () => categoryData.questions.filter(({ id }) => data[id]),
-    [data],
+    () => callerInfo.questions.filter(({ id }) => data[id]),
+    [data, callerInfo.questions],
   );
   const notSelected = useMemo(
-    () => categoryData.questions.filter(({ id }) => !data[id]),
-    [data],
+    () => callerInfo.questions.filter(({ id }) => !data[id]),
+    [data, callerInfo.questions],
   );
 
   const handleSidebarButtonClick = (id) => {
@@ -28,32 +31,38 @@ export const ClientInfo = (props) => {
   };
 
   return (
-    <StyledClientInfo {...props}>
-      <StyledSidebar>
-        {selected.map(({ id, icon, label }) => {
-          return (
-            <StyledSidebarButton
+    <StyledAccordion
+      $noPadding
+      title={callerInfo.sectionName}
+      isClickable={false}
+    >
+      <StyledClientInfo {...props}>
+        <StyledSidebar>
+          {selected.map(({ id, icon, label }) => {
+            return (
+              <StyledSidebarButton
+                key={id}
+                onClick={() => handleSidebarButtonClick(id)}
+              >
+                <img src={icon} alt={label} />
+                <span>{label}</span>
+              </StyledSidebarButton>
+            );
+          })}
+        </StyledSidebar>
+        <StyledCardContainer>
+          {notSelected.map(({ label, id, options, condition, icon }) => (
+            <InfoCard
               key={id}
-              onClick={() => handleSidebarButtonClick(id)}
-            >
-              <img src={icon} alt={label} />
-              <span>{label}</span>
-            </StyledSidebarButton>
-          );
-        })}
-      </StyledSidebar>
-      <StyledCardContainer>
-        {notSelected.map(({ label, id, options, condition, icon }) => (
-          <InfoCard
-            key={id}
-            label={label}
-            id={id}
-            options={options}
-            condition={condition}
-            icon={icon}
-          />
-        ))}
-      </StyledCardContainer>
-    </StyledClientInfo>
+              label={label}
+              id={id}
+              options={options}
+              condition={condition}
+              icon={icon}
+            />
+          ))}
+        </StyledCardContainer>
+      </StyledClientInfo>
+    </StyledAccordion>
   );
 };

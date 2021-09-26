@@ -14,18 +14,19 @@ export const StyledHomeContent = styled.div`
 export const StyledHomeButton = styled(AbstractButton)`
   background-color: white;
   width: 312px;
-  height: 175px;
+  min-height: 175px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   border-radius: 20px;
   margin: 0 15px;
   padding: 30px;
+  text-align: center;
 
   svg {
     color: ${({ theme }) => theme.color.pink};
     transition: color 0.2s ease-in-out;
+    margin-bottom: 12px;
   }
 
   &:hover {
@@ -39,18 +40,15 @@ export const StyledHomeButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: fit-content;
+  padding: 16px 0;
 `;
 
 export const StyledHeading = styled(Heading)`
   color: ${({ theme }) => theme.color.purple};
+  margin: auto 0;
 `;
 
-export const StyledTitle = styled.div`
-  position: absolute;
-  margin: auto;
-  top: 25%;
-  transform: translateY(25%);
-`;
+export const StyledTitle = styled.div``;
 
 export const StyledSeparator = styled.div`
   width: 47px;

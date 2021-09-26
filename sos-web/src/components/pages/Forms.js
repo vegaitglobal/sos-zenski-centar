@@ -1,10 +1,13 @@
 import { StyledForms } from './Forms.styles';
 import { FormsLayout } from '../organisms/FormsLayout/FormsLayout';
+import { NewEntryContextProvider } from '../../hooks/useNewEntryContext';
 
 export const Forms = () => {
   return (
     <StyledForms>
-      <FormsLayout />
+      <NewEntryContextProvider>
+        <FormsLayout />
+      </NewEntryContextProvider>
     </StyledForms>
   );
 };
