@@ -489,4 +489,4 @@ INSERT INTO "Answers" (
 	'Ne',
 	'67',
 	'a8e718f6-6832-4e57-b387-3349a99cce32'
-),
+);
