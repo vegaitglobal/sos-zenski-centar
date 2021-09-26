@@ -61,6 +61,52 @@ const categoryData = {
       },
     },
     {
+      id: 'neki-treci',
+      icon: 'any',
+      label: 'Treci Opis Problema',
+      options: [
+        {
+          id: 'treciId',
+          label: 'Treci opis 1',
+        },
+        {
+          id: 'treciId2',
+          label: 'Treci opis 2',
+        },
+        {
+          id: 'itrecid3',
+          label: 'Treci opis 3',
+        },
+      ],
+      condition: {
+        questionId: 'opis-problema',
+        anaswerId: null,
+      },
+    },
+    {
+      id: 'neki-treci',
+      icon: 'any',
+      label: 'Treci Opis Problema',
+      options: [
+        {
+          id: 'treciId',
+          label: 'Treci opis 1',
+        },
+        {
+          id: 'treciId2',
+          label: 'Treci opis 2',
+        },
+        {
+          id: 'itrecid3',
+          label: 'Treci opis 3',
+        },
+      ],
+      condition: {
+        questionId: 'opis-problema',
+        anaswerId: null,
+      },
+    },
+    {
       id: 'tip-poziva',
       icon: 'any',
       label: 'Tip poziva',

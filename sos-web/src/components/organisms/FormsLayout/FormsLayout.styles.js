@@ -20,7 +20,7 @@ export const StyledShell = styled(Shell)`
 
 export const StyledContainer = styled.div`
   display: grid;
-  grid-template-columns: 8fr 4fr;
+  grid-template-columns: 9fr 3fr;
   grid-column-gap: 16px;
   height: 100%;
 `;
@@ -74,7 +74,12 @@ export const StyledGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  max-height: 50vh;
+  max-height: 33vh;
+  padding: 30px;
+  margin: -30px;
+  width: calc(100% + 60px);
+  height: calc(100% + 60px);
+  position: relative;
   overflow-y: auto;
   ${customScrollBar()};
 `;

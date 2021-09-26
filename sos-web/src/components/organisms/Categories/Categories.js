@@ -1,4 +1,6 @@
-import { useFetch } from '../../../hooks/useFetch';
+import { useEffect } from 'react';
+import { BASE_URL, useFetch } from '../../../hooks/useFetch';
+import { getToken } from '../../../utils/isAuthenticated';
 import {
   StyledCategories,
   StyledInput,
@@ -33,11 +35,32 @@ const CATEGORIES = [
 export const Categories = (props) => {
   const { sendRequest, isLoading } = useFetch();
 
-  const handleChange = ({ target }) => {
+  const handleChange = async ({ target }) => {
     const { value } = target;
-    console.log(value);
-    // sendRequest('/api', 'POST', {}, { value });
+
+    // const response = await sendRequest('/api');
+
+    // console.log(response);
   };
+
+  // useEffect(() => {
+  //   const fetch = async () => {
+  //     const headers = {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //       Authorization: `Bearer ${getToken()}`,
+  //     };
+  //     const response = await sendRequest(
+  //       `${BASE_URL}/categories`,
+  //       'GET',
+  //       headers,
+  //     );
+
+  //     console.log(response);
+  //   };
+
+  //   fetch();
+  // }, [sendRequest]);
 
   return (
     <StyledCategories {...props}>

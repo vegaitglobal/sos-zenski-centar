@@ -16,7 +16,7 @@ export const StyledTop = styled.div`
 export const StyledHeading = styled(Heading)`
   position: relative;
   padding-bottom: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   color: ${({ theme }) => theme.color.purple};
 
   &::after {
@@ -31,6 +31,10 @@ export const StyledHeading = styled(Heading)`
 
   span {
     color: ${({ theme }) => theme.color.purpleLight};
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 30px;
   }
 `;
 

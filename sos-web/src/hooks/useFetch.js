@@ -1,5 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 
+export const BASE_URL = 'https://api.sos.sitesstage.com/api';
+
 export const useFetch = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();

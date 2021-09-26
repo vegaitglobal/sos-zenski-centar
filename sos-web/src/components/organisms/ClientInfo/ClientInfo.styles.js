@@ -17,11 +17,22 @@ export const StyledSidebar = styled.div`
 `;
 
 export const StyledCardContainer = styled.div`
-  display: flex;
-  align-self: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+  grid-auto-rows: max-content;
   width: calc(100% - 60px);
   max-height: 100%;
-  flex-wrap: wrap;
-  flex: 1 0 auto;
   padding: 30px;
+  overflow-y: auto;
+  ${customScrollBar()};
+
+  @media screen and (min-width: 1366px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (min-width: 1640px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
 `;

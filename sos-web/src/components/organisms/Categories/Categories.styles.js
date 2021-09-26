@@ -5,9 +5,12 @@ import { typeStyle } from '../../../styles/config/typeStyles';
 export const StyledCategories = styled.ul`
   list-style-type: none;
   padding: 0;
-  margin: 0 0 15px;
   display: flex;
   flex-wrap: wrap;
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 15px;
+  }
 `;
 
 export const StyledItem = styled.li`

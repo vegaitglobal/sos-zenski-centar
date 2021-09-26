@@ -95,9 +95,7 @@ export const StyledSpan = styled.span`
 `;
 
 export const StyledCardContainer = styled.div`
-  width: 20%;
   min-width: 160px;
-  padding: 8px;
 `;
 
 export const StyledDropdown = styled.div``;
