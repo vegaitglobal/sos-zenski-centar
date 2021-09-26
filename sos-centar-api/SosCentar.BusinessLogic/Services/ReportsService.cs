@@ -22,12 +22,6 @@ namespace SosCentar.BusinessLogic.Services
 			_answerService = answerService;
 		}
 
-		public object GetGraphs()
-		{
-			_entryService = entryService;
-			_categoryService = categoryService;
-		}
-
 		public IEnumerable<GraphDto> GetGraphs(DateTime From, DateTime To)
         {
             List<GraphDto> retList;
@@ -68,7 +62,7 @@ namespace SosCentar.BusinessLogic.Services
             return Graph;
         }
 
-        public Table GetTableReport()
+        public IEnumerable<Table> GetTableReport()
 		{
 			var categoryInfoDtos = _categoryService.GetAll();
 			

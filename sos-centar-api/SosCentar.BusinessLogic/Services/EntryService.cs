@@ -67,7 +67,6 @@ namespace SosCentar.BusinessLogic.Services
                     .Where(submittedAnswer => submittedAnswer.Question.Text == questionName)
                         .Any());
 		}
-	}
         public IEnumerable<Entry> GetInRange(DateTime From, DateTime To)
         {
             return _entryRepository.GetInRange(From, To);
