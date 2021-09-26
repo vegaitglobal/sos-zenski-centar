@@ -1,3 +1,9 @@
+INSERT INTO "Answers" (
+	"Id",
+	"Text",
+  "Order",
+  "QuestionId"
+) VALUES
 --------------------------Intervencije----------------------------
 
 
