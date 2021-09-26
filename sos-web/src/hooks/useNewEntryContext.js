@@ -1,6 +1,8 @@
 import React, { useContext, useCallback, useState, useMemo } from 'react';
 import { useFetch } from './useFetch';
 import { useHistory } from 'react-router';
+import { useDataContext } from '../utils/store';
+import { useCategoryContext } from './useCategoryContext';
 
 const NewEntryContext = React.createContext();
 
@@ -11,6 +13,8 @@ export function useNewEntryContext() {
 export function NewEntryContextProvider({ children }) {
   const history = useHistory();
   const [categoryData, setCategoryData] = useState();
+  const { data } = useDataContext();
+  const { selectedCategory } = useCategoryContext();
 
   const { sendRequest, isLoading, isError, clearError } = useFetch();
 
@@ -26,12 +30,28 @@ export function NewEntryContextProvider({ children }) {
   );
 
   const submit = useMemo(() => {
-    const data = {};
     const send = () => {
+      const mapAnswers = [];
+
+      for (let obj in data) {
+        if (obj !== 'description') {
+          mapAnswers.push({
+            questionId: obj,
+            answerId: test[obj],
+          });
+        }
+      }
+
+      const prepareData = {
+        categoryId: selectedCategory.id,
+        ...(data.description ? { description: data.description } : {}),
+        submittedAnswers: mapAnswers,
+      };
+
       clearError();
-      sendRequest(`https://api.sos.sitesstage.com/api//entries`, {
+      sendRequest(`https://api.sos.sitesstage.com/api/entries`, {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify(prepareData),
       });
     };
 
