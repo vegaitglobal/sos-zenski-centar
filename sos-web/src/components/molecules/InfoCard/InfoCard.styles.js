@@ -37,7 +37,7 @@ export const StyledInfoCard = styled.div`
             top: calc(100% + 12px);
             width: 250px;
             background-color: ${theme.color.pinkLight};
-            padding: 12px;
+            padding: 16px 12px;
             border-radius: 12px;
             box-shadow: ${theme.boxShadow.default};
             z-index: 1;
