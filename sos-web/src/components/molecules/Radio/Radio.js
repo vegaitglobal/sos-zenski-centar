@@ -21,7 +21,8 @@ export const Radio = ({
           name={name}
           onChange={onChange}
           value={value}
-          checked={isChecked}
+          // TODO Check checked prop
+          defaultChecked={isChecked}
         />
         <StyledLabelText>{label}</StyledLabelText>
       </StyledLabel>

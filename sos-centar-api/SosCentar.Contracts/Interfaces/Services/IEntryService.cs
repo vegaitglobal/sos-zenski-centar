@@ -8,8 +8,8 @@ namespace SosCentar.Contracts.Interfaces.Services
     public interface IEntryService
     {
         public void Create(EntryDto submittedEntryDto, string userEmail);
-        public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId);
-        public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId, DateTime from, DateTime to);
-        public IEnumerable<Entry> GetAllForQuestionName(string questionName);
+        public IEnumerable<Entry> GetInRange(DateTime From, DateTime To);
+		public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId);
+		public IEnumerable<Entry> GetAllForQuestionName(string questionName);
     }
 }

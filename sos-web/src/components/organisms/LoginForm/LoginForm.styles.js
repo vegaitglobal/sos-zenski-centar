@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from '../../../styles/config/theme';
 import { Icon } from '../../atoms/Icon/Icon';
 import { Container } from '../../layout/Container';
 

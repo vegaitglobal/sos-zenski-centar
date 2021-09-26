@@ -1,8 +1,8 @@
-import { rgba } from 'polished';
 import styled from 'styled-components';
+import { theme } from '../../../styles/config/theme';
 
 export const StyledPanel = styled.div`
-  box-shadow: 0px 1px 10px ${({ theme }) => rgba(theme.color.black, 0.3)};
+  box-shadow: ${theme.boxShadow.default};
   border-radius: 12px;
   overflow: hidden;
 `;
