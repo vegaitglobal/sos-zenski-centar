@@ -29,7 +29,6 @@ export const FormsLayout = () => {
       <StyledContainer>
         <StyledColumn>
           <ClientInfo />
-
           <ActionPanel />
         </StyledColumn>
         <StyledColumn>
