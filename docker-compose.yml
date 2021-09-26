@@ -10,6 +10,8 @@ services:
       - PGDATA=/tmp
     ports:
       - "48200:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
   api:
     image: ${DOCKER_REGISTRY-}api
     build:
@@ -28,5 +30,19 @@ services:
       dockerfile: Dockerfile
     ports:
       - "48202:3000"
-  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: sos-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@pgadmin.com
+      - PGADMIN_DEFAULT_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "48203:80"
+    depends_on:
+      - database
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
 
+volumes:
+  pgadmin-data:
+  postgres-data:
