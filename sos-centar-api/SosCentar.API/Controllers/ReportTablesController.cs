@@ -9,6 +9,7 @@ namespace SosCentar.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ReportTablesController : ControllerBase
     {
         private readonly IReportService _reportService;

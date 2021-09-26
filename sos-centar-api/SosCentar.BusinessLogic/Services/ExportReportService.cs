@@ -31,8 +31,8 @@ namespace SosCentar.BusinessLogic.Services
             var usersCountPerAgePerCategory = _exportPreparationService.GetUsersCountPerAgePerCategory(from, to);
             InsertOneBullet(doc, usersCountPerAgePerCategory, "1.3. Broj korisnika/ca po uzrastu");
 
-            var usersCountPerMarginalizedGroup = _exportPreparationService.GetUsersCountPerMarginalizedGroup(from, to);
-            InsertOneBullet(doc, usersCountPerMarginalizedGroup, "1.4. Broj klijenata i klijentkinja  iz marginalizovanih grupa");
+            //var usersCountPerMarginalizedGroup = _exportPreparationService.GetUsersCountPerMarginalizedGroup(from, to);
+            //InsertOneBullet(doc, usersCountPerMarginalizedGroup, "1.4. Broj klijenata i klijentkinja  iz marginalizovanih grupa");
 
             MemoryStream outStream = new MemoryStream();
             doc.Write(outStream);
