@@ -34,7 +34,7 @@ export const DownloadReport = () => {
       );
 
       setData({
-        barChart: response,
+        charts: response,
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -129,6 +129,9 @@ const table2 = [
   },
 ];
 export const ReportsContent = () => {
+  const { data } = useDataContext();
+  const [barChart] = data?.charts ?? [];
+
   return (
     <Shell
       backgroundColor={rgba(theme.color.greyLighter, 0.3)}
@@ -139,8 +142,8 @@ export const ReportsContent = () => {
       </Accordion>
       <Accordion title="2. Opšti podaci" defaultOpened>
         <StyledGrid>
-          <Panel title="2. 1. Broj korisnika/ca po uslugama">
-            <BarChart />
+          <Panel title={barChart?.label}>
+            <BarChart chartData={barChart?.data} />
           </Panel>
           <Panel title="2.4. Broj klijenata i klijentkinja iz marginalizovanih grupa">
             <DoughnutChart />
