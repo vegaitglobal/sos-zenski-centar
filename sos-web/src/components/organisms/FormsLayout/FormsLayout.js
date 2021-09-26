@@ -25,6 +25,13 @@ export const categoryData = {
   sectionName: 'Opis usluge',
   questions: [
     {
+      id: 'description',
+      icon: 'any',
+      label: 'Opis problema',
+      options: [],
+      condition: null,
+    },
+    {
       id: 'opis-problema',
       icon: 'any',
       label: 'Kratak Opis Problema',
