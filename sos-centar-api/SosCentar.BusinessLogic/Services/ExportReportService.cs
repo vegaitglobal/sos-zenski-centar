@@ -6,6 +6,13 @@ namespace SosCentar.BusinessLogic.Services
 {
     public class ExportReportService : IExportReportService
     {
+        private readonly IExportPreparationService _exportPreparationService;
+
+        public ExportReportService(IExportPreparationService exportPreparationService)
+        {
+            _exportPreparationService = exportPreparationService;
+        }
+
         public byte[] CreateDemoFile()
         {
             XWPFDocument doc = new XWPFDocument();
@@ -53,6 +60,7 @@ namespace SosCentar.BusinessLogic.Services
 
             MemoryStream outStream = new MemoryStream();
             doc.Write(outStream);
+
             return outStream.ToArray();
         }
     }

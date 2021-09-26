@@ -24,6 +24,7 @@ namespace SosCentar.BusinessLogic.Extensions
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IReportService, ReportsService>();
             services.AddScoped<IExportReportService, ExportReportService>();
+            services.AddScoped<IExportPreparationService, ExportPreparationService>();
 
             return services;
         }
