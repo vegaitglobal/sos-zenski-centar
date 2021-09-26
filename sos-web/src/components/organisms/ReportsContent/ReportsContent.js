@@ -16,7 +16,7 @@ export const ReportsContent = () => {
   const { data } = useDataContext();
   const { sendRequest } = useFetch();
   const [tables, setTables] = useState([]);
-  const [barChart] = data?.charts ?? [];
+  const [barChart, doughnatChart] = data?.charts ?? [];
 
   useEffect(() => {
     const fetch = async () => {
@@ -40,10 +40,10 @@ export const ReportsContent = () => {
       <Accordion title="2. Opšti podaci" defaultOpened>
         <StyledGrid>
           <Panel title={barChart?.label}>
-            <BarChart chartData={barChart?.data} />
+            <BarChart chartData={barChart?.data ?? []} />
           </Panel>
-          <Panel title="2.4. Broj klijenata i klijentkinja iz marginalizovanih grupa">
-            <DoughnutChart />
+          <Panel title={doughnatChart?.label}>
+            <DoughnutChart chartData={doughnatChart?.data ?? []} />
           </Panel>
         </StyledGrid>
       </Accordion>
