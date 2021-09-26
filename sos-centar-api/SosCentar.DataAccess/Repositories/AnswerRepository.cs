@@ -1,6 +1,7 @@
 ﻿using SosCentar.Contracts.Interfaces.Repositories;
 using SosCentar.Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SosCentar.DataAccess.Repositories
@@ -12,6 +13,11 @@ namespace SosCentar.DataAccess.Repositories
 		public AnswerRepository(ReportContext reportContext)
 		{
 			_reportContext = reportContext;
+		}
+
+		public IEnumerable<Answer> GetAll()
+		{
+			return _reportContext.Answers.AsEnumerable();
 		}
 
 		public Answer GetById(Guid id)

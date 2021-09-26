@@ -1,3 +1,4 @@
+﻿using SosCentar.Contracts.Dtos.ReportTables;
 ﻿using SosCentar.Contracts.Dtos.ReportGraph;
 using SosCentar.Contracts.Dtos.ReportTables;
 using System;
@@ -7,7 +8,7 @@ namespace SosCentar.Contracts.Interfaces.Services
 {
     public interface IReportService
     {
-        Table GetTableReport();
+        IEnumerable<Table> GetTableReport();
         IEnumerable<GraphDto> GetGraphs(DateTime From, DateTime To);
     }
 }

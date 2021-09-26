@@ -5,6 +5,7 @@ using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
 {
@@ -53,6 +54,19 @@ namespace SosCentar.BusinessLogic.Services
             _entryRepository.Create(entry);
         }
 
+		public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId)
+		{
+            return _entryRepository.GetAll().Where(entry => entry.Category.Id == categoryId);
+		}
+
+		public IEnumerable<Entry> GetAllForQuestionName(string questionName)
+		{
+            return _entryRepository
+                .GetAll()
+                .Where(entry => entry.SubmitedAnswers
+                    .Where(submittedAnswer => submittedAnswer.Question.Text == questionName)
+                        .Any());
+		}
         public IEnumerable<Entry> GetInRange(DateTime From, DateTime To)
         {
             return _entryRepository.GetInRange(From, To);

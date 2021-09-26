@@ -21,6 +21,10 @@ namespace SosCentar.DataAccess.Repositories
 			_reportContext.SaveChanges();
 		}
 
+		public IEnumerable<Entry> GetAll()
+		{
+			return _reportContext.Entries.AsEnumerable();
+		}
 		public IEnumerable<Entry> GetInRange(DateTime From, DateTime To)
         {
 			return _reportContext.Entries.Where(Enntry => (From <= Enntry.Date && Enntry.Date <= To));

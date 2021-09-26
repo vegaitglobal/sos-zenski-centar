@@ -9,5 +9,7 @@ namespace SosCentar.Contracts.Interfaces.Services
     {
         public void Create(EntryDto submittedEntryDto, string userEmail);
         public IEnumerable<Entry> GetInRange(DateTime From, DateTime To);
+		public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId);
+		public IEnumerable<Entry> GetAllForQuestionName(string questionName);
     }
 }

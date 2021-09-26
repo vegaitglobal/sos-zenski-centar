@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SosCentar.Contracts.Dtos.ReportTables;
 using SosCentar.Contracts.Interfaces.Services;
+using System.Collections.Generic;
 
 namespace SosCentar.API.Controllers
 {
@@ -16,7 +17,7 @@ namespace SosCentar.API.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult<Table> Get()
+		public ActionResult<IEnumerable<Table>> Get()
 		{
 			return Ok(_reportService.GetTableReport());
 		}
