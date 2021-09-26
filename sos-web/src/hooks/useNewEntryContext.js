@@ -2,7 +2,6 @@ import React, { useContext, useCallback, useState, useMemo } from 'react';
 import { useFetch } from './useFetch';
 import { useHistory } from 'react-router';
 import { useDataContext } from '../utils/store';
-import { useCategoryContext } from './useCategoryContext';
 
 const NewEntryContext = React.createContext();
 
@@ -14,7 +13,6 @@ export function NewEntryContextProvider({ children }) {
   const history = useHistory();
   const [categoryData, setCategoryData] = useState();
   const { data } = useDataContext();
-  const { selectedCategory } = useCategoryContext();
 
   const { sendRequest, isLoading, isError, clearError } = useFetch();
 
@@ -43,7 +41,7 @@ export function NewEntryContextProvider({ children }) {
       }
 
       const prepareData = {
-        categoryId: selectedCategory.id,
+        categoryId: categoryData?.id,
         ...(data.description ? { description: data.description } : {}),
         submittedAnswers: mapAnswers,
       };
@@ -56,18 +54,19 @@ export function NewEntryContextProvider({ children }) {
     };
 
     return { send, isError, isLoading };
-  }, [sendRequest, isLoading, isError, clearError, data, selectedCategory.id]);
+  }, [sendRequest, isLoading, isError, clearError, data, categoryData?.id]);
 
-  const questions = categoryData?.actionInfo || { questions: [] };
+  // TODO
+  // const questions = categoryData?.actionInfo || { questions: [] };
 
   return (
     <NewEntryContext.Provider
       value={{
         submit,
         initialize,
-        actionInfo: questions,
-        callerInfo: questions,
-        serviceInfo: questions,
+        actionInfo: categoryData?.actionInfo || { questions: [] },
+        callerInfo: categoryData?.callerInfo || { questions: [] },
+        serviceInfo: categoryData?.serviceInfo || { questions: [] },
       }}
     >
       {children}

@@ -57,7 +57,7 @@ export const InfoCard = ({ label, id, options, condition, icon }) => {
   return (
     <StyledCardContainer>
       <StyledInfoCard $hasDropdown={hasDropdown}>
-        <img src={icon} alt={`${label}`} />
+        <img src={`https://api.sos.sitesstage.com/${icon}`} alt={`${label}`} />
         <StyledSpan>{label}</StyledSpan>
         {hasDropdown && (
           <StyledArrow onClick={toggleDropdown}>
