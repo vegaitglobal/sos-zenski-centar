@@ -1,129 +1,210 @@
-﻿using SosCentar.Contracts.Dtos.ReportTables;
-using SosCentar.Contracts.Dtos.ReportGraph;
+﻿using SosCentar.Contracts.Dtos.ReportGraph;
+using SosCentar.Contracts.Dtos.ReportTables;
 using SosCentar.Contracts.Interfaces.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using SosCentar.Contracts.Interfaces.Repositories;
-using System.Collections.Generic;
 
 namespace SosCentar.BusinessLogic.Services
 {
 	public class ReportsService : IReportService
 	{
-		private readonly CategoryService _categoryService;
+		private readonly ICategoryService _categoryService;
 		private readonly IEntryService _entryService;
 		private readonly IAnswerService _answerService;
+		private readonly IQuestionService _questionService;
 
-		public ReportsService(CategoryService categoryService, IEntryService entryService, IAnswerService answerService)
+		public ReportsService(ICategoryService categoryService, IEntryService entryService, IAnswerService answerService, IQuestionService questionService)
 		{
 			_categoryService = categoryService;
 			_entryService = entryService;
 			_answerService = answerService;
+			_questionService = questionService;
 		}
 
-		public IEnumerable<GraphDto> GetGraphs(DateTime From, DateTime To)
+        public IEnumerable<GraphDto> GetGraphs(DateTime From, DateTime To)
         {
-            List<GraphDto> retList;
-            var FirstGraph = _getFirstGraph(From, To);
-            var RetList = new List<GraphDto>();
-            RetList.Add(FirstGraph);
+            GraphDto firstGraph = _getFirstGraph(From, To);
+			GraphDto secondGraph = _getSecondGraph(From, To);
+            List<GraphDto> RetList = new List<GraphDto>
+            {
+				firstGraph, secondGraph
+			};
             return RetList;
         }
 
         private GraphDto _getFirstGraph(DateTime From, DateTime To)
         {
-            var Cache = new Dictionary<string, int>();
-            GraphDto Graph;
-            var Categories = _categoryService.GetAll();
-            Graph = new GraphDto();
-            Graph.Label = "Broj korisnika/ca po uslugama";
-            foreach (var Category in Categories)
+            Dictionary<string, int> cache = new Dictionary<string, int>();
+            GraphDto graph;
+            IEnumerable<Contracts.Dtos.Categories.CategoryInfoDto>categories = _categoryService.GetAll();
+            graph = new GraphDto
             {
-                Cache.Add(Category.Label, 0);
+                Label = "Broj korisnika/ca po uslugama"
+            };
+            foreach (Contracts.Dtos.Categories.CategoryInfoDto category in categories)
+            {
+                cache.Add(category.Label, 0);
             }
 
-            var Entries = _entryService.GetInRange(From, To);
-            foreach (var Entry in Entries)
+            IEnumerable<Domain.Models.Entry> entries = _entryService.GetInRange(From, To);
+            foreach (Domain.Models.Entry entry in entries)
             {
-                var OldCount = Cache[Entry.Category.Name];
-                var NewCount = OldCount + 1;
-                Cache[Entry.Category.Name] = NewCount;
+                int OldCount = cache[entry.Category.Name];
+                int NewCount = OldCount + 1;
+                cache[entry.Category.Name] = NewCount;
             }
-            var Data = new List<GraphSliceDto>();
-            foreach (var Item in Cache)
+            List<GraphSliceDto> data = new List<GraphSliceDto>();
+            foreach (KeyValuePair<string, int> Item in cache)
             {
-                var Dto = new GraphSliceDto();
-                Dto.Label = Item.Key;
-                Dto.Level = Item.Value.ToString();
-                Data.Add(Dto);
+                GraphSliceDto Dto = new GraphSliceDto
+                {
+                    Label = Item.Key,
+                    Level = Item.Value.ToString()
+                };
+                data.Add(Dto);
             }
-            Graph.Data = Data;
-            return Graph;
+            graph.Data = data;
+            return graph;
         }
 
-        public IEnumerable<Table> GetTableReport()
+		private GraphDto _getSecondGraph(DateTime From, DateTime To)
+        {
+			Dictionary<string, int> cache = new Dictionary<string, int>();
+			var dto = new GraphDto();
+			var questionText = "Pripadnost marginalitovanim grupama";
+			var questions = _questionService.GetByName(questionText);
+			foreach (var answer in questions.First().Answers)
+            {
+				cache[answer.Text] = 0;
+            }
+
+			var allEntries = _entryService.GetAllForQuestionName(questionText, From, To);
+			foreach (var entry in allEntries)
+            {
+				foreach (var submitedAnswer in entry.SubmitedAnswers)
+                {
+					if (submitedAnswer.Question.Text == questionText)
+					{
+						var text = submitedAnswer.Answer.Text;
+						int OldCount = cache[text];
+						int NewCount = OldCount + 1;
+						cache[text] = NewCount;
+					}
+
+				}
+            }
+
+			List<GraphSliceDto> data = new List<GraphSliceDto>();
+			foreach (KeyValuePair<string, int> item in cache)
+			{
+				GraphSliceDto Dto = new GraphSliceDto
+				{
+					Label = item.Key,
+					Level = item.Value.ToString()
+				};
+				data.Add(Dto);
+			}
+			dto.Data = data;
+			return dto;
+
+		}
+
+
+
+		public IEnumerable<Table> GetTableReport(DateTime From, DateTime To)
 		{
 			var categoryInfoDtos = _categoryService.GetAll();
-			
-			var headings = new List<string>(categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Label));
-			headings.Insert(0, "Kategorija");
+			var dataHeading = new List<string>(categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Label));
+			dataHeading.Insert(0, "Kategorija");
 
-			var firstTableRow = new TableRow
+			var dataRows = new List<List<string>>
 			{
-				Headings = headings
-			};
-
-			var row = new List<string>
-			{
-				"Broj klijenata/kinja",
+				new List<string>
+				{
+					"Broj klijenata/kinja",
+				}
 			};
 			foreach (var item in categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Id))
 			{
-				var entriesCount = _entryService.GetAllForCategoryId(item).Count();
-				row.Append(entriesCount.ToString());
+				var entriesCount = _entryService.GetAllForCategoryId(item, From, To).Count();
+				dataRows[0].Append(entriesCount.ToString());
 			}
 
-			firstTableRow.Data = new List<List<string>>
+			var tableRow = CreateTableRow(dataHeading, dataRows);
+			var table = CreateTable("3.1. Broj klijentkinja i klijenata sa iskustvom nasilja po uslugama", new List<TableRow>
 			{
-				row
-			};
+				tableRow
+			});
+			// -----------------------------
 
-			var firstTable = new Table
-			{
-				Title = "3.1. Broj klijentkinja i klijenata sa iskustvom nasilja po uslugama"
-			};
-			firstTable.Data = new List<TableRow>
-			{
-				firstTableRow
-			};
+			var dataHeading2 = new List<string>();
+			var questions = _questionService.GetByName("Odnos sa nasilnikom");
+			var question = questions.First();
+			var answers = question.Answers;
 
-			headings = new List<string>
+			var firstDataHeading = new List<string>(answers.Select(answer => answer.Text));
+			firstDataHeading.Insert(0, "Kategorija");
+
+			var firstDataRow = new List<string>
 			{
 				"Frekvencija"
 			};
 
-			var allEntries = _entryService.GetAllForQuestionName("Odnos sa nasilnikom");
+			var allEntries = _entryService.GetAllForQuestionName("Odnos sa nasilnikom", From, To);
 			var totalAnswerCount = 0;
 			foreach (var id in _answerService.GetAllIdsForQuestion(allEntries.FirstOrDefault()?.SubmitedAnswers.FirstOrDefault()?.Question))
 			{
 				var answerCount = allEntries.Where(entry => entry.SubmitedAnswers.Where(submitedAnswer => submitedAnswer.Answer.Id == id).Any()).Count();
-				headings.Add(answerCount.ToString());
+				firstDataRow.Add(answerCount.ToString());
 				totalAnswerCount += answerCount;
 			}
-			var secondTable = new Table
-			{
-				Title = "3.2. Odnos žrtve sa nasilnikom"
-			};
-			secondTable.Data = new List<TableRow>
-			{
 
+			var secondDataRow = new List<string>
+			{
+				"Procenti"
 			};
 
-			var tables = new List<Table>{
-				firstTable
+			for (int i = 1; i < firstDataRow.Count; i++)
+			{
+				secondDataRow.Add($"{(int.Parse(firstDataRow[i]) / (float)totalAnswerCount) * 100}%");
+			}
+
+			var allDataRows = new List<List<string>>
+			{
+				firstDataRow,
+				secondDataRow
 			};
-			return tables;
+
+			var tableRow2 = CreateTableRow(firstDataHeading, allDataRows);
+			var table2 = CreateTable("3.2. Odnos žrtve sa nasilnikom", new List<TableRow>
+			{
+				tableRow2
+			});
+
+			return new List<Table>
+			{
+				table,
+				table2
+			};
+		}
+
+		private TableRow CreateTableRow(IEnumerable<string> dataHeading, IEnumerable<IEnumerable<string>> dataRows)
+		{
+			return new TableRow
+			{
+				Headings = dataHeading,
+				Data = dataRows
+			};
+		}
+
+		private Table CreateTable(string title, IEnumerable<TableRow> tableRows)
+		{
+			return new Table
+			{
+				Title = title,
+				Data = tableRows
+			};
 		}
 	}
 }
