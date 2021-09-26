@@ -21,11 +21,17 @@ namespace SosCentar.BusinessLogic.Services
             _categoryRepository = categoryRepository;
         }
 
-        public IEnumerable<CategoryListDto> GetAll()
+        public IEnumerable<CategoryInfoDto> GetAll()
         {
             return _categoryRepository.GetAllCategories()
                 .OrderBy(category => category.Order)
-                .Select(category => new CategoryListDto() { Id = category.Id, Label = category.Name });
+                .Select(category => new CategoryInfoDto() { Id = category.Id, Label = category.Name });
+        }
+
+        public CategoryInfoDto GetBaseInfoById(Guid id)
+        {
+            var category = _categoryRepository.GetById(id);
+            return new CategoryInfoDto() { Id = category.Id, Label = category.Name };
         }
 
         public CategoryDto GetById(Guid id)
@@ -41,9 +47,10 @@ namespace SosCentar.BusinessLogic.Services
 
             return new CategoryDto()
             {
+                Id = category.Id,
                 CallerInfo = numberOfSections > 0 ? sortedSectionDtos[0] : null,
                 ServiceInfo = numberOfSections > 1 ? sortedSectionDtos[1] : null,
-                ActionInfoInfo = numberOfSections > 2 ? sortedSectionDtos[2] : null
+                ActionInfo = numberOfSections > 2 ? sortedSectionDtos[2] : null
             };
         }
 
@@ -59,13 +66,17 @@ namespace SosCentar.BusinessLogic.Services
 
         private QuestionDto GetQuestionDto(Question question)
         {
+            var questionCondition = question.QuestionCondition == null
+                ? null
+                : new QuestionConditionDto() { AnswerId = question.QuestionCondition?.AnswerId, QuestionId = question.QuestionCondition?.QuestionIdMaster };
+
             return new QuestionDto()
             {
                 Id = question.Id,
                 Icon = question.Icon,
                 Label = question.Text,
                 IsRequired = question.IsRequired,
-                Condition = new QuestionConditionDto() { AnswerId = question.QuestionCondition.AnswerId, QuestionId = question.QuestionCondition.QuestionIdMaster },
+                Condition = questionCondition,
                 Options = question.Answers.OrderBy(answer => answer.Order).Select(GetAnswerDto)
             };
         }

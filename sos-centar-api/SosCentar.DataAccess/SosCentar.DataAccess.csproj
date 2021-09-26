@@ -14,8 +14,4 @@
     <ProjectReference Include="..\SosCentar.Contracts\SosCentar.Contracts.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

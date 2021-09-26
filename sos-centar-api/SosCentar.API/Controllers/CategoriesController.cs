@@ -20,7 +20,7 @@ namespace SosCentar.API.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult<IEnumerable<CategoryListDto>> GetCategoryList()
+		public ActionResult<IEnumerable<CategoryInfoDto>> GetCategoryList()
 		{
 			return Ok(_categoryService.GetAll());
 		}
