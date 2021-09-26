@@ -1,8 +1,10 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
+import { useHistory } from 'react-router';
 
 export const useFetch = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
+  const history = useHistory();
 
   const activeHttpRequests = useRef([]);
 
@@ -26,6 +28,11 @@ export const useFetch = () => {
         );
 
         if (!response.ok) {
+          if (response.status === 401) {
+            history.push('/login');
+            localStorage.removeItem('token');
+            localStorage.removeItem('email');
+          }
           throw new Error(responseData.message);
         }
 
