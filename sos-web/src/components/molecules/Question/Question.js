@@ -3,14 +3,7 @@ import { Noop } from '../../atoms/Noop/Noop';
 import { Radio } from '../Radio/Radio';
 import { StyledQuestion, QuestionTitle } from './Question.styles';
 
-export const Question = ({
-  label,
-  id,
-  options,
-  condition,
-  children,
-  ...props
-}) => {
+export const Question = ({ label, id, options, condition, ...props }) => {
   const { data, setData } = useDataContext();
 
   const handleOnChange = ({ target }) => {

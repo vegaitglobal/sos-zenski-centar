@@ -13,7 +13,7 @@ import {
   // StyledHeading,
 } from './FormsLayout.styles';
 
-const categoryData = {
+export const categoryData = {
   sectionId: 'id',
   sectionName: 'Opis usluge',
   questions: [
@@ -171,6 +171,22 @@ const categoryData = {
         questionId: 'opis-problema',
         anaswerId: null,
       },
+    },
+    {
+      id: 'nasilje-treci8',
+      icon: 'any',
+      label: 'Nasilje',
+      options: [
+        {
+          id: 'da',
+          label: 'da',
+        },
+        {
+          id: 'ne',
+          label: 'ne',
+        },
+      ],
+      condition: null,
     },
     {
       id: 'tip-poziva4',

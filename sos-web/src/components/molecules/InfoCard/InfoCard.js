@@ -1,5 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useDataContext } from '../../../utils/store';
 import { Icon } from '../../atoms/Icon/Icon';
+import { Noop } from '../../atoms/Noop/Noop';
 import { Radio } from '../Radio/Radio';
 import {
   StyledInfoCard,
@@ -9,27 +11,30 @@ import {
   StyledArrow,
 } from './InfoCard.styles';
 
-export const InfoCard = ({
-  data: { id, img, alt, name, question, labels },
-}) => {
+export const InfoCard = ({ label, id, options, condition, icon }) => {
+  const { data, setData } = useDataContext();
   const wrapperRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [value, setValue] = useState('');
 
-  const handleClickOutside = (e) => {
+  const handleClickOutside = useCallback((e) => {
     if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
       setShowDropdown(false);
     }
-  };
+  }, []);
 
-  const toggleDropdown = () => {
+  const toggleDropdown = useCallback(() => {
     setShowDropdown(!showDropdown);
-  };
+  }, [showDropdown]);
 
-  const handleRadioChange = ({ target }) => {
-    setValue(target.value);
-    setShowDropdown(false);
-  };
+  const handleRadioChange = useCallback(
+    ({ target }) => {
+      setData({
+        [id]: target.value,
+      });
+      setShowDropdown(false);
+    },
+    [id, setData],
+  );
 
   useEffect(() => {
     if (showDropdown) {
@@ -38,36 +43,42 @@ export const InfoCard = ({
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [showDropdown]);
+  }, [showDropdown, handleClickOutside]);
+
+  if (
+    data?.[condition?.questionId] !== condition?.anaswerId &&
+    (!data?.[condition?.questionId] || condition?.anaswerId !== null)
+  ) {
+    return <Noop />;
+  }
+
+  const hasDropdown = options.length > 2;
 
   return (
     <StyledCardContainer>
-      <StyledInfoCard $hasDropdown={labels.length > 2}>
-        {/* <img src={img} alt={alt} /> */}
-        <Icon.Logo />
-        <StyledSpan>{question}</StyledSpan>
-        {labels.length > 2 && (
+      <StyledInfoCard $hasDropdown={hasDropdown}>
+        <img src={icon} alt={`${label}`} />
+        <StyledSpan>{label}</StyledSpan>
+        {hasDropdown && (
           <StyledArrow onClick={toggleDropdown}>
             <span>Open dropdown</span>
             <Icon.ArrowDown />
           </StyledArrow>
         )}
-        {(showDropdown || labels.length < 3) && (
+        {(showDropdown || !hasDropdown) && (
           <StyledDropdown ref={wrapperRef}>
-            {labels.map((label, i) => {
-              return (
-                <Radio
-                  key={i}
-                  type="radio"
-                  id={id}
-                  name={name}
-                  label={label}
-                  value={label}
-                  isChecked={value === label}
-                  onChange={handleRadioChange}
-                />
-              );
-            })}
+            {options.map(({ id: optionId, label: optionLabel }) => (
+              <Radio
+                key={optionId}
+                type="radio"
+                id={optionId}
+                name={label}
+                label={optionLabel}
+                value={optionId}
+                isChecked={data[id] === optionId}
+                onChange={handleRadioChange}
+              />
+            ))}
           </StyledDropdown>
         )}
       </StyledInfoCard>
