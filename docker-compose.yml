@@ -45,8 +45,7 @@ services:
     ports:
       - "48203:80"
     depends_on:
-      database:
-        condition: service_healthy
+      - database
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
