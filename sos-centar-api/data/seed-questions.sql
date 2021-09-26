@@ -1,10 +1,11 @@
-	INSERT INTO "Questions" (
+INSERT INTO "Questions" (
 	"Id",
 	"Text",
 	"Order",
 	"IsRequired",
-    "SectionId"
-) VALUES
+	"SectionId"
+) 
+VALUES
 	(
 		'ef2f3526-b26a-4ef7-8589-46eb74f64521',
 		'Kratak opis problema',
@@ -42,35 +43,35 @@
 	),
 	(
 		'ee3b6d28-de62-4a60-8894-56b1650a0388',
-		'Tip problema',
+		'Koji put zove',
 		'1',
 		'1',
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2'
 	),
 	(
 		'b188cc90-2ee8-4762-a7c8-7da452ecf1cb',
-		'Tip problema',
+		'Koji put zove',
 		'2',
 		'1',
 		'cb428035-1089-4026-a39b-925560ab6615'
 	),
 	(
 		'6f1e681f-df49-4f3c-b716-7ebca52534a5',
-		'Tip problema',
+		'Koji put zove',
 		'3',
 		'1',
 		'0da678bd-9110-4dad-97cf-a531ceef1622'
 	),
 	(
 		'993a4e22-69d6-4867-b121-cc0b7b2c3851',
-		'Tip problema',
+		'Koji put zove',
 		'4',
 		'1',
 		'7875c455-6ac9-4daa-a75b-761b0845449c'
 	),
 	(
 		'44e2620d-8226-4267-9ddc-79ec3c116743',
-		'Tip problema',
+		'Koji put zove',
 		'5',
 		'1',
 		'64f02514-cac6-4563-b1b7-954743c7c05f'
