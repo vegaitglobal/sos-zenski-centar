@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SosCentar.Contracts.Dtos.ReportTables;
 using SosCentar.Contracts.Interfaces.Services;
+using System;
 using System.Collections.Generic;
 
 namespace SosCentar.API.Controllers
@@ -27,9 +28,9 @@ namespace SosCentar.API.Controllers
 
         [HttpGet("export")]
         [AllowAnonymous]
-        public IActionResult Export()
+        public IActionResult Export([FromQuery] DateTime from, [FromQuery] DateTime to)
         {
-            var bytes = _exportReportService.CreateDemoFile();
+            var bytes = _exportReportService.CreateDemoFile(from, to);
 
             var contentType = "APPLICATION/octet-stream";
             var fileName = "word.docx";

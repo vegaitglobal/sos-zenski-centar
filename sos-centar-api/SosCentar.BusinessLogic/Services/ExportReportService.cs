@@ -1,5 +1,6 @@
 ﻿using NPOI.XWPF.UserModel;
 using SosCentar.Contracts.Interfaces.Services;
+using System;
 using System.IO;
 
 namespace SosCentar.BusinessLogic.Services
@@ -13,7 +14,7 @@ namespace SosCentar.BusinessLogic.Services
             _exportPreparationService = exportPreparationService;
         }
 
-        public byte[] CreateDemoFile()
+        public byte[] CreateDemoFile(DateTime from, DateTime to)
         {
             XWPFDocument doc = new XWPFDocument();
 

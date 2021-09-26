@@ -5,6 +5,6 @@ namespace SosCentar.Contracts.Interfaces.Services
 {
     public interface IExportReportService
     {
-        byte[] CreateDemoFile();
+        byte[] CreateDemoFile(System.DateTime from, System.DateTime to);
     }
 }
