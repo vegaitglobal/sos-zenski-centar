@@ -12,6 +12,11 @@ services:
       - "48200:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+        test: [ "CMD", "pg_isready", "-q", "-d", "${POSTGRES_DB}", "-U", "${POSTGRES_USER}" ]
+        timeout: 45s
+        interval: 10s
+        retries: 10
   api:
     image: ${DOCKER_REGISTRY-}api
     build:
@@ -21,6 +26,7 @@ services:
       - "48201:5000"
     depends_on:
       - database
+        condition: service_healthy
     env_file:
       - .env
   web:
@@ -40,6 +46,7 @@ services:
       - "48203:80"
     depends_on:
       - database
+        condition: service_healthy
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
