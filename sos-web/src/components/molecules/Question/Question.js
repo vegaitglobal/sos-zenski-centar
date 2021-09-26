@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useDataContext } from '../../../utils/store';
 import { Noop } from '../../atoms/Noop/Noop';
 import { Radio } from '../Radio/Radio';
@@ -26,14 +26,23 @@ export const Question = ({ label, id, options, condition, ...props }) => {
     [setData],
   );
 
-  if (
-    data?.[condition?.questionId] !== condition?.anaswerId &&
-    (!data?.[condition?.questionId] || condition?.anaswerId !== null)
-  ) {
-    return <Noop />;
-  }
+  const userAnswer = data?.[condition?.questionId];
 
-  return (
+  const shouldBeHidden = useMemo(() => {
+    if (!condition) return false;
+
+    const exactAnswerRequired = !!condition.answerId;
+
+    const exactAnswerMatch = userAnswer === condition.answerId;
+    const anyAnswerMatch = !exactAnswerRequired && userAnswer;
+
+    const shouldBeDisplayed = exactAnswerMatch || anyAnswerMatch;
+    return !shouldBeDisplayed;
+  }, [condition, userAnswer]);
+
+  return shouldBeHidden ? (
+    <Noop />
+  ) : (
     <StyledQuestion {...props}>
       <QuestionTitle>{label}</QuestionTitle>
       {options.length === 0 && (
