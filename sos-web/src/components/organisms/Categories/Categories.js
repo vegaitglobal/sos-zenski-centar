@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import { BASE_URL, useFetch } from '../../../hooks/useFetch';
-import { getToken } from '../../../utils/isAuthenticated';
+import { useFetch } from '../../../hooks/useFetch';
 import {
   StyledCategories,
   StyledInput,
@@ -33,13 +31,11 @@ const CATEGORIES = [
 ];
 
 export const Categories = (props) => {
-  const { sendRequest, isLoading } = useFetch();
+  const { /*sendRequest,*/ isLoading } = useFetch();
 
   const handleChange = async ({ target }) => {
-    const { value } = target;
-
+    // const { value } = target;
     // const response = await sendRequest('/api');
-
     // console.log(response);
   };
 
