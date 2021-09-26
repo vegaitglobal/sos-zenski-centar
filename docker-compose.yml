@@ -25,8 +25,7 @@ services:
     ports:
       - "48201:5000"
     depends_on:
-      database:
-        condition: service_healthy
+      - database
     env_file:
       - .env
   web:

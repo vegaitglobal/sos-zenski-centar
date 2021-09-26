@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SosCentar.Domain.Models
 {
@@ -10,6 +11,6 @@ namespace SosCentar.Domain.Models
         public Category Category { get; set; }
         public User User { get; set; }
         public DateTime Date { get; set; }
-        public IEnumerable<SubmitedAnswer> SubmitedAnswers { get; set; }
+        public IEnumerable<SubmitedAnswer> SubmitedAnswers { get; set; } = Enumerable.Empty<SubmitedAnswer>();
     }
 }
