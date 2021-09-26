@@ -16,6 +16,7 @@ export const StyledButton = styled.button`
   transition: opacity 0.2ms ease-in-out;
 
   &:disabled {
+    cursor: not-allowed;
     opacity: 0.5;
   }
 `;

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { StyledDoughnutChart } from './DoughnutChart.styles';
 
@@ -8,25 +9,8 @@ const colors = {
   LGBT: '#FFE0D0',
 };
 
-const data = {
-  labels: [
-    'Samohrani roditelj',
-    'Romkinja/Rom',
-    'Osoba sa invaliditetom',
-    'LGBT',
-  ],
-  datasets: [
-    {
-      backgroundColor: Object.values(colors),
-      borderWidth: 2,
-      data: [82.5, 7.5, 7.5, 2.5],
-    },
-  ],
-};
-
 const chartOptions = {
   type: 'doughnut',
-  data: data,
   maintainAspectRatio: false,
   plugins: {
     legend: {
@@ -40,7 +24,20 @@ const chartOptions = {
   },
 };
 
-export const DoughnutChart = (props) => {
+export const DoughnutChart = ({ chartData, ...props }) => {
+  const data = useMemo(
+    () => ({
+      labels: chartData?.map(({ label }) => label),
+      datasets: [
+        {
+          backgroundColor: Object.values(colors),
+          borderWidth: 2,
+          data: chartData?.map(({ level }) => level),
+        },
+      ],
+    }),
+    [chartData],
+  );
   return (
     <StyledDoughnutChart {...props}>
       <Doughnut data={data} options={chartOptions} />

@@ -74,7 +74,10 @@ export const DownloadReport = () => {
           value={date.end}
           onChange={handleOnChange}
         />
-        <Button disabled={isLoading} onClick={handleCustomDate}>
+        <Button
+          disabled={isLoading || !date.end || !date.start}
+          onClick={handleCustomDate}
+        >
           Izaberi
         </Button>
       </div>

@@ -16,12 +16,8 @@ namespace SosCentar.DataAccess.Migrations
                 oldClrType: typeof(Guid),
                 oldType: "uuid");
             
-            var answersNasilje = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-answers-nasilje.sql");
+            var answersNasilje = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-answers.sql");
             migrationBuilder.Sql(File.ReadAllText(answersNasilje));
-            var answers = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-answers.sql");
-            migrationBuilder.Sql(File.ReadAllText(answers));
-            var answersClient = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-answersInfoOKlijentu.sql");
-            migrationBuilder.Sql(File.ReadAllText(answersClient));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
