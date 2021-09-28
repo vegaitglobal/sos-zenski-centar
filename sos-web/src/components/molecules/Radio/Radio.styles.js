@@ -39,9 +39,8 @@ export const StyledLabelText = styled.span`
     ${size('12px')};
     left: 5px;
     background-color: ${({ theme }) => theme.color.purpleLight};
-    transform: scale(0);
+    transform: translateY(-50%) scale(0);
     transition: transform 0.2s ease-in-out;
-    transform-origin: top;
   }
 `;
 
@@ -54,7 +53,7 @@ export const StyledRadio = styled.input`
         border-color: ${({ theme }) => theme.color.purpleLight};
       }
       &::after {
-        transform: scale(1) translateY(-50%);
+        transform: translateY(-50%) scale(1);
       }
     }
   }
