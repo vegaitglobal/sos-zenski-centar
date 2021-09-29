@@ -54,6 +54,11 @@ namespace SosCentar.BusinessLogic.Services
             };
         }
 
+        public Category GetCategoryById(Guid id)
+		{
+            return _categoryRepository.GetById(id);
+		}
+
         private SectionDto GetSectionDto(Section section)
         {
             return new SectionDto()
