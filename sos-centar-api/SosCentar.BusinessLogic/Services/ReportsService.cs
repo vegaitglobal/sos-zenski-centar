@@ -155,9 +155,10 @@ namespace SosCentar.BusinessLogic.Services
 
 			var allEntries = _entryService.GetAllForQuestionName(question.Text, From, To).ToList();
 			var totalAnswerCount = 0;
-			foreach (var id in _answerService.GetAllIdsForQuestion(question))
+
+			foreach (var answer in answers)
 			{
-				var answerCount = allEntries.Where(entry => entry.SubmitedAnswers.Where(submitedAnswer => submitedAnswer.Answer.Id == id).Any()).Count();
+				var answerCount = allEntries.Where(entry => entry.SubmitedAnswers.Where(submitedAnswer => submitedAnswer.Answer.Text == answer.Text).Any()).Count();
 				firstDataRow.Add(answerCount.ToString());
 				totalAnswerCount += answerCount;
 			}
@@ -170,7 +171,7 @@ namespace SosCentar.BusinessLogic.Services
 			for (int i = 1; i < firstDataRow.Count; i++)
 			{
 				var percentage = float.Parse(firstDataRow[i]) / totalAnswerCount * 100;
-				secondDataRow.Add($"{(float.IsNaN(percentage) ? 0 : percentage)}%");
+				secondDataRow.Add($"{(float.IsNaN(percentage) ? 0 : percentage):f2}%");
 			}
 
 			var allDataRows = new List<List<string>>
