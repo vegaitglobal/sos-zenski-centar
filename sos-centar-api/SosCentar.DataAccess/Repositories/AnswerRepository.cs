@@ -16,11 +16,6 @@ namespace SosCentar.DataAccess.Repositories
 			_reportContext = reportContext;
 		}
 
-		public IEnumerable<Answer> GetAll()
-		{
-			return _reportContext.Answers.Include(answer => answer.Question).AsEnumerable();
-		}
-
 		public Answer GetById(Guid id)
 		{
 			return _reportContext.Answers.FirstOrDefault(answer => answer.Id == id);
