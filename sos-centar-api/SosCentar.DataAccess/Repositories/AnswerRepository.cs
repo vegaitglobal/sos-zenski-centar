@@ -1,4 +1,5 @@
-﻿using SosCentar.Contracts.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using SosCentar.Contracts.Interfaces.Repositories;
 using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace SosCentar.DataAccess.Repositories
 
 		public IEnumerable<Answer> GetAll()
 		{
-			return _reportContext.Answers.AsEnumerable();
+			return _reportContext.Answers.Include(answer => answer.Question).AsEnumerable();
 		}
 
 		public Answer GetById(Guid id)

@@ -1,4 +1,5 @@
-﻿using SosCentar.Contracts.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using SosCentar.Contracts.Interfaces.Repositories;
 using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,14 @@ namespace SosCentar.DataAccess.Repositories
 		}
 		public IEnumerable<Entry> GetInRange(DateTime From, DateTime To)
         {
-			return _reportContext.Entries.Where(Enntry => (From <= Enntry.Date && Enntry.Date <= To));
+			return _reportContext.Entries
+				.Include(entry => entry.User)
+				.Include(entry => entry.SubmitedAnswers)
+					.ThenInclude(submitedAnswer => submitedAnswer.Question)
+				.Include(entry => entry.SubmitedAnswers)
+					.ThenInclude(submitedAnswer => submitedAnswer.Answer)
+				.Where(Enntry => (From <= Enntry.Date && Enntry.Date <= To));
 
 		}
-
 	}
 }
