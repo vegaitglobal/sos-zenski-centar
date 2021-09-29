@@ -40,16 +40,16 @@ namespace SosCentar.BusinessLogic.Services
                 {
                     throw new ValidationException($"Question {item.QuestionId} does not exists");
                 }
-                if (question.IsRequired && answer is not null)
+                if (question.IsRequired && answer is null)
                 {
                     throw new ValidationException($"{question.Text} is not answered");
                 }
                 submitedAnswers.Add(new SubmitedAnswer() { Answer = answer, Question = question });
             }
 
-            var categoryDto = _categoryService.GetBaseInfoById(entryDto.CategoryId);
+            var category = _categoryService.GetCategoryById(entryDto.CategoryId);
 
-            var entry = new Entry() { Date = DateTime.Now, Description = entryDto.Description, User = user, SubmitedAnswers = submitedAnswers, Category = new Category() { Id = categoryDto.Id } };
+            var entry = new Entry() { Date = DateTime.Now, Description = entryDto.Description, User = user, SubmitedAnswers = submitedAnswers, Category = category };
 
             _entryRepository.Create(entry);
         }
