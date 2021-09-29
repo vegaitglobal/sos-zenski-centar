@@ -4,13 +4,15 @@ import { typeStyle } from '../../../styles/config/typeStyles';
 
 export const StyledFormControl = styled.div`
   &:not(:last-of-type) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 `;
 
 export const StyledLabel = styled.label`
+  display: block;
   color: ${({ theme }) => theme.color.grey};
   cursor: pointer;
+  padding: 5px 0;
 `;
 
 export const StyledLabelText = styled.span`
