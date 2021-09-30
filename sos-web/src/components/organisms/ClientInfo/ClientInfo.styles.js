@@ -25,6 +25,7 @@ export const StyledSidebar = styled.div`
   max-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  ${customScrollBar()};
 `;
 
 export const StyledCardContainer = styled.div`

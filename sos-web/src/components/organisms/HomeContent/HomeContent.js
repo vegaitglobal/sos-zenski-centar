@@ -20,9 +20,9 @@ export const HomeContent = () => {
   const { categories, selectCategory } = useCategoryContext();
 
   const Services = useCallback(() => {
-    return categories.map((service) => {
+    return categories.map((service, i) => {
       return (
-        <StyledHomeButton href="/forms" onClick={() => selectCategory(service)}>
+        <StyledHomeButton key={i} href="/forms" onClick={() => selectCategory(service)}>
           <Icon.Plus />
           <StyledHeading type="h2">{service.label}</StyledHeading>
         </StyledHomeButton>
