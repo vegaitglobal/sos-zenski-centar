@@ -44,7 +44,7 @@ export const ClientInfo = (props) => {
                 key={id}
                 onClick={() => handleSidebarButtonClick(id)}
               >
-                <img src={icon} alt={label} />
+                <img src={`https://api.sos.sitesstage.com/${icon}`} alt={label} />
                 <span>{label}</span>
               </StyledSidebarButton>
             );

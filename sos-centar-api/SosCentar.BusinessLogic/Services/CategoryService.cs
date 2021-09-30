@@ -28,12 +28,6 @@ namespace SosCentar.BusinessLogic.Services
                 .Select(category => new CategoryInfoDto() { Id = category.Id, Label = category.Name });
         }
 
-        public CategoryInfoDto GetBaseInfoById(Guid id)
-        {
-            var category = _categoryRepository.GetById(id);
-            return new CategoryInfoDto() { Id = category.Id, Label = category.Name };
-        }
-
         public CategoryDto GetById(Guid id)
         {
             var category = _categoryRepository.GetById(id);
@@ -53,11 +47,6 @@ namespace SosCentar.BusinessLogic.Services
                 ActionInfo = numberOfSections > 2 ? sortedSectionDtos[2] : null
             };
         }
-
-        public Category GetCategoryById(Guid id)
-		{
-            return _categoryRepository.GetById(id);
-		}
 
         private SectionDto GetSectionDto(Section section)
         {
@@ -94,5 +83,5 @@ namespace SosCentar.BusinessLogic.Services
                 Label = answer.Text
             };
         }
-	}
+    }
 }

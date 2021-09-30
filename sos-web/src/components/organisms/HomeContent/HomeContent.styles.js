@@ -13,17 +13,19 @@ export const StyledHomeContent = styled.div`
 
 export const StyledHomeButton = styled(AbstractButton)`
   background-color: white;
-  width: 312px;
-  min-height: 175px;
+  width: 230px;
+  min-height: 160px;
   display: flex;
   align-items: center;
   flex-direction: column;
   border-radius: 20px;
-  margin: 0 15px;
+  margin: 10px;
   padding: 30px;
   text-align: center;
 
   svg {
+    width: 40px;
+    height: 40px;
     color: ${({ theme }) => theme.color.pink};
     transition: color 0.2s ease-in-out;
     margin-bottom: 12px;
@@ -38,7 +40,8 @@ export const StyledHomeButton = styled(AbstractButton)`
 
 export const StyledHomeButtonsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   height: fit-content;
   padding: 16px 0;
 `;

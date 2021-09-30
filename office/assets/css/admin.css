@@ -1,0 +1,9 @@
+:root {
+  --primary: #8c4893;
+  --secondary: #57415f;
+  --accent: #fff;
+  --primary-fg: #fff;
+
+  --link-fg: #e4dae5;
+  --link-hover-color: #57415f;
+}
