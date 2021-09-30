@@ -130,7 +130,7 @@ namespace SosCentar.BusinessLogic.Services
 			foreach (var item in categoryInfoDtos.Select(categoryInfoDto => categoryInfoDto.Id))
 			{
 				var entriesCount = _entryService.GetAllForCategoryId(item, From, To).Count();
-				dataRows[0].Append(entriesCount.ToString());
+				dataRows[0].Add(entriesCount.ToString());
 			}
 
 			var tableRow = CreateTableRow(dataHeading, dataRows);
@@ -153,11 +153,12 @@ namespace SosCentar.BusinessLogic.Services
 				"Frekvencija"
 			};
 
-			var allEntries = _entryService.GetAllForQuestionName("Odnos sa nasilnikom", From, To);
+			var allEntries = _entryService.GetAllForQuestionName(question.Text, From, To).ToList();
 			var totalAnswerCount = 0;
-			foreach (var id in _answerService.GetAllIdsForQuestion(allEntries.FirstOrDefault()?.SubmitedAnswers.FirstOrDefault()?.Question))
+
+			foreach (var answer in answers)
 			{
-				var answerCount = allEntries.Where(entry => entry.SubmitedAnswers.Where(submitedAnswer => submitedAnswer.Answer.Id == id).Any()).Count();
+				var answerCount = allEntries.Where(entry => entry.SubmitedAnswers.Where(submitedAnswer => submitedAnswer.Answer.Text == answer.Text).Any()).Count();
 				firstDataRow.Add(answerCount.ToString());
 				totalAnswerCount += answerCount;
 			}
@@ -169,7 +170,8 @@ namespace SosCentar.BusinessLogic.Services
 
 			for (int i = 1; i < firstDataRow.Count; i++)
 			{
-				secondDataRow.Add($"{(int.Parse(firstDataRow[i]) / (float)totalAnswerCount) * 100}%");
+				var percentage = float.Parse(firstDataRow[i]) / totalAnswerCount * 100;
+				secondDataRow.Add($"{(float.IsNaN(percentage) ? 0 : percentage):f2}%");
 			}
 
 			var allDataRows = new List<List<string>>

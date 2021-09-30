@@ -56,13 +56,12 @@ namespace SosCentar.BusinessLogic.Services
 
 		public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId, DateTime From, DateTime To)
 		{
-            return _entryRepository.GetInRange(From, To).Where(entry => entry.Category.Id == categoryId);
+            return GetInRange(From, To).Where(entry => entry.Category.Id == categoryId);
 		}
 
 		public IEnumerable<Entry> GetAllForQuestionName(string questionName, DateTime From, DateTime To)
 		{
-            return _entryRepository
-                .GetInRange(From, To)
+            return GetInRange(From, To)
                 .Where(entry => entry.SubmitedAnswers
                     .Where(submittedAnswer => submittedAnswer.Question.Text == questionName)
                         .Any());

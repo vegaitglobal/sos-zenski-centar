@@ -16,11 +16,6 @@ namespace SosCentar.BusinessLogic.Services
 			_answerRepository = answerRepository;
 		}
 
-		public IEnumerable<Guid> GetAllIdsForQuestion(Question question)
-		{
-			return _answerRepository.GetAll().Where(answer => answer.Question == question).Select(answer=> answer.Id);
-		}
-
 		public Answer GetById(Guid id)
 		{
 			return _answerRepository.GetById(id);
