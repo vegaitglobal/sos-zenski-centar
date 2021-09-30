@@ -1,4 +1,5 @@
-﻿using SosCentar.Contracts.Interfaces.Services;
+﻿using SosCentar.Contracts.Interfaces.Repositories;
+using SosCentar.Contracts.Interfaces.Services;
 using System;
 using System.Linq;
 
@@ -6,15 +7,15 @@ namespace SosCentar.BusinessLogic.Services
 {
     public class ExportPreparationService : IExportPreparationService
     {
-        private readonly IEntryService _entryService;
         private readonly ICategoryService _categoryService;
-        private readonly IQuestionService _questionService;
+        private readonly IQuestionRepository _questionRepository;
+        private readonly IEntryRepository _entryRepository;
 
-        public ExportPreparationService(IEntryService entryService, ICategoryService categoryService, IQuestionService questionService)
+        public ExportPreparationService(ICategoryService categoryService, IQuestionRepository questionRepository, IEntryRepository entryRepository)
         {
-            _entryService = entryService;
             _categoryService = categoryService;
-            _questionService = questionService;
+            _questionRepository = questionRepository;
+            _entryRepository = entryRepository;
         }
 
         public string[,] GetUsersCountCategory(DateTime from, DateTime to)
@@ -34,7 +35,7 @@ namespace SosCentar.BusinessLogic.Services
             data[1, 0] = "Broj korisnika/ca";
             for (var index = 0; index < allCategories.Count(); index++)
             {
-                var count = _entryService.GetAllForCategoryId(allCategories[index].Id, from, to).Count();
+                var count = _entryRepository.GetInRangeForCategoryId(allCategories[index].Id, from, to).Count();
                 data[1, index + 1] = count.ToString();
             }
 
@@ -58,12 +59,10 @@ namespace SosCentar.BusinessLogic.Services
 
         private string[,] GetDataByCategoryByQuestion(DateTime from, DateTime to, string questionText)
         {
-            var entries = _entryService.GetAllForQuestionName(questionText, from, to);
+            var entries = _entryRepository.GetInRangeForQuestionName(questionText, from, to);
             var categoryNames = entries.Select(entry => entry.Category.Name).Distinct().ToArray();
 
-            var question = _questionService.GetByName(questionText).FirstOrDefault();
-            Console.WriteLine(question?.Id);
-            Console.WriteLine(question?.Answers);
+            var question = _questionRepository.GetByName(questionText).FirstOrDefault();
             var answers = question.Answers.ToArray();
 
             var categoriesCount = categoryNames.Length;
