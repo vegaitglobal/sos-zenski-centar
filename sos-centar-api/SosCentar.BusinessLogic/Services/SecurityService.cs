@@ -46,14 +46,14 @@ namespace SosCentar.BusinessLogic.Services
 
         public string HashPassword(string password)
         {
-            byte[] bytes_password = Encoding.UTF8.GetBytes(password);
+            byte[] bytesPassword = Encoding.UTF8.GetBytes(password);
             HashAlgorithm sha512hash = new SHA512CryptoServiceProvider();
             for (int index = 0; index < 10000; ++index)
             {
-                byte[] bytes_iteration = Encoding.UTF8.GetBytes(Convert.ToBase64String(bytes_password) + Convert.ToBase64String(_salt));
-                bytes_password = sha512hash.ComputeHash(bytes_iteration);
+                byte[] bytesIteration = Encoding.UTF8.GetBytes(Convert.ToBase64String(bytesPassword) + Convert.ToBase64String(_salt));
+                bytesPassword = sha512hash.ComputeHash(bytesIteration);
             }
-            return Convert.ToBase64String(bytes_password);
+            return Convert.ToBase64String(bytesPassword);
         }
     }
 }
