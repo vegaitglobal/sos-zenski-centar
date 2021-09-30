@@ -1,7 +1,9 @@
 ﻿using NPOI.XWPF.UserModel;
+using SosCentar.Contracts.Dtos.ReportTables;
 using SosCentar.Contracts.Interfaces.Services;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
 {
@@ -14,7 +16,7 @@ namespace SosCentar.BusinessLogic.Services
             _exportPreparationService = exportPreparationService;
         }
 
-        public byte[] CreateDemoFile(DateTime from, DateTime to)
+        public byte[] CreateExportFile(DateTime from, DateTime to)
         {
             XWPFDocument doc = new XWPFDocument();
 
@@ -22,17 +24,21 @@ namespace SosCentar.BusinessLogic.Services
             XWPFRun r0 = para0.CreateRun();
             r0.SetText("1. Opšti podaci");
 
-            var usersCountCategory = _exportPreparationService.GetUsersCountCategory(from, to);
-            InsertOneBullet(doc, usersCountCategory, "1.1. Broj korisnika/ca po uslugama");
+            var usersCountCategory = _exportPreparationService
+                .GetUsersCountPerCategory(from, to, "1.1. Broj korisnika/ca po uslugama");
+            InsertOneBullet(doc, usersCountCategory);
 
-            var usersCountPerSexPerCategory = _exportPreparationService.GetUsersCountPerSexPerCategory(from, to);
-            InsertOneBullet(doc, usersCountPerSexPerCategory, "1.2. Broj korisnika/ca po polu");
+            var usersCountPerSexPerCategory = _exportPreparationService
+                .GetReportPerAnswerOnQuestionPerCategory(from, to, "1.2. Broj korisnika/ca po polu", "Pol");
+            InsertOneBullet(doc, usersCountPerSexPerCategory);
 
-            var usersCountPerAgePerCategory = _exportPreparationService.GetUsersCountPerAgePerCategory(from, to);
-            InsertOneBullet(doc, usersCountPerAgePerCategory, "1.3. Broj korisnika/ca po uzrastu");
+            var usersCountPerAgePerCategory = _exportPreparationService
+                .GetReportPerAnswerOnQuestionPerCategory(from, to, "1.3. Broj korisnika/ca po uzrastu", "Uzrast");
+            InsertOneBullet(doc, usersCountPerAgePerCategory);
 
-            //var usersCountPerMarginalizedGroup = _exportPreparationService.GetUsersCountPerMarginalizedGroup(from, to);
-            //InsertOneBullet(doc, usersCountPerMarginalizedGroup, "1.4. Broj klijenata i klijentkinja  iz marginalizovanih grupa");
+            var usersCountPerMarginalizedGroup = _exportPreparationService
+                .GetReportPerAnswerOnQuestion(from, to, "1.4. Broj klijenata i klijentkinja  iz marginalizovanih grupa", "Pripadnost marginalizovanim grupama", true);
+            InsertOneBullet(doc, usersCountPerMarginalizedGroup);
 
             MemoryStream outStream = new MemoryStream();
             doc.Write(outStream);
@@ -40,18 +46,18 @@ namespace SosCentar.BusinessLogic.Services
             return outStream.ToArray();
         }
 
-        private static void InsertOneBullet(XWPFDocument doc, string[,] usersCountCategory, string usersCountCategoryBullet)
+        private static void InsertOneBullet(XWPFDocument doc, ExportTableDto tableData)
         {
-            XWPFParagraph para1 = doc.CreateParagraph();
-            XWPFRun r1 = para1.CreateRun();
-            r1.SetText(usersCountCategoryBullet);
-            InsertTable(doc, usersCountCategory);
+            XWPFParagraph paragraph = doc.CreateParagraph();
+            XWPFRun run = paragraph.CreateRun();
+            run.SetText(tableData.Title);
+            InsertTable(doc, tableData);
         }
 
-        private static void InsertTable(XWPFDocument doc, string[,] data)
+        private static void InsertTable(XWPFDocument doc, ExportTableDto tableData)
         {
-            var rowCount = data.GetLength(0);
-            var colCount = data.GetLength(1);
+            var rowCount = tableData.Data.Count() + 1;
+            var colCount = tableData.Headings.Count();
 
             if (rowCount == 0 || colCount == 0)
             {
@@ -60,12 +66,23 @@ namespace SosCentar.BusinessLogic.Services
 
             XWPFTable table = doc.CreateTable(rowCount, colCount);
 
-            for (var rowIndex = 0; rowIndex < rowCount; rowIndex++)
+            var colIndex = 0;
+            foreach (var heading in tableData.Headings)
             {
-                for (var colIndex = 0; colIndex < colCount; colIndex++)
+                table.GetRow(0).GetCell(colIndex).SetText(heading);
+                colIndex++;
+            }
+
+            var rowIndex = 1;
+            foreach (var dataRow in tableData.Data)
+            {
+                colIndex = 0;
+                foreach (var dataCell in dataRow)
                 {
-                    table.GetRow(rowIndex).GetCell(colIndex).SetText(data[rowIndex, colIndex]);
+                    table.GetRow(rowIndex).GetCell(colIndex).SetText(dataCell);
+                    colIndex++;
                 }
+                rowIndex++;
             }
         }
     }

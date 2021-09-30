@@ -31,7 +31,7 @@ namespace SosCentar.API.Controllers
         [AllowAnonymous]
         public IActionResult Export([FromQuery] DateTime from, [FromQuery] DateTime to)
         {
-            var bytes = _exportReportService.CreateDemoFile(from, to);
+            var bytes = _exportReportService.CreateExportFile(from, to);
 
             var contentType = "APPLICATION/octet-stream";
             var fileName = "word.docx";
