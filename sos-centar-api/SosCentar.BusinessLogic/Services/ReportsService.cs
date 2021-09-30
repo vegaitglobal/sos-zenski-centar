@@ -68,7 +68,7 @@ namespace SosCentar.BusinessLogic.Services
             return graph;
         }
 
-        private GraphDto GetSecondGraph(DateTime From, DateTime To)
+        private GraphDto GetSecondGraph(DateTime from, DateTime to)
         {
             Dictionary<string, int> cache = new Dictionary<string, int>();
             var dto = new GraphDto();
@@ -80,7 +80,7 @@ namespace SosCentar.BusinessLogic.Services
                 cache[answer.Text] = 0;
             }
 
-            var allEntries = _entryRepository.GetInRangeForQuestionName(questionText, From, To);
+            var allEntries = _entryRepository.GetInRangeForQuestionName(questionText, from, to);
             foreach (var entry in allEntries)
             {
                 foreach (var submitedAnswer in entry.SubmitedAnswers)

@@ -1,10 +1,9 @@
-﻿using NPOI.XWPF.UserModel;
-using System.IO;
+﻿using System;
 
 namespace SosCentar.Contracts.Interfaces.Services
 {
     public interface IExportReportService
     {
-        byte[] CreateDemoFile(System.DateTime from, System.DateTime to);
+        byte[] CreateDemoFile(DateTime from, DateTime to);
     }
 }
