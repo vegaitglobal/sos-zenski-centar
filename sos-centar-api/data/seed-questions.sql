@@ -743,7 +743,7 @@ VALUES
 		'2',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/age.svg'
+		'media/icons/work.svg'
 	),
 	(
 		'93e806e9-5ca7-4b49-810e-9d3483a9a28a',
@@ -751,7 +751,7 @@ VALUES
 		'3',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/age.svg'
+		'media/icons/work.svg'
 	),
 	(
 		'4380a5ac-34ba-480a-b214-2b4de9e73ba5',
@@ -759,7 +759,7 @@ VALUES
 		'4',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/age.svg'
+		'media/icons/work.svg'
 	),
 	(
 		'116897e7-60c9-4ecf-befe-0d7c8201eb57',
@@ -767,7 +767,7 @@ VALUES
 		'5',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/age.svg'
+		'media/icons/work.svg'
 	),
 	(
 		'89abc9af-6a2b-4494-b2c1-de24697e338f',

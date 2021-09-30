@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SosCentar.Contracts.Interfaces.Services;
 using System;
@@ -11,49 +10,51 @@ using System.Text;
 
 namespace SosCentar.BusinessLogic.Services
 {
-	public class SecurityService : ISecurityService
-	{
-		private readonly SymmetricSecurityKey _key;
-		private readonly byte[] _salt;
+    public class SecurityService : ISecurityService
+    {
+        private readonly SymmetricSecurityKey _key;
+        private readonly byte[] _salt;
 
-		public SecurityService(IConfiguration configuration)
-		{
-			_key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["TokenKey"]));
-			_salt = Encoding.UTF8.GetBytes(configuration["Salt"]);
-		}
+        public SecurityService(IConfiguration configuration)
+        {
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["TokenKey"]));
+            _salt = Encoding.UTF8.GetBytes(configuration["Salt"]);
+        }
 
-		public string CreateToken(string userEmail)
-		{
-			var claims = new List<Claim>
-			{
-				new Claim(JwtRegisteredClaimNames.Email, userEmail)
-			};
+        public string CreateToken(string userEmail)
+        {
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Email, userEmail)
+            };
 
-			var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
+            SigningCredentials credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
-			var tokenDescriptor = new SecurityTokenDescriptor
-			{
-				Subject = new ClaimsIdentity(claims),
-				Expires = DateTime.Now.AddDays(1),
-				SigningCredentials = credentials
-			};
+            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddDays(1),
+                SigningCredentials = credentials
+            };
 
-			var tokenHandler = new JwtSecurityTokenHandler();
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 
-			var token = tokenHandler.CreateToken(tokenDescriptor);
+            SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
 
-			return tokenHandler.WriteToken(token);
-		}
+            return tokenHandler.WriteToken(token);
+        }
 
-		public string HashPassword(string password)
-		{
-			return Convert.ToBase64String(KeyDerivation.Pbkdf2(
-				password: password,
-				salt: _salt,
-				prf: KeyDerivationPrf.HMACSHA256,
-				iterationCount: 100000,
-				numBytesRequested: 256 / 8)
-			);
-		}
-	}
+        public string HashPassword(string password)
+        {
+            byte[] bytes_password = Encoding.UTF8.GetBytes(password);
+            HashAlgorithm sha512hash = new SHA512CryptoServiceProvider();
+            for (int index = 0; index < 10000; ++index)
+            {
+                byte[] bytes_iteration = Encoding.UTF8.GetBytes(Convert.ToBase64String(bytes_password) + Convert.ToBase64String(_salt));
+                bytes_password = sha512hash.ComputeHash(bytes_iteration);
+            }
+            return Convert.ToBase64String(bytes_password);
+        }
+    }
 }
+
