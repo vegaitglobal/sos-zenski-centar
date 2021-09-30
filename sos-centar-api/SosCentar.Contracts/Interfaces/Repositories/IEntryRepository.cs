@@ -4,9 +4,11 @@ using System.Collections.Generic;
 
 namespace SosCentar.Contracts.Interfaces.Repositories
 {
-	public interface IEntryRepository
-	{
-		public void Create(Entry entry);
-		public IEnumerable<Entry> GetInRange(DateTime From, DateTime To);
-	}
+    public interface IEntryRepository
+    {
+        void Create(Entry entry);
+        IEnumerable<Entry> GetInRange(DateTime From, DateTime To);
+        IEnumerable<Entry> GetInRangeForCategoryId(Guid item, DateTime from, DateTime to);
+        IEnumerable<Entry> GetInRangeForQuestionName(string text, DateTime from, DateTime to);
+    }
 }

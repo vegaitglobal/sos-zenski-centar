@@ -15,11 +15,6 @@ namespace SosCentar.BusinessLogic.Services
 			_securityService = securityService;
 		}
 
-		public User GetByEmail(string email)
-		{
-			return _userRepository.GetByEmail(email);
-		}
-
 		public bool ValidateUserCredentials(string email, string password)
 		{
 			return _userRepository.ValidateUserExists(email, _securityService.HashPassword(password));

@@ -5,37 +5,36 @@ using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
 {
     public class EntryService : IEntryService
     {
-        private readonly IUserService _userService;
         private readonly IEntryRepository _entryRepository;
-        private readonly IAnswerService _answerService;
-        private readonly IQuestionService _questionService;
-        private readonly ICategoryService _categoryService;
+        private readonly IAnswerRepository _answerRepository;
+        private readonly IQuestionRepository _questionRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly IUserRepository _userRepository;
 
-        public EntryService(IUserService userService, IEntryRepository entryRepository, IAnswerService answerService, IQuestionService questionService, ICategoryService categoryService)
+        public EntryService(IEntryRepository entryRepository, IAnswerRepository answerRepository, IQuestionRepository questionRepository, ICategoryRepository categoryRepository, IUserRepository userRepository)
         {
-            _userService = userService;
             _entryRepository = entryRepository;
-            _answerService = answerService;
-            _questionService = questionService;
-            _categoryService = categoryService;
+            _answerRepository = answerRepository;
+            _questionRepository = questionRepository;
+            _categoryRepository = categoryRepository;
+            _userRepository = userRepository;
         }
 
 
         public void Create(EntryDto entryDto, string userEmail)
         {
-            var user = _userService.GetByEmail(userEmail);
+            var user = _userRepository.GetByEmail(userEmail);
 
             var submitedAnswers = new List<SubmitedAnswer>();
             foreach (var item in entryDto.SubmittedAnswers)
             {
-                var answer = _answerService.GetById(item.AnswerId);
-                var question = _questionService.GetById(item.QuestionId);
+                var answer = _answerRepository.GetById(item.AnswerId);
+                var question = _questionRepository.GetById(item.QuestionId);
                 if (question is null)
                 {
                     throw new ValidationException($"Question {item.QuestionId} does not exists");
@@ -47,29 +46,11 @@ namespace SosCentar.BusinessLogic.Services
                 submitedAnswers.Add(new SubmitedAnswer() { Answer = answer, Question = question });
             }
 
-            var category = _categoryService.GetCategoryById(entryDto.CategoryId);
+            var category = _categoryRepository.GetById(entryDto.CategoryId);
 
             var entry = new Entry() { Date = DateTime.Now, Description = entryDto.Description, User = user, SubmitedAnswers = submitedAnswers, Category = category };
 
             _entryRepository.Create(entry);
-        }
-
-		public IEnumerable<Entry> GetAllForCategoryId(Guid categoryId, DateTime From, DateTime To)
-		{
-            return GetInRange(From, To).Where(entry => entry.Category.Id == categoryId);
-		}
-
-		public IEnumerable<Entry> GetAllForQuestionName(string questionName, DateTime From, DateTime To)
-		{
-            return GetInRange(From, To)
-                .Where(entry => entry.SubmitedAnswers
-                    .Where(submittedAnswer => submittedAnswer.Question.Text == questionName)
-                        .Any());
-        }
-
-        public IEnumerable<Entry> GetInRange(DateTime From, DateTime To)
-        {
-            return _entryRepository.GetInRange(From, To);
         }
     }
 }
