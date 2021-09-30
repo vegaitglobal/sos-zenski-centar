@@ -27,7 +27,7 @@ VALUES
 	(
 		'7875c455-6ac9-4daa-a75b-761b0845449c',
 		'Opis usluge',
-		'02900ad4-2d5c-4dc2-aa98-5e366d9d5c05',
+		'42ed53bb-58d8-4a6f-ae0c-52486b0b6e0c',
 		'1'
 	),
 	(
@@ -41,31 +41,31 @@ VALUES
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'Poziv',
 		'87d01ea9-7ba2-42ae-ba82-c6e77aff3879',
-		'0'
+		'2'
 	),
 	(
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'Poziv',
 		'ed3a2a18-c8af-4064-b5b0-c7d9c1e9c47e',
-		'0'
+		'2'
 	),
 	(
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'Poziv',
 		'02900ad4-2d5c-4dc2-aa98-5e366d9d5c05',
-		'0'
+		'2'
 	),
 	(
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'Poziv',
-		'02900ad4-2d5c-4dc2-aa98-5e366d9d5c05',
-		'0'
+		'42ed53bb-58d8-4a6f-ae0c-52486b0b6e0c',
+		'2'
 	),
 	(
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'Poziv',
 		'e212a66f-e951-48b7-bb34-720e147264c2',
-		'0'
+		'2'
 	),
 
 	(
@@ -89,7 +89,7 @@ VALUES
 	(
 		'7d59dc7a-5d64-4210-8446-53c885b945cc',
 		'Intervencije',
-		'02900ad4-2d5c-4dc2-aa98-5e366d9d5c05',
+		'42ed53bb-58d8-4a6f-ae0c-52486b0b6e0c',
 		'3'
 	),
 	(
