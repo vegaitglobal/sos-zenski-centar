@@ -244,7 +244,7 @@ VALUES
 		'Broj susreta',
 		'6',
 		'1',
-		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
+		'64f02514-cac6-4563-b1b7-954743c7c05f',
 		'media/icons/no-icon.svg'
 	),
 	(
@@ -484,7 +484,7 @@ VALUES
 		'Broj susreta',
 		'12',
 		'1',
-		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
+		'64f02514-cac6-4563-b1b7-954743c7c05f',
 		'media/icons/no-icon.svg'
 	),
 	(
