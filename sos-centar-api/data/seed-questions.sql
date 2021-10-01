@@ -148,7 +148,7 @@ VALUES
 		'Kanal komunikacije',
 		'4',
 		'1',
-		'64f02514-cac6-4563-b1b7-954743c7c05f',
+		'0da678bd-9110-4dad-97cf-a531ceef1622',
 		'media/icons/no-icon.svg'
 	),
 	(
