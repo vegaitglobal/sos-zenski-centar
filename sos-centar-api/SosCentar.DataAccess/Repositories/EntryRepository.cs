@@ -24,6 +24,7 @@ namespace SosCentar.DataAccess.Repositories
         public IEnumerable<Entry> GetInRange(DateTime From, DateTime To)
         {
             return _reportContext.Entries
+                .Include(entry => entry.Category)
                 .Include(entry => entry.User)
                 .Include(entry => entry.SubmitedAnswers)
                     .ThenInclude(submitedAnswer => submitedAnswer.Question)
