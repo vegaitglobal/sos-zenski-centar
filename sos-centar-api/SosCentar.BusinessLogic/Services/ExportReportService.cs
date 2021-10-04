@@ -1,4 +1,5 @@
 ﻿using DinkToPdf;
+using DinkToPdf.Contracts;
 using Razor.Templating.Core;
 using SosCentar.Contracts.Dtos.ReportTables;
 using SosCentar.Contracts.Interfaces.Services;
@@ -11,10 +12,12 @@ namespace SosCentar.BusinessLogic.Services
     public class ExportReportService : IExportReportService
     {
         private readonly IExportPreparationService _exportPreparationService;
+        private readonly IConverter _converterPdf;
 
-        public ExportReportService(IExportPreparationService exportPreparationService)
+        public ExportReportService(IExportPreparationService exportPreparationService, IConverter converterPdf)
         {
             _exportPreparationService = exportPreparationService;
+            _converterPdf = converterPdf;
         }
 
         public byte[] CreateExportFileByteArray(DateTime from, DateTime to)
@@ -133,8 +136,6 @@ namespace SosCentar.BusinessLogic.Services
         {
             var html = RazorTemplateEngine.RenderAsync("/ReportsTemplate.cshtml", exportReport).Result;
 
-
-            var converter = new SynchronizedConverter(new PdfTools());
             var doc = new HtmlToPdfDocument()
             {
                 GlobalSettings = {
@@ -150,10 +151,10 @@ namespace SosCentar.BusinessLogic.Services
                         WebSettings = { DefaultEncoding = "utf-8" },
                         FooterSettings = { FontSize = 8, Right = "[page]/[toPage]", Spacing = 1.8 }
                     }
-    }
+                }
             };
 
-            byte[] pdfByteArray = converter.Convert(doc);
+            byte[] pdfByteArray = _converterPdf.Convert(doc);
 
             var outStream = new MemoryStream(pdfByteArray);
 

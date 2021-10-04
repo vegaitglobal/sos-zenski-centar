@@ -16,7 +16,7 @@
             text-align: center;
         }
 
-        .Sub-section {
+        .Sub-section, .Section {
             page-break-inside: avoid;
         }
 
@@ -60,7 +60,7 @@
     {
         <br />
         <br />
-        <div>
+        <div class="Section">
             <div class="Section-title">@reportSection.Title</div>
             <br />
             @foreach (var reportTable in reportSection.Tables)
