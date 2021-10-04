@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SosCentar.Contracts", "SosC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SosCentar.Domain", "SosCentar.Domain\SosCentar.Domain.csproj", "{D01C4069-FF99-4925-A5AC-F610DE3EF460}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SosCentar.HtmlTemplates", "SosCentar.HtmlTemplates\SosCentar.HtmlTemplates.csproj", "{9E1D08A8-F506-4D9D-88F0-7EB793403DB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D01C4069-FF99-4925-A5AC-F610DE3EF460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D01C4069-FF99-4925-A5AC-F610DE3EF460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D01C4069-FF99-4925-A5AC-F610DE3EF460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E1D08A8-F506-4D9D-88F0-7EB793403DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1D08A8-F506-4D9D-88F0-7EB793403DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1D08A8-F506-4D9D-88F0-7EB793403DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1D08A8-F506-4D9D-88F0-7EB793403DB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

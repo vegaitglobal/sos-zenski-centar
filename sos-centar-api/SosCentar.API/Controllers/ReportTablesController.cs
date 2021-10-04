@@ -21,20 +21,19 @@ namespace SosCentar.API.Controllers
             _exportReportService = exportReportService;
         }
 
-		[HttpGet]
-		public ActionResult<IEnumerable<Table>> Get([FromQuery(Name = "from")] DateTime From, [FromQuery(Name = "to")] DateTime To)
-		{
-			return Ok(_reportService.GetTableReport(From, To));
-		}
+        [HttpGet]
+        public ActionResult<IEnumerable<Table>> Get([FromQuery(Name = "from")] DateTime From, [FromQuery(Name = "to")] DateTime To)
+        {
+            return Ok(_reportService.GetTableReport(From, To));
+        }
 
         [HttpGet("export")]
-        [AllowAnonymous]
         public IActionResult Export([FromQuery] DateTime from, [FromQuery] DateTime to)
         {
-            var bytes = _exportReportService.CreateExportFile(from, to);
+            var bytes = _exportReportService.CreateExportFileByteArray(from, to);
 
             var contentType = "APPLICATION/octet-stream";
-            var fileName = "word.docx";
+            var fileName = "report.pdf";
 
             return File(bytes, contentType, fileName);
         }

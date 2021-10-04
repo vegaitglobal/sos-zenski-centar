@@ -1,6 +1,14 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+
+RUN apt-get update \
+    && apt-get install -y --allow-unauthenticated \
+        libc6-dev \
+        libgdiplus \
+        libx11-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
@@ -15,6 +23,7 @@ COPY ["SosCentar.BusinessLogic/SosCentar.BusinessLogic.csproj", "SosCentar.Busin
 COPY ["SosCentar.Contracts/SosCentar.Contracts.csproj", "SosCentar.Contracts/"]
 COPY ["SosCentar.DataAccess/SosCentar.DataAccess.csproj", "SosCentar.DataAccess/"]
 COPY ["SosCentar.Domain/SosCentar.Domain.csproj", "SosCentar.Domain/"]
+COPY ["SosCentar.HtmlTemplates/SosCentar.HtmlTemplates.csproj", "SosCentar.HtmlTemplates/"]
 RUN dotnet restore
 COPY . .
 WORKDIR "/src/SosCentar.API"

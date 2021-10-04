@@ -1,0 +1,103 @@
+﻿@model SosCentar.Contracts.Dtos.ReportTables.ExportReportDto;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@Model.Title</title>
+    <!-- CSS -->
+    <style>
+        .Title {
+            text-align: center;
+        }
+
+        .Subtitle {
+            text-align: center;
+        }
+
+        .Sub-section {
+            page-break-inside: avoid;
+        }
+
+        .Section-title {
+            font-weight: bold;
+            font-size: 14pt;
+            text-decoration: underline;
+        }
+
+        .Section-subtitle {
+            font-weight: bold;
+            font-size: 12pt;
+        }
+
+        .Table {
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 2px 5px;
+        }
+
+            tr th,
+            td:first-child {
+                background-color: #d8a4d9;
+            }
+    </style>
+</head>
+<body>
+    <h1 class="Title">@Model.Title</h1>
+    <h3 class="Subtitle">@Model.SubTitle</h3>
+
+    @foreach (var reportSection in Model.Sections)
+    {
+        <br />
+        <br />
+        <div>
+            <div class="Section-title">@reportSection.Title</div>
+            <br />
+            @foreach (var reportTable in reportSection.Tables)
+            {
+                <div class="Sub-section">
+                    <div class="Section-subtitle">@reportTable.Title</div>
+                    <br />
+                    <table class="Table">
+                        <thead>
+                            <tr>
+                                @foreach (var reportHeading in reportTable.Headings)
+                                {
+                                    <th>@reportHeading</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var reportRow in reportTable.Data)
+                            {
+                                <tr>
+                                    @foreach (var reportCell in reportRow)
+                                    {
+                                        <td>@reportCell</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
+                <br />
+                <br />
+            }
+
+        </div>
+
+        <br />
+    }
+</body>
+</html>
