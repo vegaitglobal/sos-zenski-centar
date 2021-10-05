@@ -6,8 +6,7 @@ INSERT INTO "Questions" (
 	"SectionId",
 	"Icon"
 ) 
---TODO : IZBRIZATI SVA PITANJA I ODGOVORE VEZANE ZA SEKCIJU KOJI NISU DEO KATEGORIJE
---NPR IZBRIZATI PITANJE BROJ OSTVARENIH INTERAKCIJA I NJEGOVE ODGOVORE ZA KATEGORIJU(SEKCIJA OPIS USLUGA) SOS TELEFON
+
 VALUES
 	(
 		'ef2f3526-b26a-4ef7-8589-46eb74f64521',
@@ -17,7 +16,6 @@ VALUES
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
 		'media/icons/no-icon.svg'
 	),
-	--DEL
 	(
 		'ee3b6d28-de62-4a60-8894-56b1650a0388',
 		'Koji put zove',
@@ -26,7 +24,6 @@ VALUES
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
 		'media/icons/no-icon.svg'
 	),
-	--DEL
 	(
 		'1989aa54-17bb-4361-8d0d-e954078ed2e0',
 		'Na koji SOS broj zove?',
@@ -35,8 +32,6 @@ VALUES
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
 		'media/icons/no-icon.svg'
 	),
-	
-
 	(
 		'97273bd7-126d-43fd-9539-a1b5a6952ef6',
 		'Kanal komunikacije',
@@ -45,7 +40,6 @@ VALUES
 		'cb428035-1089-4026-a39b-925560ab6615',
 		'media/icons/no-icon.svg'
 	),
-	
 	(
 		'506d2147-8a4c-474a-93ae-adfa10c55016',
 		'Broj ostvarenih interakcija',
@@ -54,8 +48,6 @@ VALUES
 		'cb428035-1089-4026-a39b-925560ab6615',
 		'media/icons/no-icon.svg'
 	),
-	
-
 	(
 		'f76bea89-3ddc-4862-a4a2-15e34bc04eea',
 		'Broj susreta',
@@ -63,8 +55,7 @@ VALUES
 		'1',
 		'0da678bd-9110-4dad-97cf-a531ceef1622',
 		'media/icons/no-icon.svg'
-	),
-		
+	),	
 	(
 		'4f8d18db-8c04-403b-9ca2-da2478b8d5b0',
 		'Da li je klijent završio besplatne susrete?',
@@ -73,7 +64,6 @@ VALUES
 		'0da678bd-9110-4dad-97cf-a531ceef1622',
 		'media/icons/no-icon.svg'
 	),
-	
 	(
 		'56f3284d-ee05-4932-8755-5780eafc9c3a',
 		'Kako je klijent saznao za psihološko savetovalište?',
@@ -82,7 +72,6 @@ VALUES
 		'0da678bd-9110-4dad-97cf-a531ceef1622',
 		'media/icons/no-icon.svg'
 	),
-	
 	(
 		'81485ca6-2982-4144-835c-434ce2a2a81b',
 		'Broj susreta',
@@ -91,7 +80,6 @@ VALUES
 		'7875c455-6ac9-4daa-a75b-761b0845449c',
 		'media/icons/no-icon.svg'
 	),
-	
 	(
 		'546bd8e9-9ac4-4a90-8a59-195ef6e426aa',
 		'Da li je klijent završio besplatne susrete?',
@@ -100,7 +88,6 @@ VALUES
 		'7875c455-6ac9-4daa-a75b-761b0845449c',
 		'media/icons/no-icon.svg'
 	),
-	
 	(
 		'8d690cff-f64d-4ce9-987b-3adae660d9f0',
 		'Kako je klijent saznao za psihološko savetovalište?',
@@ -109,7 +96,6 @@ VALUES
 		'7875c455-6ac9-4daa-a75b-761b0845449c',
 		'media/icons/no-icon.svg'
 	),
-
 	(
 		'ee0439c5-f3d4-431e-b6d8-54ddeda01ccf',
 		'Broj susreta',
@@ -118,7 +104,6 @@ VALUES
 		'64f02514-cac6-4563-b1b7-954743c7c05f',
 		'media/icons/no-icon.svg'
 	),
-	
 	(
 		'074951d2-9ed0-41bc-98e3-260256c7fae9',
 		'Da li je bilo suđenja?',
@@ -127,7 +112,6 @@ VALUES
 		'64f02514-cac6-4563-b1b7-954743c7c05f',
 		'media/icons/no-icon.svg'
 	),
-	
 	(
 		'c03c7e16-7b53-4ed0-9f6e-a544c43f47a6',
 		'Broj ročišta',
@@ -136,8 +120,7 @@ VALUES
 		'64f02514-cac6-4563-b1b7-954743c7c05f',
 		'media/icons/no-icon.svg'
 	),
-	-----------------------------------------------CONDITIONAL DA LI JE BILO SUDJENJA
-	
+------------------------CONDITIONAL DA LI JE BILO SUDJENJA
 	(
 		'57029a5a-a9e3-421b-a805-d44907f26ce8',
 		'Alimentacija',
