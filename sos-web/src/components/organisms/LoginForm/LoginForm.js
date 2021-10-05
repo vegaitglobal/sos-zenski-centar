@@ -13,7 +13,7 @@ import { useFetch } from '../../../hooks/useFetch';
 import { Loader } from '../../atoms/Loader/Loader';
 import { Button } from '../../molecules/Button/Button';
 import { useHistory } from 'react-router';
-
+import { baseUrl } from '../../../utils/apiUrl';
 const LoginForm = () => {
   const [form, setForm] = useState({
     email: '',
@@ -25,7 +25,7 @@ const LoginForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    sendRequest('https://api.sos.sitesstage.com/api/Users/login', {
+    sendRequest(`${baseUrl}/api/Users/login`, {
       method: 'POST',
       body: JSON.stringify(form),
     })

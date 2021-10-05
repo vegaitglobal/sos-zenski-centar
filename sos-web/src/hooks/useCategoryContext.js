@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useFetch } from './useFetch';
+import { baseUrl } from '../utils/apiUrl';
 
 const CategoryContext = React.createContext();
 
@@ -14,7 +15,7 @@ export function CategoryContextProvider({ children }) {
   const { sendRequest } = useFetch();
 
   useEffect(() => {
-    sendRequest('https://api.sos.sitesstage.com/api/Categories').then((data) =>
+    sendRequest(`${baseUrl}/api/Categories`).then((data) =>
       setCategories(data),
     );
   }, [sendRequest]);

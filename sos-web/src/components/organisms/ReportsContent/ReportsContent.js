@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import { useDataContext } from '../../../utils/store';
 import { getLastMonth } from '../../../utils/date';
 import { useReportContext } from '../../../hooks/useReportContext';
+import { baseUrl } from '../../../utils/apiUrl';
 
 export const ReportsContent = () => {
   const { data } = useDataContext();
@@ -26,7 +27,7 @@ export const ReportsContent = () => {
       const { firstDay, lastDay } = getLastMonth();
 
       const response = await sendRequest(
-        `https://api.sos.sitesstage.com/api/ReportTables?from=${
+        `${baseUrl}/api/ReportTables?from=${
           date.start || firstDay
         }&to=${date.end || lastDay}`,
       );
