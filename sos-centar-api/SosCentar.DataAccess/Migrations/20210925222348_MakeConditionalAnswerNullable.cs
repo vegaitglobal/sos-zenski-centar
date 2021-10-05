@@ -18,6 +18,8 @@ namespace SosCentar.DataAccess.Migrations
             
             var answersNasilje = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-answers.sql");
             migrationBuilder.Sql(File.ReadAllText(answersNasilje));
+            var questionCondition = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"data/seed-conditions.sql");
+            migrationBuilder.Sql(File.ReadAllText(questionCondition));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
