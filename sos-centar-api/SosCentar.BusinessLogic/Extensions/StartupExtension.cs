@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DinkToPdf;
+using DinkToPdf.Contracts;
+using Microsoft.Extensions.DependencyInjection;
 using SosCentar.BusinessLogic.Services;
 using SosCentar.Contracts.Interfaces.Repositories;
 using SosCentar.Contracts.Interfaces.Services;
@@ -18,13 +20,13 @@ namespace SosCentar.BusinessLogic.Extensions
 
             services.AddScoped<ISecurityService, SecurityService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IAnswerService, AnswerService>();
             services.AddScoped<IEntryService, EntryService>();
-            services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IReportService, ReportsService>();
             services.AddScoped<IExportReportService, ExportReportService>();
             services.AddScoped<IExportPreparationService, ExportPreparationService>();
+
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
 
             return services;
         }

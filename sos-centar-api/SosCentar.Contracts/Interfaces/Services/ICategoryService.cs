@@ -8,6 +8,5 @@ namespace SosCentar.Contracts.Interfaces.Services
     {
         IEnumerable<CategoryInfoDto> GetAll();
         CategoryDto GetById(Guid id);
-        CategoryInfoDto GetBaseInfoById(Guid id);
     }
 }

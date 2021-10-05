@@ -28,12 +28,6 @@ namespace SosCentar.BusinessLogic.Services
                 .Select(category => new CategoryInfoDto() { Id = category.Id, Label = category.Name });
         }
 
-        public CategoryInfoDto GetBaseInfoById(Guid id)
-        {
-            var category = _categoryRepository.GetById(id);
-            return new CategoryInfoDto() { Id = category.Id, Label = category.Name };
-        }
-
         public CategoryDto GetById(Guid id)
         {
             var category = _categoryRepository.GetById(id);
@@ -89,5 +83,5 @@ namespace SosCentar.BusinessLogic.Services
                 Label = answer.Text
             };
         }
-	}
+    }
 }

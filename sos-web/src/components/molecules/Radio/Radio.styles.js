@@ -4,13 +4,15 @@ import { typeStyle } from '../../../styles/config/typeStyles';
 
 export const StyledFormControl = styled.div`
   &:not(:last-of-type) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 `;
 
 export const StyledLabel = styled.label`
+  display: block;
   color: ${({ theme }) => theme.color.grey};
   cursor: pointer;
+  padding: 5px 0;
 `;
 
 export const StyledLabelText = styled.span`
@@ -39,9 +41,8 @@ export const StyledLabelText = styled.span`
     ${size('12px')};
     left: 5px;
     background-color: ${({ theme }) => theme.color.purpleLight};
-    transform: scale(0);
+    transform: translateY(-50%) scale(0);
     transition: transform 0.2s ease-in-out;
-    transform-origin: top;
   }
 `;
 
@@ -54,7 +55,7 @@ export const StyledRadio = styled.input`
         border-color: ${({ theme }) => theme.color.purpleLight};
       }
       &::after {
-        transform: scale(1) translateY(-50%);
+        transform: translateY(-50%) scale(1);
       }
     }
   }
