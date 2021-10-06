@@ -2,6 +2,7 @@ import React, { useContext, useCallback, useState, useMemo } from 'react';
 import { useFetch } from './useFetch';
 import { useHistory } from 'react-router';
 import { useDataContext } from '../utils/store';
+import { baseUrl } from '../utils/apiUrl';
 
 const NewEntryContext = React.createContext();
 
@@ -21,7 +22,7 @@ export function NewEntryContextProvider({ children }) {
       if (!selectedCategory) return history.push('/');
 
       sendRequest(
-        `https://api.sos.sitesstage.com/api/Categories/${selectedCategory.id}`,
+        `${baseUrl}/api/Categories/${selectedCategory.id}`,
       ).then(setCategoryData);
     },
     [history, sendRequest],
@@ -47,7 +48,7 @@ export function NewEntryContextProvider({ children }) {
       };
 
       clearError();
-      sendRequest(`https://api.sos.sitesstage.com/api/entries`, {
+      sendRequest(`${baseUrl}/api/entries`, {
         method: 'POST',
         body: JSON.stringify(prepareData),
       });

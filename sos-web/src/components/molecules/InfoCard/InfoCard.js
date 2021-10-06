@@ -10,6 +10,7 @@ import {
   StyledDropdown,
   StyledArrow,
 } from './InfoCard.styles';
+import { baseUrl } from '../../../utils/apiUrl';
 
 export const InfoCard = ({ label, id, options, condition, icon }) => {
   const { data, setData } = useDataContext();
@@ -57,7 +58,7 @@ export const InfoCard = ({ label, id, options, condition, icon }) => {
   return (
     <StyledCardContainer>
       <StyledInfoCard $hasDropdown={hasDropdown}>
-        <img src={`https://api.sos.sitesstage.com/${icon}`} alt={`${label}`} />
+        <img src={`${baseUrl}/${icon}`} alt={`${label}`} />
         <StyledSpan>{label}</StyledSpan>
         {hasDropdown && (
           <StyledArrow onClick={toggleDropdown}>

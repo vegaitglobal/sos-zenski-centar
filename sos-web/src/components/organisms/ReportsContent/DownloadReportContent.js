@@ -6,6 +6,7 @@ import { DatePicker } from '../../atoms/DatePicker/DatePicker';
 import { Button } from '../../molecules/Button/Button';
 import { StyledGrid } from './DownloadReportContent.styles';
 import { useReportContext } from '../../../hooks/useReportContext';
+import { baseUrl } from '../../../utils/apiUrl';
 
 export const DownloadReport = () => {
   const { setData } = useDataContext();
@@ -17,7 +18,7 @@ export const DownloadReport = () => {
       const { firstDay, lastDay } = getLastMonth();
 
       const response = await sendRequest(
-        `https://api.sos.sitesstage.com/api/ReportGraphs?from=${
+        `${baseUrl}/api/ReportGraphs?from=${
           start || firstDay
         }&to=${end || lastDay}`,
       );
