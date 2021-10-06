@@ -48,7 +48,7 @@ export function NewEntryContextProvider({ children }) {
       };
 
       clearError();
-      sendRequest(`http://localhost:48201/api/entries`, {
+      sendRequest(`${baseUrl}/api/entries`, {
         method: 'POST',
         body: JSON.stringify(prepareData),
       });
