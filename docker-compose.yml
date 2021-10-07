@@ -35,6 +35,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "48202:3000"
+    env_file:
+      - .env
   pgadmin:
     image: dpage/pgadmin4
     container_name: sos-pgadmin
