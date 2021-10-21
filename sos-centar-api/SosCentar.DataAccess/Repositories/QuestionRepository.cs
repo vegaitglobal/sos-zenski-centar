@@ -23,7 +23,9 @@ namespace SosCentar.DataAccess.Repositories
 
         public IEnumerable<Question> GetByName(string name)
         {
-            return _reportContext.Questions.Include(question => question.Answers).Where(question => question.Text == name);
+            return _reportContext.Questions
+                .Include(question => question.Answers.OrderBy(answer => answer.Order))
+                .Where(question => question.Text == name);
         }
     }
 }

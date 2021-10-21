@@ -8,5 +8,6 @@ namespace SosCentar.Contracts.Interfaces.Services
         ExportTableDto GetUsersCountPerCategory(DateTime from, DateTime to, string title);
         ExportTableDto GetReportPerAnswerOnQuestion(DateTime from, DateTime to, string title, string questionText, bool includeTotalColumn = false);
         ExportTableDto GetReportPerAnswerOnQuestionPerCategory(DateTime from, DateTime to, string title, string questionText, bool includeTotalColumn = false);
+        ExportTableDto GetReportPerAnswerOnQuestionPerOtherQuestion(DateTime from, DateTime to, string title, string questionText, string otherQuestionText, bool includeTotalColumn = false);
     }
 }
