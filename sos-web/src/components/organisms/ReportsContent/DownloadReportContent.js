@@ -13,18 +13,25 @@ export const DownloadReport = () => {
   const { sendRequest, isLoading } = useFetch();
   const { date, setDate } = useReportContext();
 
-  const fetchGraphs = useCallback(
+  const fetchData = useCallback(
     async (start = date.start, end = date.end) => {
       const { firstDay, lastDay } = getLastMonth();
 
-      const response = await sendRequest(
+      const graphResponse = await sendRequest(
         `${baseUrl}/api/ReportGraphs?from=${
           start || firstDay
         }&to=${end || lastDay}`,
       );
 
+      const tableResponse = await sendRequest(
+        `${baseUrl}/api/ReportTables?from=${
+          start || firstDay
+        }&to=${end || lastDay}`,
+      );
+
       setData({
-        charts: response,
+        charts: graphResponse,
+        tables: tableResponse
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,17 +49,17 @@ export const DownloadReport = () => {
   );
 
   const handleCustomDate = useCallback(() => {
-    fetchGraphs();
-  }, [fetchGraphs]);
+    fetchData();
+  }, [fetchData]);
 
   const handleLastMonth = useCallback(() => {
     const { firstDay, lastDay } = getLastMonth();
 
-    fetchGraphs(firstDay, lastDay);
-  }, [fetchGraphs]);
+    fetchData(firstDay, lastDay);
+  }, [fetchData]);
 
   useEffect(() => {
-    fetchGraphs();
+    fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -14,12 +14,14 @@ import { Loader } from '../../atoms/Loader/Loader';
 import { Button } from '../../molecules/Button/Button';
 import { useHistory } from 'react-router';
 import { baseUrl } from '../../../utils/apiUrl';
+import { useCategoryContext } from '../../../hooks/useCategoryContext';
 const LoginForm = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
   const { sendRequest, isLoading, isError } = useFetch();
+  const { setAuthenticated } = useCategoryContext();
   const history = useHistory();
 
   const handleSubmit = (event) => {
@@ -32,6 +34,7 @@ const LoginForm = () => {
       .then((response) => {
         localStorage.setItem('token', `Bearer ${response.accessToken}`);
         localStorage.setItem('email', response.email);
+        setAuthenticated(true);
         history.push('/');
       })
       .catch(() => {});

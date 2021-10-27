@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useFetch } from './useFetch';
 import { baseUrl } from '../utils/apiUrl';
+import { isAuthenticated } from '../utils/isAuthenticated';
 
 const CategoryContext = React.createContext();
 
@@ -11,20 +12,22 @@ export function useCategoryContext() {
 export function CategoryContextProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState();
+  const [authenticated, setAuthenticated] = useState(isAuthenticated());
 
   const { sendRequest } = useFetch();
 
   useEffect(() => {
-    sendRequest(`${baseUrl}/api/Categories`).then((data) =>
+    authenticated && sendRequest(`${baseUrl}/api/Categories`).then((data) =>
       setCategories(data),
     );
-  }, [sendRequest]);
+  }, [sendRequest, authenticated]);
 
   return (
     <CategoryContext.Provider
       value={{
         categories,
         selectCategory: setSelectedCategory,
+        setAuthenticated,
         selectedCategory,
       }}
     >
