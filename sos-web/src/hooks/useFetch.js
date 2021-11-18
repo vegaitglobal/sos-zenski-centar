@@ -31,8 +31,6 @@ export const useFetch = () => {
           signal: abortController.signal,
         });
 
-        const responseData = await response.json();
-
         activeHttpRequests.current = activeHttpRequests.current.filter(
           (reqCtrl) => reqCtrl !== abortController,
         );
@@ -43,8 +41,10 @@ export const useFetch = () => {
             localStorage.removeItem('token');
             localStorage.removeItem('email');
           }
-          throw new Error(responseData.message);
+          throw new Error(response.statusText);
         }
+
+        const responseData = await response.json();
 
         setIsLoading(false);
         return responseData;
