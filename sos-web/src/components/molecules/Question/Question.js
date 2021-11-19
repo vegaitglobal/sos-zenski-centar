@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react';
+import { shouldBeDisplayed } from '../../../utils/shouldBeDisplayed';
 import { useDataContext } from '../../../utils/store';
 import { Noop } from '../../atoms/Noop/Noop';
 import { Radio } from '../Radio/Radio';
@@ -26,38 +27,26 @@ export const Question = ({ label, id, options, condition, ...props }) => {
     [setData],
   );
 
-  const userAnswer = data?.[condition?.questionId];
+  const showQuestion = useMemo(() => shouldBeDisplayed(data, condition), [data, condition]);
 
-  const shouldBeHidden = useMemo(() => {
-    if (!condition) return false;
-
-    const exactAnswerRequired = !!condition.answerId;
-
-    const exactAnswerMatch = userAnswer === condition.answerId;
-    const anyAnswerMatch = !exactAnswerRequired && userAnswer;
-
-    const shouldBeDisplayed = exactAnswerMatch || anyAnswerMatch;
-    return !shouldBeDisplayed;
-  }, [condition, userAnswer]);
-
-  return shouldBeHidden ? (
-    <Noop />
-  ) : (
+  return showQuestion ? (
     <StyledQuestion {...props}>
       <QuestionTitle>{label}</QuestionTitle>
       {options.length === 0 && (
         <TextArea value={data?.description} onChange={handleTextareChange} />
-      )}
+        )}
       {options.map(({ id: optionId, label: optionLabel }) => (
         <Radio
-          key={optionId}
-          label={optionLabel}
-          value={optionId}
-          name={label}
-          isChecked={data[id] === optionId}
-          onChange={handleOnChange}
+        key={optionId}
+        label={optionLabel}
+        value={optionId}
+        name={label}
+        isChecked={data[id] === optionId}
+        onChange={handleOnChange}
         />
-      ))}
+        ))}
     </StyledQuestion>
+  ) : (
+    <Noop />
   );
 };
