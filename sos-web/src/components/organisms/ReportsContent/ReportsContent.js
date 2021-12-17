@@ -13,7 +13,7 @@ import { useDataContext } from '../../../utils/store';
 export const ReportsContent = () => {
   const { data } = useDataContext();
   const [barChart, doughnatChart] = data?.charts ?? [];
-  const [tables] = data?.tables ?? [];
+  const tables = data?.tables ?? [];
 
   return (
     <Shell
