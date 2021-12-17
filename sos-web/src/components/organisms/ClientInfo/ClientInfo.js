@@ -9,6 +9,7 @@ import {
   StyledCardContainer,
   StyledAccordion,
 } from './ClientInfo.styles';
+import { baseUrl } from '../../../utils/apiUrl';
 
 export const ClientInfo = (props) => {
   const { callerInfo } = useNewEntryContext();
@@ -44,7 +45,7 @@ export const ClientInfo = (props) => {
                 key={id}
                 onClick={() => handleSidebarButtonClick(id)}
               >
-                <img src={`https://api.sos.sitesstage.com/${icon}`} alt={label} />
+                <img src={`${baseUrl}/${icon}`} alt={label} />
                 <span>{label}</span>
               </StyledSidebarButton>
             );
