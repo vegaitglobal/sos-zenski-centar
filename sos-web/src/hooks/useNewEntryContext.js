@@ -13,7 +13,8 @@ export function useNewEntryContext() {
 export function NewEntryContextProvider({ children }) {
   const history = useHistory();
   const [categoryData, setCategoryData] = useState();
-  const { data } = useDataContext();
+  const [errors, setErrors] = useState([]);
+  const { data, resetData } = useDataContext();
 
   const { sendRequest, isLoading, isError, clearError } = useFetch();
 
@@ -47,15 +48,31 @@ export function NewEntryContextProvider({ children }) {
         submittedAnswers: mapAnswers,
       };
 
+      const requiredQuestionsID = [];
+      for (let key in categoryData) {
+        if (key !== 'id') {
+          requiredQuestionsID.push(...categoryData[key].questions.map(question => question.isRequired ? question.id : null));
+        }
+      }
+
+      const answeredQuestionsID = [null, ...mapAnswers.map(answer => answer.questionId)];
+
+      setErrors(requiredQuestionsID.filter(id => !answeredQuestionsID.includes(id)));
+
       clearError();
-      sendRequest(`${baseUrl}/api/entries`, {
-        method: 'POST',
-        body: JSON.stringify(prepareData),
-      });
+      if (requiredQuestionsID.every(question => answeredQuestionsID.includes(question))) {
+        sendRequest(`${baseUrl}/api/entries`, {
+          method: 'POST',
+          body: JSON.stringify(prepareData),
+        }).then(() => {
+          resetData();
+          history.push('/');
+        }).catch(e => {console.log(e.message)});
+      }
     };
 
     return { send, isError, isLoading };
-  }, [sendRequest, isLoading, isError, clearError, data, categoryData?.id]);
+  }, [sendRequest, isLoading, isError, clearError, data, categoryData, history, resetData]);
 
   // TODO
   // const questions = categoryData?.actionInfo || { questions: [] };
@@ -66,8 +83,9 @@ export function NewEntryContextProvider({ children }) {
         submit,
         initialize,
         actionInfo: categoryData?.actionInfo || { questions: [] },
-        callerInfo: categoryData?.callerInfo || { questions: [] },
-        serviceInfo: categoryData?.serviceInfo || { questions: [] },
+        callerInfo: categoryData?.serviceInfo || { questions: [] },
+        serviceInfo: categoryData?.callerInfo || { questions: [] },
+        errors: errors
       }}
     >
       {children}
