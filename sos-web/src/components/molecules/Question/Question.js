@@ -29,14 +29,17 @@ export const Question = ({ label, id, options, condition, ...props }) => {
     [setData],
   );
 
-  const showQuestion = useMemo(() => shouldBeDisplayed(data, condition), [data, condition]);
+  const showQuestion = useMemo(
+    () => shouldBeDisplayed(data, condition),
+    [data, condition],
+  );
 
   return showQuestion ? (
     <StyledQuestion {...props}>
       <QuestionTitle error={errors.includes(id)}>{label}</QuestionTitle>
       {options.length === 0 && (
         <TextArea value={data?.description} onChange={handleTextareChange} />
-        )}
+      )}
       {options.map(({ id: optionId, label: optionLabel }) => (
         <Radio
           key={optionId}
@@ -46,7 +49,7 @@ export const Question = ({ label, id, options, condition, ...props }) => {
           isChecked={data[id] === optionId}
           onChange={handleOnChange}
         />
-        ))}
+      ))}
     </StyledQuestion>
   ) : (
     <Noop />
