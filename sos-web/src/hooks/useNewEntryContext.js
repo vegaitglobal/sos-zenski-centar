@@ -42,8 +42,6 @@ export function NewEntryContextProvider({ children }) {
         }
       }
 
-      console.log(categoryData);
-
       const prepareData = {
         categoryId: categoryData?.id,
         ...(data.description ? { description: data.description } : {}),
