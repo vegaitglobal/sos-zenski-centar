@@ -34,7 +34,7 @@ export function NewEntryContextProvider({ children }) {
       const mapAnswers = [];
 
       for (let obj in data) {
-        if (obj !== 'description') {
+        if (obj !== 'description' && obj !== 'charts' && obj !== 'tables') {
           mapAnswers.push({
             questionId: obj,
             answerId: data[obj],

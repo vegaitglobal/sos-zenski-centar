@@ -36,8 +36,10 @@ export const BarChart = ({ chartData, ...props }) => {
   );
 
   return (
-    <StyledBarChart {...props}>
-      <Bar data={data} options={chartOptions} />
-    </StyledBarChart>
+    <div>
+      <StyledBarChart {...props}>
+        <Bar data={data} options={chartOptions} />
+      </StyledBarChart>
+    </div>
   );
 };
