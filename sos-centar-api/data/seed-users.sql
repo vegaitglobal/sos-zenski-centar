@@ -3,7 +3,8 @@
 	"Email",
     "FirstName",
     "LastName",
-    "Password"
+    "Password",
+	"IsAdmin"
 )
 VALUES
     
@@ -12,7 +13,8 @@ VALUES
 		'vanjastepanovic001@gmail.com',
 		'Vanja',
 		'Stepanović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -20,7 +22,8 @@ VALUES
 		'noapernoa@gmail.com',
 		'Radojka',
 		'Jevtić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -28,7 +31,8 @@ VALUES
 		'vtesan95@gmail.com',
 		'Ivana',
 		'Tešan',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -36,7 +40,8 @@ VALUES
 		'vanjatvanja@gmail.com',
 		'Vanja',
 		'Trkulja',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -44,7 +49,8 @@ VALUES
 		'maja.pistolic@gmail.com',
 		'Maja',
 		'Pistolić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -52,7 +58,8 @@ VALUES
 		'jovana.kostevski@gmail.com',
 		'Jovana',
 		'Kostevski',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -60,7 +67,8 @@ VALUES
 		'ivana.nesovic@sosns.rs',
 		'Ivana',
 		'Nešović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -68,7 +76,8 @@ VALUES
 		'teodora.tepic@sosns.rs',
 		'Teodora',
 		'Tepić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -76,7 +85,8 @@ VALUES
 		'jovanaradulovic22@gmail.com',
 		'Jovana',
 		'Radulović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -84,7 +94,8 @@ VALUES
 		'andri.kosanin@gmail.com',
 		'Andrea',
 		'Košanin',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -92,7 +103,8 @@ VALUES
 		'jelenastojanovic@sosns.rs',
 		'Jelena',
 		'Stojanović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -100,7 +112,8 @@ VALUES
 		'cupcake.nin@gmail.com',
 		'Nina',
 		'Racić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -108,7 +121,8 @@ VALUES
 		'saska.milovac795@gmail.com',
 		'Aleksandra',
 		'Dukić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -116,7 +130,8 @@ VALUES
 		'oliverakovacev@yahoo.com ',
 		'Olivera',
 		'Kovačev',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -124,7 +139,8 @@ VALUES
 		'sos.telefon@gmail.com',
 		'Ivana',
 		'Perić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -132,7 +148,8 @@ VALUES
 		'masapoznanovic@sosns.rs',
 		'Maša',
 		'Poznanović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'true'
 	),
 	
 	(
@@ -140,7 +157,8 @@ VALUES
 		'biljanagalic@sosns.rs',
 		'Biljana',
 		'Galić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -148,7 +166,8 @@ VALUES
 		'psihologanakusturic@gmail.com',
 		'Ana',
 		'Todorčević',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -156,7 +175,8 @@ VALUES
 		'dusicasostaric@yahoo.com',
 		'Dušica',
 		'Šoštarić Blagojević',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -164,7 +184,8 @@ VALUES
 		'mirela.pavlovic@gmail.com',
 		'Mirela',
 		'Pavlović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -172,7 +193,8 @@ VALUES
 		'nedasubotic21@gmail.com',
 		'Neda',
 		'Subotić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -180,7 +202,8 @@ VALUES
 		'aleksandracurcic16@gmail.com ',
 		'Aleksandra',
 		'Ćurčić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -188,7 +211,8 @@ VALUES
 		'jovana.ozimkovic@gmail.com',
 		'Jovana',
 		'Ozimković',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -196,7 +220,8 @@ VALUES
 		'pejicsilvana@gmail.com',
 		'Silvana',
 		'Pejić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -204,7 +229,8 @@ VALUES
 		'sandrafilipovic998@gmail.com ',
 		'Sandra',
 		'Filipović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -212,7 +238,8 @@ VALUES
 		'saska.bajic86@gmail.com ',
 		'Aleksandra',
 		'Bajić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -220,7 +247,8 @@ VALUES
 		'tanja.psychology@gmail.com',
 		'Tanja',
 		'Adamović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -228,7 +256,8 @@ VALUES
 		'zlatkovicaleksandra2@gmail.com',
 		'Aleksandra',
 		'Zlatković',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -236,7 +265,8 @@ VALUES
 		'milenapaunkovic@hotmail.com',
 		'Milena',
 		'Paunković',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -244,7 +274,8 @@ VALUES
 		'milica.ludoski95@gmail.com',
 		'Milica',
 		'Ludoški',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -252,7 +283,8 @@ VALUES
 		'zorana.damjanovic.savetovanje@gmail.com ',
 		'Zorana',
 		'Damjanović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -260,7 +292,8 @@ VALUES
 		'mdespotovic996@gmail.com',
 		'Maja',
 		'Despotović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -268,7 +301,8 @@ VALUES
 		'nedasubotic21@gmail.com ',
 		'Neda',
 		'Subotić ',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	),
 	
 	(
@@ -276,7 +310,8 @@ VALUES
 		'nszorica@gmail.com',
 		'Zorica',
 		'Pajantić',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ='
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'false'
 	);
 
 
