@@ -91,7 +91,7 @@ namespace SosCentar.BusinessLogic.Services
             var sectionTables = new List<ExportTableDto>();
 
             var table1 = _exportPreparationService
-                .GetReportPerAnswerOnQuestion(from, to, "3.1. Da li postoji nasilje", "Da li postoji nasilje?", true); // IZBACENO PITANJE MASAA??!!
+                .GetReportPerAnswerOnQuestion(from, to, "3.1. Da li postoji nasilje", "Da li postoji nasilje?", true);
             sectionTables.Add(table1);
 
             var table2 = _exportPreparationService
@@ -105,7 +105,13 @@ namespace SosCentar.BusinessLogic.Services
         {
             var sectionTables = new List<ExportTableDto>();
 
-            //MASO
+            var table1 = _exportPreparationService
+                .GetReportPerAnswerOnQuestion(from, to, "4.1. Broj korisnika/ca po kanalu komunikacije", "Kanal komunikacije", true);
+            sectionTables.Add(table1);
+
+            var table2 = _exportPreparationService
+                .GetReportPerAnswerOnQuestionPerOtherQuestion(from, to, "4.1. Broj interakcija po kanalu komunikacije", "Kanal komunikacije", "Broj ostvarenih interakcija");
+            sectionTables.Add(table2);
 
             return new ExportSectionDto { Title = "4. Evidencija poruka 2021- Broj korisnika/ca i ostvaren broj interakcija", Tables = sectionTables };
         }
