@@ -4,6 +4,7 @@ using SosCentar.Contracts.Dtos.Users;
 using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
 {
@@ -30,22 +31,13 @@ namespace SosCentar.BusinessLogic.Services
 
 		public IEnumerable<ResponseUserDto> GetAllUsers()
 		{
-			var users = _userRepository.GetAll();
-			var userDtos = new List<ResponseUserDto>();
-
-			foreach (var user in users)
+			return _userRepository.GetAll().Select(user => new ResponseUserDto
 			{
-				var userDto = new ResponseUserDto()
-				{
-					Email = user.Email,
-					FirstName = user.FirstName,
-					LastName = user.LastName,
-					IsAdmin = user.IsAdmin
-				};
-				userDtos.Add(userDto);
-			}
-
-			return userDtos;
+				Email = user.Email,
+				FirstName = user.FirstName,
+				LastName = user.LastName,
+				IsAdmin = user.IsAdmin
+			});
 		}
 
 
@@ -72,7 +64,7 @@ namespace SosCentar.BusinessLogic.Services
 		{
 			var existingUser = _userRepository.GetByEmail(userDto.Email);
 
-			if (existingUser != null)
+			if (existingUser is not null)
 			{
 				throw new ArgumentException("Email already in use!");
 			}

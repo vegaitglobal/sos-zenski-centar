@@ -44,7 +44,7 @@ namespace SosCentar.DataAccess.Repositories
         {
             var user = _reportContext.Users.FirstOrDefault(user => user.Email == email);
             
-            if(user == null)
+            if(user is null)
             {
                 throw new KeyNotFoundException("There is no user with email: " + email);
             }
@@ -60,7 +60,7 @@ namespace SosCentar.DataAccess.Repositories
         {
             var user = _reportContext.Users.FirstOrDefault(user => user.Email == email);
 
-            if (user == null)
+            if (user is null)
             {
                 throw new KeyNotFoundException("There is no user with email: " + email);
             }

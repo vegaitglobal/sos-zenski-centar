@@ -28,7 +28,7 @@ namespace SosCentar.API.Controllers
         {
             var user = _userService.GetUserIfValid(loginModel.Email, loginModel.Password);
 
-            if (user == null)
+            if (user is null)
             {
                 return Unauthorized();
             }
