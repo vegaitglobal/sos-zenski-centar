@@ -45,7 +45,7 @@ namespace SosCentar.BusinessLogic.Services
 		{
 			var user = _userRepository.GetByEmail(email);
 
-			if (user == null)
+			if (user is null)
 			{
 				throw new KeyNotFoundException("There is no user with email: " + email);
 			}
