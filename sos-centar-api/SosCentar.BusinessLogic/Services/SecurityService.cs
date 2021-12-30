@@ -22,11 +22,12 @@ namespace SosCentar.BusinessLogic.Services
 			_salt = Encoding.UTF8.GetBytes(configuration["Salt"]);
 		}
 
-		public string CreateToken(string userEmail)
+		public string CreateToken(string userEmail, string role)
 		{
 			var claims = new List<Claim>
 			{
-				new Claim(JwtRegisteredClaimNames.Email, userEmail)
+				new Claim(JwtRegisteredClaimNames.Email, userEmail),
+				new Claim(ClaimTypes.Role, role)
 			};
 
 			var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);

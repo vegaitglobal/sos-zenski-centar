@@ -1,6 +1,9 @@
 ﻿using SosCentar.Contracts.Interfaces.Repositories;
 using SosCentar.Contracts.Interfaces.Services;
+using SosCentar.Contracts.Dtos.Users;
 using SosCentar.Domain.Models;
+using System;
+using System.Collections.Generic;
 
 namespace SosCentar.BusinessLogic.Services
 {
@@ -18,6 +21,82 @@ namespace SosCentar.BusinessLogic.Services
 		public bool ValidateUserCredentials(string email, string password)
 		{
 			return _userRepository.ValidateUserExists(email, _securityService.HashPassword(password));
+		}
+
+		public User GetUserIfValid(string email, string password)
+		{
+			return _userRepository.GetUserIfValid(email, _securityService.HashPassword(password));
+		}
+
+		public IEnumerable<ResponseUserDto> GetAllUsers()
+		{
+			var users = _userRepository.GetAll();
+			var userDtos = new List<ResponseUserDto>();
+
+			foreach (var user in users)
+			{
+				var userDto = new ResponseUserDto()
+				{
+					Email = user.Email,
+					FirstName = user.FirstName,
+					LastName = user.LastName,
+					IsAdmin = user.IsAdmin
+				};
+				userDtos.Add(userDto);
+			}
+
+			return userDtos;
+		}
+
+
+		public ResponseUserDto GetUserByEmail(string email)
+		{
+			var user = _userRepository.GetByEmail(email);
+
+			if (user == null)
+			{
+				throw new KeyNotFoundException("There is no user with email: " + email);
+			}
+
+			var userDto = new ResponseUserDto()
+			{
+				Email = user.Email,
+				FirstName = user.FirstName,
+				LastName = user.LastName,
+				IsAdmin = user.IsAdmin
+			};
+			return userDto;
+		}
+
+		public void CreateUser(UserCreateDto userDto)
+		{
+			var existingUser = _userRepository.GetByEmail(userDto.Email);
+
+			if (existingUser != null)
+			{
+				throw new ArgumentException("Email already in use!");
+			}
+
+			var User = new User()
+			{
+				Id = new Guid(),
+				FirstName = userDto.FirstName,
+				LastName = userDto.LastName,
+				Email = userDto.Email,
+				Password = _securityService.HashPassword(userDto.Password),
+				IsAdmin = userDto.IsAdmin
+			};
+			_userRepository.CreateUser(User);
+		}
+
+		public void UpdateteUser(string email, UserUpdateDto userDto)
+		{
+			_userRepository.UpdateUser(email, userDto.FirstName, userDto.LastName, userDto.IsAdmin);
+		}
+
+		public void DeleteUser(string email)
+		{
+			_userRepository.DeleteUser(email);
 		}
 	}
 }
