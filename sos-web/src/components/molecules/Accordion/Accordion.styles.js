@@ -46,11 +46,13 @@ export const StyledIcon = styled(Icon.ArrowDown)`
     `};
 `;
 
-export const StyledContent = styled(motion.div)`
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  padding-left: 30px;
-  padding-right: 30px;
-  background-color: ${({ theme }) => theme.color.white};
+export const StyledBody = styled(motion.div)`
+position: relative;
+height: 0;
+overflow: hidden;
+background-color: ${({ theme }) => theme.color.white};
+`;
+
+export const StyledContent = styled.div`
+  padding: 30px;
 `;

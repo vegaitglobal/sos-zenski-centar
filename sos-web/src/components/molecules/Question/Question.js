@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react';
+import { useNewEntryContext } from '../../../hooks/useNewEntryContext';
 import { shouldBeDisplayed } from '../../../utils/shouldBeDisplayed';
 import { useDataContext } from '../../../utils/store';
 import { Noop } from '../../atoms/Noop/Noop';
@@ -8,6 +9,7 @@ import { StyledQuestion, QuestionTitle } from './Question.styles';
 
 export const Question = ({ label, id, options, condition, ...props }) => {
   const { data, setData } = useDataContext();
+  const { errors } = useNewEntryContext();
 
   const handleOnChange = useCallback(
     ({ target }) => {
@@ -27,24 +29,27 @@ export const Question = ({ label, id, options, condition, ...props }) => {
     [setData],
   );
 
-  const showQuestion = useMemo(() => shouldBeDisplayed(data, condition), [data, condition]);
+  const showQuestion = useMemo(
+    () => shouldBeDisplayed(data, condition),
+    [data, condition],
+  );
 
   return showQuestion ? (
     <StyledQuestion {...props}>
-      <QuestionTitle>{label}</QuestionTitle>
+      <QuestionTitle error={errors.includes(id)}>{label}</QuestionTitle>
       {options.length === 0 && (
         <TextArea value={data?.description} onChange={handleTextareChange} />
-        )}
+      )}
       {options.map(({ id: optionId, label: optionLabel }) => (
         <Radio
-        key={optionId}
-        label={optionLabel}
-        value={optionId}
-        name={label}
-        isChecked={data[id] === optionId}
-        onChange={handleOnChange}
+          key={optionId}
+          label={optionLabel}
+          value={optionId}
+          name={label}
+          isChecked={data[id] === optionId}
+          onChange={handleOnChange}
         />
-        ))}
+      ))}
     </StyledQuestion>
   ) : (
     <Noop />

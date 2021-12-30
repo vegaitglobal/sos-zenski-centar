@@ -4,7 +4,7 @@ import { typeStyle } from '../../../styles/config/typeStyles';
 
 export const StyledFormControl = styled.div`
   &:not(:last-of-type) {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 `;
 
@@ -12,7 +12,7 @@ export const StyledLabel = styled.label`
   display: block;
   color: ${({ theme }) => theme.color.grey};
   cursor: pointer;
-  padding: 5px 0;
+  padding: 10px 0;
 `;
 
 export const StyledLabelText = styled.span`
@@ -42,14 +42,15 @@ export const StyledLabelText = styled.span`
     left: 5px;
     background-color: ${({ theme }) => theme.color.purpleLight};
     transform: translateY(-50%) scale(0);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.1s ease-in-out;
   }
 `;
 
 export const StyledRadio = styled.input`
   ${hideVisually()};
 
-  &:checked {
+  &:checked,
+  &:hover {
     ~ ${StyledLabelText} {
       &::before {
         border-color: ${({ theme }) => theme.color.purpleLight};

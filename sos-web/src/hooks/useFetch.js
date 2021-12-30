@@ -44,9 +44,11 @@ export const useFetch = () => {
           throw new Error(response.statusText);
         }
 
-        const responseData = await response.json();
+        const responseString = await response.text();
+        const responseData = responseString === "" ? {} : JSON.parse(responseString);
 
         setIsLoading(false);
+
         return responseData;
       } catch (err) {
         setIsError(true);

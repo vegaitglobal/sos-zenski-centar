@@ -22,8 +22,8 @@ export const FormProvider = ({ children }) => {
   );
 
   const resetData = useCallback(() => {
-    setData(FORM_DEFAULTS);
-  }, [setData]);
+    _setData(FORM_DEFAULTS);
+  }, [_setData]);
 
   return (
     <Context.Provider value={{ data, setData, resetData }}>

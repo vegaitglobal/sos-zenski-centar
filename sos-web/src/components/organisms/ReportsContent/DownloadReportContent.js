@@ -9,7 +9,7 @@ import { useReportContext } from '../../../hooks/useReportContext';
 import { baseUrl } from '../../../utils/apiUrl';
 
 export const DownloadReport = () => {
-  const { setData } = useDataContext();
+  const { setData, data } = useDataContext();
   const { sendRequest, isLoading } = useFetch();
   const { date, setDate } = useReportContext();
 
@@ -18,20 +18,20 @@ export const DownloadReport = () => {
       const { firstDay, lastDay } = getLastMonth();
 
       const graphResponse = await sendRequest(
-        `${baseUrl}/api/ReportGraphs?from=${
-          start || firstDay
-        }&to=${end || lastDay}`,
+        `${baseUrl}/api/ReportGraphs?from=${start || firstDay}&to=${
+          end || lastDay
+        }`,
       );
 
       const tableResponse = await sendRequest(
-        `${baseUrl}/api/ReportTables?from=${
-          start || firstDay
-        }&to=${end || lastDay}`,
+        `${baseUrl}/api/ReportTables?from=${start || firstDay}&to=${
+          end || lastDay
+        }`,
       );
 
       setData({
         charts: graphResponse,
-        tables: tableResponse
+        tables: tableResponse,
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -55,8 +55,9 @@ export const DownloadReport = () => {
   const handleLastMonth = useCallback(() => {
     const { firstDay, lastDay } = getLastMonth();
 
+    setDate({ start: firstDay, end: lastDay });
     fetchData(firstDay, lastDay);
-  }, [fetchData]);
+  }, [fetchData, setDate]);
 
   useEffect(() => {
     fetchData();
