@@ -17,9 +17,9 @@ export function CategoryContextProvider({ children }) {
   const { sendRequest } = useFetch();
 
   useEffect(() => {
-    authenticated && sendRequest(`${baseUrl}/api/Categories`).then((data) =>
-      setCategories(data),
-    );
+    authenticated && sendRequest(`${baseUrl}/api/Categories`)
+      .then(data => setCategories(data))
+      .catch(err => console.log(err.message));
   }, [sendRequest, authenticated]);
 
   return (

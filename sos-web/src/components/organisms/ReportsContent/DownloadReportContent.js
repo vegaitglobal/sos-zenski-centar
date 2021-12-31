@@ -9,7 +9,7 @@ import { useReportContext } from '../../../hooks/useReportContext';
 import { baseUrl } from '../../../utils/apiUrl';
 
 export const DownloadReport = () => {
-  const { setData, data } = useDataContext();
+  const { setData } = useDataContext();
   const { sendRequest, isLoading } = useFetch();
   const { date, setDate } = useReportContext();
 
@@ -59,6 +59,11 @@ export const DownloadReport = () => {
     fetchData(firstDay, lastDay);
   }, [fetchData, setDate]);
 
+  const handleDownload = useCallback(async () => {
+    sendRequest(`${baseUrl}/api/ReportTables/export?from=${date.start}&to=${date.end}`, true)
+      .catch(err => console.log(err.message));
+  }, [date.start, date.end, sendRequest])
+
   useEffect(() => {
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -92,7 +97,7 @@ export const DownloadReport = () => {
         </Button>
       </div>
       <div>
-        <Button>Download</Button>
+        <Button onClick={handleDownload}>Download</Button>
       </div>
     </StyledGrid>
   );
