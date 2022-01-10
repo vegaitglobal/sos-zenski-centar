@@ -63,7 +63,7 @@ namespace SosCentar.BusinessLogic.Services
 
 		public void CreateUser(UserCreateDto userDto)
 		{
-			if (userDto.Email is null || userDto.Email == "" || userDto.Password is null || userDto.Password == "")
+			if (string.IsNullOrWhiteSpace(userDto.Email) || string.IsNullOrWhiteSpace(userDto.Password))
             {
 				throw new ValidationException("Email and Password are required!");
             }
@@ -89,7 +89,7 @@ namespace SosCentar.BusinessLogic.Services
 
 		public void UpdateteUser(string email, UserUpdateDto userDto)
 		{
-			if (userDto.Password is not null && userDto.Password != "")
+			if (!string.IsNullOrWhiteSpace(userDto.Password))
             {
 				var hashedPassword = _securityService.HashPassword(userDto.Password);
 				_userRepository.UpdateUser(email, userDto.FirstName, userDto.LastName, hashedPassword, userDto.IsAdmin);
