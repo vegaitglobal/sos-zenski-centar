@@ -30,7 +30,7 @@ namespace SosCentar.DataAccess.Repositories
                     .ThenInclude(submitedAnswer => submitedAnswer.Question)
                 .Include(entry => entry.SubmitedAnswers)
                     .ThenInclude(submitedAnswer => submitedAnswer.Answer)
-                .Where(Enntry => (From <= Enntry.Date && Enntry.Date <= To));
+                .Where(Enntry => (From.Date <= Enntry.Date.Date && Enntry.Date.Date <= To.Date));
         }
 
         public IEnumerable<Entry> GetInRangeForCategoryId(Guid categoryId, DateTime from, DateTime to)
