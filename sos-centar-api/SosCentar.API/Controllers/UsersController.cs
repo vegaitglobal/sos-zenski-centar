@@ -4,7 +4,7 @@ using SosCentar.Contracts.Dtos.Users;
 using SosCentar.Contracts.Interfaces.Services;
 using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace SosCentar.API.Controllers
 {
@@ -73,7 +73,10 @@ namespace SosCentar.API.Controllers
             try
             {
                 _userService.CreateUser(userDto);
-            } catch (ArgumentException ex)
+            }catch (ValidationException ex)
+            {
+                return BadRequest(ex.Message);
+            }catch (ArgumentException ex)
             {
                 return Conflict(ex.Message);
             }

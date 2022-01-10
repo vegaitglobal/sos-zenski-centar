@@ -5,6 +5,7 @@ using SosCentar.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace SosCentar.BusinessLogic.Services
 {
@@ -62,6 +63,11 @@ namespace SosCentar.BusinessLogic.Services
 
 		public void CreateUser(UserCreateDto userDto)
 		{
+			if (string.IsNullOrWhiteSpace(userDto.Email) || string.IsNullOrWhiteSpace(userDto.Password))
+            {
+				throw new ValidationException("Email and Password are required!");
+            }
+
 			var existingUser = _userRepository.GetByEmail(userDto.Email);
 
 			if (existingUser is not null)
@@ -83,7 +89,16 @@ namespace SosCentar.BusinessLogic.Services
 
 		public void UpdateteUser(string email, UserUpdateDto userDto)
 		{
-			_userRepository.UpdateUser(email, userDto.FirstName, userDto.LastName, userDto.IsAdmin);
+			if (!string.IsNullOrWhiteSpace(userDto.Password))
+            {
+				var hashedPassword = _securityService.HashPassword(userDto.Password);
+				_userRepository.UpdateUser(email, userDto.FirstName, userDto.LastName, hashedPassword, userDto.IsAdmin);
+			}
+			else
+            {
+				_userRepository.UpdateUser(email, userDto.FirstName, userDto.LastName, null, userDto.IsAdmin);
+			}
+
 		}
 
 		public void DeleteUser(string email)

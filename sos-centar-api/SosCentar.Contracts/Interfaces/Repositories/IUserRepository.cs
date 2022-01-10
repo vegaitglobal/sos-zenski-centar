@@ -15,7 +15,7 @@ namespace SosCentar.Contracts.Interfaces.Repositories
 
         void CreateUser(User newUser);
 
-        void UpdateUser(string email, string firstName, string lastName, bool isAdmin);
+        void UpdateUser(string email, string firstName, string lastName, string hashedPassword, bool isAdmin);
 
         void DeleteUser(string email);
     }
