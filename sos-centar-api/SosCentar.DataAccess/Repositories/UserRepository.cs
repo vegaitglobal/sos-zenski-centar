@@ -40,7 +40,7 @@ namespace SosCentar.DataAccess.Repositories
             _reportContext.SaveChanges();
         }
 
-        public void UpdateUser(string email, string firstName, string lastName, bool isAdmin) 
+        public void UpdateUser(string email, string firstName, string lastName, string hashedPassword, bool isAdmin) 
         {
             var user = _reportContext.Users.FirstOrDefault(user => user.Email == email);
             
@@ -51,6 +51,10 @@ namespace SosCentar.DataAccess.Repositories
 
             user.FirstName = firstName;
             user.LastName = lastName;
+            if (hashedPassword is not null)
+            {
+                user.Password = hashedPassword;
+            }
             user.IsAdmin = isAdmin;
 
             _reportContext.SaveChanges();
