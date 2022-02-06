@@ -1,3 +1,5 @@
+import jwt_decode from "jwt-decode";
+
 export const isAuthenticated = () => {
   const token = localStorage.getItem('token');
 
@@ -7,3 +9,11 @@ export const isAuthenticated = () => {
 };
 
 export const getToken = () => localStorage.getItem('token');
+
+
+export const isAdmin = () => {
+  const token = localStorage.getItem('token');
+  const decoded = jwt_decode(token);
+
+  return decoded.role === 'admin';
+};

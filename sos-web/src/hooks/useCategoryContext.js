@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useFetch } from './useFetch';
 import { baseUrl } from '../utils/apiUrl';
-import { isAuthenticated } from '../utils/isAuthenticated';
+import { isAuthenticated } from '../utils/user.services';
 
 const CategoryContext = React.createContext();
 
