@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container } from "../layout/Container";
+import { Container } from "../layout/Container/Container";
 
 export const StyledLogin = styled.section`
     & img {
