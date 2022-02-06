@@ -37,6 +37,7 @@ export const useFetch = () => {
         );
 
         setIsLoading(false);
+        setIsError(false);
 
         if (!response.ok) {
           if (response.status === 401) {

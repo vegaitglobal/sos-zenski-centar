@@ -49,14 +49,21 @@ export const StyledLabelText = styled.span`
 export const StyledRadio = styled.input`
   ${hideVisually()};
 
-  &:checked,
-  &:hover {
+  &:checked {
     ~ ${StyledLabelText} {
       &::before {
         border-color: ${({ theme }) => theme.color.purpleLight};
       }
       &::after {
         transform: translateY(-50%) scale(1);
+      }
+    }
+  }
+
+  &:hover {
+    ~ ${StyledLabelText} {
+      &::before {
+        border-color: ${({ theme }) => theme.color.purpleLight};
       }
     }
   }

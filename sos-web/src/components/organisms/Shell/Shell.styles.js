@@ -10,6 +10,7 @@ export const StyledShell = styled.div`
 
 export const StyledTop = styled.div`
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
 `;
 
