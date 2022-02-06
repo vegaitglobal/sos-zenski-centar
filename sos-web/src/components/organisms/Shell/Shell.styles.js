@@ -15,7 +15,7 @@ export const StyledTop = styled.div`
 
 export const StyledHeading = styled(Heading)`
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 11px;
   margin-bottom: 15px;
   color: ${({ theme }) => theme.color.purple};
 

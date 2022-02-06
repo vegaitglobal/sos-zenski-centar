@@ -21,18 +21,22 @@ export const DownloadReport = () => {
         `${baseUrl}/api/ReportGraphs?from=${start || firstDay}&to=${
           end || lastDay
         }`,
-      );
+      )
+        .catch(err => console.log(err));
 
       const tableResponse = await sendRequest(
         `${baseUrl}/api/ReportTables?from=${start || firstDay}&to=${
           end || lastDay
         }`,
-      );
+      )
+        .catch(err => console.log(err));
 
-      setData({
-        charts: graphResponse,
-        tables: tableResponse,
-      });
+      if (graphResponse && tableResponse) {
+        setData({
+          charts: graphResponse,
+          tables: tableResponse,
+        });
+      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [sendRequest, date.start, date.end],

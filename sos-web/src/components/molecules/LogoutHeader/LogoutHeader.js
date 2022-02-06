@@ -1,3 +1,4 @@
+import { useCategoryContext } from '../../../hooks/useCategoryContext';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import {
   StyledLogoutButton,
@@ -6,10 +7,13 @@ import {
 } from './LogoutHeader.styles';
 
 export const LogoutHeader = ({ username }) => {
+  const { setAuthenticated } = useCategoryContext();
+
   const handleLogout = () => {
     try {
       localStorage.removeItem('token');
       localStorage.removeItem('email');
+      setAuthenticated(false);
     } catch (error) {
       alert(error);
     }
