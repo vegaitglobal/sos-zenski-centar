@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
   max-width: 100%;
   ${typeStyle.medium};
   color: ${color.greyLightest};
-  background-color: ${color.purple};
+  background-color: ${props => color[props.color] || color.purple };
   border-radius: 8px;
   transition: opacity 0.2ms ease-in-out;
 
