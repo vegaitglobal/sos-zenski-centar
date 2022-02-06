@@ -8,6 +8,9 @@ import { ReactComponent as Logo } from './svg/logo.svg';
 import { ReactComponent as Plus } from './svg/plus.svg';
 import { ReactComponent as Report } from './svg/report.svg';
 import { ReactComponent as Wave } from './svg/wave.svg';
+import { ReactComponent as Admin } from './svg/admin.svg';
+import { ReactComponent as Delete } from './svg/delete.svg';
+import { ReactComponent as HomeAdmin } from './svg/home-admin.svg';
 
 export const Icon = {
   AddComment,
@@ -20,4 +23,7 @@ export const Icon = {
   Plus,
   Report,
   Wave,
+  Admin,
+  Delete,
+  HomeAdmin,
 };
