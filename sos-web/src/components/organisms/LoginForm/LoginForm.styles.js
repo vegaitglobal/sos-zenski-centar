@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Icon } from '../../atoms/Icon/Icon';
-import { Container } from '../../layout/Container';
+import { Container } from '../../layout/Container/Container';
 
 export const StyledContainer = styled(Container)`
   display: flex;

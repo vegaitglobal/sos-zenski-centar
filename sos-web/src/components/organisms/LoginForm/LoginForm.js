@@ -27,7 +27,7 @@ const LoginForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    sendRequest(`${baseUrl}/api/Users/login`, {
+    sendRequest(`${baseUrl}/api/Users/login`, false, {
       method: 'POST',
       body: JSON.stringify(form),
     })
@@ -37,7 +37,7 @@ const LoginForm = () => {
         setAuthenticated(true);
         history.push('/');
       })
-      .catch(() => {});
+      .catch(err => console.log(err.message));
   };
 
   const handleChange = ({ target }) => {

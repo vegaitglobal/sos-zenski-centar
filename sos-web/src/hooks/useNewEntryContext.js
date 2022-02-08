@@ -79,7 +79,7 @@ export function NewEntryContextProvider({ children }) {
           answeredQuestionsID.includes(question),
         )
       ) {
-        sendRequest(`${baseUrl}/api/entries`, {
+        sendRequest(`${baseUrl}/api/entries`, false, {
           method: 'POST',
           body: JSON.stringify(prepareData),
         })

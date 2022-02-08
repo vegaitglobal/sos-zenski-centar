@@ -14,6 +14,7 @@ import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import { LogoutHeader } from '../../molecules/LogoutHeader/LogoutHeader';
 
 import { useCategoryContext } from '../../../hooks/useCategoryContext';
+import { isAdmin } from '../../../utils/user.services';
 
 export const HomeContent = () => {
   let email = localStorage.getItem('email');
@@ -47,6 +48,12 @@ export const HomeContent = () => {
           <Icon.Report />
           <StyledHeading type="h2">Pogledaj izveštaje</StyledHeading>
         </StyledHomeButton>
+        {isAdmin() &&
+          <StyledHomeButton href="/management">
+            <Icon.HomeAdmin />
+            <StyledHeading type="h2">Upravljanje nalozima</StyledHeading>
+          </StyledHomeButton>
+        }
       </StyledHomeButtonsContainer>
     </StyledHomeContent>
   );

@@ -39,7 +39,7 @@ export const Accordion = ({
         onClick={isClickable ? handleOnClick : () => null}
         as={isClickable ? 'button' : 'div'}
       >
-        <Heading>{title}</Heading>
+        <Heading type="h3">{title}</Heading>
         {isClickable && (
           <StyledIcon $isOpened={expanded} $isReverse={isReverse} />
         )}

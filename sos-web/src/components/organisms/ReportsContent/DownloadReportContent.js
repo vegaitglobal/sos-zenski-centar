@@ -9,7 +9,7 @@ import { useReportContext } from '../../../hooks/useReportContext';
 import { baseUrl } from '../../../utils/apiUrl';
 
 export const DownloadReport = () => {
-  const { setData, data } = useDataContext();
+  const { setData } = useDataContext();
   const { sendRequest, isLoading } = useFetch();
   const { date, setDate } = useReportContext();
 
@@ -21,18 +21,22 @@ export const DownloadReport = () => {
         `${baseUrl}/api/ReportGraphs?from=${start || firstDay}&to=${
           end || lastDay
         }`,
-      );
+      )
+        .catch(err => console.log(err));
 
       const tableResponse = await sendRequest(
         `${baseUrl}/api/ReportTables?from=${start || firstDay}&to=${
           end || lastDay
         }`,
-      );
+      )
+        .catch(err => console.log(err));
 
-      setData({
-        charts: graphResponse,
-        tables: tableResponse,
-      });
+      if (graphResponse && tableResponse) {
+        setData({
+          charts: graphResponse,
+          tables: tableResponse,
+        });
+      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [sendRequest, date.start, date.end],
@@ -58,6 +62,11 @@ export const DownloadReport = () => {
     setDate({ start: firstDay, end: lastDay });
     fetchData(firstDay, lastDay);
   }, [fetchData, setDate]);
+
+  const handleDownload = useCallback(async () => {
+    sendRequest(`${baseUrl}/api/ReportTables/export?from=${date.start}&to=${date.end}`, true)
+      .catch(err => console.log(err.message));
+  }, [date.start, date.end, sendRequest])
 
   useEffect(() => {
     fetchData();
@@ -92,7 +101,7 @@ export const DownloadReport = () => {
         </Button>
       </div>
       <div>
-        <Button>Download</Button>
+        <Button onClick={handleDownload}>Download</Button>
       </div>
     </StyledGrid>
   );

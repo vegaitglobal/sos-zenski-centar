@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
+import { getLastMonth } from '../utils/date';
 
 const ReportContext = React.createContext();
 
@@ -7,9 +8,11 @@ export function useReportContext() {
 }
 
 export function ReportContextProvider({ children }) {
+  const { firstDay, lastDay } = useMemo(() => getLastMonth(), []);
+
   const [date, setDate] = useState({
-    start: '',
-    end: '',
+    start: firstDay,
+    end: lastDay,
   });
 
   return (

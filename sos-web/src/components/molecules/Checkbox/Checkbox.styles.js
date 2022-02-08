@@ -26,7 +26,6 @@ export const StyledLabelText = styled.span`
     content: '';
     position: absolute;
     top: 50%;
-    border-radius: 50%;
   }
 
   &::before {
@@ -46,7 +45,7 @@ export const StyledLabelText = styled.span`
   }
 `;
 
-export const StyledRadio = styled.input`
+export const StyledCheckbox = styled.input`
   ${hideVisually()};
 
   &:checked {
@@ -59,7 +58,6 @@ export const StyledRadio = styled.input`
       }
     }
   }
-
   &:hover {
     ~ ${StyledLabelText} {
       &::before {

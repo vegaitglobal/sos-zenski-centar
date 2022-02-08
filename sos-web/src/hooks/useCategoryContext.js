@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useFetch } from './useFetch';
 import { baseUrl } from '../utils/apiUrl';
-import { isAuthenticated } from '../utils/isAuthenticated';
+import { isAuthenticated } from '../utils/user.services';
 
 const CategoryContext = React.createContext();
 
@@ -17,9 +17,9 @@ export function CategoryContextProvider({ children }) {
   const { sendRequest } = useFetch();
 
   useEffect(() => {
-    authenticated && sendRequest(`${baseUrl}/api/Categories`).then((data) =>
-      setCategories(data),
-    );
+    authenticated && sendRequest(`${baseUrl}/api/Categories`)
+      .then(data => setCategories(data))
+      .catch(err => console.log(err.message));
   }, [sendRequest, authenticated]);
 
   return (

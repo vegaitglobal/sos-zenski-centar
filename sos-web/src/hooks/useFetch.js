@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router';
+import download from 'downloadjs';
 
 export const BASE_URL = 'https://api.sos.sitesstage.com/api';
 
@@ -11,7 +12,7 @@ export const useFetch = () => {
   const activeHttpRequests = useRef([]);
 
   const sendRequest = useCallback(
-    async (url, options = { method: 'GET', headers: {}, body: null }) => {
+    async (url, isDownload = false, options = { method: 'GET', headers: {}, body: null }) => {
       const { method, headers, body } = options;
       setIsLoading(true);
       const abortController = new AbortController();
@@ -35,6 +36,9 @@ export const useFetch = () => {
           (reqCtrl) => reqCtrl !== abortController,
         );
 
+        setIsLoading(false);
+        setIsError(false);
+
         if (!response.ok) {
           if (response.status === 401) {
             history.push('/login');
@@ -44,15 +48,18 @@ export const useFetch = () => {
           throw new Error(response.statusText);
         }
 
-        const responseString = await response.text();
-        const responseData = responseString === "" ? {} : JSON.parse(responseString);
+        if (!isDownload) {
+          const responseString = await response.text();
+          const responseData = responseString === "" ? {} : JSON.parse(responseString);
 
-        setIsLoading(false);
+          return responseData;
+        }
 
-        return responseData;
+        const blob = await response.blob();
+        download(blob, `report.pdf`);
+
       } catch (err) {
         setIsError(true);
-        setIsLoading(false);
         throw err;
       }
     },

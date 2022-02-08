@@ -32,7 +32,7 @@ export const typeStyle = {
     line-height: 1.2;
   `,
   medium: css`
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1.2;
   `,
   small: css`
