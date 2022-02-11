@@ -127,7 +127,7 @@ VALUES
 	
 	(
 		'0e44ad7f-f2ad-4763-a9c8-33599bccc201',
-		'oliverakovacev@yahoo.com ',
+		'oliverakovacev@yahoo.com',
 		'Olivera',
 		'Kovačev',
 		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
@@ -199,7 +199,7 @@ VALUES
 	
 	(
 		'4cec45db-24b8-4d0d-a14a-db9df0613b5e',
-		'aleksandracurcic16@gmail.com ',
+		'aleksandracurcic16@gmail.com',
 		'Aleksandra',
 		'Ćurčić',
 		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
@@ -226,7 +226,7 @@ VALUES
 	
 	(
 		'ed7c35a4-7373-426f-b0d0-953093c49d24',
-		'sandrafilipovic998@gmail.com ',
+		'sandrafilipovic998@gmail.com',
 		'Sandra',
 		'Filipović',
 		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
@@ -235,7 +235,7 @@ VALUES
 	
 	(
 		'42b2893a-b371-4a22-be3f-dd5d5e8cab8a',
-		'saska.bajic86@gmail.com ',
+		'saska.bajic86@gmail.com',
 		'Aleksandra',
 		'Bajić',
 		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
@@ -280,7 +280,7 @@ VALUES
 	
 	(
 		'df692930-0771-4188-a6ca-bcad1a6bdbb1',
-		'zorana.damjanovic.savetovanje@gmail.com ',
+		'zorana.damjanovic.savetovanje@gmail.com',
 		'Zorana',
 		'Damjanović',
 		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
@@ -298,7 +298,7 @@ VALUES
 	
 	(
 		'e6de7d65-f728-4371-9a60-4117d6058f74',
-		'nedasubotic21@gmail.com ',
+		'nedasubotic21@gmail.com',
 		'Neda',
 		'Subotić ',
 		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
