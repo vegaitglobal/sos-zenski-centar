@@ -1,6 +1,7 @@
 import { ReactComponent as AddComment } from './svg/add-comment.svg';
 import { ReactComponent as ArrowDown } from './svg/arrow-down.svg';
 import { ReactComponent as ArrowUp } from './svg/arrow-up.svg';
+import { ReactComponent as Checkmark } from './svg/checkmark.svg';
 import { ReactComponent as Close } from './svg/close.svg';
 import { ReactComponent as Comment } from './svg/comment.svg';
 import { ReactComponent as Edit } from './svg/edit.svg';
@@ -16,6 +17,7 @@ export const Icon = {
   AddComment,
   ArrowDown,
   ArrowUp,
+  Checkmark,
   Close,
   Comment,
   Edit,

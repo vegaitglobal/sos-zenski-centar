@@ -35,7 +35,7 @@ export const ActionPanel = () => {
   useEffect(() => {
     return () => {
       closeSuccessModal();
-    }
+    };
   }, [closeSuccessModal]);
 
   return (
@@ -61,9 +61,7 @@ export const ActionPanel = () => {
       </StyledGrid>
       <StyledButtonHolder>
         {errors.length > 0 && (
-          <Paragraph type="small">
-            Nisu sva polja popunjena
-          </Paragraph>
+          <Paragraph type="small">Nisu sva polja popunjena</Paragraph>
         )}
         {submit.isError && (
           <Paragraph type="small">
