@@ -19,10 +19,10 @@ export function ModalProvider ({ children }) {
 		})
 	, []);
 
-	const createModal = useCallback((name) => {
+	const createModal = useCallback((name, isPersistent = false) => {
 		const key = Date.now();
 		return {
-			element: ({ children }) => <Modal id={key + name}>{children}</Modal>,
+			element: ({ children }) => <Modal id={key + name} isPersistent={isPersistent}>{children}</Modal>,
 			...getControl(key + name)
 		};
 	}, [getControl]);
