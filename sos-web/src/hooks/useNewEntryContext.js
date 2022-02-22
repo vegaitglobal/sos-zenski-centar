@@ -15,6 +15,7 @@ export function NewEntryContextProvider({ children }) {
   const [categoryData, setCategoryData] = useState();
   const [errors, setErrors] = useState([]);
   const { data, resetData } = useDataContext();
+  const [success, setSuccess] = useState(false);
 
   const { sendRequest, isLoading, isError, clearError } = useFetch();
 
@@ -84,8 +85,13 @@ export function NewEntryContextProvider({ children }) {
           body: JSON.stringify(prepareData),
         })
           .then(() => {
-            resetData();
-            history.push('/');
+            setSuccess(true);
+
+            setTimeout(() => {
+              resetData();
+              history.push('/');
+              setSuccess(false);
+            }, 1500);
           })
           .catch((e) => {
             console.log(e.message);
@@ -116,7 +122,8 @@ export function NewEntryContextProvider({ children }) {
         actionInfo: categoryData?.actionInfo || { questions: [] },
         callerInfo: categoryData?.serviceInfo || { questions: [] },
         serviceInfo: categoryData?.callerInfo || { questions: [] },
-        errors: errors,
+        success,
+        errors,
       }}
     >
       {children}
