@@ -13,7 +13,7 @@ VALUES
 		'Kratak opis problema',
 		'1',
 		'1',
-		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
+		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
 		'media/icons/no-icon.svg'
 	),
 	(
