@@ -116,7 +116,7 @@ VALUES
 		'c03c7e16-7b53-4ed0-9f6e-a544c43f47a6',
 		'Broj ročišta',
 		'14',
-		'1',
+		'0',
 		'64f02514-cac6-4563-b1b7-954743c7c05f',
 		'media/icons/no-icon.svg'
 	),
@@ -294,7 +294,7 @@ VALUES
 		'89abc9af-6a2b-4494-b2c1-de24697e338f',
 		'Da li postoji nasilje?',
 		'20',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/violence.svg'
 	),
@@ -302,7 +302,7 @@ VALUES
 		'5a8e6579-2aee-4dc6-8e2e-545243eef067',
 		'Da li postoji nasilje?',
 		'20',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/violence.svg'
 	),
@@ -310,7 +310,7 @@ VALUES
 		'503396ff-b024-48e8-bb5b-0d1aea23299a',
 		'Da li postoji nasilje?',
 		'20',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/violence.svg'
 	),
@@ -318,7 +318,7 @@ VALUES
 		'3417448f-052d-48d7-aa2e-a6a5330f5da7',
 		'Da li postoji nasilje?',
 		'20',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/violence.svg'
 	),
@@ -326,7 +326,7 @@ VALUES
 		'9d7900cf-c4b0-45fc-8a31-8dcff39f6aa2',
 		'Da li postoji nasilje?',
 		'20',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/violence.svg'
 	),
@@ -342,7 +342,7 @@ VALUES
 		'a73e4914-e9c2-446e-8cfc-3281f91c6545',
 		'Bračni status',
 		'21',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/marriage.svg'
 	),
@@ -350,7 +350,7 @@ VALUES
 		'eb73e60a-2716-4cad-b394-df0a130698a7',
 		'Bračni status',
 		'21',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/marriage.svg'
 	),
@@ -358,7 +358,7 @@ VALUES
 		'79482883-908b-44b7-aedb-35295b43541f',
 		'Bračni status',
 		'21',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/marriage.svg'
 	),
@@ -366,7 +366,7 @@ VALUES
 		'ab557663-91b3-4849-9544-808fc4cb2cb1',
 		'Bračni status',
 		'21',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/marriage.svg'
 	),
@@ -374,7 +374,7 @@ VALUES
 		'1d767c87-7ab5-492d-bf2f-6dc7a9a7d038',
 		'Stambena situacija',
 		'22',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/home.svg'
 	),
@@ -382,7 +382,7 @@ VALUES
 		'80dde988-a7ec-4663-b752-c5e7c6eeedd8',
 		'Stambena situacija',
 		'22',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/home.svg'
 	),
@@ -390,7 +390,7 @@ VALUES
 		'616d17c9-c208-436c-8ae4-a7d69a80b909',
 		'Stambena situacija',
 		'22',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/home.svg'
 	),
@@ -398,7 +398,7 @@ VALUES
 		'8ee5c401-75bd-4e1d-92fd-4af8a1d684ee',
 		'Stambena situacija',
 		'22',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/home.svg'
 	),
@@ -406,7 +406,7 @@ VALUES
 		'b32de8c0-8959-4588-b4e0-675f58d10a4d',
 		'Stambena situacija',
 		'22',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/home.svg'
 	),
@@ -414,7 +414,7 @@ VALUES
 		'1d1a4ab5-79a9-44b7-a9a6-00d4da667d58',
 		'Pripadnost marginalizovanim grupama',
 		'23',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/minorities.svg'
 	),
@@ -422,7 +422,7 @@ VALUES
 		'b8ee36c3-bcad-4b5a-b387-236d2dc40e2b',
 		'Pripadnost marginalizovanim grupama',
 		'23',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/minorities.svg'
 	),
@@ -430,7 +430,7 @@ VALUES
 		'406c8020-6f73-4836-b261-e6a10e1f2144',
 		'Pripadnost marginalizovanim grupama',
 		'23',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/minorities.svg'
 	),
@@ -438,7 +438,7 @@ VALUES
 		'81fabbd7-1381-4c08-946a-bc4ba22d391b',
 		'Pripadnost marginalizovanim grupama',
 		'23',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/minorities.svg'
 	),
@@ -446,7 +446,7 @@ VALUES
 		'52a7bf4b-277e-4f42-aa71-e0d7e7fee47c',
 		'Pripadnost marginalizovanim grupama',
 		'23',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/minorities.svg'
 	),
@@ -455,7 +455,7 @@ VALUES
 		'ba5d614d-8394-4d0b-904c-4799ee7580d4',
 		'Ko trpi nasilje?',
 		'24',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/tear.svg'
 	),
@@ -463,7 +463,7 @@ VALUES
 		'ae73e2f1-fee8-4676-b252-bfe9be13a3e9',
 		'Ko trpi nasilje?',
 		'24',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/tear.svg'
 	),
@@ -471,7 +471,7 @@ VALUES
 		'91c75273-e9ff-453d-8be1-e5f4ae80fc89',
 		'Ko trpi nasilje?',
 		'24',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/tear.svg'
 	),
@@ -479,7 +479,7 @@ VALUES
 		'369f6ca0-e286-4dcd-9d29-55fccd3b1cd2',
 		'Ko trpi nasilje?',
 		'24',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/tear.svg'
 	),
@@ -487,7 +487,7 @@ VALUES
 		'563e0b61-a469-4697-8028-7d52e880e35b',
 		'Ko trpi nasilje?',
 		'24',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/tear.svg'
 	),
@@ -496,7 +496,7 @@ VALUES
 		'a1398937-e4db-44a9-a386-b242d56202e5',
 		'Uzrast deteta',
 		'25',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/child-age.svg'
 	),
@@ -504,7 +504,7 @@ VALUES
 		'a35eb4c1-9fec-485b-ad8c-334d5dfe2ebd',
 		'Uzrast deteta',
 		'25',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/child-age.svg'
 	),
@@ -512,7 +512,7 @@ VALUES
 		'5eaeb138-f2f8-4b3b-94ba-506e254fd2d9',
 		'Uzrast deteta',
 		'25',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/child-age.svg'
 	),
@@ -520,7 +520,7 @@ VALUES
 		'9f083f8a-9c68-484c-9d39-ad093d697800',
 		'Uzrast deteta',
 		'25',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/child-age.svg'
 	),
@@ -528,7 +528,7 @@ VALUES
 		'ea5150b3-1a64-400b-9b89-2305d6e53a99',
 		'Uzrast deteta',
 		'25',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/child-age.svg'
 	),
@@ -536,7 +536,7 @@ VALUES
 		'e4542713-db23-4077-925c-dea28dccd9fb',
 		'Odnos sa nasilnikom',
 		'26',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/heart-broken.svg'
 	),
@@ -544,7 +544,7 @@ VALUES
 		'de476f53-1292-4bed-acfb-d38aedce271f',
 		'Odnos sa nasilnikom',
 		'26',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/heart-broken.svg'
 	),
@@ -552,7 +552,7 @@ VALUES
 		'4fdb3f0c-5f7c-46e4-9e35-075791dac07a',
 		'Odnos sa nasilnikom',
 		'26',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/heart-broken.svg'
 	),
@@ -560,7 +560,7 @@ VALUES
 		'0f5e78b3-f3af-4c34-8f35-df68231800b7',
 		'Odnos sa nasilnikom',
 		'26',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/heart-broken.svg'
 	),
@@ -568,7 +568,7 @@ VALUES
 		'9fa0185b-9dc6-445c-aae6-ea54eda7dc0a',
 		'Odnos sa nasilnikom',
 		'26',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/heart-broken.svg'
 	),
@@ -576,7 +576,7 @@ VALUES
 		'657a5fd3-d9a9-4d61-a392-a54caefd4bb6',
 		'Prisutni oblici nasilja',
 		'27',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/violence-shape.svg'
 	),
@@ -584,7 +584,7 @@ VALUES
 		'146a9993-70df-4e2c-8cad-4e1c3aee1377',
 		'Prisutni oblici nasilja',
 		'27',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/violence-shape.svg'
 	),
@@ -592,7 +592,7 @@ VALUES
 		'0c465680-db66-428e-ac6b-6a1754e178ef',
 		'Prisutni oblici nasilja',
 		'27',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/violence-shape.svg'
 	),
@@ -600,7 +600,7 @@ VALUES
 		'cf6c7d5e-0c99-41e0-aa26-113ee257b70f',
 		'Prisutni oblici nasilja',
 		'27',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/violence-shape.svg'
 	),
@@ -608,7 +608,7 @@ VALUES
 		'56cb349a-b7bd-4825-9e29-6ffd6c383ab8',
 		'Prisutni oblici nasilja',
 		'27',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/violence-shape.svg'
 	),
@@ -616,7 +616,7 @@ VALUES
 		'33d905b0-fe1a-4461-9ff0-8aa3fd3cf633',
 		'Pol nasilnika',
 		'28',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/gender-red.svg'
 	),
@@ -624,7 +624,7 @@ VALUES
 		'97239ec4-941b-4d26-b5e1-7bc32839bc1e',
 		'Pol nasilnika',
 		'28',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/gender-red.svg'
 	),
@@ -632,7 +632,7 @@ VALUES
 		'747820f8-13b7-42a5-8379-5a5761005527',
 		'Pol nasilnika',
 		'28',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/gender-red.svg'
 	),
@@ -640,7 +640,7 @@ VALUES
 		'3d3f6efd-ba2c-45ae-b109-69993327e34e',
 		'Pol nasilnika',
 		'28',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/gender-red.svg'
 	),
@@ -648,7 +648,7 @@ VALUES
 		'899b839c-2175-435e-a8bc-b3f57376ff8b',
 		'Pol nasilnika',
 		'28',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/gender-red.svg'
 	),
@@ -656,7 +656,7 @@ VALUES
 		'70c32d0f-e1ef-46ac-b1c6-78b5d0b10411',
 		'Nasilnik je ranije prijavljen za nasilje?',
 		'29',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/handcuffs.svg'
 	),
@@ -664,7 +664,7 @@ VALUES
 		'27acb1ae-5ebd-494e-bdcc-f2e5306812c0',
 		'Nasilnik je ranije prijavljen za nasilje?',
 		'29',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/handcuffs.svg'
 	),
@@ -672,7 +672,7 @@ VALUES
 		'f2379527-e080-41e4-afc5-506c21fa4406',
 		'Nasilnik je ranije prijavljen za nasilje?',
 		'29',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/handcuffs.svg'
 	),
@@ -680,7 +680,7 @@ VALUES
 		'ed00c8de-d334-4d00-bc51-180038a955fb',
 		'Nasilnik je ranije prijavljen za nasilje?',
 		'29',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/handcuffs.svg'
 	),
@@ -688,7 +688,7 @@ VALUES
 		'415df83e-685d-4da7-bc56-ab2955fd099b',
 		'Nasilnik je ranije prijavljen za nasilje?',
 		'29',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/handcuffs.svg'
 	),
@@ -696,7 +696,7 @@ VALUES
 		'326cf6c3-cbd1-4fed-bb78-e8a58e963099',
 		'Nasilnik ima izrečene hitne mere?',
 		'30',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/stop.svg'
 	),
@@ -704,7 +704,7 @@ VALUES
 		'7ec7607f-9a06-4909-9eef-2be475ab7a9b',
 		'Nasilnik ima izrečene hitne mere?',
 		'30',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/stop.svg'
 	),
@@ -712,7 +712,7 @@ VALUES
 		'1c0cb9d5-43a9-4318-ab2f-196579398a2c',
 		'Nasilnik ima izrečene hitne mere?',
 		'30',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/stop.svg'
 	),
@@ -720,7 +720,7 @@ VALUES
 		'b6e8ca52-433a-49e0-aac2-6e4ddce3e040',
 		'Nasilnik ima izrečene hitne mere?',
 		'30',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/stop.svg'
 	),
@@ -728,7 +728,7 @@ VALUES
 		'046a6ede-7845-411b-b444-11e537aa1320',
 		'Nasilnik ima izrečene hitne mere?',
 		'30',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/stop.svg'
 	),
@@ -736,7 +736,7 @@ VALUES
 		'69b1fc08-1609-4000-966b-0a750b4bf3d4',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
 		'31',
-		'1',
+		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/gavel.svg'
 	),
@@ -744,7 +744,7 @@ VALUES
 		'0cbb6b00-018e-4a1d-8f50-cb54c459207c',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
 		'31',
-		'1',
+		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/gavel.svg'
 	),
@@ -752,7 +752,7 @@ VALUES
 		'a62dd43d-0a37-4461-b6b1-aedbb12b41ed',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
 		'31',
-		'1',
+		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/gavel.svg'
 	),
@@ -760,7 +760,7 @@ VALUES
 		'e480a779-f47e-4145-8a48-b926d3f6adee',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
 		'31',
-		'1',
+		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/gavel.svg'
 	),
@@ -768,7 +768,7 @@ VALUES
 		'bed1f5ee-51ff-43a6-a310-1a2c44b79e61',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
 		'31',
-		'1',
+		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/gavel.svg'
 	),
