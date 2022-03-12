@@ -23,9 +23,11 @@ export function NewEntryContextProvider({ children }) {
     (selectedCategory) => {
       if (!selectedCategory) return history.push('/');
 
-      sendRequest(`${baseUrl}/api/Categories/${selectedCategory.id}`).then(
-        setCategoryData,
-      );
+      sendRequest(`${baseUrl}/api/Categories/${selectedCategory.id}`)
+        .then(setCategoryData)
+        .catch((err) => {
+          if (err.message === 'Unauthorized') history.push('/login');
+        });
     },
     [history, sendRequest],
   );

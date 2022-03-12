@@ -37,7 +37,13 @@ const LoginForm = () => {
         setAuthenticated(true);
         history.push('/');
       })
-      .catch(err => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        history.push('/login');
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const handleChange = ({ target }) => {
