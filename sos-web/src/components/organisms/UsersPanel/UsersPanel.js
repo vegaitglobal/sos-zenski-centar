@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useFetch } from '../../../hooks/useFetch';
+import { useHistory } from 'react-router';
 import { color } from '../../../styles/config/theme';
 import { baseUrl } from '../../../utils/apiUrl';
 import { Loader } from '../../atoms/Loader/Loader';
@@ -24,6 +25,7 @@ const UsersPanel = () => {
   const { sendRequest, isLoading, isError, clearError } = useFetch();
   const [error, setError] = useState('');
   const { createModal } = useModalContext();
+  const history = useHistory();
 
   const {
     element: NewUserModal,
@@ -59,7 +61,10 @@ const UsersPanel = () => {
           setUsers(sortedUsers);
           setFilteredUsers(sortedUsers);
         })
-        .catch((err) => setError(err.message));
+        .catch((err) => {
+          setError(err.message);
+          if (err.message === 'Unauthorized') history.push('/login');
+        });
     }
   }, [sendRequest]);
 

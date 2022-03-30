@@ -5,6 +5,7 @@ import { useDataContext } from '../utils/store';
 import { baseUrl } from '../utils/apiUrl';
 
 const NewEntryContext = React.createContext();
+const descriptionId = 'ef2f3526-b26a-4ef7-8589-46eb74f64521';
 
 export function useNewEntryContext() {
   return useContext(NewEntryContext);
@@ -23,9 +24,11 @@ export function NewEntryContextProvider({ children }) {
     (selectedCategory) => {
       if (!selectedCategory) return history.push('/');
 
-      sendRequest(`${baseUrl}/api/Categories/${selectedCategory.id}`).then(
-        setCategoryData,
-      );
+      sendRequest(`${baseUrl}/api/Categories/${selectedCategory.id}`)
+        .then(setCategoryData)
+        .catch((err) => {
+          if (err.message === 'Unauthorized') history.push('/login');
+        });
     },
     [history, sendRequest],
   );
@@ -48,7 +51,6 @@ export function NewEntryContextProvider({ children }) {
         ...(data.description ? { description: data.description } : {}),
         submittedAnswers: mapAnswers,
       };
-
       const requiredQuestionsIdByPage = [null];
       if (categoryData.id) {
         categoryData.actionInfo.questions.map((question) => {
@@ -69,16 +71,22 @@ export function NewEntryContextProvider({ children }) {
       ];
 
       setErrors(
-        requiredQuestionsIdByPage.filter(
-          (id) => !answeredQuestionsID.includes(id),
-        ),
+        requiredQuestionsIdByPage.filter((id) => {
+          if (data.description && id === descriptionId) {
+            return;
+          }
+          return !answeredQuestionsID.includes(id);
+        }),
       );
 
       clearError();
       if (
-        requiredQuestionsIdByPage.every((question) =>
-          answeredQuestionsID.includes(question),
-        )
+        requiredQuestionsIdByPage.every((question) => {
+          if (question === descriptionId && data.description) {
+            return true;
+          }
+          return answeredQuestionsID.includes(question);
+        })
       ) {
         sendRequest(`${baseUrl}/api/entries`, false, {
           method: 'POST',

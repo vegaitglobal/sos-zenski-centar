@@ -12,7 +12,11 @@ export const useFetch = () => {
   const activeHttpRequests = useRef([]);
 
   const sendRequest = useCallback(
-    async (url, isDownload = false, options = { method: 'GET', headers: {}, body: null }) => {
+    async (
+      url,
+      isDownload = false,
+      options = { method: 'GET', headers: {}, body: null },
+    ) => {
       const { method, headers, body } = options;
       setIsLoading(true);
       const abortController = new AbortController();
@@ -50,14 +54,14 @@ export const useFetch = () => {
 
         if (!isDownload) {
           const responseString = await response.text();
-          const responseData = responseString === "" ? {} : JSON.parse(responseString);
+          const responseData =
+            responseString === '' ? {} : JSON.parse(responseString);
 
           return responseData;
         }
 
         const blob = await response.blob();
         download(blob, `report.pdf`);
-
       } catch (err) {
         setIsError(true);
         throw err;
