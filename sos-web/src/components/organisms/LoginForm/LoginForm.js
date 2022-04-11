@@ -13,28 +13,37 @@ import { useFetch } from '../../../hooks/useFetch';
 import { Loader } from '../../atoms/Loader/Loader';
 import { Button } from '../../molecules/Button/Button';
 import { useHistory } from 'react-router';
-
+import { baseUrl } from '../../../utils/apiUrl';
+import { useCategoryContext } from '../../../hooks/useCategoryContext';
 const LoginForm = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
   });
   const { sendRequest, isLoading, isError } = useFetch();
+  const { setAuthenticated } = useCategoryContext();
   const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    sendRequest('https://api.sos.sitesstage.com/api/Users/login', {
+    sendRequest(`${baseUrl}/api/Users/login`, false, {
       method: 'POST',
       body: JSON.stringify(form),
     })
       .then((response) => {
         localStorage.setItem('token', `Bearer ${response.accessToken}`);
         localStorage.setItem('email', response.email);
+        setAuthenticated(true);
         history.push('/');
       })
-      .catch(() => {});
+      .catch((err) => {
+        console.log(err.message);
+        history.push('/login');
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   const handleChange = ({ target }) => {

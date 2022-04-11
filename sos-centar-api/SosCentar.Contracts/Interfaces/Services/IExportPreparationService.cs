@@ -1,12 +1,13 @@
-﻿using System;
+﻿using SosCentar.Contracts.Dtos.ReportTables;
+using System;
 
 namespace SosCentar.Contracts.Interfaces.Services
 {
     public interface IExportPreparationService
     {
-        public string[,] GetUsersCountCategory(DateTime from, DateTime to);
-        public string[,] GetUsersCountPerSexPerCategory(DateTime from, DateTime to);
-        public string[,] GetUsersCountPerAgePerCategory(DateTime from, DateTime to);
-        public string[,] GetUsersCountPerMarginalizedGroup(DateTime from, DateTime to);
+        ExportTableDto GetUsersCountPerCategory(DateTime from, DateTime to, string title);
+        ExportTableDto GetReportPerAnswerOnQuestion(DateTime from, DateTime to, string title, string questionText, bool includeTotalColumn = false);
+        ExportTableDto GetReportPerAnswerOnQuestionPerCategory(DateTime from, DateTime to, string title, string questionText, bool includeTotalColumn = false);
+        ExportTableDto GetReportPerAnswerOnQuestionPerOtherQuestion(DateTime from, DateTime to, string title, string questionText, string otherQuestionText, bool includeTotalColumn = false);
     }
 }

@@ -22,14 +22,14 @@ export const Table = ({ title, tableData, children }) => {
       </TableHeading>
       <TableContent>
         <TableRow>
-          {headings?.map((heading) => (
-            <TableCell key={heading}>{heading}</TableCell>
+          {headings?.map((heading, i) => (
+            <TableCell key={i}>{heading}</TableCell>
           ))}
         </TableRow>
         {data.map((row) => (
           <TableRow key={row}>
-            {row.map((tableData) => (
-              <TableCell key={tableData}>{tableData}</TableCell>
+            {row.map((tableData, i) => (
+              <TableCell key={i}>{tableData}</TableCell>
             ))}
           </TableRow>
         ))}

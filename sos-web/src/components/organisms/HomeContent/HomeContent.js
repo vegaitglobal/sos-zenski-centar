@@ -14,15 +14,16 @@ import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 import { LogoutHeader } from '../../molecules/LogoutHeader/LogoutHeader';
 
 import { useCategoryContext } from '../../../hooks/useCategoryContext';
+import { isAdmin } from '../../../utils/user.services';
 
 export const HomeContent = () => {
   let email = localStorage.getItem('email');
   const { categories, selectCategory } = useCategoryContext();
 
   const Services = useCallback(() => {
-    return categories.map((service) => {
+    return categories.map((service, i) => {
       return (
-        <StyledHomeButton href="/forms" onClick={() => selectCategory(service)}>
+        <StyledHomeButton key={i} href="/forms" onClick={() => selectCategory(service)}>
           <Icon.Plus />
           <StyledHeading type="h2">{service.label}</StyledHeading>
         </StyledHomeButton>
@@ -47,6 +48,12 @@ export const HomeContent = () => {
           <Icon.Report />
           <StyledHeading type="h2">Pogledaj izveštaje</StyledHeading>
         </StyledHomeButton>
+        {isAdmin() &&
+          <StyledHomeButton href="/management">
+            <Icon.HomeAdmin />
+            <StyledHeading type="h2">Upravljanje nalozima</StyledHeading>
+          </StyledHomeButton>
+        }
       </StyledHomeButtonsContainer>
     </StyledHomeContent>
   );

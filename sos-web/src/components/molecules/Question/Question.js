@@ -1,4 +1,6 @@
 import { useCallback, useMemo } from 'react';
+import { useNewEntryContext } from '../../../hooks/useNewEntryContext';
+import { shouldBeDisplayed } from '../../../utils/shouldBeDisplayed';
 import { useDataContext } from '../../../utils/store';
 import { Noop } from '../../atoms/Noop/Noop';
 import { Radio } from '../Radio/Radio';
@@ -7,6 +9,7 @@ import { StyledQuestion, QuestionTitle } from './Question.styles';
 
 export const Question = ({ label, id, options, condition, ...props }) => {
   const { data, setData } = useDataContext();
+  const { errors } = useNewEntryContext();
 
   const handleOnChange = useCallback(
     ({ target }) => {
@@ -26,25 +29,14 @@ export const Question = ({ label, id, options, condition, ...props }) => {
     [setData],
   );
 
-  const userAnswer = data?.[condition?.questionId];
+  const showQuestion = useMemo(
+    () => shouldBeDisplayed(data, condition),
+    [data, condition],
+  );
 
-  const shouldBeHidden = useMemo(() => {
-    if (!condition) return false;
-
-    const exactAnswerRequired = !!condition.answerId;
-
-    const exactAnswerMatch = userAnswer === condition.answerId;
-    const anyAnswerMatch = !exactAnswerRequired && userAnswer;
-
-    const shouldBeDisplayed = exactAnswerMatch || anyAnswerMatch;
-    return !shouldBeDisplayed;
-  }, [condition, userAnswer]);
-
-  return shouldBeHidden ? (
-    <Noop />
-  ) : (
+  return showQuestion ? (
     <StyledQuestion {...props}>
-      <QuestionTitle>{label}</QuestionTitle>
+      <QuestionTitle error={errors.includes(id)}>{label}</QuestionTitle>
       {options.length === 0 && (
         <TextArea value={data?.description} onChange={handleTextareChange} />
       )}
@@ -59,5 +51,7 @@ export const Question = ({ label, id, options, condition, ...props }) => {
         />
       ))}
     </StyledQuestion>
+  ) : (
+    <Noop />
   );
 };

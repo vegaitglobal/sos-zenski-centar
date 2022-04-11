@@ -3,7 +3,7 @@ import { hideVisually } from 'polished';
 import { color, theme } from '../../../styles/config/theme';
 import { customScrollBar } from '../../../styles/helpers/customScrollbar';
 import { Accordion } from '../../molecules/Accordion/Accordion';
-import { StyledContent } from '../../molecules/Accordion/Accordion.styles';
+import { StyledBody, StyledContent } from '../../molecules/Accordion/Accordion.styles';
 
 export const StyledClientInfo = styled.div`
   position: relative;
@@ -25,6 +25,7 @@ export const StyledSidebar = styled.div`
   max-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  ${customScrollBar()};
 `;
 
 export const StyledCardContainer = styled.div`
@@ -51,7 +52,7 @@ export const StyledCardContainer = styled.div`
 export const StyledAccordion = styled(Accordion)`
   flex-grow: 1;
 
-  ${StyledContent} {
+  ${StyledBody} {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -59,10 +60,14 @@ export const StyledAccordion = styled(Accordion)`
     height: 0 !important;
     ${customScrollBar()};
 
+  }
+
+  ${StyledContent} {
     ${({ $noPadding }) =>
       $noPadding &&
       css`
         padding: 0 !important;
+        height: 100%;
       `}
   }
 `;

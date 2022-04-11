@@ -10,12 +10,13 @@ export const StyledShell = styled.div`
 
 export const StyledTop = styled.div`
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
 `;
 
 export const StyledHeading = styled(Heading)`
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 11px;
   margin-bottom: 15px;
   color: ${({ theme }) => theme.color.purple};
 

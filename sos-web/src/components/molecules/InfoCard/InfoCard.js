@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, useMemo } from 'react';
 import { useDataContext } from '../../../utils/store';
 import { Icon } from '../../atoms/Icon/Icon';
 import { Noop } from '../../atoms/Noop/Noop';
@@ -10,6 +10,8 @@ import {
   StyledDropdown,
   StyledArrow,
 } from './InfoCard.styles';
+import { baseUrl } from '../../../utils/apiUrl';
+import { shouldBeDisplayed } from '../../../utils/shouldBeDisplayed';
 
 export const InfoCard = ({ label, id, options, condition, icon }) => {
   const { data, setData } = useDataContext();
@@ -45,19 +47,14 @@ export const InfoCard = ({ label, id, options, condition, icon }) => {
     };
   }, [showDropdown, handleClickOutside]);
 
-  if (
-    data?.[condition?.questionId] !== condition?.anaswerId &&
-    (!data?.[condition?.questionId] || condition?.anaswerId !== null)
-  ) {
-    return <Noop />;
-  }
-
+  const showCard = useMemo(() => shouldBeDisplayed(data, condition), [data, condition]);
+  
   const hasDropdown = options.length > 2;
 
-  return (
+  return showCard ? (
     <StyledCardContainer>
       <StyledInfoCard $hasDropdown={hasDropdown}>
-        <img src={`https://api.sos.sitesstage.com/${icon}`} alt={`${label}`} />
+        <img src={`${baseUrl}/${icon}`} alt={`${label}`} />
         <StyledSpan>{label}</StyledSpan>
         {hasDropdown && (
           <StyledArrow onClick={toggleDropdown}>
@@ -83,5 +80,7 @@ export const InfoCard = ({ label, id, options, condition, icon }) => {
         )}
       </StyledInfoCard>
     </StyledCardContainer>
+  ) : (
+    <Noop /> 
   );
 };

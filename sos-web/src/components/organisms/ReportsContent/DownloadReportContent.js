@@ -6,25 +6,41 @@ import { DatePicker } from '../../atoms/DatePicker/DatePicker';
 import { Button } from '../../molecules/Button/Button';
 import { StyledGrid } from './DownloadReportContent.styles';
 import { useReportContext } from '../../../hooks/useReportContext';
+import { baseUrl } from '../../../utils/apiUrl';
+import { useHistory } from 'react-router';
 
 export const DownloadReport = () => {
   const { setData } = useDataContext();
   const { sendRequest, isLoading } = useFetch();
   const { date, setDate } = useReportContext();
+  const history = useHistory();
 
-  const fetchGraphs = useCallback(
+  const fetchData = useCallback(
     async (start = date.start, end = date.end) => {
       const { firstDay, lastDay } = getLastMonth();
 
-      const response = await sendRequest(
-        `https://api.sos.sitesstage.com/api/ReportGraphs?from=${
-          start || firstDay
-        }&to=${end || lastDay}`,
-      );
-
-      setData({
-        charts: response,
+      const graphResponse = await sendRequest(
+        `${baseUrl}/api/ReportGraphs?from=${start || firstDay}&to=${
+          end || lastDay
+        }`,
+      ).catch((err) => {
+        if (err.message === 'Unauthorized') history.push('/login');
       });
+
+      const tableResponse = await sendRequest(
+        `${baseUrl}/api/ReportTables?from=${start || firstDay}&to=${
+          end || lastDay
+        }`,
+      ).catch((err) => {
+        if (err.message === 'Unauthorized') history.push('/login');
+      });
+
+      if (graphResponse && tableResponse) {
+        setData({
+          charts: graphResponse,
+          tables: tableResponse,
+        });
+      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [sendRequest, date.start, date.end],
@@ -41,17 +57,27 @@ export const DownloadReport = () => {
   );
 
   const handleCustomDate = useCallback(() => {
-    fetchGraphs();
-  }, [fetchGraphs]);
+    fetchData();
+  }, [fetchData]);
 
   const handleLastMonth = useCallback(() => {
     const { firstDay, lastDay } = getLastMonth();
 
-    fetchGraphs(firstDay, lastDay);
-  }, [fetchGraphs]);
+    setDate({ start: firstDay, end: lastDay });
+    fetchData(firstDay, lastDay);
+  }, [fetchData, setDate]);
+
+  const handleDownload = useCallback(async () => {
+    sendRequest(
+      `${baseUrl}/api/ReportTables/export?from=${date.start}&to=${date.end}`,
+      true,
+    ).catch((err) => {
+      if (err.message === 'Unauthorized') history.push('/login');
+    });
+  }, [date.start, date.end, sendRequest]);
 
   useEffect(() => {
-    fetchGraphs();
+    fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -83,7 +109,7 @@ export const DownloadReport = () => {
         </Button>
       </div>
       <div>
-        <Button>Download</Button>
+        <Button onClick={handleDownload}>Download</Button>
       </div>
     </StyledGrid>
   );

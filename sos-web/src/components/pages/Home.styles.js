@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../styles/config/theme';
-import { Container } from '../layout/Container';
+import { Container } from '../layout/Container/Container';
 
 export const StyledHome = styled.section`
   width: 100%;

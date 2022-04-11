@@ -2,8 +2,10 @@ import React, { useContext, useCallback, useState, useMemo } from 'react';
 import { useFetch } from './useFetch';
 import { useHistory } from 'react-router';
 import { useDataContext } from '../utils/store';
+import { baseUrl } from '../utils/apiUrl';
 
 const NewEntryContext = React.createContext();
+const descriptionId = 'ef2f3526-b26a-4ef7-8589-46eb74f64521';
 
 export function useNewEntryContext() {
   return useContext(NewEntryContext);
@@ -12,7 +14,9 @@ export function useNewEntryContext() {
 export function NewEntryContextProvider({ children }) {
   const history = useHistory();
   const [categoryData, setCategoryData] = useState();
-  const { data } = useDataContext();
+  const [errors, setErrors] = useState([]);
+  const { data, resetData } = useDataContext();
+  const [success, setSuccess] = useState(false);
 
   const { sendRequest, isLoading, isError, clearError } = useFetch();
 
@@ -20,9 +24,11 @@ export function NewEntryContextProvider({ children }) {
     (selectedCategory) => {
       if (!selectedCategory) return history.push('/');
 
-      sendRequest(
-        `https://api.sos.sitesstage.com/api/Categories/${selectedCategory.id}`,
-      ).then(setCategoryData);
+      sendRequest(`${baseUrl}/api/Categories/${selectedCategory.id}`)
+        .then(setCategoryData)
+        .catch((err) => {
+          if (err.message === 'Unauthorized') history.push('/login');
+        });
     },
     [history, sendRequest],
   );
@@ -32,7 +38,7 @@ export function NewEntryContextProvider({ children }) {
       const mapAnswers = [];
 
       for (let obj in data) {
-        if (obj !== 'description') {
+        if (obj !== 'description' && obj !== 'charts' && obj !== 'tables') {
           mapAnswers.push({
             questionId: obj,
             answerId: data[obj],
@@ -45,16 +51,73 @@ export function NewEntryContextProvider({ children }) {
         ...(data.description ? { description: data.description } : {}),
         submittedAnswers: mapAnswers,
       };
+      const requiredQuestionsIdByPage = [null];
+      if (categoryData.id) {
+        categoryData.actionInfo.questions.map((question) => {
+          return (
+            question.isRequired && requiredQuestionsIdByPage.push(question.id)
+          );
+        });
+        categoryData.callerInfo.questions.map((question) => {
+          return (
+            question.isRequired && requiredQuestionsIdByPage.push(question.id)
+          );
+        });
+      }
+
+      const answeredQuestionsID = [
+        null,
+        ...mapAnswers.map((answer) => answer.questionId),
+      ];
+
+      setErrors(
+        requiredQuestionsIdByPage.filter((id) => {
+          if (data.description && id === descriptionId) {
+            return;
+          }
+          return !answeredQuestionsID.includes(id);
+        }),
+      );
 
       clearError();
-      sendRequest(`https://api.sos.sitesstage.com/api/entries`, {
-        method: 'POST',
-        body: JSON.stringify(prepareData),
-      });
+      if (
+        requiredQuestionsIdByPage.every((question) => {
+          if (question === descriptionId && data.description) {
+            return true;
+          }
+          return answeredQuestionsID.includes(question);
+        })
+      ) {
+        sendRequest(`${baseUrl}/api/entries`, false, {
+          method: 'POST',
+          body: JSON.stringify(prepareData),
+        })
+          .then(() => {
+            setSuccess(true);
+
+            setTimeout(() => {
+              resetData();
+              history.push('/');
+              setSuccess(false);
+            }, 1500);
+          })
+          .catch((e) => {
+            console.log(e.message);
+          });
+      }
     };
 
     return { send, isError, isLoading };
-  }, [sendRequest, isLoading, isError, clearError, data, categoryData?.id]);
+  }, [
+    sendRequest,
+    isLoading,
+    isError,
+    clearError,
+    data,
+    categoryData,
+    history,
+    resetData,
+  ]);
 
   // TODO
   // const questions = categoryData?.actionInfo || { questions: [] };
@@ -65,8 +128,10 @@ export function NewEntryContextProvider({ children }) {
         submit,
         initialize,
         actionInfo: categoryData?.actionInfo || { questions: [] },
-        callerInfo: categoryData?.callerInfo || { questions: [] },
-        serviceInfo: categoryData?.serviceInfo || { questions: [] },
+        callerInfo: categoryData?.serviceInfo || { questions: [] },
+        serviceInfo: categoryData?.callerInfo || { questions: [] },
+        success,
+        errors,
       }}
     >
       {children}

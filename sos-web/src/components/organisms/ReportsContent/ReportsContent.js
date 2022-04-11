@@ -8,35 +8,12 @@ import { DoughnutChart } from '../DoughnutChart/DoughnutChart';
 import { Shell } from '../Shell/Shell';
 import { StyledGrid } from './ReportsContent.styles';
 import { DownloadReport } from './DownloadReportContent';
-import { useFetch } from '../../../hooks/useFetch';
-import { useEffect, useState } from 'react';
 import { useDataContext } from '../../../utils/store';
-import { getLastMonth } from '../../../utils/date';
-import { useReportContext } from '../../../hooks/useReportContext';
 
 export const ReportsContent = () => {
   const { data } = useDataContext();
-  const { sendRequest } = useFetch();
-  const [tables, setTables] = useState([]);
   const [barChart, doughnatChart] = data?.charts ?? [];
-  const { date } = useReportContext();
-
-  useEffect(() => {
-    const fetch = async () => {
-      const { firstDay, lastDay } = getLastMonth();
-
-      const response = await sendRequest(
-        `https://api.sos.sitesstage.com/api/ReportTables?from=${
-          date.start || firstDay
-        }&to=${date.end || lastDay}`,
-      );
-
-      setTables(response);
-    };
-
-    fetch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sendRequest]);
+  const tables = data?.tables ?? [];
 
   return (
     <Shell
@@ -56,7 +33,7 @@ export const ReportsContent = () => {
           </Panel>
         </StyledGrid>
       </Accordion>
-      <Accordion title="3. Obraćanje zbog nasilja - broj klijenata i klijentkinja">
+      <Accordion title="3. Obraćanje zbog nasilja - broj klijenata i klijentkinja" defaultOpened>
         {tables?.map(({ title, data }) => (
           <Table key={title} title={title} tableData={data} />
         ))}

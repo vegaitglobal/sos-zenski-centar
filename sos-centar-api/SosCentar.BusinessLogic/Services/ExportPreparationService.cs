@@ -1,110 +1,197 @@
-﻿using SosCentar.Contracts.Interfaces.Services;
+﻿using SosCentar.Contracts.Dtos.ReportTables;
+using SosCentar.Contracts.Interfaces.Repositories;
+using SosCentar.Contracts.Interfaces.Services;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SosCentar.BusinessLogic.Services
 {
     public class ExportPreparationService : IExportPreparationService
     {
-        private readonly IEntryService _entryService;
         private readonly ICategoryService _categoryService;
-        private readonly IQuestionService _questionService;
+        private readonly IQuestionRepository _questionRepository;
+        private readonly IEntryRepository _entryRepository;
 
-        public ExportPreparationService(IEntryService entryService, ICategoryService categoryService, IQuestionService questionService)
+        public ExportPreparationService(ICategoryService categoryService, IQuestionRepository questionRepository, IEntryRepository entryRepository)
         {
-            _entryService = entryService;
             _categoryService = categoryService;
-            _questionService = questionService;
+            _questionRepository = questionRepository;
+            _entryRepository = entryRepository;
         }
 
-        public string[,] GetUsersCountCategory(DateTime from, DateTime to)
+        public ExportTableDto GetUsersCountPerCategory(DateTime from, DateTime to, string title)
         {
-            var allCategories = _categoryService.GetAll().ToArray();
+            var allCategories = _categoryService.GetAll();
 
-            var data = new string[2, allCategories.Count() + 1];
+            var headings = new List<string>() { "Kategorije" };
+            headings.AddRange(allCategories.Select(category => category.Label));
 
-            //headers
-            data[0, 0] = "";
-            for (var index = 0; index < allCategories.Count(); index++)
+            var countRow = new List<string>() { "Frekvencija" };
+            var rows = new List<IEnumerable<string>>() { countRow };
+
+            var allEntries = _entryRepository.GetInRange(from, to);
+            var counts = allCategories.Select(category => allEntries.Count(entry => entry.Category.Name == category.Label).ToString());
+            countRow.AddRange(counts);
+
+            return new ExportTableDto { Title = title, Headings = headings, Data = rows };
+        }
+
+        public ExportTableDto GetReportPerAnswerOnQuestion(DateTime from, DateTime to, string title, string questionText, bool includeTotalColumn = false)
+        {
+            var answers = _questionRepository.GetByName(questionText).First().Answers.OrderBy(answer => answer.Order);
+
+            var headings = new List<string>() { "" };
+            headings.AddRange(answers.Select(answer => answer.Text));
+
+            var countRow = new List<string>() { "Frekvencija" };
+            var percentageRow = new List<string>() { "Procenti" };
+
+            var allEntries = _entryRepository.GetInRangeForQuestionName(questionText, from, to);
+            var totalCount = 0;
+            foreach (var answer in answers)
             {
-                var category = allCategories[index];
-                data[0, index + 1] = category.Label;
+                var count = allEntries.Count(entry => entry.SubmitedAnswers.Any(sa => sa.Question.Text == questionText && sa.Answer.Text == answer.Text));
+                countRow.Add(count.ToString());
+                totalCount += count;
             }
 
-            data[1, 0] = "Broj korisnika/ca";
-            for (var index = 0; index < allCategories.Count(); index++)
+            for (int i = 1; i < countRow.Count; i++)
             {
-                var count = _entryService.GetAllForCategoryId(allCategories[index].Id, from, to).Count();
-                data[1, index + 1] = count.ToString();
+                var percentage = float.Parse(countRow[i]) * 100 / totalCount;
+                percentageRow.Add($"{(float.IsNaN(percentage) ? 0 : percentage):f2}%");
             }
 
-            return data;
+            TryAddTotalColumn(includeTotalColumn, headings, countRow, percentageRow, totalCount);
+
+            var rows = new List<IEnumerable<string>> { countRow, percentageRow };
+
+            return new ExportTableDto { Title = title, Headings = headings, Data = rows };
         }
 
-        public string[,] GetUsersCountPerSexPerCategory(DateTime from, DateTime to)
+        public ExportTableDto GetReportPerAnswerOnQuestionPerCategory(DateTime from, DateTime to, string title, string questionText, bool includeTotalColumn = false)
         {
-            return GetDataByCategoryByQuestion(from, to, "Pol");
-        }
+            var answers = _questionRepository.GetByName(questionText).First().Answers.OrderBy(answer => answer.Order);
+            var allCategories = _categoryService.GetAll();
 
-        public string[,] GetUsersCountPerAgePerCategory(DateTime from, DateTime to)
-        {
-            return GetDataByCategoryByQuestion(from, to, "Uzrast");
-        }
+            var headings = new List<string>() { "" };
+            headings.AddRange(answers.Select(answer => answer.Text));
 
-        public string[,] GetUsersCountPerMarginalizedGroup(DateTime from, DateTime to)
-        {
-            throw new NotImplementedException();
-        }
+            var rows = new List<IEnumerable<string>>();
+            var countRow = new List<string>() { "Frekvencija" };
+            var percentageRow = new List<string>() { "Procenti" };
 
-        private string[,] GetDataByCategoryByQuestion(DateTime from, DateTime to, string questionText)
-        {
-            var entries = _entryService.GetAllForQuestionName(questionText, from, to);
-            var categoryNames = entries.Select(entry => entry.Category.Name).Distinct().ToArray();
+            var allEntries = _entryRepository.GetInRangeForQuestionName(questionText, from, to);
+            var totalCount = 0;
+            var countPerAnswer = answers.ToDictionary(answer => answer.Text, answer => 0);
 
-            var question = _questionService.GetByName(questionText).FirstOrDefault();
-            Console.WriteLine(question?.Id);
-            Console.WriteLine(question?.Answers);
-            var answers = question.Answers.ToArray();
-
-            var categoriesCount = categoryNames.Length;
-            var data = new string[categoriesCount + 3, question.Answers.Count() + 1];
-
-            // fill headers
-            data[0, 0] = questionText;
-            for (var i = 0; i < answers.Length; i++)
+            foreach (var category in allCategories)
             {
-                data[0, i + 1] = answers[i].Text;
-            }
-
-            var sums = new int[] { 0, 0 };
-
-            for (var keyIndex = 0; keyIndex < categoriesCount; keyIndex++)
-            {
-                var categoryName = categoryNames[keyIndex];
-                data[keyIndex + 1, 0] = categoryName;
-
-                for (var answerIndex = 0; answerIndex < answers.Length; answerIndex++)
+                var categoryRow = new List<string> { category.Label };
+                var countPerCategory = 0;
+                foreach (var answer in answers)
                 {
-                    var count = entries
-                        .Where(entry => entry.Category.Name == categoryName && entry.SubmitedAnswers.Any(sa => sa.Answer.Text == answers[answerIndex].Text && sa.Question.Text == question.Text))
-                        .Count();
-
-                    sums[answerIndex] += count;
-                    data[keyIndex + 1, answerIndex + 1] = count.ToString();
+                    var count = allEntries.Count(entry => entry.Category.Name == category.Label && entry.SubmitedAnswers.Any(sa => sa.Question.Text == questionText && sa.Answer.Text == answer.Text));
+                    categoryRow.Add(count.ToString());
+                    totalCount += count;
+                    countPerCategory += count;
+                    countPerAnswer[answer.Text] += count;
                 }
+
+                if (includeTotalColumn)
+                {
+                    categoryRow.Add(countPerCategory.ToString());
+                }
+
+                rows.Add(categoryRow);
             }
 
-            data[categoriesCount + 1, 0] = "Frekvencija";
-            data[categoriesCount + 2, 0] = "Procenti";
-
-            var totalSum = sums.Sum();
-            for (var sumIndex = 0; sumIndex < sums.Length; sumIndex++)
+            foreach (var answer in answers)
             {
-                data[categoriesCount + 1, sumIndex + 1] = sums[sumIndex].ToString();
-                data[categoriesCount + 2, sumIndex + 1] = (sums[sumIndex] * 100.0 / totalSum) + "%";
+                var answerCount = countPerAnswer[answer.Text];
+                countRow.Add(answerCount.ToString());
+
+                var percentage = answerCount * 100f / totalCount;
+                percentageRow.Add($"{(float.IsNaN(percentage) ? 0 : percentage):f2}%");
             }
 
-            return data;
+            TryAddTotalColumn(includeTotalColumn, headings, countRow, percentageRow, totalCount);
+
+            rows.Add(countRow);
+            rows.Add(percentageRow);
+
+            return new ExportTableDto { Title = title, Headings = headings, Data = rows };
+        }
+
+        public ExportTableDto GetReportPerAnswerOnQuestionPerOtherQuestion(DateTime from, DateTime to, string title, string questionText, string otherQuestionText, bool includeTotalColumn = false)
+        {
+            // horizontal answers
+            var answers = _questionRepository.GetByName(questionText).First().Answers.OrderBy(answer => answer.Order);
+            // vertical answers
+            var otherQuestionAnswers = _questionRepository.GetByName(otherQuestionText).First().Answers.OrderBy(answer => answer.Order);
+
+            var headings = new List<string>() { "" };
+            headings.AddRange(answers.Select(answer => answer.Text));
+
+            var rows = new List<IEnumerable<string>>();
+            var countRow = new List<string>() { "Frekvencija" };
+            var percentageRow = new List<string>() { "Procenti" };
+
+            var allEntries = _entryRepository.GetInRangeForQuestionName(questionText, from, to);
+            var totalCount = 0;
+            var countPerAnswer = answers.ToDictionary(answer => answer.Text, answer => 0);
+
+            foreach (var otherAnswer in otherQuestionAnswers)
+            {
+                var otherAnswerRow = new List<string> { otherAnswer.Text };
+                var countPerOtherAnwser = 0;
+                foreach (var answer in answers)
+                {
+                    var count = allEntries.Count(entry =>
+                        entry.SubmitedAnswers.Any(submitedAnswer => submitedAnswer.Question.Text == questionText && submitedAnswer.Answer.Text == answer.Text) &&
+                        entry.SubmitedAnswers.Any(submitedOtherAnswer => submitedOtherAnswer.Question.Text == otherQuestionText && submitedOtherAnswer.Answer.Text == otherAnswer.Text));
+
+                    otherAnswerRow.Add(count.ToString());
+                    totalCount += count;
+                    countPerOtherAnwser += count;
+                    countPerAnswer[answer.Text] += count;
+                }
+
+                if (includeTotalColumn)
+                {
+                    otherAnswerRow.Add(countPerOtherAnwser.ToString());
+                }
+
+                rows.Add(otherAnswerRow);
+            }
+
+            foreach (var answer in answers)
+            {
+                var answerCount = countPerAnswer[answer.Text];
+                countRow.Add(answerCount.ToString());
+
+                var percentage = answerCount * 100f / totalCount;
+                percentageRow.Add($"{(float.IsNaN(percentage) ? 0 : percentage):f2}%");
+            }
+
+            TryAddTotalColumn(includeTotalColumn, headings, countRow, percentageRow, totalCount);
+
+            rows.Add(countRow);
+            rows.Add(percentageRow);
+
+            return new ExportTableDto { Title = title, Headings = headings, Data = rows };
+        }
+
+        private static bool TryAddTotalColumn(bool includeTotalColumn, List<string> headings, List<string> countRow, List<string> percentageRow, int totalCount)
+        {
+            if (includeTotalColumn)
+            {
+                headings.Add("Ukupno");
+                countRow.Add(totalCount.ToString());
+                percentageRow.Add("100%");
+            }
+
+            return includeTotalColumn;
         }
     }
 }

@@ -196,6 +196,9 @@ namespace SosCentar.DataAccess.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
@@ -209,9 +212,11 @@ namespace SosCentar.DataAccess.Migrations
 
             modelBuilder.Entity("SosCentar.Domain.Models.Answer", b =>
                 {
-                    b.HasOne("SosCentar.Domain.Models.Question", null)
+                    b.HasOne("SosCentar.Domain.Models.Question", "Question")
                         .WithMany("Answers")
                         .HasForeignKey("QuestionId");
+
+                    b.Navigation("Question");
                 });
 
             modelBuilder.Entity("SosCentar.Domain.Models.Entry", b =>

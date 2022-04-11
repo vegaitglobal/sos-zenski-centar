@@ -55,6 +55,12 @@ export const StyledInfoCard = styled.div`
             border-style: solid;
             margin: 0;
             overflow: hidden;
+            &:hover {
+              background-color: ${theme.color.purple};
+              ${StyledLabelText} {
+                color: ${theme.color.white};
+              }
+            }
             &:first-of-type {
               border-radius: 0 0 0 12px;
               border-width: 2px 1px 2px 2px;
@@ -66,7 +72,7 @@ export const StyledInfoCard = styled.div`
           }
           ${StyledLabelText} {
             display: block;
-            padding: 5px;
+            padding: 0 5px;
             text-align: center;
             font-weight: bold;
             color: ${theme.color.purple};

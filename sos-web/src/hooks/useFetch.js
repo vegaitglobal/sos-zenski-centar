@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router';
+import download from 'downloadjs';
 
 export const BASE_URL = 'https://api.sos.sitesstage.com/api';
 
@@ -11,7 +12,11 @@ export const useFetch = () => {
   const activeHttpRequests = useRef([]);
 
   const sendRequest = useCallback(
-    async (url, options = { method: 'GET', headers: {}, body: null }) => {
+    async (
+      url,
+      isDownload = false,
+      options = { method: 'GET', headers: {}, body: null },
+    ) => {
       const { method, headers, body } = options;
       setIsLoading(true);
       const abortController = new AbortController();
@@ -31,11 +36,12 @@ export const useFetch = () => {
           signal: abortController.signal,
         });
 
-        const responseData = await response.json();
-
         activeHttpRequests.current = activeHttpRequests.current.filter(
           (reqCtrl) => reqCtrl !== abortController,
         );
+
+        setIsLoading(false);
+        setIsError(false);
 
         if (!response.ok) {
           if (response.status === 401) {
@@ -43,14 +49,21 @@ export const useFetch = () => {
             localStorage.removeItem('token');
             localStorage.removeItem('email');
           }
-          throw new Error(responseData.message);
+          throw new Error(response.statusText);
         }
 
-        setIsLoading(false);
-        return responseData;
+        if (!isDownload) {
+          const responseString = await response.text();
+          const responseData =
+            responseString === '' ? {} : JSON.parse(responseString);
+
+          return responseData;
+        }
+
+        const blob = await response.blob();
+        download(blob, `report.pdf`);
       } catch (err) {
         setIsError(true);
-        setIsLoading(false);
         throw err;
       }
     },

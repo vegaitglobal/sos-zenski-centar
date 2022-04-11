@@ -5,12 +5,13 @@ import {
   StyledTop,
   StyledIcon,
   StyledContent,
+  StyledBody,
 } from './Accordion.styles';
 
 const animation = {
   variants: {
-    open: { height: 'auto', paddingTop: 30, paddingBottom: 30 },
-    collapsed: { height: 0, paddingTop: 0, paddingBottom: 0 },
+    open: { height: 'auto' },
+    collapsed: { height: 0 },
   },
   transition: { duration: 0.2 },
   initial: 'collapsed',
@@ -38,14 +39,16 @@ export const Accordion = ({
         onClick={isClickable ? handleOnClick : () => null}
         as={isClickable ? 'button' : 'div'}
       >
-        <Heading>{title}</Heading>
+        <Heading type="h3">{title}</Heading>
         {isClickable && (
           <StyledIcon $isOpened={expanded} $isReverse={isReverse} />
         )}
       </StyledTop>
-      <StyledContent {...animation} animate={expanded ? 'open' : 'collapsed'}>
-        {children}
-      </StyledContent>
+      <StyledBody {...animation} animate={expanded ? 'open' : 'collapsed'}>
+        <StyledContent>
+          {children}
+        </StyledContent>
+      </StyledBody>
     </StyledAccordion>
   );
 };

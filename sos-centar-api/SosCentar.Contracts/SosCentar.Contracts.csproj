@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NPOI" Version="2.5.4" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SosCentar.Domain\SosCentar.Domain.csproj" />
   </ItemGroup>
 
