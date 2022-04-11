@@ -42,11 +42,6 @@ Da bi videli Swagger, neophodno je da se dohvati accessToken koriscenjem /api/Us
 1. Kada pokrenemo projekat, http://localhost:48201/swagger/index.html nam prikaze swagger stranicu
 
 2. U User sekciji, nadjemo /api/Users/login i unesemo vrednosti u body params
-Primer body-a sa kredencijalima:
-```
-  "email": "vanjastepanovic001@gmail.com",
-  "password": "123456"
-```
 
 3. Prekopiramo vrednost accessToken-a koju smo dobili u response-u
 
