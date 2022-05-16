@@ -12,7 +12,7 @@ namespace SosCentar.API.Controllers
 	[Authorize]
 	public class CategoriesController : ControllerBase
 	{
-		private ICategoryService _categoryService;
+		private readonly ICategoryService _categoryService;
 
 		public CategoriesController(ICategoryService categoryService)
 		{

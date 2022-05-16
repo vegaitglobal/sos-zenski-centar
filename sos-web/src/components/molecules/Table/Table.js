@@ -8,8 +8,7 @@ import {
   TableCell,
 } from './Table.styles';
 
-export const Table = ({ title, tableData, children }) => {
-  const { headings, data } = tableData[0] ?? [];
+export const Table = ({ title, headings, data }) => {
 
   return (
     <StyledTable>
