@@ -8,7 +8,6 @@ using Microsoft.OpenApi.Models;
 using SosCentar.API.Extensions;
 using SosCentar.BusinessLogic.Extensions;
 using SosCentar.DataAccess;
-using System;
 using System.Collections.Generic;
 
 namespace SosCentar.Api
@@ -73,9 +72,9 @@ namespace SosCentar.Api
             services.AddDbContext<ReportContext>(options =>
             {
                 string connectionString = Configuration.GetConnectionString("MyWebApiConection");
-                string postgresDb = Environment.GetEnvironmentVariable("POSTGRES_DB");
-                string postgresUser = Environment.GetEnvironmentVariable("POSTGRES_USER");
-                string postgresPassword = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD");
+                string postgresDb = Configuration.GetValue<string>("POSTGRES_DB");
+                string postgresUser = Configuration.GetValue<string>("POSTGRES_USER");
+                string postgresPassword = Configuration.GetValue<string>("POSTGRES_PASSWORD");
                 string formattedConnectionString = string.Format(connectionString, postgresDb, postgresUser, postgresPassword);
                 options.UseNpgsql(formattedConnectionString);
             });
@@ -96,8 +95,6 @@ namespace SosCentar.Api
 
             app.UseRouting();
 
-
-
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -105,8 +102,6 @@ namespace SosCentar.Api
             {
                 endpoints.MapControllers();
             });
-
-
         }
     }
 }

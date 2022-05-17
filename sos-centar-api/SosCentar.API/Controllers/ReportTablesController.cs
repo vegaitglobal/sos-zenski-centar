@@ -12,19 +12,17 @@ namespace SosCentar.API.Controllers
     [Authorize]
     public class ReportTablesController : ControllerBase
     {
-        private readonly IReportService _reportService;
         private readonly IExportReportService _exportReportService;
 
-        public ReportTablesController(IReportService reportService, IExportReportService exportReportService)
+        public ReportTablesController(IExportReportService exportReportService)
         {
-            _reportService = reportService;
             _exportReportService = exportReportService;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Table>> Get([FromQuery(Name = "from")] DateTime From, [FromQuery(Name = "to")] DateTime To)
+        public ActionResult<IEnumerable<ExportSectionDto>> Get([FromQuery] DateTime from, [FromQuery] DateTime to)
         {
-            return Ok(_reportService.GetTableReport(From, To));
+            return Ok(_exportReportService.GetSections(from, to));
         }
 
         [HttpGet("export")]
