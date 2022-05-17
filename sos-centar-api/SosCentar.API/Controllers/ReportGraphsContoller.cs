@@ -20,9 +20,9 @@ namespace SosCentar.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<GraphDto>> Get([FromQuery(Name = "from")] DateTime From, [FromQuery(Name = "to")] DateTime To)
+        public ActionResult<IEnumerable<GraphDto>> Get([FromQuery] DateTime from, [FromQuery] DateTime to)
         {
-            return Ok(_reportService.GetGraphs(From, To));
+            return Ok(_reportService.GetGraphs(from, to));
         }
     }
 }
