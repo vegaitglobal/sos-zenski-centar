@@ -73,7 +73,7 @@ namespace SosCentar.BusinessLogic.Services
 
         private ExportSectionDto GetSection4(DateTime from, DateTime to) => new()
         {
-            Title = "4. Evidencija poruka 2021- Broj korisnika/ca i ostvaren broj interakcija",
+            Title = "4. Evidencija poruka - Broj korisnika/ca i ostvaren broj interakcija",
             Tables = new List<ExportTableDto>
             {
                 _exportPreparationService.GetReportPerAnswerOnQuestion(from, to, "4.1. Broj korisnika/ca po kanalu komunikacije", "Kanal komunikacije", true),
