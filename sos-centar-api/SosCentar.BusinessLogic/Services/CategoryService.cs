@@ -70,6 +70,7 @@ namespace SosCentar.BusinessLogic.Services
                 Icon = question.Icon,
                 Label = question.Text,
                 IsRequired = question.IsRequired,
+                MultipleAnswers = question.IsRequired,
                 Condition = questionCondition,
                 Options = question.Answers.OrderBy(answer => answer.Order).Select(GetAnswerDto)
             };

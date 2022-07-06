@@ -25,7 +25,7 @@ export function CategoryContextProvider({ children }) {
         .catch((err) => {
           if (err.message === 'Unauthorized') history.push('/login');
         });
-  }, [sendRequest, authenticated]);
+  }, [sendRequest, authenticated, history]);
 
   return (
     <CategoryContext.Provider

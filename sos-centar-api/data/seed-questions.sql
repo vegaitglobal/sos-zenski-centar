@@ -4,7 +4,8 @@ INSERT INTO "Questions" (
 	"Order",
 	"IsRequired",
 	"SectionId",
-	"Icon"
+	"Icon",
+	"MultipleAnswers"
 ) 
 
 VALUES
@@ -14,7 +15,8 @@ VALUES
 		'1',
 		'1',
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'1bdd5213-0159-4aa3-912b-b0039abcffeb',
@@ -22,7 +24,8 @@ VALUES
 		'1',
 		'1',
 		'0da678bd-9110-4dad-97cf-a531ceef1622',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'ef482a82-911e-4df0-91bf-760aedb2bece',
@@ -30,7 +33,8 @@ VALUES
 		'1',
 		'1',
 		'7875c455-6ac9-4daa-a75b-761b0845449c',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'ee3b6d28-de62-4a60-8894-56b1650a0388',
@@ -38,7 +42,8 @@ VALUES
 		'2',
 		'1',
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'1989aa54-17bb-4361-8d0d-e954078ed2e0',
@@ -46,7 +51,8 @@ VALUES
 		'3',
 		'1',
 		'fdc12b45-2d12-48b5-b940-4ed7cf78e2b2',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'97273bd7-126d-43fd-9539-a1b5a6952ef6',
@@ -54,7 +60,8 @@ VALUES
 		'4',
 		'1',
 		'cb428035-1089-4026-a39b-925560ab6615',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'506d2147-8a4c-474a-93ae-adfa10c55016',
@@ -62,7 +69,8 @@ VALUES
 		'5',
 		'1',
 		'cb428035-1089-4026-a39b-925560ab6615',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'f76bea89-3ddc-4862-a4a2-15e34bc04eea',
@@ -70,7 +78,8 @@ VALUES
 		'6',
 		'1',
 		'0da678bd-9110-4dad-97cf-a531ceef1622',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),	
 	(
 		'4f8d18db-8c04-403b-9ca2-da2478b8d5b0',
@@ -78,7 +87,8 @@ VALUES
 		'7',
 		'1',
 		'0da678bd-9110-4dad-97cf-a531ceef1622',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'56f3284d-ee05-4932-8755-5780eafc9c3a',
@@ -86,7 +96,8 @@ VALUES
 		'8',
 		'1',
 		'0da678bd-9110-4dad-97cf-a531ceef1622',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'81485ca6-2982-4144-835c-434ce2a2a81b',
@@ -94,7 +105,8 @@ VALUES
 		'9',
 		'1',
 		'7875c455-6ac9-4daa-a75b-761b0845449c',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'546bd8e9-9ac4-4a90-8a59-195ef6e426aa',
@@ -102,7 +114,8 @@ VALUES
 		'10',
 		'1',
 		'7875c455-6ac9-4daa-a75b-761b0845449c',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'8d690cff-f64d-4ce9-987b-3adae660d9f0',
@@ -110,7 +123,8 @@ VALUES
 		'11',
 		'1',
 		'7875c455-6ac9-4daa-a75b-761b0845449c',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'ee0439c5-f3d4-431e-b6d8-54ddeda01ccf',
@@ -118,7 +132,8 @@ VALUES
 		'12',
 		'1',
 		'64f02514-cac6-4563-b1b7-954743c7c05f',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'074951d2-9ed0-41bc-98e3-260256c7fae9',
@@ -126,7 +141,8 @@ VALUES
 		'13',
 		'1',
 		'64f02514-cac6-4563-b1b7-954743c7c05f',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'c03c7e16-7b53-4ed0-9f6e-a544c43f47a6',
@@ -134,7 +150,8 @@ VALUES
 		'14',
 		'0',
 		'64f02514-cac6-4563-b1b7-954743c7c05f',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 ------------------------CONDITIONAL DA LI JE BILO SUDJENJA
 	(
@@ -143,7 +160,8 @@ VALUES
 		'15',
 		'1',
 		'64f02514-cac6-4563-b1b7-954743c7c05f',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	---------------------------SEKCIJA POZIV--------------------------
 	(
@@ -152,7 +170,8 @@ VALUES
 		'16',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/gender.svg'
+		'media/icons/gender.svg',
+		'0'
 	),
 	(
 		'14413365-b2d1-4551-93d7-a17fb0317068',
@@ -160,7 +179,8 @@ VALUES
 		'16',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/gender.svg'
+		'media/icons/gender.svg',
+		'0'
 	),
 	(
 		'2b47896c-722e-488b-b611-2ddc408f0275',
@@ -168,7 +188,8 @@ VALUES
 		'16',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/gender.svg'
+		'media/icons/gender.svg',
+		'0'
 	),
 	(
 		'540c2a5f-13d6-4464-ac7c-0c9b94ae9a94',
@@ -176,7 +197,8 @@ VALUES
 		'16',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/gender.svg'
+		'media/icons/gender.svg',
+		'0'
 	),
 	(
 		'45f57722-2227-45c3-a234-2d0435f82e43',
@@ -184,7 +206,8 @@ VALUES
 		'16',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/gender.svg'
+		'media/icons/gender.svg',
+		'0'
 	),
 	(
 		'7fe3dc15-0021-4dbf-9833-0044a60195b6',
@@ -192,7 +215,8 @@ VALUES
 		'17',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/place.svg'
+		'media/icons/place.svg',
+		'0'
 	),
 	(
 		'05841799-a62d-4df6-88fc-fd1b40ff8a64',
@@ -200,7 +224,8 @@ VALUES
 		'17',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/place.svg'
+		'media/icons/place.svg',
+		'0'
 	),
 	(
 		'e8dd5afc-1d34-41ad-8dbd-50f50f8228b7',
@@ -208,7 +233,8 @@ VALUES
 		'17',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/place.svg'
+		'media/icons/place.svg',
+		'0'
 	),
 	(
 		'ce8dd0c9-e508-4cff-bb81-612023a604ad',
@@ -216,7 +242,8 @@ VALUES
 		'17',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/place.svg'
+		'media/icons/place.svg',
+		'0'
 	),
 	(
 		'1ec3dc37-7310-4848-a9e1-29c394688b41',
@@ -224,7 +251,8 @@ VALUES
 		'17',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/place.svg'
+		'media/icons/place.svg',
+		'0'
 	),
 	(
 		'3f661a72-9f51-42ea-aeac-a2af94ec90b0',
@@ -232,7 +260,8 @@ VALUES
 		'18',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'a3d0c8b4-940b-4322-ab2d-dcf8fe72ab58',
@@ -240,7 +269,8 @@ VALUES
 		'18',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'fe042d64-8af5-4819-a8af-47b157322d80',
@@ -248,7 +278,8 @@ VALUES
 		'18',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'c9d310c2-922e-4f9d-ae77-930d454c877d',
@@ -256,7 +287,8 @@ VALUES
 		'18',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'35a10398-874e-4aa7-874c-ef05bca8eaf2',
@@ -264,7 +296,8 @@ VALUES
 		'18',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'5e8a76cb-0df2-4a69-a580-6890b2eeec44',
@@ -272,7 +305,8 @@ VALUES
 		'19',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/work.svg'
+		'media/icons/work.svg',
+		'0'
 	),
 	(
 		'3b5f268a-3f6c-47cb-b9f3-e6d080d1b144',
@@ -280,7 +314,8 @@ VALUES
 		'19',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'93e806e9-5ca7-4b49-810e-9d3483a9a28a',
@@ -288,7 +323,8 @@ VALUES
 		'19',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'4380a5ac-34ba-480a-b214-2b4de9e73ba5',
@@ -296,7 +332,8 @@ VALUES
 		'19',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'116897e7-60c9-4ecf-befe-0d7c8201eb57',
@@ -304,7 +341,8 @@ VALUES
 		'19',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/age.svg'
+		'media/icons/age.svg',
+		'0'
 	),
 	(
 		'89abc9af-6a2b-4494-b2c1-de24697e338f',
@@ -312,7 +350,8 @@ VALUES
 		'20',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/violence.svg'
+		'media/icons/violence.svg',
+		'0'
 	),
 	(
 		'5a8e6579-2aee-4dc6-8e2e-545243eef067',
@@ -320,7 +359,8 @@ VALUES
 		'20',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/violence.svg'
+		'media/icons/violence.svg',
+		'0'
 	),
 	(
 		'503396ff-b024-48e8-bb5b-0d1aea23299a',
@@ -328,7 +368,8 @@ VALUES
 		'20',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/violence.svg'
+		'media/icons/violence.svg',
+		'0'
 	),
 	(
 		'3417448f-052d-48d7-aa2e-a6a5330f5da7',
@@ -336,7 +377,8 @@ VALUES
 		'20',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/violence.svg'
+		'media/icons/violence.svg',
+		'0'
 	),
 	(
 		'9d7900cf-c4b0-45fc-8a31-8dcff39f6aa2',
@@ -344,7 +386,8 @@ VALUES
 		'20',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/violence.svg'
+		'media/icons/violence.svg',
+		'0'
 	),
 	(
 		'76646393-c582-4cc5-8e94-8fc842ac8109',
@@ -352,7 +395,8 @@ VALUES
 		'21',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/marriage.svg'
+		'media/icons/marriage.svg',
+		'0'
 	),
 	(
 		'a73e4914-e9c2-446e-8cfc-3281f91c6545',
@@ -360,7 +404,8 @@ VALUES
 		'21',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/marriage.svg'
+		'media/icons/marriage.svg',
+		'0'
 	),
 	(
 		'eb73e60a-2716-4cad-b394-df0a130698a7',
@@ -368,7 +413,8 @@ VALUES
 		'21',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/marriage.svg'
+		'media/icons/marriage.svg',
+		'0'
 	),
 	(
 		'79482883-908b-44b7-aedb-35295b43541f',
@@ -376,7 +422,8 @@ VALUES
 		'21',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/marriage.svg'
+		'media/icons/marriage.svg',
+		'0'
 	),
 	(
 		'ab557663-91b3-4849-9544-808fc4cb2cb1',
@@ -384,7 +431,8 @@ VALUES
 		'21',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/marriage.svg'
+		'media/icons/marriage.svg',
+		'0'
 	),
 	(
 		'1d767c87-7ab5-492d-bf2f-6dc7a9a7d038',
@@ -392,7 +440,8 @@ VALUES
 		'22',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/home.svg'
+		'media/icons/home.svg',
+		'0'
 	),
 	(
 		'80dde988-a7ec-4663-b752-c5e7c6eeedd8',
@@ -400,7 +449,8 @@ VALUES
 		'22',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/home.svg'
+		'media/icons/home.svg',
+		'0'
 	),
 	(
 		'616d17c9-c208-436c-8ae4-a7d69a80b909',
@@ -408,7 +458,8 @@ VALUES
 		'22',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/home.svg'
+		'media/icons/home.svg',
+		'0'
 	),
 	(
 		'8ee5c401-75bd-4e1d-92fd-4af8a1d684ee',
@@ -416,7 +467,8 @@ VALUES
 		'22',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/home.svg'
+		'media/icons/home.svg',
+		'0'
 	),
 	(
 		'b32de8c0-8959-4588-b4e0-675f58d10a4d',
@@ -424,7 +476,8 @@ VALUES
 		'22',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/home.svg'
+		'media/icons/home.svg',
+		'0'
 	),
 	(
 		'1d1a4ab5-79a9-44b7-a9a6-00d4da667d58',
@@ -432,7 +485,8 @@ VALUES
 		'23',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/minorities.svg'
+		'media/icons/minorities.svg',
+		'0'
 	),
 	(
 		'b8ee36c3-bcad-4b5a-b387-236d2dc40e2b',
@@ -440,7 +494,8 @@ VALUES
 		'23',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/minorities.svg'
+		'media/icons/minorities.svg',
+		'0'
 	),
 	(
 		'406c8020-6f73-4836-b261-e6a10e1f2144',
@@ -448,7 +503,8 @@ VALUES
 		'23',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/minorities.svg'
+		'media/icons/minorities.svg',
+		'0'
 	),
 	(
 		'81fabbd7-1381-4c08-946a-bc4ba22d391b',
@@ -456,7 +512,8 @@ VALUES
 		'23',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/minorities.svg'
+		'media/icons/minorities.svg',
+		'0'
 	),
 	(
 		'52a7bf4b-277e-4f42-aa71-e0d7e7fee47c',
@@ -464,7 +521,8 @@ VALUES
 		'23',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/minorities.svg'
+		'media/icons/minorities.svg',
+		'0'
 	),
 	---------------------------------KONDICIONAL DA LI POSTOJI NASILJE
 	(
@@ -473,7 +531,8 @@ VALUES
 		'24',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/tear.svg'
+		'media/icons/tear.svg',
+		'1'
 	),
 	(
 		'ae73e2f1-fee8-4676-b252-bfe9be13a3e9',
@@ -481,7 +540,8 @@ VALUES
 		'24',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/tear.svg'
+		'media/icons/tear.svg',
+		'1'
 	),
 	(
 		'91c75273-e9ff-453d-8be1-e5f4ae80fc89',
@@ -489,7 +549,8 @@ VALUES
 		'24',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/tear.svg'
+		'media/icons/tear.svg',
+		'1'
 	),
 	(
 		'369f6ca0-e286-4dcd-9d29-55fccd3b1cd2',
@@ -497,7 +558,8 @@ VALUES
 		'24',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/tear.svg'
+		'media/icons/tear.svg',
+		'1'
 	),
 	(
 		'563e0b61-a469-4697-8028-7d52e880e35b',
@@ -505,7 +567,8 @@ VALUES
 		'24',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/tear.svg'
+		'media/icons/tear.svg',
+		'1'
 	),
 	--------------------UZRAST DETETA KONDICIONAL
 	(
@@ -514,7 +577,8 @@ VALUES
 		'25',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/child-age.svg'
+		'media/icons/child-age.svg',
+		'0'
 	),
 	(
 		'a35eb4c1-9fec-485b-ad8c-334d5dfe2ebd',
@@ -522,7 +586,8 @@ VALUES
 		'25',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/child-age.svg'
+		'media/icons/child-age.svg',
+		'0'
 	),
 	(
 		'5eaeb138-f2f8-4b3b-94ba-506e254fd2d9',
@@ -530,7 +595,8 @@ VALUES
 		'25',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/child-age.svg'
+		'media/icons/child-age.svg',
+		'0'
 	),
 	(
 		'9f083f8a-9c68-484c-9d39-ad093d697800',
@@ -538,7 +604,8 @@ VALUES
 		'25',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/child-age.svg'
+		'media/icons/child-age.svg',
+		'0'
 	),
 	(
 		'ea5150b3-1a64-400b-9b89-2305d6e53a99',
@@ -546,7 +613,8 @@ VALUES
 		'25',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/child-age.svg'
+		'media/icons/child-age.svg',
+		'0'
 	),
 	(
 		'e4542713-db23-4077-925c-dea28dccd9fb',
@@ -554,7 +622,8 @@ VALUES
 		'26',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/heart-broken.svg'
+		'media/icons/heart-broken.svg',
+		'0'
 	),
 	(
 		'de476f53-1292-4bed-acfb-d38aedce271f',
@@ -562,7 +631,8 @@ VALUES
 		'26',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/heart-broken.svg'
+		'media/icons/heart-broken.svg',
+		'0'
 	),
 	(
 		'4fdb3f0c-5f7c-46e4-9e35-075791dac07a',
@@ -570,7 +640,8 @@ VALUES
 		'26',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/heart-broken.svg'
+		'media/icons/heart-broken.svg',
+		'0'
 	),
 	(
 		'0f5e78b3-f3af-4c34-8f35-df68231800b7',
@@ -578,7 +649,8 @@ VALUES
 		'26',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/heart-broken.svg'
+		'media/icons/heart-broken.svg',
+		'0'
 	),
 	(
 		'9fa0185b-9dc6-445c-aae6-ea54eda7dc0a',
@@ -586,7 +658,8 @@ VALUES
 		'26',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/heart-broken.svg'
+		'media/icons/heart-broken.svg',
+		'0'
 	),
 	(
 		'657a5fd3-d9a9-4d61-a392-a54caefd4bb6',
@@ -594,7 +667,8 @@ VALUES
 		'27',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(
 		'146a9993-70df-4e2c-8cad-4e1c3aee1377',
@@ -602,7 +676,8 @@ VALUES
 		'27',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(
 		'0c465680-db66-428e-ac6b-6a1754e178ef',
@@ -610,7 +685,8 @@ VALUES
 		'27',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(
 		'cf6c7d5e-0c99-41e0-aa26-113ee257b70f',
@@ -618,7 +694,8 @@ VALUES
 		'27',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(
 		'56cb349a-b7bd-4825-9e29-6ffd6c383ab8',
@@ -626,7 +703,8 @@ VALUES
 		'27',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(
 		'd241dacc-eb72-460f-9274-9dbb9d3248b0',
@@ -634,7 +712,8 @@ VALUES
 		'28',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(	
 		'1931f803-a28f-42d9-aae5-b283500d8040',
@@ -642,7 +721,8 @@ VALUES
 		'28',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(	
 		'0a46b787-bb4f-4ff1-9b86-f3488a2980f8',
@@ -650,7 +730,8 @@ VALUES
 		'28',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(	
 		'37babb2c-4bc5-45b6-ab0c-47d703e3eb05',
@@ -658,7 +739,8 @@ VALUES
 		'28',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 	(	
 		'109c53b4-1b1a-417d-8bc2-58ce89c2c755',
@@ -666,7 +748,8 @@ VALUES
 		'28',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'1'
 	),
 
 	(
@@ -675,7 +758,8 @@ VALUES
 		'29',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'0'
 	),
 	(	
 		'd9c3231e-dbfb-42e8-927f-757df1f9b84f',
@@ -683,7 +767,8 @@ VALUES
 		'29',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'0'
 	),
 	(	
 		'a990ae4a-0e78-40c0-91b9-6c1620fbb1a2',
@@ -691,7 +776,8 @@ VALUES
 		'29',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'0'
 	),
 	(	
 		'fe92d497-2068-400a-832d-34c788675882',
@@ -699,7 +785,8 @@ VALUES
 		'29',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'0'
 	),
 	(	
 		'7f19c2cc-5265-45ee-820f-59526c39923a',
@@ -707,7 +794,8 @@ VALUES
 		'29',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/violence-shape.svg'
+		'media/icons/violence-shape.svg',
+		'0'
 	),
 
 	(
@@ -716,7 +804,8 @@ VALUES
 		'28',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/gender-red.svg'
+		'media/icons/gender-red.svg',
+		'0'
 	),
 	(
 		'97239ec4-941b-4d26-b5e1-7bc32839bc1e',
@@ -724,7 +813,8 @@ VALUES
 		'28',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/gender-red.svg'
+		'media/icons/gender-red.svg',
+		'0'
 	),
 	(
 		'747820f8-13b7-42a5-8379-5a5761005527',
@@ -732,7 +822,8 @@ VALUES
 		'28',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/gender-red.svg'
+		'media/icons/gender-red.svg',
+		'0'
 	),
 	(
 		'3d3f6efd-ba2c-45ae-b109-69993327e34e',
@@ -740,7 +831,8 @@ VALUES
 		'28',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/gender-red.svg'
+		'media/icons/gender-red.svg',
+		'0'
 	),
 	(
 		'899b839c-2175-435e-a8bc-b3f57376ff8b',
@@ -748,7 +840,8 @@ VALUES
 		'28',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/gender-red.svg'
+		'media/icons/gender-red.svg',
+		'0'
 	),
 	(
 		'70c32d0f-e1ef-46ac-b1c6-78b5d0b10411',
@@ -756,7 +849,8 @@ VALUES
 		'29',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/handcuffs.svg'
+		'media/icons/handcuffs.svg',
+		'0'
 	),
 	(
 		'27acb1ae-5ebd-494e-bdcc-f2e5306812c0',
@@ -764,7 +858,8 @@ VALUES
 		'29',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/handcuffs.svg'
+		'media/icons/handcuffs.svg',
+		'0'
 	),
 	(
 		'f2379527-e080-41e4-afc5-506c21fa4406',
@@ -772,7 +867,8 @@ VALUES
 		'29',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/handcuffs.svg'
+		'media/icons/handcuffs.svg',
+		'0'
 	),
 	(
 		'ed00c8de-d334-4d00-bc51-180038a955fb',
@@ -780,7 +876,8 @@ VALUES
 		'29',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/handcuffs.svg'
+		'media/icons/handcuffs.svg',
+		'0'
 	),
 	(
 		'415df83e-685d-4da7-bc56-ab2955fd099b',
@@ -788,7 +885,8 @@ VALUES
 		'29',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/handcuffs.svg'
+		'media/icons/handcuffs.svg',
+		'0'
 	),
 	(
 		'326cf6c3-cbd1-4fed-bb78-e8a58e963099',
@@ -796,7 +894,8 @@ VALUES
 		'30',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/stop.svg'
+		'media/icons/stop.svg',
+		'0'
 	),
 	(
 		'7ec7607f-9a06-4909-9eef-2be475ab7a9b',
@@ -804,7 +903,8 @@ VALUES
 		'30',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/stop.svg'
+		'media/icons/stop.svg',
+		'0'
 	),
 	(
 		'1c0cb9d5-43a9-4318-ab2f-196579398a2c',
@@ -812,7 +912,8 @@ VALUES
 		'30',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/stop.svg'
+		'media/icons/stop.svg',
+		'0'
 	),
 	(
 		'b6e8ca52-433a-49e0-aac2-6e4ddce3e040',
@@ -820,7 +921,8 @@ VALUES
 		'30',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/stop.svg'
+		'media/icons/stop.svg',
+		'0'
 	),
 	(
 		'046a6ede-7845-411b-b444-11e537aa1320',
@@ -828,7 +930,8 @@ VALUES
 		'30',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/stop.svg'
+		'media/icons/stop.svg',
+		'0'
 	),
 	(
 		'69b1fc08-1609-4000-966b-0a750b4bf3d4',
@@ -836,7 +939,8 @@ VALUES
 		'31',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
-		'media/icons/gavel.svg'
+		'media/icons/gavel.svg',
+		'0'
 	),
 	(
 		'0cbb6b00-018e-4a1d-8f50-cb54c459207c',
@@ -844,7 +948,8 @@ VALUES
 		'31',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
-		'media/icons/gavel.svg'
+		'media/icons/gavel.svg',
+		'0'
 	),
 	(
 		'a62dd43d-0a37-4461-b6b1-aedbb12b41ed',
@@ -852,7 +957,8 @@ VALUES
 		'31',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
-		'media/icons/gavel.svg'
+		'media/icons/gavel.svg',
+		'0'
 	),
 	(
 		'e480a779-f47e-4145-8a48-b926d3f6adee',
@@ -860,7 +966,8 @@ VALUES
 		'31',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
-		'media/icons/gavel.svg'
+		'media/icons/gavel.svg',
+		'0'
 	),
 	(
 		'bed1f5ee-51ff-43a6-a310-1a2c44b79e61',
@@ -868,7 +975,8 @@ VALUES
 		'31',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
-		'media/icons/gavel.svg'
+		'media/icons/gavel.svg',
+		'0'
 	),
 	-----------------------------------------------------INTERVENCIJE SEKCIJA-----------------------------
 	(
@@ -877,7 +985,8 @@ VALUES
 		'32',
 		'1',
 		'8e445aa1-4587-4433-824b-f0ff900f840e',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'1'
 	),
 	(
 		'01498b24-ce6d-4c40-aff6-1afdbb159e29',
@@ -885,7 +994,8 @@ VALUES
 		'32',
 		'1',
 		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'1'
 	),
 	(
 		'fe6e0bb8-932e-48a5-8efc-f2121bfdc11b',
@@ -893,7 +1003,8 @@ VALUES
 		'32',
 		'1',
 		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'1'
 	),
 	(
 		'19e0d305-adbc-4c90-8153-ae1c0dd86407',
@@ -901,7 +1012,8 @@ VALUES
 		'32',
 		'1',
 		'7d59dc7a-5d64-4210-8446-53c885b945cc',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'1'
 	),
 	(
 		'271760b4-c7df-4892-9c85-5ed61eb9e555',
@@ -909,7 +1021,8 @@ VALUES
 		'32',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'1'
 	),
 	(
 		'97ce0828-199d-4903-a1a8-40ea0243e0f3',
@@ -917,7 +1030,8 @@ VALUES
 		'33',
 		'1',
 		'8e445aa1-4587-4433-824b-f0ff900f840e',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'd2a7b5c8-e5af-4c30-95b0-a5cd917f36ca',
@@ -925,7 +1039,8 @@ VALUES
 		'33',
 		'1',
 		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'7e7e426d-9bce-4632-8756-ebc87f444668',
@@ -933,7 +1048,8 @@ VALUES
 		'33',
 		'1',
 		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'f0dc617e-299e-4086-b7cf-fe8cae64c10b',
@@ -941,7 +1057,8 @@ VALUES
 		'33',
 		'1',
 		'7d59dc7a-5d64-4210-8446-53c885b945cc',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'c6ed2f65-e439-4d2b-a876-f3d4712818aa',
@@ -949,7 +1066,8 @@ VALUES
 		'33',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'ff647a57-9e64-4a9d-bab4-4ae37db53628',
@@ -957,7 +1075,8 @@ VALUES
 		'34',
 		'1',
 		'8e445aa1-4587-4433-824b-f0ff900f840e',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'a62956bb-7702-4046-81e9-ac55e4948147',
@@ -965,7 +1084,8 @@ VALUES
 		'34',
 		'1',
 		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'fac12d98-3f04-4264-bed2-27b452600670',
@@ -973,7 +1093,8 @@ VALUES
 		'34',
 		'1',
 		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'1b6daff2-fc54-4b7b-9d57-bcec53c64388',
@@ -981,7 +1102,8 @@ VALUES
 		'34',
 		'1',
 		'7d59dc7a-5d64-4210-8446-53c885b945cc',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'8175eb81-78cd-42c0-ab27-c07378645a5a',
@@ -989,7 +1111,8 @@ VALUES
 		'34',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'dca28ae5-f566-4833-bd41-e3201e342f26',
@@ -997,7 +1120,8 @@ VALUES
 		'35',
 		'1',
 		'8e445aa1-4587-4433-824b-f0ff900f840e',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'dc8e3eb0-98f5-42a3-bfba-34a3504570e6',
@@ -1005,7 +1129,8 @@ VALUES
 		'35',
 		'1',
 		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'e7c7122c-775c-46b7-96fa-969846a63329',
@@ -1013,7 +1138,8 @@ VALUES
 		'35',
 		'1',
 		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'ab952186-ebef-49a8-b2cf-2534ea93a328',
@@ -1021,7 +1147,8 @@ VALUES
 		'35',
 		'1',
 		'7d59dc7a-5d64-4210-8446-53c885b945cc',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'6774af12-9b13-47eb-80dd-eb2af3197f9d',
@@ -1029,7 +1156,8 @@ VALUES
 		'35',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'0'
 	),
 	(
 		'54e9af82-6c54-4851-ac00-9ee68d05abac',
@@ -1037,5 +1165,6 @@ VALUES
 		'36',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
-		'media/icons/no-icon.svg'
+		'media/icons/no-icon.svg',
+		'1'
 	);

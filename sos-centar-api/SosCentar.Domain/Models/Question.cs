@@ -12,5 +12,6 @@ namespace SosCentar.Domain.Models
         public int Order { get; set; }
         public bool IsRequired { get; set; }
         public string Icon { get; set; }
+        public bool MultipleAnswers { get; set; }   
     }
 }

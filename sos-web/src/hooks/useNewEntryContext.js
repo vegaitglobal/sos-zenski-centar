@@ -40,13 +40,23 @@ export function NewEntryContextProvider({ children }) {
   const submit = useMemo(() => {
     const send = () => {
       const mapAnswers = [];
-
       for (let obj in data) {
         if (obj !== 'description' && obj !== 'charts' && obj !== 'tables') {
-          mapAnswers.push({
-            questionId: obj,
-            answerId: data[obj],
-          });
+          if (Array.isArray(data[obj])) {
+            data[obj].forEach((el) => {
+              console.log(obj);
+              console.log(el);
+              mapAnswers.push({
+                questionId: obj,
+                answerId: el,
+              });
+            });
+          } else {
+            mapAnswers.push({
+              questionId: obj,
+              answerId: data[obj],
+            });
+          }
         }
       }
 
