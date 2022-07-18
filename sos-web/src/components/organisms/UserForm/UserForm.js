@@ -16,7 +16,14 @@ import {
 } from '../LoginForm/LoginForm.styles';
 import { StyledContainer, StyledHeading } from './UserForm.styles';
 
-const UserForm = ({ title, buttonLabel, formHandler, user, isLoading, isError }) => {
+export const UserForm = ({
+  title,
+  buttonLabel,
+  formHandler,
+  user,
+  isLoading,
+  isError,
+}) => {
   const [form, setForm] = useState({
     firstName: user?.firstName || '',
     lastName: user?.lastName || '',
@@ -139,5 +146,3 @@ const UserForm = ({ title, buttonLabel, formHandler, user, isLoading, isError })
     </StyledContainer>
   );
 };
-
-export default UserForm;

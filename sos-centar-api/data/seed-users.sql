@@ -144,15 +144,6 @@ VALUES
 	),
 	
 	(
-		'32967b37-d816-48e6-b10b-51193012ebb9',
-		'masapoznanovic@sosns.rs',
-		'Maša',
-		'Poznanović',
-		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
-		'true'
-	),
-	
-	(
 		'b4fb20d0-8de3-4302-a79e-5b77d4d3e4f1',
 		'biljanagalic@sosns.rs',
 		'Biljana',
@@ -312,6 +303,15 @@ VALUES
 		'Pajantić',
 		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
 		'false'
+	),
+
+	(
+		'57307521-8aa4-4725-907f-91a2e578903c',
+		'aleksandrasavic@sosns.rs',
+		'Aleksandra',
+		'Savić',
+		'pHm1f1ZbrCNDN4mY8rFnCnX1VME/5GashWKfSw4U8eQ=',
+		'true'
 	);
 
 

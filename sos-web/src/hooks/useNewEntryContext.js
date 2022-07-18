@@ -44,8 +44,6 @@ export function NewEntryContextProvider({ children }) {
         if (obj !== 'description' && obj !== 'charts' && obj !== 'tables') {
           if (Array.isArray(data[obj])) {
             data[obj].forEach((el) => {
-              console.log(obj);
-              console.log(el);
               mapAnswers.push({
                 questionId: obj,
                 answerId: el,
