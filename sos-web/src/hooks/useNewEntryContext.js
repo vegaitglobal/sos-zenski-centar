@@ -5,7 +5,11 @@ import { useDataContext } from '../utils/store';
 import { baseUrl } from '../utils/apiUrl';
 
 const NewEntryContext = React.createContext();
-const descriptionId = 'ef2f3526-b26a-4ef7-8589-46eb74f64521';
+const descriptionIds = [
+  'ef2f3526-b26a-4ef7-8589-46eb74f64521',
+  'ef482a82-911e-4df0-91bf-760aedb2bece',
+  '1bdd5213-0159-4aa3-912b-b0039abcffeb',
+];
 
 export function useNewEntryContext() {
   return useContext(NewEntryContext);
@@ -36,13 +40,21 @@ export function NewEntryContextProvider({ children }) {
   const submit = useMemo(() => {
     const send = () => {
       const mapAnswers = [];
-
       for (let obj in data) {
         if (obj !== 'description' && obj !== 'charts' && obj !== 'tables') {
-          mapAnswers.push({
-            questionId: obj,
-            answerId: data[obj],
-          });
+          if (Array.isArray(data[obj])) {
+            data[obj].forEach((el) => {
+              mapAnswers.push({
+                questionId: obj,
+                answerId: el,
+              });
+            });
+          } else {
+            mapAnswers.push({
+              questionId: obj,
+              answerId: data[obj],
+            });
+          }
         }
       }
 
@@ -72,7 +84,7 @@ export function NewEntryContextProvider({ children }) {
 
       setErrors(
         requiredQuestionsIdByPage.filter((id) => {
-          if (data.description && id === descriptionId) {
+          if (data.description && descriptionIds.includes(id)) {
             return;
           }
           return !answeredQuestionsID.includes(id);
@@ -82,7 +94,7 @@ export function NewEntryContextProvider({ children }) {
       clearError();
       if (
         requiredQuestionsIdByPage.every((question) => {
-          if (question === descriptionId && data.description) {
+          if (descriptionIds.includes(question) && data.description) {
             return true;
           }
           return answeredQuestionsID.includes(question);

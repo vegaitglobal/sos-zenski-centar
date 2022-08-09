@@ -21,7 +21,7 @@ const UserTable = ({ users, openEditModal, openDeleteModal }) => {
         {users.map((user, i) => (
           <StyledTableRow key={i}>
             <td>
-              <span>
+              <span className={`test-${user.firstName}-name`}>
                 {user.firstName} {user.lastName}
                 {user.isAdmin && <Icon.Admin />}
               </span>
@@ -31,14 +31,14 @@ const UserTable = ({ users, openEditModal, openDeleteModal }) => {
               <StyledButtonContainer>
                 <StyledButton onClick={() => openEditModal(user)}>
                   <SRLabel>Izmeni</SRLabel>
-                  <Icon.Edit />
+                  <Icon.Edit className={`test-${user.firstName}-edit`} />
                 </StyledButton>
                 <StyledButton
                   onClick={() => openDeleteModal(user)}
                   background="red"
                 >
                   <SRLabel>Obriši</SRLabel>
-                  <Icon.Delete />
+                  <Icon.Delete className={`test-${user.firstName}-delete`} />
                 </StyledButton>
               </StyledButtonContainer>
             </td>

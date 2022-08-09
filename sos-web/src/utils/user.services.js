@@ -2,7 +2,9 @@ import jwt_decode from 'jwt-decode';
 
 export const isAuthenticated = () => {
   const token = localStorage.getItem('token');
-  if (token !== null && token !== undefined) return true;
+  if (token !== null && token !== undefined && token) {
+    return true;
+  }
 
   return false;
 };

@@ -8,7 +8,7 @@ import { Input } from '../../molecules/Input/Input';
 import { Button } from '../../molecules/Button/Button';
 import UserTable from '../../molecules/UserTable/UserTable';
 import { Heading } from '../../atoms/Heading/Heading';
-import UserForm from '../UserForm/UserForm';
+import { UserForm } from '../UserForm/UserForm';
 import { isAdmin } from '../../../utils/user.services';
 import { useModalContext } from '../../../hooks/useModalContext';
 import {

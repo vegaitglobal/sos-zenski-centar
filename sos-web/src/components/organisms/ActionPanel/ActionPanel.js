@@ -49,15 +49,18 @@ export const ActionPanel = () => {
         </SuccessModal>
       )}
       <StyledGrid>
-        {actionInfo.questions.map(({ label, id, options, condition }) => (
-          <StyledQuestion
-            key={id}
-            label={label}
-            id={id}
-            options={options}
-            condition={condition}
-          />
-        ))}
+        {actionInfo.questions.map(
+          ({ label, id, options, condition, multipleAnswers }) => (
+            <StyledQuestion
+              key={id}
+              label={label}
+              id={id}
+              options={options}
+              condition={condition}
+              multipleAnswers={multipleAnswers}
+            />
+          ),
+        )}
       </StyledGrid>
       <StyledButtonHolder>
         {errors.length > 0 && (

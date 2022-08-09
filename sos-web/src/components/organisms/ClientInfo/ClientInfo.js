@@ -52,16 +52,19 @@ export const ClientInfo = (props) => {
           })}
         </StyledSidebar>
         <StyledCardContainer>
-          {notSelected.map(({ label, id, options, condition, icon }) => (
-            <InfoCard
-              key={id}
-              label={label}
-              id={id}
-              options={options}
-              condition={condition}
-              icon={icon}
-            />
-          ))}
+          {notSelected.map(
+            ({ label, id, options, condition, icon, multipleAnswers }) => (
+              <InfoCard
+                key={id}
+                label={label}
+                id={id}
+                options={options}
+                condition={condition}
+                icon={icon}
+                multipleAnswers={multipleAnswers}
+              />
+            ),
+          )}
         </StyledCardContainer>
       </StyledClientInfo>
     </StyledAccordion>

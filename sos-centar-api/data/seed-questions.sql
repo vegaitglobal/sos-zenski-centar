@@ -17,6 +17,22 @@ VALUES
 		'media/icons/no-icon.svg'
 	),
 	(
+		'1bdd5213-0159-4aa3-912b-b0039abcffeb',
+		'Kratak opis problema',
+		'1',
+		'1',
+		'0da678bd-9110-4dad-97cf-a531ceef1622',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'ef482a82-911e-4df0-91bf-760aedb2bece',
+		'Kratak opis problema',
+		'1',
+		'1',
+		'7875c455-6ac9-4daa-a75b-761b0845449c',
+		'media/icons/no-icon.svg'
+	),
+	(
 		'ee3b6d28-de62-4a60-8894-56b1650a0388',
 		'Koji put zove',
 		'2',
@@ -613,9 +629,91 @@ VALUES
 		'media/icons/violence-shape.svg'
 	),
 	(
+		'd241dacc-eb72-460f-9274-9dbb9d3248b0',
+		'Kome je nasilje prijavljeno?',
+		'28',
+		'0',
+		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
+		'media/icons/report.svg'
+	),
+	(	
+		'1931f803-a28f-42d9-aae5-b283500d8040',
+		'Kome je nasilje prijavljeno?',
+		'28',
+		'0',
+		'393de121-fcff-4932-bb46-606e4509a302',
+		'media/icons/report.svg'
+	),
+	(	
+		'0a46b787-bb4f-4ff1-9b86-f3488a2980f8',
+		'Kome je nasilje prijavljeno?',
+		'28',
+		'0',
+		'b3abe820-f54a-47d3-9882-e6428612e5fc',
+		'media/icons/report.svg'
+	),
+	(	
+		'37babb2c-4bc5-45b6-ab0c-47d703e3eb05',
+		'Kome je nasilje prijavljeno?',
+		'28',
+		'0',
+		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
+		'media/icons/report.svg'
+	),
+	(	
+		'109c53b4-1b1a-417d-8bc2-58ce89c2c755',
+		'Kome je nasilje prijavljeno?',
+		'28',
+		'0',
+		'a8e718f6-6832-4e57-b387-3349a99cce32',
+		'media/icons/report.svg'
+	),
+
+	(
+		'e789c1d6-23f5-43a6-9d30-37d996501aaf',
+		'Da li je osoba zadovoljna postupanjem institucije?',
+		'29',
+		'0',
+		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
+		'media/icons/rate.svg'
+	),
+	(	
+		'd9c3231e-dbfb-42e8-927f-757df1f9b84f',
+		'Da li je osoba zadovoljna postupanjem institucije?',
+		'29',
+		'0',
+		'393de121-fcff-4932-bb46-606e4509a302',
+		'media/icons/rate.svg'
+	),
+	(	
+		'a990ae4a-0e78-40c0-91b9-6c1620fbb1a2',
+		'Da li je osoba zadovoljna postupanjem institucije?',
+		'29',
+		'0',
+		'b3abe820-f54a-47d3-9882-e6428612e5fc',
+		'media/icons/rate.svg'
+	),
+	(	
+		'fe92d497-2068-400a-832d-34c788675882',
+		'Da li je osoba zadovoljna postupanjem institucije?',
+		'29',
+		'0',
+		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
+		'media/icons/rate.svg'
+	),
+	(	
+		'7f19c2cc-5265-45ee-820f-59526c39923a',
+		'Da li je osoba zadovoljna postupanjem institucije?',
+		'29',
+		'0',
+		'a8e718f6-6832-4e57-b387-3349a99cce32',
+		'media/icons/rate.svg'
+	),
+
+	(
 		'33d905b0-fe1a-4461-9ff0-8aa3fd3cf633',
 		'Pol nasilnika',
-		'28',
+		'30',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/gender-red.svg'
@@ -623,7 +721,7 @@ VALUES
 	(
 		'97239ec4-941b-4d26-b5e1-7bc32839bc1e',
 		'Pol nasilnika',
-		'28',
+		'30',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/gender-red.svg'
@@ -631,7 +729,7 @@ VALUES
 	(
 		'747820f8-13b7-42a5-8379-5a5761005527',
 		'Pol nasilnika',
-		'28',
+		'30',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/gender-red.svg'
@@ -639,7 +737,7 @@ VALUES
 	(
 		'3d3f6efd-ba2c-45ae-b109-69993327e34e',
 		'Pol nasilnika',
-		'28',
+		'30',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/gender-red.svg'
@@ -647,7 +745,7 @@ VALUES
 	(
 		'899b839c-2175-435e-a8bc-b3f57376ff8b',
 		'Pol nasilnika',
-		'28',
+		'30',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/gender-red.svg'
@@ -655,7 +753,7 @@ VALUES
 	(
 		'70c32d0f-e1ef-46ac-b1c6-78b5d0b10411',
 		'Nasilnik je ranije prijavljen za nasilje?',
-		'29',
+		'31',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/handcuffs.svg'
@@ -663,7 +761,7 @@ VALUES
 	(
 		'27acb1ae-5ebd-494e-bdcc-f2e5306812c0',
 		'Nasilnik je ranije prijavljen za nasilje?',
-		'29',
+		'31',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/handcuffs.svg'
@@ -671,7 +769,7 @@ VALUES
 	(
 		'f2379527-e080-41e4-afc5-506c21fa4406',
 		'Nasilnik je ranije prijavljen za nasilje?',
-		'29',
+		'31',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/handcuffs.svg'
@@ -679,7 +777,7 @@ VALUES
 	(
 		'ed00c8de-d334-4d00-bc51-180038a955fb',
 		'Nasilnik je ranije prijavljen za nasilje?',
-		'29',
+		'31',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/handcuffs.svg'
@@ -687,7 +785,7 @@ VALUES
 	(
 		'415df83e-685d-4da7-bc56-ab2955fd099b',
 		'Nasilnik je ranije prijavljen za nasilje?',
-		'29',
+		'31',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/handcuffs.svg'
@@ -695,7 +793,7 @@ VALUES
 	(
 		'326cf6c3-cbd1-4fed-bb78-e8a58e963099',
 		'Nasilnik ima izrečene hitne mere?',
-		'30',
+		'32',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/stop.svg'
@@ -703,7 +801,7 @@ VALUES
 	(
 		'7ec7607f-9a06-4909-9eef-2be475ab7a9b',
 		'Nasilnik ima izrečene hitne mere?',
-		'30',
+		'32',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/stop.svg'
@@ -711,7 +809,7 @@ VALUES
 	(
 		'1c0cb9d5-43a9-4318-ab2f-196579398a2c',
 		'Nasilnik ima izrečene hitne mere?',
-		'30',
+		'32',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/stop.svg'
@@ -719,7 +817,7 @@ VALUES
 	(
 		'b6e8ca52-433a-49e0-aac2-6e4ddce3e040',
 		'Nasilnik ima izrečene hitne mere?',
-		'30',
+		'32',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/stop.svg'
@@ -727,7 +825,7 @@ VALUES
 	(
 		'046a6ede-7845-411b-b444-11e537aa1320',
 		'Nasilnik ima izrečene hitne mere?',
-		'30',
+		'32',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/stop.svg'
@@ -735,7 +833,7 @@ VALUES
 	(
 		'69b1fc08-1609-4000-966b-0a750b4bf3d4',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
-		'31',
+		'33',
 		'0',
 		'a2f9cbb5-f93e-47ed-ba06-b4e42f394a0f',
 		'media/icons/gavel.svg'
@@ -743,7 +841,7 @@ VALUES
 	(
 		'0cbb6b00-018e-4a1d-8f50-cb54c459207c',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
-		'31',
+		'33',
 		'0',
 		'393de121-fcff-4932-bb46-606e4509a302',
 		'media/icons/gavel.svg'
@@ -751,7 +849,7 @@ VALUES
 	(
 		'a62dd43d-0a37-4461-b6b1-aedbb12b41ed',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
-		'31',
+		'33',
 		'0',
 		'b3abe820-f54a-47d3-9882-e6428612e5fc',
 		'media/icons/gavel.svg'
@@ -759,7 +857,7 @@ VALUES
 	(
 		'e480a779-f47e-4145-8a48-b926d3f6adee',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
-		'31',
+		'33',
 		'0',
 		'55d63fe0-90a8-4e60-9592-030731fbf4b4',
 		'media/icons/gavel.svg'
@@ -767,7 +865,7 @@ VALUES
 	(
 		'bed1f5ee-51ff-43a6-a310-1a2c44b79e61',
 		'Nasilnik ima izrečeno krivično delo nasilja u porodici?',
-		'31',
+		'33',
 		'0',
 		'a8e718f6-6832-4e57-b387-3349a99cce32',
 		'media/icons/gavel.svg'
@@ -776,7 +874,7 @@ VALUES
 	(
 		'01cb293b-d67c-4204-a92a-85dfee4b13f5',
 		'Korisnica je dalje upućena:',
-		'32',
+		'34',
 		'1',
 		'8e445aa1-4587-4433-824b-f0ff900f840e',
 		'media/icons/no-icon.svg'
@@ -784,7 +882,7 @@ VALUES
 	(
 		'01498b24-ce6d-4c40-aff6-1afdbb159e29',
 		'Korisnica je dalje upućena:',
-		'32',
+		'34',
 		'1',
 		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
 		'media/icons/no-icon.svg'
@@ -792,7 +890,7 @@ VALUES
 	(
 		'fe6e0bb8-932e-48a5-8efc-f2121bfdc11b',
 		'Korisnica je dalje upućena:',
-		'32',
+		'34',
 		'1',
 		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
 		'media/icons/no-icon.svg'
@@ -800,7 +898,7 @@ VALUES
 	(
 		'19e0d305-adbc-4c90-8153-ae1c0dd86407',
 		'Korisnica je dalje upućena:',
-		'32',
+		'34',
 		'1',
 		'7d59dc7a-5d64-4210-8446-53c885b945cc',
 		'media/icons/no-icon.svg'
@@ -808,7 +906,7 @@ VALUES
 	(
 		'271760b4-c7df-4892-9c85-5ed61eb9e555',
 		'Korisnica je dalje upućena:',
-		'32',
+		'34',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
 		'media/icons/no-icon.svg'
@@ -816,7 +914,7 @@ VALUES
 	(
 		'97ce0828-199d-4903-a1a8-40ea0243e0f3',
 		'Urađena je procena rizika',
-		'33',
+		'35',
 		'1',
 		'8e445aa1-4587-4433-824b-f0ff900f840e',
 		'media/icons/no-icon.svg'
@@ -824,7 +922,7 @@ VALUES
 	(
 		'd2a7b5c8-e5af-4c30-95b0-a5cd917f36ca',
 		'Urađena je procena rizika',
-		'33',
+		'35',
 		'1',
 		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
 		'media/icons/no-icon.svg'
@@ -832,7 +930,7 @@ VALUES
 	(
 		'7e7e426d-9bce-4632-8756-ebc87f444668',
 		'Urađena je procena rizika',
-		'33',
+		'35',
 		'1',
 		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
 		'media/icons/no-icon.svg'
@@ -840,7 +938,7 @@ VALUES
 	(
 		'f0dc617e-299e-4086-b7cf-fe8cae64c10b',
 		'Urađena je procena rizika',
-		'33',
+		'35',
 		'1',
 		'7d59dc7a-5d64-4210-8446-53c885b945cc',
 		'media/icons/no-icon.svg'
@@ -848,7 +946,47 @@ VALUES
 	(
 		'c6ed2f65-e439-4d2b-a876-f3d4712818aa',
 		'Urađena je procena rizika',
-		'33',
+		'35',
+		'1',
+		'08052000-470a-4bf9-8809-b1bf7b45d528',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'ff647a57-9e64-4a9d-bab4-4ae37db53628',
+		'Procenjen nivo rizika',
+		'36',
+		'1',
+		'8e445aa1-4587-4433-824b-f0ff900f840e',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'a62956bb-7702-4046-81e9-ac55e4948147',
+		'Procenjen nivo rizika',
+		'36',
+		'1',
+		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'fac12d98-3f04-4264-bed2-27b452600670',
+		'Procenjen nivo rizika',
+		'36',
+		'1',
+		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'1b6daff2-fc54-4b7b-9d57-bcec53c64388',
+		'Procenjen nivo rizika',
+		'36',
+		'1',
+		'7d59dc7a-5d64-4210-8446-53c885b945cc',
+		'media/icons/no-icon.svg'
+	),
+	(
+		'8175eb81-78cd-42c0-ab27-c07378645a5a',
+		'Procenjen nivo rizika',
+		'36',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
 		'media/icons/no-icon.svg'
@@ -856,7 +994,7 @@ VALUES
 	(
 		'dca28ae5-f566-4833-bd41-e3201e342f26',
 		'Urađen je bezbednosni plan',
-		'34',
+		'37',
 		'1',
 		'8e445aa1-4587-4433-824b-f0ff900f840e',
 		'media/icons/no-icon.svg'
@@ -864,7 +1002,7 @@ VALUES
 	(
 		'dc8e3eb0-98f5-42a3-bfba-34a3504570e6',
 		'Urađen je bezbednosni plan',
-		'34',
+		'37',
 		'1',
 		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
 		'media/icons/no-icon.svg'
@@ -872,7 +1010,7 @@ VALUES
 	(
 		'e7c7122c-775c-46b7-96fa-969846a63329',
 		'Urađen je bezbednosni plan',
-		'34',
+		'37',
 		'1',
 		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
 		'media/icons/no-icon.svg'
@@ -880,7 +1018,7 @@ VALUES
 	(
 		'ab952186-ebef-49a8-b2cf-2534ea93a328',
 		'Urađen je bezbednosni plan',
-		'34',
+		'37',
 		'1',
 		'7d59dc7a-5d64-4210-8446-53c885b945cc',
 		'media/icons/no-icon.svg'
@@ -888,47 +1026,15 @@ VALUES
 	(
 		'6774af12-9b13-47eb-80dd-eb2af3197f9d',
 		'Urađen je bezbednosni plan',
-		'34',
+		'37',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
 		'media/icons/no-icon.svg'
 	),
 	(
-		'a9578557-846b-43dd-8f1a-41a3d8c504c7',
-		'Pravne intervencije',
-		'35',
-		'1',
-		'8e445aa1-4587-4433-824b-f0ff900f840e',
-		'media/icons/no-icon.svg'
-	),
-	(
-		'fd60fdc7-b4c6-43c0-8199-db96871eb322',
-		'Pravne intervencije',
-		'35',
-		'1',
-		'40fdd452-3837-40e5-a1d5-6a6f7774f838',
-		'media/icons/no-icon.svg'
-	),
-	(
-		'1acd10b9-dca4-424f-9dfd-25f98cee6ce2',
-		'Pravne intervencije',
-		'35',
-		'1',
-		'8f72b1e0-7a29-4659-b1a1-89c247e96392',
-		'media/icons/no-icon.svg'
-	),
-	(
-		'130e83db-83cd-4f22-a52b-a23e1ba5346a',
-		'Pravne intervencije',
-		'35',
-		'1',
-		'7d59dc7a-5d64-4210-8446-53c885b945cc',
-		'media/icons/no-icon.svg'
-	),
-	(
 		'54e9af82-6c54-4851-ac00-9ee68d05abac',
 		'Pravne intervencije',
-		'35',
+		'37',
 		'1',
 		'08052000-470a-4bf9-8809-b1bf7b45d528',
 		'media/icons/no-icon.svg'

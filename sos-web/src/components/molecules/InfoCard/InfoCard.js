@@ -12,11 +12,21 @@ import {
 } from './InfoCard.styles';
 import { baseUrl } from '../../../utils/apiUrl';
 import { shouldBeDisplayed } from '../../../utils/shouldBeDisplayed';
+import { CheckboxQuestion } from '../CheckboxQuestion/CheckboxQuestion';
+import { Button } from '../Button/Button';
 
-export const InfoCard = ({ label, id, options, condition, icon }) => {
+export const InfoCard = ({
+  label,
+  id,
+  options,
+  condition,
+  icon,
+  multipleAnswers,
+}) => {
   const { data, setData } = useDataContext();
   const wrapperRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [checkboxData, setCheckboxData] = useState([]);
 
   const handleClickOutside = useCallback((e) => {
     if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
@@ -38,6 +48,26 @@ export const InfoCard = ({ label, id, options, condition, icon }) => {
     [id, setData],
   );
 
+  const handleCheckboxChange = ({ target }) => {
+    if (!checkboxData.length) {
+      setCheckboxData([target.value]);
+    } else {
+      setCheckboxData((prevState) => {
+        return [...prevState, target.value];
+      });
+    }
+  };
+
+  const submitCheckbox = () => {
+    let multipleAnswersQuestion = {
+      [id]: [],
+    };
+    checkboxData.forEach((value) => {
+      multipleAnswersQuestion[id].push(value);
+    });
+    setData(multipleAnswersQuestion);
+  };
+
   useEffect(() => {
     if (showDropdown) {
       document.addEventListener('click', handleClickOutside);
@@ -47,8 +77,11 @@ export const InfoCard = ({ label, id, options, condition, icon }) => {
     };
   }, [showDropdown, handleClickOutside]);
 
-  const showCard = useMemo(() => shouldBeDisplayed(data, condition), [data, condition]);
-  
+  const showCard = useMemo(
+    () => shouldBeDisplayed(data, condition),
+    [data, condition],
+  );
+
   const hasDropdown = options.length > 2;
 
   return showCard ? (
@@ -63,24 +96,42 @@ export const InfoCard = ({ label, id, options, condition, icon }) => {
           </StyledArrow>
         )}
         {(showDropdown || !hasDropdown) && (
-          <StyledDropdown ref={wrapperRef}>
-            {options.map(({ id: optionId, label: optionLabel }) => (
-              <Radio
-                key={optionId}
-                type="radio"
-                id={optionId}
-                name={label}
-                label={optionLabel}
-                value={optionId}
-                isChecked={data[id] === optionId}
-                onChange={handleRadioChange}
-              />
-            ))}
-          </StyledDropdown>
+          <>
+            <StyledDropdown ref={wrapperRef}>
+              {options.map(({ id: optionId, label: optionLabel }) =>
+                multipleAnswers ? (
+                  <CheckboxQuestion
+                    key={optionId}
+                    label={optionLabel}
+                    value={optionId}
+                    name={label}
+                    isChecked={data[id] === optionId}
+                    onChange={handleCheckboxChange}
+                  />
+                ) : (
+                  <Radio
+                    key={optionId}
+                    type="radio"
+                    id={optionId}
+                    name={label}
+                    label={optionLabel}
+                    value={optionId}
+                    isChecked={data[id] === optionId}
+                    onChange={handleRadioChange}
+                  />
+                ),
+              )}
+              {multipleAnswers && (
+                <div style={{ marginLeft: '40px' }}>
+                  <Button onClick={submitCheckbox}>Potvrdi</Button>
+                </div>
+              )}
+            </StyledDropdown>
+          </>
         )}
       </StyledInfoCard>
     </StyledCardContainer>
   ) : (
-    <Noop /> 
+    <Noop />
   );
 };

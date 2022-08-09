@@ -11,6 +11,7 @@ namespace SosCentar.Contracts.Dtos.Questions
 		public string Icon { get; set; }
 		public string Label { get; set; }
 		public bool IsRequired { get; set; }
+		public bool MultipleAnswers { get; set; }
 		public IEnumerable<AnswerDto> Options { get; set; }
 		public QuestionConditionDto Condition { get; set; }
 	}

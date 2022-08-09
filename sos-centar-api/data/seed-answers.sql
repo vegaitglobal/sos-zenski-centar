@@ -283,42 +283,262 @@ VALUES
 	'60',
 	'56cb349a-b7bd-4825-9e29-6ffd6c383ab8'
 ),
------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+----------------------------Kome je nasilje prijavljeno------------------------------------------------------
 (
-	'0464a002-a9e2-4f94-b447-1a6be76068e3',
-	'Bivši muž',
-	'61',
-	'657a5fd3-d9a9-4d61-a392-a54caefd4bb6'
+	'f2287c55-1b87-41e6-a691-c2d918057628',
+	'Policiji',
+	'1',
+	'd241dacc-eb72-460f-9274-9dbb9d3248b0'
 ),
 (
-	'764f1cff-7e30-481f-8cab-243f5302bbe3',
-	'Bivši muž',
-	'61',
-	'146a9993-70df-4e2c-8cad-4e1c3aee1377'
+	'3dccc8b9-e603-4001-987c-cf358f9c0b1e',
+	'Policiji',
+	'1',
+	'1931f803-a28f-42d9-aae5-b283500d8040'
 ),
 (
-	'7c60ba22-9100-404a-8c95-dc937c0517dc',
-	'Bivši muž',
-	'61',
-	'0c465680-db66-428e-ac6b-6a1754e178ef'
+	'e501020c-db9a-49c4-b4ce-8105230c41e4',
+	'Policiji',
+	'1',
+	'0a46b787-bb4f-4ff1-9b86-f3488a2980f8'
 ),
 (
-	'79d1ee58-99bb-43f0-b641-c413ae15a240',
-	'Bivši muž',
-	'61',
-	'cf6c7d5e-0c99-41e0-aa26-113ee257b70f'
+	'c0bdf8e6-2c35-496d-abb7-420fbc14fcf0',
+	'Policiji',
+	'1',
+	'37babb2c-4bc5-45b6-ab0c-47d703e3eb05'
 ),
 (
-	'd66f3f39-8dcd-4ce6-8acd-c4c593cc8d90',
-	'Bivši muž',
-	'61',
-	'56cb349a-b7bd-4825-9e29-6ffd6c383ab8'
+	'f8a9046f-ab56-484e-b492-9f133de40023',
+	'Policiji',
+	'1',
+	'109c53b4-1b1a-417d-8bc2-58ce89c2c755'
+),
+
+(
+	'e6e5fa3a-b056-445e-b8ce-37483606c34c',
+	'Centru za socijalni rad',
+	'2',
+	'd241dacc-eb72-460f-9274-9dbb9d3248b0'
+),
+(
+	'3aca4748-9c30-4083-98a4-2d1e56ddd6c0',
+	'Centru za socijalni rad',
+	'2',
+	'1931f803-a28f-42d9-aae5-b283500d8040'
+),
+(
+	'f1df1cd6-8b7e-41d8-973c-10ea0e3b3502',
+	'Centru za socijalni rad',
+	'2',
+	'0a46b787-bb4f-4ff1-9b86-f3488a2980f8'
+),
+(
+	'c6deaba6-991a-4ff9-b04e-b90209b64eb6',
+	'Centru za socijalni rad',
+	'2',
+	'37babb2c-4bc5-45b6-ab0c-47d703e3eb05'
+),
+(
+	'c4ecdc52-5f53-44f0-bdf4-f9d6b5becc1f',
+	'Centru za socijalni rad',
+	'2',
+	'109c53b4-1b1a-417d-8bc2-58ce89c2c755'
+),
+
+(
+	'f5dcc527-8233-4bd3-8292-c6dbff92ef48',
+	'Zdravstvenoj ustanovi',
+	'3',
+	'd241dacc-eb72-460f-9274-9dbb9d3248b0'
+),
+(
+	'5990724d-e2a0-4972-832b-744e34ae6ddc',
+	'Zdravstvenoj ustanovi',
+	'3',
+	'1931f803-a28f-42d9-aae5-b283500d8040'
+),
+(
+	'36dd5afc-eb5c-4894-bcb2-39f4993b5a9f',
+	'Zdravstvenoj ustanovi',
+	'3',
+	'0a46b787-bb4f-4ff1-9b86-f3488a2980f8'
+),
+(
+	'6ac20a58-2c80-4ef8-91c0-403775ea5b94',
+	'Zdravstvenoj ustanovi',
+	'3',
+	'37babb2c-4bc5-45b6-ab0c-47d703e3eb05'
+),
+(
+	'203aab50-62a5-432c-a833-068f717f5345',
+	'Zdravstvenoj ustanovi',
+	'3',
+	'109c53b4-1b1a-417d-8bc2-58ce89c2c755'
+),
+
+(
+	'85a75ff3-f262-417a-966c-76330b8eaed0',
+	'Javnom tužilaštvu',
+	'4',
+	'd241dacc-eb72-460f-9274-9dbb9d3248b0'
+),
+(
+	'e67bb903-93c2-46d8-971a-af1effa92550',
+	'Javnom tužilaštvu',
+	'4',
+	'1931f803-a28f-42d9-aae5-b283500d8040'
+),
+(
+	'96b4835f-1faa-4550-a4af-2f86f8d29c0e',
+	'Javnom tužilaštvu',
+	'4',
+	'0a46b787-bb4f-4ff1-9b86-f3488a2980f8'
+),
+(
+	'931c45db-4fcb-4cfb-9e9e-f8859c076d46',
+	'Javnom tužilaštvu',
+	'4',
+	'37babb2c-4bc5-45b6-ab0c-47d703e3eb05'
+),
+(
+	'e9c44568-9edd-41c8-b211-db0b9981cc0c',
+	'Javnom tužilaštvu',
+	'4',
+	'109c53b4-1b1a-417d-8bc2-58ce89c2c755'
+),
+
+(
+	'aec49a01-9c20-4613-a0e7-42de923f1c23',
+	'Sudu',
+	'5',
+	'd241dacc-eb72-460f-9274-9dbb9d3248b0'
+),
+(
+	'42752ac8-3d51-4fac-82a3-d49f61ff8ef4',
+	'Sudu',
+	'5',
+	'1931f803-a28f-42d9-aae5-b283500d8040'
+),
+(
+	'5f793bd0-45e9-4040-b671-ddad175dca91',
+	'Sudu',
+	'5',
+	'0a46b787-bb4f-4ff1-9b86-f3488a2980f8'
+),
+(
+	'd7893399-257a-4f73-a743-7597f00e353c',
+	'Sudu',
+	'5',
+	'37babb2c-4bc5-45b6-ab0c-47d703e3eb05'
+),
+(
+	'73af5bb6-ec9a-4609-a8d4-619290158b82',
+	'Sudu',
+	'5',
+	'109c53b4-1b1a-417d-8bc2-58ce89c2c755'
+),
+
+(
+	'ec99238c-e48e-488a-adda-53e24aac251f',
+	'Nevladinoj organizaciji',
+	'6',
+	'd241dacc-eb72-460f-9274-9dbb9d3248b0'
+),
+(
+	'a37e65d8-c929-4b8f-ae5e-0fe222aca80c',
+	'Nevladinoj organizaciji',
+	'6',
+	'1931f803-a28f-42d9-aae5-b283500d8040'
+),
+(
+	'455e96cb-36ad-431a-a751-4973c4c3aea4',
+	'Nevladinoj organizaciji',
+	'6',
+	'0a46b787-bb4f-4ff1-9b86-f3488a2980f8'
+),
+(
+	'cdcac856-6842-448f-9904-6a2c4a89d343',
+	'Nevladinoj organizaciji',
+	'6',
+	'37babb2c-4bc5-45b6-ab0c-47d703e3eb05'
+),
+(
+	'd78c935b-d9a9-4e13-83c3-88bbcaff7dea',
+	'Nevladinoj organizaciji',
+	'6',
+	'109c53b4-1b1a-417d-8bc2-58ce89c2c755'
 ),
 -------------------------------------------------------------------------------------------------------------
------------------------------------------------------------
+----------------------------Da li je osoba zadovoljna postupanjem institucije-----
+(
+	'667dc646-9be0-4da6-bd57-8ced6d884214',
+	'Da',
+	'1',
+	'e789c1d6-23f5-43a6-9d30-37d996501aaf'
+),
+(
+	'4d59d487-4966-4a6c-b9c2-cf1fe42b5365',
+	'Da',
+	'1',
+	'd9c3231e-dbfb-42e8-927f-757df1f9b84f'
+),
+(
+	'0efee6e4-8bb7-4af2-8523-58851f89cfed',
+	'Da',
+	'1',
+	'a990ae4a-0e78-40c0-91b9-6c1620fbb1a2'
+),
+(
+	'11a33eb9-acfd-4115-bcda-2972a1aca140',
+	'Da',
+	'1',
+	'fe92d497-2068-400a-832d-34c788675882'
+),
+(
+	'eb2fd611-2e71-49c7-a58b-7d8348edaca2',
+	'Da',
+	'1',
+	'7f19c2cc-5265-45ee-820f-59526c39923a'
+),
 
+(
+	'87757da1-066d-41e2-868e-ff41b0c90022',
+	'Ne',
+	'1',
+	'e789c1d6-23f5-43a6-9d30-37d996501aaf'
+),
+(
+	'39e94d29-facc-4cce-ad8b-c9853a0bd52c',
+	'Ne',
+	'1',
+	'd9c3231e-dbfb-42e8-927f-757df1f9b84f'
+),
+(
+	'8873ac2a-0ad5-43eb-a5bf-8ad9f0b26296',
+	'Ne',
+	'1',
+	'a990ae4a-0e78-40c0-91b9-6c1620fbb1a2'
+),
+(
+	'b3baa0e7-1256-4dd1-9de0-16437f35fc82',
+	'Ne',
+	'1',
+	'fe92d497-2068-400a-832d-34c788675882'
+),
+(
+	'93556ce4-2f64-40c8-af33-f5b16a53531a',
+	'Ne',
+	'1',
+	'7f19c2cc-5265-45ee-820f-59526c39923a'
+),
+
+
+-------------------------------------------------------------------------------------------------------------
 
 ----------------------------Nasilnik je ranije prijavljen za nasilje-----
+
 (
 	'0879d9ac-203e-4beb-8dbe-e747a277c48a',
 	'Da',
@@ -2027,6 +2247,36 @@ VALUES
     '49',
     '9fa0185b-9dc6-445c-aae6-ea54eda7dc0a'
 ),
+(
+    '0172739a-eb21-4ce5-8c60-4dc9f42183e0',
+    'Bivši parter',
+    '50',
+    'e4542713-db23-4077-925c-dea28dccd9fb'
+),
+(
+    '8e0b019a-7f6f-4342-92a4-91d489cb7a32',
+    'Bivši parter',
+    '50',
+    'de476f53-1292-4bed-acfb-d38aedce271f'
+),
+(
+    'ff6a8d42-05bf-4029-8654-6159a9136065',
+    'Bivši parter',
+    '50',
+    '4fdb3f0c-5f7c-46e4-9e35-075791dac07a'
+),
+(
+    '68b703fe-c199-4b8b-ab96-9bb40d233204',
+    'Bivši parter',
+    '50',
+    '0f5e78b3-f3af-4c34-8f35-df68231800b7'
+),
+(
+    'b27c50e0-5655-4fd4-bfa7-f3c22e6c528a',
+    'Bivši parter',
+    '50',
+    '9fa0185b-9dc6-445c-aae6-ea54eda7dc0a'
+),
 ----------------------------------------------- POL NASILNIKA ---------------------------------
 (
     'a13b638c-a17f-4e90-a0e6-40269048ad95',
@@ -2784,58 +3034,10 @@ VALUES
 
 ------------------Pravne intervencije----------------------------
 (
-  'edb074f2-3b69-4f76-83dd-e47955af8433',
-  'Podnesak sudu',
-  '13',
-  'a9578557-846b-43dd-8f1a-41a3d8c504c7'
-),
-(
-  '5a05721c-90c6-4717-b4f9-50317653d684',
-  'Podnesak sudu',
-  '13',
-  'fd60fdc7-b4c6-43c0-8199-db96871eb322'
-),
-(
-  '5a2c968a-d533-40c5-a1b7-c809aaaab9c8',
-  'Podnesak sudu',
-  '13',
-  '1acd10b9-dca4-424f-9dfd-25f98cee6ce2'
-),
-(
-  '41eb81d6-87b4-461b-88f9-2683c9e0d0c3',
-  'Podnesak sudu',
-  '13',
-  '130e83db-83cd-4f22-a52b-a23e1ba5346a'
-),
-(
   'e9468c6e-f3d4-439b-b333-39aae2d24b69',
   'Podnesak sudu',
   '13',
   '54e9af82-6c54-4851-ac00-9ee68d05abac'
-),
-(
-  'f6d51e69-80cb-45a8-a529-b374f793a5bd',
-  'Podneta tužba za starateljstvo',
-  '14',
-  'a9578557-846b-43dd-8f1a-41a3d8c504c7'
-),
-(
-  '9e69e999-b4cd-4f42-97e2-41efbc53b3af',
-  'Podneta tužba za starateljstvo',
-  '14',
-  'fd60fdc7-b4c6-43c0-8199-db96871eb322'
-),
-(
-  '42f3e0e2-1f3b-4301-8403-1eb90aa20e59',
-  'Podneta tužba za starateljstvo',
-  '14',
-  '1acd10b9-dca4-424f-9dfd-25f98cee6ce2'
-),
-(
-  '73a96021-ad4e-4cb5-8e39-a40a08785f45',
-  'Podneta tužba za starateljstvo',
-  '14',
-  '130e83db-83cd-4f22-a52b-a23e1ba5346a'
 ),
 (
   '84f2b31d-ab82-4515-b9b1-350a225d3443',
@@ -2844,63 +3046,113 @@ VALUES
   '54e9af82-6c54-4851-ac00-9ee68d05abac'
 ),
 (
-  '1dec19bb-e7f9-48b0-840f-cd42e9a1f7d2',
-  'Podneta tužba za nasilje',
-  '15',
-  'a9578557-846b-43dd-8f1a-41a3d8c504c7'
-),
-(
-  '822aae51-84db-4cb8-be81-9695839cf389',
-  'Podneta tužba za nasilje',
-  '15',
-  'fd60fdc7-b4c6-43c0-8199-db96871eb322'
-),
-(
-  'a00312e1-376f-4e8f-971a-da0ad92b2eb2',
-  'Podneta tužba za nasilje',
-  '15',
-  '1acd10b9-dca4-424f-9dfd-25f98cee6ce2'
-),
-(
-  'aa4f525b-ef2f-4919-bca1-860ebc9ecb76',
-  'Podneta tužba za nasilje',
-  '15',
-  '130e83db-83cd-4f22-a52b-a23e1ba5346a'
-),
-(
   '45874b96-6159-4773-a586-db46ee61b44d',
   'Podneta tužba za nasilje',
   '15',
   '54e9af82-6c54-4851-ac00-9ee68d05abac'
 ),
 (
-  '5176ae55-1df5-489e-9567-cfb3ab36e15e',
-  'Podneta tužba za razvod braka',
-  '16',
-  'a9578557-846b-43dd-8f1a-41a3d8c504c7'
-),
-(
-  '59d953aa-7426-4d9f-8f7a-eefb16012154',
-  'Podneta tužba za razvod braka',
-  '16',
-  'fd60fdc7-b4c6-43c0-8199-db96871eb322'
-),
-(
-  '99771a91-39e9-422c-a096-b6419bad95e0',
-  'Podneta tužba za razvod braka',
-  '16',
-  '1acd10b9-dca4-424f-9dfd-25f98cee6ce2'
-),
-(
-  '6944dcc3-5d26-4ebe-8a6d-0412de9d240b',
-  'Podneta tužba za razvod braka',
-  '16',
-  '130e83db-83cd-4f22-a52b-a23e1ba5346a'
-),
-(
   'e0e01691-f349-44fa-b8cd-3340ad62564c',
   'Podneta tužba za razvod braka',
   '16',
   '54e9af82-6c54-4851-ac00-9ee68d05abac'
-);
+),
+(
+  'c5d528c8-c3f9-4ef0-90ef-cb7da0e0e498',
+  'Pravno savetovanje',
+  '17',
+  '54e9af82-6c54-4851-ac00-9ee68d05abac'
+),
 
+------------------Procenjen nivo rizika----------------------------
+
+(
+  '6608a881-6863-41ca-9739-717d5a8f49ab',
+  'Nizak',
+  '11',
+  'ff647a57-9e64-4a9d-bab4-4ae37db53628'
+),
+(
+  '4e21a81d-e633-4cae-8562-c53f234cc299',
+  'Nizak',
+  '11',
+  'a62956bb-7702-4046-81e9-ac55e4948147'
+),
+(
+  '29b75f7a-4d25-4c75-8de7-521909b78af6',
+  'Nizak',
+  '11',
+  'fac12d98-3f04-4264-bed2-27b452600670'
+),
+(
+  '3b56939b-ae4d-4901-9f9b-dbed9960dcdc',
+  'Nizak',
+  '11',
+  '1b6daff2-fc54-4b7b-9d57-bcec53c64388'
+),
+(
+  '3992ecba-06c2-4f5b-8820-c46dde02b4aa',
+  'Nizak',
+  '11',
+  '8175eb81-78cd-42c0-ab27-c07378645a5a'
+),
+(
+  '872fdd61-db6e-4c9a-becc-cac565d54963',
+  'Srednji',
+  '12',
+  'ff647a57-9e64-4a9d-bab4-4ae37db53628'
+),
+(
+  '57ddbcd2-8a92-47e3-bf2c-35a946ecf4b3',
+  'Srednji',
+  '12',
+  'a62956bb-7702-4046-81e9-ac55e4948147'
+),
+(
+  '7496a198-a65a-48c7-8690-4f377040ef2f',
+  'Srednji',
+  '12',
+  'fac12d98-3f04-4264-bed2-27b452600670'
+),
+(
+  'f5c153f4-168b-4bac-a504-b49123499fa1',
+  'Srednji',
+  '12',
+  '1b6daff2-fc54-4b7b-9d57-bcec53c64388'
+),
+(
+  '76f23bf8-6953-4125-82b2-e0fabcf1b401',
+  'Srednji',
+  '12',
+  '8175eb81-78cd-42c0-ab27-c07378645a5a'
+),
+(
+  'e23526d0-45f0-47a1-a7ed-ec2f2bce34d6',
+  'Visok',
+  '13',
+  'ff647a57-9e64-4a9d-bab4-4ae37db53628'
+),
+(
+  'ee5d98e5-f4d2-4ee2-bdd3-eecc26d8371f',
+  'Visok',
+  '13',
+  'a62956bb-7702-4046-81e9-ac55e4948147'
+),
+(
+  '90e922b2-fd93-4159-8aca-a6e296cc6748',
+  'Visok',
+  '13',
+  'fac12d98-3f04-4264-bed2-27b452600670'
+),
+(
+  'ed3d725f-f608-4083-af87-c15b11b61325',
+  'Visok',
+  '13',
+  '1b6daff2-fc54-4b7b-9d57-bcec53c64388'
+),
+(
+  'cf10e058-a64a-4f59-a00b-5c442c2da36f',
+  'Visok',
+  '13',
+  '8175eb81-78cd-42c0-ab27-c07378645a5a'
+);
