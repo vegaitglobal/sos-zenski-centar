@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import { useFormInput } from '../../../hooks/useFormInput';
 import {
   checkEmail,
@@ -107,7 +107,7 @@ export const UserForm = ({
           {...password}
           valid={passwordValid}
           touched={passwordTouched}
-          errorMessage="Šifra mora da ima najmanje 8 karektera, bar jedno veliko slovo i cifru!"
+          errorMessage="Šifra mora da ima sadrži 8 karaktera, bar jedno veliko slovo, malo slovo i cifru!"
         />
         <Checkbox
           label="Admin"
